@@ -16,4 +16,4 @@ def loader(filepath):
         print(line)
 
 if __name__ == "__main__":
-    loader("/home/laura/programmeertheorie/rush_hour/game_boards/Rushhour6x6_1.csv")
+    loader("game_boards/Rushhour6x6_1.csv")
