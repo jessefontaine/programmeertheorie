@@ -60,7 +60,7 @@ class Board():
 
     def final_move(self, dict):
         print(list(dict))
-        print(random.choice(list(dict.items())))
+        print(random.choice(list()))
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
