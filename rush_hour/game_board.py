@@ -31,28 +31,30 @@ class Board():
         print(self.grid)
 
     def possible_moves(self):
-        dict = {}
+        moves_dict = {}
 
         for car in self.car_list:
-            dict[car] = []
+            moves_dict[car] = []
 
             if car.orientation == "H":
                 if self.within_range((car.position[0], car.position[1] - 1)):
                     if self.grid[car.position[0]][car.position[1] - 1] == " ":
-                        dict[car].append("L")
+                        moves_dict[car].append("L")
 
                 if self.within_range((car.position[0], car.position[1] + car.length)):
                     if self.grid[car.position[0]][car.position[1] + car.length] == " ":
-                        dict[car].append("R")
+                        moves_dict[car].append("R")
             else:
                 if self.within_range((car.position[0] - 1, car.position[1])):
                     if self.grid[car.position[0] - 1][car.position[1]] == " ":
-                        dict[car].append("U")
+                        moves_dict[car].append("U")
 
                 if self.within_range((car.position[0] + car.length, car.position[1])):
                     if self.grid[car.position[0] + car.length][car.position[1]] == " ":
-                        dict[car].append("D")
-        print(dict)
+                        moves_dict[car].append("D")
+
+            if len(moves_dict[car]) == 0:
+                del moves_dict[car]
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
         print(self.size)
