@@ -72,7 +72,7 @@ class Board():
 
         print(car_move[0].name)
         print(self.grid)
-        
+
         
 
 if __name__ == "__main__":
