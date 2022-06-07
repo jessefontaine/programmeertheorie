@@ -4,9 +4,11 @@ import re
 class Board():
 
     def __init__(self, filepath):
-        self.grid_digits = re.findall("[0-9]x[0-9]", filepath)
-        self.grid_digits = self.grid_digits[0].split('x')
 
+        # parse board size from filename
+        self.grid_digits = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+
+        
         self.gridline = []
         for i in range(int(self.grid_digits[0])):
             self.gridline.append(" ")
