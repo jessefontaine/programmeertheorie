@@ -1,4 +1,4 @@
-from csv import reader
+from csv import DictReader
 from car_class import Car
 from typing import List
 
@@ -17,7 +17,7 @@ def loader(filepath: str) -> List[Car]:
     with open(filepath, 'r') as file:
         
         # create car objects and place into list
-        for row in reader(file):
-            cars.append(Car(*row))
+        for row in DictReader(file):
+            cars.append(Car(*list(row.values())))
     
     return cars
