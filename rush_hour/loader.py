@@ -12,8 +12,8 @@ def loader(filepath):
         for row in csv_reader:
             print(*row)
             cars.append(Car(*row))
-    
+
     return cars
 
 if __name__ == "__main__":
-    print(loader("game_boards/Rushhour6x6_1.csv"))
+    loader("game_boards/Rushhour6x6_1.csv")
