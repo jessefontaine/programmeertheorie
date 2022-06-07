@@ -1,19 +1,21 @@
+from __future__ import annotations
+from typing import Tuple
 from loader import loader
 import re
 
 class Board():
 
-    def __init__(self, filepath):
+    def __init__(self: Board, filepath: str) -> None:
 
         # parse board size from filename
-        self.grid_digits = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+        self.size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
 
         
         self.gridline = []
-        for i in range(int(self.grid_digits[0])):
+        for i in range(int(self.size[0])):
             self.gridline.append(" ")
         self.grid = []
-        for i in range(int(self.grid_digits[1])):
+        for i in range(int(self.size[1])):
             self.grid.append(list(self.gridline))
 
         self.car_list = loader(filepath)
@@ -31,30 +33,24 @@ class Board():
             if car.orientation == "H":
                 print(car.position, car.name)
 
-                if self.out_of_bounds((car.position[0], car.position[1] - 1)):
+                if self.within_range((car.position[0], car.position[1] - 1)):
                     print(self.grid[car.position[0]][car.position[1] - 1], "SPACE LEFT")
 
-                if self.out_of_bounds((car.position[0], car.position[1] + car.length)):
+                if self.within_range((car.position[0], car.position[1] + car.length)):
                     print(self.grid[car.position[0]][car.position[1] + car.length], "SPACE RIGHT")
 
                 # print(car.position, "HORIZONTAL")
             else:
                 print(car.position, car.name)
 
-                if self.out_of_bounds((car.position[0] - 1, car.position[1])):
+                if self.within_range((car.position[0] - 1, car.position[1])):
                     print(self.grid[car.position[0] - 1][car.position[1]], "SPACE UP")
 
-                if self.out_of_bounds((car.position[0] + car.length, car.position[1])):
+                if self.within_range((car.position[0] + car.length, car.position[1])):
                     print(self.grid[car.position[0] + car.length][car.position[1]], "SPACE DOWN")
 
-    def out_of_bounds(self, position):
-        if position[0] < 0 or position[0] >= len(self.grid):
-            return False
-
-        if position[1] < 0 or position[1] >= len(self.grid[0]):
-            return False
-
-        return True
+    def within_range(self: Board, position: Tuple[int, int]) -> bool:
+        return 0 < position[0] <= len(self.grid) and 0 < position[1] <= len(self.grid[0])
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")

@@ -2,6 +2,7 @@ from csv import DictReader
 from car_class import Car
 from typing import List
 
+
 def loader(filepath: str) -> List[Car]:
     """
         Using the path to a game_board csv-file, create and place Car objects
@@ -12,12 +13,12 @@ def loader(filepath: str) -> List[Car]:
 
     # list for car objects
     cars: List[Car] = []
-    
+
     # go through lines in file
     with open(filepath, 'r') as file:
-        
+
         # create car objects and place into list
         for row in DictReader(file):
             cars.append(Car(*list(row.values())))
-    
+
     return cars
