@@ -52,10 +52,13 @@ class Board():
                 if self.within_range((car.position[0] + car.length, car.position[1])):
                     if self.grid[car.position[0] + car.length][car.position[1]] == " ":
                         moves_dict[car].append("D")
+
+            if len(moves_dict[car]) == 0:
+                del moves_dict[car]
+
         return moves_dict
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
-        print(self.size)
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
     def final_move(self, dict):
@@ -65,5 +68,6 @@ class Board():
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
     b = a.possible_moves()
+    print(b)
     c = a.random_final_move(b)
     print(c)
