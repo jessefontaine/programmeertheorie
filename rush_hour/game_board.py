@@ -27,26 +27,33 @@ class Board():
         print(self.grid)
 
     def possible_moves(self):
+        dict = {}
+        for car in self.car_list:
+            dict[car] = []
+
         for car in self.car_list:
             if car.orientation == "H":
                 print(car.position, car.name)
 
                 if self.out_of_bounds((car.position[0], car.position[1] - 1)):
-                    print(self.grid[car.position[0]][car.position[1] - 1], "SPACE LEFT")
+                    if self.grid[car.position[0]][car.position[1] - 1] == " ":
+                        dict[car].append("L")
 
                 if self.out_of_bounds((car.position[0], car.position[1] + car.length)):
-                    print(self.grid[car.position[0]][car.position[1] + car.length], "SPACE RIGHT")
-
-                # print(car.position, "HORIZONTAL")
+                    if self.grid[car.position[0]][car.position[1] + car.length] == " ":
+                        dict[car].append("R")
             else:
                 print(car.position, car.name)
 
                 if self.out_of_bounds((car.position[0] - 1, car.position[1])):
-                    print(self.grid[car.position[0] - 1][car.position[1]], "SPACE UP")
+                    if self.grid[car.position[0] - 1][car.position[1]] == " ":
+                        dict[car].append("U")
 
                 if self.out_of_bounds((car.position[0] + car.length, car.position[1])):
-                    print(self.grid[car.position[0] + car.length][car.position[1]], "SPACE DOWN")
-
+                    if self.grid[car.position[0] + car.length][car.position[1]] == " ":
+                        dict[car].append("D")
+        print(dict)
+    
     def out_of_bounds(self, position):
         if position[0] < 0 or position[0] >= len(self.grid):
             return False
@@ -57,5 +64,5 @@ class Board():
         return True
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_1.csv")
+    a = Board("game_boards/Rushhour6x6_3.csv")
     a.possible_moves()

@@ -1,5 +1,5 @@
-from typing import Union, Tuple
 from __future__ import annotations
+from typing import Union, Tuple
 
 class Car():
     
