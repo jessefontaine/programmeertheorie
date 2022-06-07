@@ -22,6 +22,16 @@ class Board():
         for car in car_list:
             print(car.position)
             grid[car.position[0] - 1][car.position[1] - 1] = car.name
+            if int(car.length) > 1:
+                if car.orientation == "H":
+                    for i in range(int(car.length)):
+                        print(int(car.length))
+                        grid[car.position[0] - 1][car.position[1] + i - 1] = car.name
+
+                else:
+                    for i in range(int(car.length)):
+                        print(int(car.length))
+                        grid[car.position[0] + i - 1][car.position[1] - 1] = car.name
 
         print(grid)
 
