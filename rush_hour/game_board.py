@@ -27,22 +27,29 @@ class Board():
     def possible_moves(self):
         for car in self.car_list:
             if car.orientation == "H":
-                print(car.position)
-                print(car.position[0], car.position[1] - 1)
-                print(self.grid[car.position[0]][car.position[1] - 1], "SPACE LEFT")
-                print(self.grid[car.position[0]][car.position[1] + car.length - 1], "SPACE RIGHT")
+                print(car.position, car.name)
 
-                
+                if self.out_of_bounds((car.position[0], car.position[1] - 1)):
+                    print(self.grid[car.position[0]][car.position[1] - 1], "SPACE LEFT")
+
+                if self.out_of_bounds((car.position[0], car.position[1] + car.length)):
+                    print(self.grid[car.position[0]][car.position[1] + car.length], "SPACE RIGHT")
 
                 # print(car.position, "HORIZONTAL")
             else:
-                print(car.position, "VERTICAL")
+                print(car.position, car.name)
+
+                if self.out_of_bounds((car.position[0] - 1, car.position[1])):
+                    print(self.grid[car.position[0] - 1][car.position[1]], "SPACE UP")
+
+                if self.out_of_bounds((car.position[0] + car.length, car.position[1])):
+                    print(self.grid[car.position[0] + car.length][car.position[1]], "SPACE DOWN")
 
     def out_of_bounds(self, position):
-        if position[0] < 0 or position[0] > len(self.grid):
+        if position[0] < 0 or position[0] >= len(self.grid):
             return False
 
-        if position[1] < 0 or position[1] > len(self.grid[0]):
+        if position[1] < 0 or position[1] >= len(self.grid[0]):
             return False
 
         return True
