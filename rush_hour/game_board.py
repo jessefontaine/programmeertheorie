@@ -9,7 +9,8 @@ class Board():
     def __init__(self: Board, filepath: str) -> None:
 
         # parse board size from filename
-        self.size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+        size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+        self.size = (int(size[0]), int(size[1]))
 
         
         self.gridline = []
