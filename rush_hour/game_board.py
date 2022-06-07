@@ -8,7 +8,8 @@ class Board():
     def __init__(self: Board, filepath: str) -> None:
 
         # parse board size from filename
-        self.size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+        size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+        self.size = (int(size[0]), int(size[1]))
 
         
         self.gridline = []
@@ -57,7 +58,7 @@ class Board():
         print(dict)
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
-        return 0 < position[0] <= len(self.grid) and 0 < position[1] <= len(self.grid[0])
+        return 0 < position[0] < len(self.size[0]) and 0 < position[1] < len(self.size[1])
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_3.csv")
