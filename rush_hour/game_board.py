@@ -17,7 +17,7 @@ class Board():
         for i in range(int(grid_digits[1])):
             grid.append(list(gridline))
 
-        car_list = loader("game_boards/Rushhour6x6_1.csv")
+        car_list = loader(filepath)
 
         for car in car_list:
             for i in range(car.length):
