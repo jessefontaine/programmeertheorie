@@ -32,13 +32,11 @@ class Board():
 
     def possible_moves(self):
         dict = {}
-        # for car in self.car_list:
 
         for car in self.car_list:
             dict[car] = []
-            if car.orientation == "H":
-                print(car.position, car.name)
 
+            if car.orientation == "H":
                 if self.within_range((car.position[0], car.position[1] - 1)):
                     if self.grid[car.position[0]][car.position[1] - 1] == " ":
                         dict[car].append("L")
@@ -47,8 +45,6 @@ class Board():
                     if self.grid[car.position[0]][car.position[1] + car.length] == " ":
                         dict[car].append("R")
             else:
-                print(car.position, car.name)
-
                 if self.within_range((car.position[0] - 1, car.position[1])):
                     if self.grid[car.position[0] - 1][car.position[1]] == " ":
                         dict[car].append("U")
@@ -59,6 +55,7 @@ class Board():
         print(dict)
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
+        print(self.size)
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
     def final_move(self, dict):
