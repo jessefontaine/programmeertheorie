@@ -39,19 +39,19 @@ class Board():
             if car.orientation == "H":
                 if self.within_range((car.position[0], car.position[1] - 1)):
                     if self.grid[car.position[0]][car.position[1] - 1] == " ":
-                        moves_dict[car].append("L")
+                        moves_dict[car].append(-1)
 
                 if self.within_range((car.position[0], car.position[1] + car.length)):
                     if self.grid[car.position[0]][car.position[1] + car.length] == " ":
-                        moves_dict[car].append("R")
+                        moves_dict[car].append(1)
             else:
                 if self.within_range((car.position[0] - 1, car.position[1])):
                     if self.grid[car.position[0] - 1][car.position[1]] == " ":
-                        moves_dict[car].append("U")
+                        moves_dict[car].append(-1)
 
                 if self.within_range((car.position[0] + car.length, car.position[1])):
                     if self.grid[car.position[0] + car.length][car.position[1]] == " ":
-                        moves_dict[car].append("D")
+                        moves_dict[car].append(1)
 
             if len(moves_dict[car]) == 0:
                 del moves_dict[car]
@@ -64,9 +64,19 @@ class Board():
     def random_final_move(self, dict):
         return random.choice(list(dict.items()))
 
+    def update_grid(self, car_move):
+        print(car_move)
+        print(car_move[0].position)
+        car_move[0].move(car_move[1][0])
+        print(car_move[0].position)
+
+        print(car_move[0].name)
+        print(self.grid)
+        
+        
+
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
     b = a.possible_moves()
-    print(b)
     c = a.random_final_move(b)
-    print(c)
+    a.update_grid(c)
