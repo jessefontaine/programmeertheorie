@@ -19,19 +19,33 @@ class Board():
         for car in self.car_list:
             for i in range(car.length):
                 if car.orientation == "H":
-                    self.grid[car.position[0] - 1][car.position[1] + i - 1] = car.name
+                    self.grid[car.position[0]][car.position[1] + i] = car.name
                 else:
-                    self.grid[car.position[0] + i - 1][car.position[1] - 1] = car.name
+                    self.grid[car.position[0] + i][car.position[1]] = car.name
         print(self.grid)
 
     def possible_moves(self):
         for car in self.car_list:
             if car.orientation == "H":
+                print(car.position)
+                print(car.position[0], car.position[1] - 1)
                 print(self.grid[car.position[0]][car.position[1] - 1], "SPACE LEFT")
+                print(self.grid[car.position[0]][car.position[1] + car.length - 1], "SPACE RIGHT")
 
-                print(car.position, "HORIZONTAL")
+                
+
+                # print(car.position, "HORIZONTAL")
             else:
                 print(car.position, "VERTICAL")
+
+    def out_of_bounds(self, position):
+        if position[0] < 0 or position[0] > len(self.grid):
+            return False
+
+        if position[1] < 0 or position[1] > len(self.grid[0]):
+            return False
+
+        return True
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
