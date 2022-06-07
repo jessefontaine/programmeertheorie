@@ -4,9 +4,16 @@
 # data_df = pd.read_csv("game_boards/Rushhour6x6_1.csv")
 
 # print(data_df)
+import csv
 
 def loader(filepath):
     
     with open(filepath) as file:
+        file_reader = csv.DictReader(file)
 
-        line = file.readline()
+        line = file_reader.fieldnames
+
+        print(line)
+
+if __name__ == "__main__":
+    loader("/home/laura/programmeertheorie/rush_hour/game_boards/Rushhour6x6_1.csv")
