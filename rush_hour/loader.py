@@ -1,19 +1,15 @@
-# import pandas as pd
-
-# # saves data from input file to dataframe
-# data_df = pd.read_csv("game_boards/Rushhour6x6_1.csv")
-
-# print(data_df)
-import csv
+from csv import reader
+from car_class import Car
 
 def loader(filepath):
+
+    cars = []
     
-    with open(filepath) as file:
-        file_reader = csv.DictReader(file)
+    with open(filepath, 'r') as file:
+        
+        csv_reader = reader(file)
 
-        line = file_reader.fieldnames
-
-        print(line)
-
-if __name__ == "__main__":
-    loader("game_boards/Rushhour6x6_1.csv")
+        for row in csv_reader:
+            cars.append(Car(*row))
+    
+    return cars
