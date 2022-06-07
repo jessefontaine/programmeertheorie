@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Tuple
 from loader import loader
+import random
 import re
 
 class Board():
@@ -60,6 +61,11 @@ class Board():
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
+    def final_move(self, dict):
+        print(list(dict))
+        print(random.choice(list(dict.items())))
+
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
-    a.possible_moves()
+    b = a.possible_moves()
+    a.final_move(b)
