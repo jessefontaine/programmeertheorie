@@ -20,17 +20,11 @@ class Board():
         car_list = loader("game_boards/Rushhour6x6_1.csv")
 
         for car in car_list:
-            print(car.position)
-            grid[car.position[0] - 1][car.position[1] - 1] = car.name
-            
-            if car.length > 1:
+            for i in range(car.length):
                 if car.orientation == "H":
-                    for i in range(car.length):
-                        grid[car.position[0] - 1][car.position[1] + i - 1] = car.name
-
+                    grid[car.position[0] - 1][car.position[1] + i - 1] = car.name
                 else:
-                    for i in range(car.length):
-                        grid[car.position[0] + i - 1][car.position[1] - 1] = car.name
+                    grid[car.position[0] + i - 1][car.position[1] - 1] = car.name
 
         print(grid)
 
