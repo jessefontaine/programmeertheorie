@@ -31,10 +31,10 @@ class Board():
 
     def possible_moves(self):
         dict = {}
-        for car in self.car_list:
-            dict[car] = []
+        # for car in self.car_list:
 
         for car in self.car_list:
+            dict[car] = []
             if car.orientation == "H":
                 print(car.position, car.name)
 
@@ -58,8 +58,8 @@ class Board():
         print(dict)
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
-        return 0 < position[0] < self.size[0] and 0 < position[1] < self.size[1]
+        return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_3.csv")
+    a = Board("game_boards/Rushhour6x6_1.csv")
     a.possible_moves()
