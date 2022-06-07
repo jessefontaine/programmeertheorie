@@ -4,5 +4,5 @@ class Car():
         self.name = name
         self.position = (int(row), int(col))
         self.orientation = orientation
-        self.length = length
+        self.length = int(length)
 
