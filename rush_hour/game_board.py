@@ -104,6 +104,18 @@ class Board():
             )
         )
 
+<<<<<<< HEAD
+
+    def step_random(self):
+        while not self.win():
+            pos_moves = self.possible_moves()
+            self.random_final_move(pos_moves)
+            self.update_grid()
+        print('GEWONNEN')
+        self.print()
+
+=======
+>>>>>>> 647675571a550a3b106541c8fe630ada74ce0775
             
     def print_move_made(self, move):
         if move[0].orientation == 'H':
