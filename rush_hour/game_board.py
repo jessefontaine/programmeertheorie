@@ -107,7 +107,7 @@ class Board():
     
     def print(self: Board) -> None:
         """
-            Print out current game board in readable format
+            Print out current game board in readable format.
         """
         print(
             '\n'.join(
@@ -120,11 +120,16 @@ class Board():
         
     def step(self):
         while not self.win():
-            if self.win_car_move(self.possible_moves()):
+            pos_moves = self.possible_moves()
+            if self.win_car_move(pos_moves):
                 self.print_move_made((self.win_car, [1]))
-            elif
-            random_move = self.random_final_move(self.possible_moves())
-            self.print_move_made(random_move)
+            else:
+                left_move = self.cars_to_left(pos_moves)
+                if left_move[0]:
+                    self.print_move_made(left_move[1])
+                else:
+                    random_move = self.random_final_move(self.possible_moves())
+                    self.print_move_made(random_move)
             self.update_grid()
             print('no')
         print('yes')
@@ -140,6 +145,16 @@ class Board():
                 print(move[0].name, 'U')
             else:
                 print(move[0].name, 'D')
+
+    def cars_to_left(self, moves_dict):
+        print(moves_dict)
+        #for car in self.car_list:
+        for car in moves_dict:
+            if car.orientation == 'H' and -1 in list(moves_dict[car]):
+                car.move(-1)
+                return True, (car, [-1])
+
+        return False, None
         
 
 if __name__ == "__main__":
@@ -148,3 +163,17 @@ if __name__ == "__main__":
     a.random_final_move(a.possible_moves())
     a.update_grid()
     a.step()
+
+    # print(' ')
+    # a.print()
+    # a.cars_to_left(a.possible_moves())
+    # a.update_grid()
+
+
+    # print(a.win())
+    # a.random_final_move(a.possible_moves())
+    # a.update_grid()
+    # print(a.win())
+    # a.random_final_move(a.possible_moves())
+    # a.update_grid()
+
