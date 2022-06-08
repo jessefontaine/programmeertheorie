@@ -27,35 +27,12 @@ class Board():
     def possible_moves(self):
         moves_dict = {}
 
-        # checks for each car what possible moves are
         for car in self.car_list:
             moves_dict[car] = []
-
-            # checks for horizontal/vertical orientation if car can go left/right/up/down
-            if car.orientation == "H":
-                # can car to left and is the spot empty
-                if self.within_range((car.position[0], car.position[1] - 1)):
-                    if self.grid[car.position[0]][car.position[1] - 1] == None:
-                        moves_dict[car].append(-1)
-
-                # can car to left and is the spot empty
-                if self.within_range((car.position[0], car.position[1] + car.length)):
-                    if self.grid[car.position[0]][car.position[1] + car.length] == None:
-                        moves_dict[car].append(1)
-            else:
-                # can car up and is the spot empty
-                if self.within_range((car.position[0] - 1, car.position[1])):
-                    if self.grid[car.position[0] - 1][car.position[1]] == None:
-                        moves_dict[car].append(-1)
-
-                # can car down and is the spot empty
-                if self.within_range((car.position[0] + car.length, car.position[1])):
-                    if self.grid[car.position[0] + car.length][car.position[1]] == None:
-                        moves_dict[car].append(1)
-
-            # removes cars that have no possible moves
-            if len(moves_dict[car]) == 0:
-                del moves_dict[car]
+            for dir in [-1, 1]:
+                test_pos = car.test_move(dir)
+                if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] == None:
+                    moves_dict[car].append(dir)
 
         return moves_dict
     
@@ -79,7 +56,7 @@ class Board():
         """
 
         # create empty nested list to store occupied spaces
-        self.grid: List[List[Optional[Car]]] = [[None for _ in range(self.size[1])] for _ in range(self.size[0])]
+        self.grid: List[List] = [[None for _ in range(self.size[1])] for _ in range(self.size[0])]
 
         # loop through every cars occupied positions and place car object on grid
         for car in self.car_list:
@@ -99,12 +76,10 @@ class Board():
         print(
             '\n'.join(
                 [''.join(
-                    [cell.name if cell != None else '.' for cell in sublist]
+                    ['.' if cell == None else cell.name for cell in sublist]
                 ) for sublist in self.grid]
             )
         )
-
-<<<<<<< HEAD
 
     def step_random(self):
         while not self.win():
@@ -114,9 +89,6 @@ class Board():
         print('GEWONNEN')
         self.print()
 
-=======
->>>>>>> 647675571a550a3b106541c8fe630ada74ce0775
-            
     def print_move_made(self, move):
         if move[0].orientation == 'H':
             if move[1] < 0:

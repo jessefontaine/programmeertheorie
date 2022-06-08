@@ -1,4 +1,8 @@
 car,orientation,col,row,length
+<<<<<<< HEAD
+X,V,3,2,2
+=======
 A,H,1,3,2
 B,V,6,2,2
 X,H,3,3,2
+>>>>>>> fbab38245cf1343ce60e8db7de83fe9292056701
