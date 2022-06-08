@@ -1,6 +1,7 @@
 from __future__ import annotations
-from typing import Tuple
+from typing import Tuple, Union, Optional, List
 from loader import loader
+from car_class import Car
 import random
 import re
 
@@ -33,22 +34,22 @@ class Board():
             if car.orientation == "H":
                 # can car to left and is the spot empty
                 if self.within_range((car.position[0], car.position[1] - 1)):
-                    if self.grid[car.position[0]][car.position[1] - 1] == " ":
+                    if self.grid[car.position[0]][car.position[1] - 1] == None:
                         moves_dict[car].append(-1)
 
                 # can car to left and is the spot empty
                 if self.within_range((car.position[0], car.position[1] + car.length)):
-                    if self.grid[car.position[0]][car.position[1] + car.length] == " ":
+                    if self.grid[car.position[0]][car.position[1] + car.length] == None:
                         moves_dict[car].append(1)
             else:
                 # can car up and is the spot empty
                 if self.within_range((car.position[0] - 1, car.position[1])):
-                    if self.grid[car.position[0] - 1][car.position[1]] == " ":
+                    if self.grid[car.position[0] - 1][car.position[1]] == None:
                         moves_dict[car].append(-1)
 
                 # can car down and is the spot empty
                 if self.within_range((car.position[0] + car.length, car.position[1])):
-                    if self.grid[car.position[0] + car.length][car.position[1]] == " ":
+                    if self.grid[car.position[0] + car.length][car.position[1]] == None:
                         moves_dict[car].append(1)
 
             # removes cars that have no possible moves
@@ -77,34 +78,27 @@ class Board():
 
         return False
 
-    def update_grid(self):
-        self.gridrow = []
+    def update_grid(self: Board) -> None:
+        """
+            Creates/updates the current game board. The board consists of a nested list.
+            Every occupied space holds the car object that occupies it. Unoccupied space is
+            marked with `None`
+        """
 
-        # create row of grid
-        for i in range(int(self.size[0])):
-            self.gridrow.append(" ")
+        # create empty nested list to store occupied spaces
+        self.grid: List[List[Optional[Car]]] = [[None for _ in range(self.size[1])] for _ in range(self.size[0])]
 
-        # create grid
-        self.grid = []
-        for i in range(int(self.size[1])):
-            self.grid.append(list(self.gridrow))
-
-        # fill grid with cars
+        # loop through every cars occupied positions and place car object on grid
         for car in self.car_list:
-            for i in range(car.length):
-                if car.orientation == "H":
-                    self.grid[car.position[0]][car.position[1] + i] = car.name
-                else:
-                    self.grid[car.position[0] + i][car.position[1]] = car.name
-
-        self.print()
+            for pos in car.positions:
+                self.grid[pos[0]][pos[1]] = car
 
     def win(self):
         if self.win_postition == self.win_car.position:
             return True
 
         return False
-    
+
     def print(self: Board) -> None:
         """
             Print out current game board in readable format.
@@ -112,12 +106,11 @@ class Board():
         print(
             '\n'.join(
                 [''.join(
-                    [char if char != ' ' else '.' for char in sublist]
+                    [cell.name if cell != None else '.' for cell in sublist]
                 ) for sublist in self.grid]
             )
         )
-       
-        
+
     def step(self):
         while not self.win():
             pos_moves = self.possible_moves()
