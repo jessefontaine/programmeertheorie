@@ -120,6 +120,9 @@ class Board():
         
     def step(self):
         while not self.win():
+            if self.win_car_move(self.possible_moves()):
+                self.print_move_made((self.win_car, [1]))
+            elif
             random_move = self.random_final_move(self.possible_moves())
             self.print_move_made(random_move)
             self.update_grid()
@@ -127,7 +130,6 @@ class Board():
         print('yes')
             
     def print_move_made(self, move):
-        print(move[0].name)
         if move[0].orientation == 'H':
             if move[1][0] < 0:
                 print(move[0].name, 'L')
@@ -135,24 +137,14 @@ class Board():
                 print(move[0].name, 'R')
         else:
             if move[1][0] < 0:
-                print(move.name, 'U')
+                print(move[0].name, 'U')
             else:
-                print(move.name, 'D')
+                print(move[0].name, 'D')
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_easywin.csv")
-    print(a.win())
-    a.final_move(a.possible_moves())
-    # a.random_final_move(a.possible_moves())
+    a = Board("game_boards/Rushhour6x6_1.csv")
+    a.win_car_move(a.possible_moves())
+    a.random_final_move(a.possible_moves())
     a.update_grid()
-    print(a.win())
-    a.final_move(a.possible_moves())
     a.step()
-    # print(a.win())
-    # a.random_final_move(a.possible_moves())
-    # a.update_grid()
-    # print(a.win())
-    # a.random_final_move(a.possible_moves())
-    # a.update_grid()
-
