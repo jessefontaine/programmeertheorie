@@ -68,8 +68,8 @@ class Board():
     def random_final_move(self, dict):
         # random choice from the dictionary
         car_move = random.choice(list(dict.items()))
-        car_move[0].move(car_move[1][0])
-        return car_move
+        ran_choice = random.choice(car_move[1])
+        car_move[0].move(ran_choice)
 
     def update_grid(self: Board) -> None:
         """
@@ -103,31 +103,6 @@ class Board():
                 ) for sublist in self.grid]
             )
         )
-
-    def step(self):
-        while not self.win():
-            pos_moves = self.possible_moves()
-            if self.win_car_move(pos_moves):
-                self.print_move_made((self.win_car, [1]))
-            else:
-                left_move = self.cars_to_left(pos_moves)
-                if left_move[0]:
-                    self.print_move_made(left_move[1])
-                else:
-                    random_move = self.random_final_move(self.possible_moves())
-                    self.print_move_made(random_move)
-            self.update_grid()
-            self.print()
-            print('no')
-        print('yes')
-
-    def step_random(self):
-        while not self.win():
-            pos_moves = self.possible_moves()
-            self.random_final_move(pos_moves)
-            self.update_grid()
-        print('GEWONNEN')
-        self.print()
 
             
     def print_move_made(self, move):
@@ -190,11 +165,19 @@ class Board():
             elif self.cars_move_vertical(pos_moves):
                 pass
             else:
-                self.random_final_move(pos_moves)
+                self.step_random()
+                break
             self.update_grid()
             self.print()
-            print('no')
-        print('yes')
+
+    def step_random(self):
+        while not self.win():
+            pos_moves = self.possible_moves()
+            self.random_final_move(pos_moves)
+            self.update_grid()
+            self.print()
+        print('GEWONNEN')
+        self.print()
         
 
 if __name__ == "__main__":
