@@ -169,6 +169,7 @@ class Board():
                 break
             self.update_grid()
             self.print()
+        print('GEWONNEN')
 
     def step_random(self):
         while not self.win():
@@ -176,8 +177,6 @@ class Board():
             self.random_final_move(pos_moves)
             self.update_grid()
             self.print()
-        print('GEWONNEN')
-        self.print()
         
 
 if __name__ == "__main__":
