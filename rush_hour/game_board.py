@@ -22,6 +22,7 @@ class Board():
                 self.win_car = car
 
         self.update_grid()
+        self.print()
 
     def possible_moves(self):
         moves_dict = {}
@@ -124,8 +125,18 @@ class Board():
                     random_move = self.random_final_move(self.possible_moves())
                     self.print_move_made(random_move)
             self.update_grid()
+            self.print()
             print('no')
         print('yes')
+
+    def step_random(self):
+        while not self.win():
+            pos_moves = self.possible_moves()
+            self.random_final_move(pos_moves)
+            self.update_grid()
+        print('GEWONNEN')
+        self.print()
+
             
     def print_move_made(self, move):
         if move[0].orientation == 'H':
@@ -152,10 +163,7 @@ class Board():
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
-    a.win_car_move(a.possible_moves())
-    a.random_final_move(a.possible_moves())
-    a.update_grid()
-    a.step()
+    a.step_random()
 
     # print(' ')
     # a.print()
