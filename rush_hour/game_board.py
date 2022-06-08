@@ -119,7 +119,6 @@ class Board():
         print('yes')
             
     def print_move_made(self, move):
-        print(move[0].name)
         if move[0].orientation == 'H':
             if move[1][0] < 0:
                 print(move[0].name, 'L')
@@ -127,9 +126,9 @@ class Board():
                 print(move[0].name, 'R')
         else:
             if move[1][0] < 0:
-                print(move.name, 'U')
+                print(move[0].name, 'U')
             else:
-                print(move.name, 'D')
+                print(move[0].name, 'D')
 
     def cars_to_left(self, moves_dict):
         print(moves_dict)
