@@ -14,6 +14,11 @@ class Board():
 
         self.car_list = loader(filepath)
 
+        # save position when game should finished
+        for car in self.car_list:
+            if car.name == "X":
+                self.win_postition = (car.position[0], self.size[1] - 2)
+
         self.update_grid()
 
     def possible_moves(self):
@@ -84,12 +89,22 @@ class Board():
 
         print(self.grid)
 
+    def win(self):
+        if self.grid[self.win_postition[0]][self.win_postition[1]] == 'X':
+            return True
+
+        return False
+        
+
+
         
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
-    b = a.possible_moves()
-    a.random_final_move(b)
-    a.update_grid()
+    print(a.win())
     a.random_final_move(a.possible_moves())
     a.update_grid()
+    print(a.win())
+    # a.random_final_move(a.possible_moves())
+    # a.update_grid()
+
