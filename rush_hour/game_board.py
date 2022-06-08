@@ -58,7 +58,7 @@ class Board():
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
         """
-            Returns bool, if position is on the grid.
+            Returns bool, true if position is on the grid.
         """
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
@@ -87,20 +87,33 @@ class Board():
                 else:
                     self.grid[car.position[0] + i][car.position[1]] = car.name
 
-        print(self.grid)
+        self.print()
 
     def win(self):
         if self.grid[self.win_postition[0]][self.win_postition[1]] == 'X':
             return True
 
         return False
+    
+    def print(self: Board) -> None:
+        """
+            Print out current game board in readable format
+        """
+        print(
+            '\n'.join(
+                [''.join(
+                    [char if char != ' ' else '.' for char in sublist]
+                ) for sublist in self.grid]
+            )
+        )
+       
         
 
 
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_1.csv")
+    a = Board("game_boards/Rushhour6x6_easywin.csv")
     print(a.win())
     a.random_final_move(a.possible_moves())
     a.update_grid()
