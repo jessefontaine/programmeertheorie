@@ -59,7 +59,7 @@ class Board():
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
         """
-            Returns bool, if position is on the grid.
+            Returns bool, true if position is on the grid.
         """
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
@@ -67,6 +67,7 @@ class Board():
         # random choice from the dictionary
         car_move = random.choice(list(dict.items()))
         car_move[0].move(car_move[1][0])
+        return car_move
     
     def win_car_move(self, moves_dict):
         print(self.win_car, moves_dict)
@@ -96,16 +97,47 @@ class Board():
                 else:
                     self.grid[car.position[0] + i][car.position[1]] = car.name
 
-        print(self.grid)
+        self.print()
 
     def win(self):
         if self.win_postition == self.win_car.position:
             return True
 
         return False
+    
+    def print(self: Board) -> None:
+        """
+            Print out current game board in readable format
+        """
+        print(
+            '\n'.join(
+                [''.join(
+                    [char if char != ' ' else '.' for char in sublist]
+                ) for sublist in self.grid]
+            )
+        )
+       
         
-
-
+    def step(self):
+        while not self.win():
+            random_move = self.random_final_move(self.possible_moves())
+            self.print_move_made(random_move)
+            self.update_grid()
+            print('no')
+        print('yes')
+            
+    def print_move_made(self, move):
+        print(move[0].name)
+        if move[0].orientation == 'H':
+            if move[1][0] < 0:
+                print(move[0].name, 'L')
+            else:
+                print(move[0].name, 'R')
+        else:
+            if move[1][0] < 0:
+                print(move.name, 'U')
+            else:
+                print(move.name, 'D')
         
 
 if __name__ == "__main__":
@@ -116,6 +148,11 @@ if __name__ == "__main__":
     a.update_grid()
     print(a.win())
     a.final_move(a.possible_moves())
+    a.step()
+    # print(a.win())
+    # a.random_final_move(a.possible_moves())
+    # a.update_grid()
+    # print(a.win())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
 
