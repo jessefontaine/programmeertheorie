@@ -70,14 +70,6 @@ class Board():
         car_move = random.choice(list(dict.items()))
         car_move[0].move(car_move[1][0])
         return car_move
-    
-    def win_car_move(self, moves_dict):
-        print(self.win_car, moves_dict)
-        if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
-            self.win_car.move(1)
-            return True
-
-        return False
 
     def update_grid(self: Board) -> None:
         """
@@ -140,41 +132,77 @@ class Board():
             
     def print_move_made(self, move):
         if move[0].orientation == 'H':
-            if move[1][0] < 0:
+            if move[1] < 0:
                 print(move[0].name, 'L')
             else:
                 print(move[0].name, 'R')
         else:
-            if move[1][0] < 0:
+            if move[1] < 0:
                 print(move[0].name, 'U')
             else:
                 print(move[0].name, 'D')
 
+    def win_car_move(self, moves_dict):
+        if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
+            self.win_car.move(1)
+            self.print_move_made((self.win_car, 1))
+            return True
+
+        return False
+
     def cars_to_left(self, moves_dict):
-        print(moves_dict)
         #for car in self.car_list:
         for car in moves_dict:
-            if car.orientation == 'H' and -1 in list(moves_dict[car]):
+            if car.orientation == 'H' and -1 in list(moves_dict[car]) and car.name != "X":
                 car.move(-1)
-                return True, (car, [-1])
+                self.print_move_made((car, -1))
+                return True
 
-        return False, None
+        return False
 
     def cars_move_vertical(self, moves_dict):
-        print(moves_dict)
+        row_win_car = self.win_car.position[0]
         #for car in self.car_list:
         for car in moves_dict:
-            if car.orientation == 'V' and car.length = 3 and 1 in list(moves_dict[car]):
+            if car.orientation == 'V' and car.length == 3 and 1 in list(moves_dict[car]):
                 car.move(1)
-            elif car.orientation == 'V' and 1 in list(moves_dict[car]):
-                return True, (car, [-1])
+                self.print_move_made((car, 1))
+                return True
+            elif car.orientation == 'V' and (car.position[0] == row_win_car or car.position[0] + 1 == row_win_car):
+                if 1 in list(moves_dict[car]):
+                    car.move(1)
+                    self.print_move_made((car, 1))
+                    return True
+                else:
+                    car.move(-1)
+                    self.print_move_made((car, -1))
+                    return True
 
-        return False, None
+        return False
+
+    def step(self):
+        while not self.win():
+            pos_moves = self.possible_moves()
+            if self.win_car_move(pos_moves):
+                pass
+            elif self.cars_to_left(pos_moves):
+                pass
+            elif self.cars_move_vertical(pos_moves):
+                pass
+            else:
+                self.random_final_move(pos_moves)
+            self.update_grid()
+            self.print()
+            print('no')
+        print('yes')
         
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
-    a.step_random()
+    # a.win_car_move(a.possible_moves())
+    # a.random_final_move(a.possible_moves())
+    # a.update_grid()
+    a.step()
 
     # print(' ')
     # a.print()
