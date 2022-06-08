@@ -96,16 +96,23 @@ class Board():
 
         return False
         
-
+    def step(self):
+        while not self.win():
+            self.random_final_move(self.possible_moves())
+            self.update_grid()
+            print('no')
+        print('yes')
+            
 
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_easywin.csv")
-    print(a.win())
-    a.random_final_move(a.possible_moves())
-    a.update_grid()
-    print(a.win())
+    a = Board("game_boards/Rushhour6x6_1.csv")
+    a.step()
+    # print(a.win())
+    # a.random_final_move(a.possible_moves())
+    # a.update_grid()
+    # print(a.win())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
 
