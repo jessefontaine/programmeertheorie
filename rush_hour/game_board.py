@@ -18,6 +18,7 @@ class Board():
         for car in self.car_list:
             if car.name == "X":
                 self.win_postition = (car.position[0], self.size[1] - 2)
+                self.win_car = car
 
         self.update_grid()
 
@@ -66,6 +67,7 @@ class Board():
         # random choice from the dictionary
         car_move = random.choice(list(dict.items()))
         car_move[0].move(car_move[1][0])
+        return car_move
     
     def update_grid(self):
         self.gridrow = []
@@ -90,7 +92,7 @@ class Board():
         self.print()
 
     def win(self):
-        if self.grid[self.win_postition[0]][self.win_postition[1]] == 'X':
+        if self.win_postition == self.win_car.position:
             return True
 
         return False
@@ -108,16 +110,35 @@ class Board():
         )
        
         
-
-
+    def step(self):
+        while not self.win():
+            random_move = self.random_final_move(self.possible_moves())
+            self.print_move_made(random_move)
+            self.update_grid()
+            print('no')
+        print('yes')
+            
+    def print_move_made(self, move):
+        print(move[0].name)
+        if move[0].orientation == 'H':
+            if move[1][0] < 0:
+                print(move[0].name, 'L')
+            else:
+                print(move[0].name, 'R')
+        else:
+            if move[1][0] < 0:
+                print(move.name, 'U')
+            else:
+                print(move.name, 'D')
         
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_easywin.csv")
-    print(a.win())
-    a.random_final_move(a.possible_moves())
-    a.update_grid()
-    print(a.win())
+    a.step()
+    # print(a.win())
+    # a.random_final_move(a.possible_moves())
+    # a.update_grid()
+    # print(a.win())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
 
