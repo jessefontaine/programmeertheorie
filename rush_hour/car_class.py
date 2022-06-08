@@ -32,17 +32,28 @@ class Car():
             for i in range(self.length)
         ]
     
-    def test_move(self, direction):
-        if self.orientation == 'H':
-            if direction > 0:
-                test_pos = (self.positions[-1][0], self.positions[-1][1] + direction)
-            elif direction < 0:
-                test_pos = (self.positions[0][0], self.positions[0][1] + direction)
+    def test_move(self: Car, direction: int) -> Tuple[int, int]:
+        """
+            Method returns a position coordinate of the spot that is taken up when
+            the car moves in the provided direction.
+
+            Requires non-zero direction parameter.
+        """
+
+        # force proper usage
+        assert direction != 0, 'testing direction cannot be 0'
+
+        # derive index of self.positions list that is the in the movement direction
+        if direction > 0:
+            list_index: int = -1
         else:
-            if direction > 0:
-                test_pos = (self.positions[-1][0] + direction, self.positions[-1][1])
-            elif direction < 0:
-                test_pos = (self.positions[0][0] + direction, self.positions[0][1])
+            list_index = 0
+
+        # movement up/down or left/right depending on orientation
+        if self.orientation == 'H':
+            test_pos: Tuple[int, int] = (self.positions[list_index][0], self.positions[list_index][1] + direction)
+        else:
+            test_pos = (self.positions[list_index][0] + direction, self.positions[list_index][1])
 
         return test_pos
 
