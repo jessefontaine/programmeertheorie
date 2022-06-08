@@ -68,6 +68,14 @@ class Board():
         car_move = random.choice(list(dict.items()))
         car_move[0].move(car_move[1][0])
     
+    def win_car_move(self, moves_dict):
+        print(self.win_car, moves_dict)
+        if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
+            self.win_car.move(1)
+            return True
+
+        return False
+
     def update_grid(self):
         self.gridrow = []
 
@@ -103,9 +111,11 @@ class Board():
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_easywin.csv")
     print(a.win())
-    a.random_final_move(a.possible_moves())
+    a.final_move(a.possible_moves())
+    # a.random_final_move(a.possible_moves())
     a.update_grid()
     print(a.win())
+    a.final_move(a.possible_moves())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
 
