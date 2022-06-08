@@ -104,22 +104,6 @@ class Board():
             )
         )
 
-    def step(self):
-        while not self.win():
-            pos_moves = self.possible_moves()
-            if self.win_car_move(pos_moves):
-                self.print_move_made((self.win_car, [1]))
-            else:
-                left_move = self.cars_to_left(pos_moves)
-                if left_move[0]:
-                    self.print_move_made(left_move[1])
-                else:
-                    random_move = self.random_final_move(self.possible_moves())
-                    self.print_move_made(random_move)
-            self.update_grid()
-            self.print()
-            print('no')
-        print('yes')
 
     def step_random(self):
         while not self.win():
