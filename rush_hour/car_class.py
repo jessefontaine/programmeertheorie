@@ -31,6 +31,20 @@ class Car():
             (self.position[0] + i, self.position[1]) 
             for i in range(self.length)
         ]
+    
+    def test_move(self, direction):
+        if self.orientation == 'H':
+            if direction > 0:
+                test_pos = (self.positions[-1][0], self.positions[-1][1] + direction)
+            elif direction < 0:
+                test_pos = (self.positions[0][0], self.positions[0][1] + direction)
+        else:
+            if direction > 0:
+                test_pos = (self.positions[-1][0] + direction, self.positions[-1][1])
+            elif direction < 0:
+                test_pos = (self.positions[0][0] + direction, self.positions[0][1])
+
+        return test_pos
 
     def move(self: Car, move: int) -> None:
         """
