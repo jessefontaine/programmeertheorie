@@ -130,11 +130,28 @@ class Board():
                 print(move.name, 'U')
             else:
                 print(move.name, 'D')
+
+    def cars_to_left(self, moves_dict):
+        print(moves_dict)
+        for car in self.car_list:
+            print(car)
+            if car.orientation == 'H' and -1 in list(moves_dict[car]):
+                car.move(-1)
+                return True
+
+        return False
         
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_easywin.csv")
     a.step()
+
+    print(' ')
+    a.print()
+    a.cars_to_left(a.possible_moves())
+    a.update_grid()
+
+
     # print(a.win())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
