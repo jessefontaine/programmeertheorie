@@ -155,6 +155,17 @@ class Board():
                 return True, (car, [-1])
 
         return False, None
+
+    def cars_move_vertical(self, moves_dict):
+        print(moves_dict)
+        #for car in self.car_list:
+        for car in moves_dict:
+            if car.orientation == 'V' and car.length = 3 and 1 in list(moves_dict[car]):
+                car.move(1)
+            elif car.orientation == 'V' and 1 in list(moves_dict[car]):
+                return True, (car, [-1])
+
+        return False, None
         
 
 if __name__ == "__main__":
