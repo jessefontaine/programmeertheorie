@@ -28,6 +28,6 @@ class Car():
 
         # change position depending on cars orientation
         if self.orientation == 'H':
-            self.position = (self.position[0] + move, self.position[1])
-        else:
             self.position = (self.position[0], self.position[1] + move)
+        else:
+            self.position = (self.position[0] + move, self.position[1])

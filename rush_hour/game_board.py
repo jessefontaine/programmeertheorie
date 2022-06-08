@@ -19,48 +19,62 @@ class Board():
     def possible_moves(self):
         moves_dict = {}
 
+        # checks for each car what possible moves are
         for car in self.car_list:
             moves_dict[car] = []
 
+            # checks for horizontal/vertical orientation if car can go left/right/up/down
             if car.orientation == "H":
+                # can car to left and is the spot empty
                 if self.within_range((car.position[0], car.position[1] - 1)):
                     if self.grid[car.position[0]][car.position[1] - 1] == " ":
                         moves_dict[car].append(-1)
 
+                # can car to left and is the spot empty
                 if self.within_range((car.position[0], car.position[1] + car.length)):
                     if self.grid[car.position[0]][car.position[1] + car.length] == " ":
                         moves_dict[car].append(1)
             else:
+                # can car up and is the spot empty
                 if self.within_range((car.position[0] - 1, car.position[1])):
                     if self.grid[car.position[0] - 1][car.position[1]] == " ":
                         moves_dict[car].append(-1)
 
+                # can car down and is the spot empty
                 if self.within_range((car.position[0] + car.length, car.position[1])):
                     if self.grid[car.position[0] + car.length][car.position[1]] == " ":
                         moves_dict[car].append(1)
 
+            # removes cars that have no possible moves
             if len(moves_dict[car]) == 0:
                 del moves_dict[car]
 
         return moves_dict
     
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
+        """
+            Returns bool, if position is on the grid.
+        """
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
     def random_final_move(self, dict):
+        # random choice from the dictionary
         car_move = random.choice(list(dict.items()))
         car_move[0].move(car_move[1][0])
     
     def update_grid(self):
-        
-        self.gridline = []
-        for i in range(int(self.size[0])):
-            self.gridline.append(" ")
+        self.gridrow = []
 
+        # create row of grid
+        for i in range(int(self.size[0])):
+            self.gridrow.append(" ")
+
+        # create grid
         self.grid = []
         for i in range(int(self.size[1])):
-            self.grid.append(list(self.gridline))
+            self.grid.append(list(self.gridrow))
 
+        # fill grid with cars
         for car in self.car_list:
             for i in range(car.length):
                 if car.orientation == "H":
@@ -69,14 +83,6 @@ class Board():
                     self.grid[car.position[0] + i][car.position[1]] = car.name
 
         print(self.grid)
-    # def update_grid(self, car_move):
-    #     print(car_move)
-    #     print(car_move[0].position)
-    #     car_move[0].move(car_move[1][0])
-    #     print(car_move[0].position)
-
-    #     print(car_move[0].name)
-    #     print(self.grid)
 
         
 
@@ -84,4 +90,6 @@ if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
     b = a.possible_moves()
     a.random_final_move(b)
+    a.update_grid()
+    a.random_final_move(a.possible_moves())
     a.update_grid()
