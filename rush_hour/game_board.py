@@ -64,10 +64,16 @@ class Board():
                 self.grid[pos[0]][pos[1]] = car
 
     def win(self):
-        if self.win_postition == self.win_car.position:
-            return True
+        # if self.win_postition == self.win_car.position:
+        #     return True
+        # else:
+        for i in range(self.win_car.position[1] + 2, self.size[1]):
+            print(i)
+            if self.grid[self.win_car.position[0]][i] != None:
+                return False
 
-        return False
+        return True
+
 
     def print(self: Board) -> None:
         """
@@ -165,7 +171,7 @@ class Board():
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_1.csv")
+    a = Board("game_boards/Rushhour6x6_easywin.csv")
     # a.win_car_move(a.possible_moves())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
