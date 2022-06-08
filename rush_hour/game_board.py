@@ -10,7 +10,7 @@ class Board():
 
         # parse board size from filename
         size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
-        self.size = (int(size[0]), int(size[1]))
+        self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         self.car_list = loader(filepath)
 
@@ -68,17 +68,7 @@ class Board():
                 else:
                     self.grid[car.position[0] + i][car.position[1]] = car.name
 
-        print(self.grid)
-    # def update_grid(self, car_move):
-    #     print(car_move)
-    #     print(car_move[0].position)
-    #     car_move[0].move(car_move[1][0])
-    #     print(car_move[0].position)
-
-    #     print(car_move[0].name)
-    #     print(self.grid)
-
-        
+        print(self.grid)    
 
 if __name__ == "__main__":
     a = Board("game_boards/Rushhour6x6_1.csv")
