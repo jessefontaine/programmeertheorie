@@ -1,8 +1,8 @@
 from __future__ import annotations
-from typing import Union, Tuple
+from typing import Union, Tuple, List
 
 class Car():
-    
+
     def __init__(
         self: Car, 
         name: str, 
@@ -16,6 +16,21 @@ class Car():
         self.position: Tuple[int, int] = (int(row) - 1, int(col) - 1)
         self.orientation: str = orientation
         self.length: int = int(length)
+
+        self.positions_update()
+
+    def positions_update(self: Car) -> None:
+        """
+            Method updates the list of all positions the car object takes up on the game
+            board.
+        """
+
+        # list comprehension method for updating all positions
+        self.positions: List[Tuple[int, int]] = [
+            (self.position[0], self.position[1] + i) if self.orientation == 'H' else 
+            (self.position[0] + i, self.position[1]) 
+            for i in range(self.length)
+        ]
 
     def move(self: Car, move: int) -> None:
         """
@@ -31,3 +46,6 @@ class Car():
             self.position = (self.position[0], self.position[1] + move)
         else:
             self.position = (self.position[0] + move, self.position[1])
+
+        # update the positions the car takes up
+        self.positions_update()
