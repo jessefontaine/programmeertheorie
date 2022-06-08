@@ -64,10 +64,16 @@ class Board():
                 self.grid[pos[0]][pos[1]] = car
 
     def win(self):
-        if self.win_postition == self.win_car.position:
-            return True
+        # if self.win_postition == self.win_car.position:
+        #     return True
+        # else:
+        for i in range(self.win_car.position[1] + 2, self.size[1]):
+            print(i)
+            if self.grid[self.win_car.position[0]][i] != None:
+                return False
 
-        return False
+        return True
+
 
     def print(self: Board) -> None:
         """
@@ -80,6 +86,14 @@ class Board():
                 ) for sublist in self.grid]
             )
         )
+
+    def step_random(self):
+        while not self.win():
+            pos_moves = self.possible_moves()
+            self.random_final_move(pos_moves)
+            self.update_grid()
+        print('GEWONNEN')
+        self.print()
 
     def print_move_made(self, move):
         if move[0].orientation == 'H':
@@ -145,6 +159,7 @@ class Board():
                 break
             self.update_grid()
             self.print()
+        print('GEWONNEN')
 
     def step_random(self):
         while not self.win():
@@ -152,12 +167,10 @@ class Board():
             self.random_final_move(pos_moves)
             self.update_grid()
             self.print()
-        print('GEWONNEN')
-        self.print()
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_1.csv")
+    a = Board("game_boards/Rushhour6x6_easywin.csv")
     # a.win_car_move(a.possible_moves())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
