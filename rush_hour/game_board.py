@@ -83,7 +83,6 @@ class Board():
 
         return True
 
-
     def print(self: Board) -> None:
         """
             Print out current game board in readable format.
@@ -93,7 +92,7 @@ class Board():
                 [''.join(
                     ['.' if cell == None else cell.name for cell in sublist]
                 ) for sublist in self.grid]
-            )
+            ), '\n---------------------------'
         )
 
     def print_move_made(self, move):
@@ -134,7 +133,7 @@ class Board():
                 car.move(1)
                 self.print_move_made((car, 1))
                 return True
-            elif car.orientation == 'V' and (car.position[0] == row_win_car or car.position[0] + 1 == row_win_car):
+            elif car.orientation == 'V' and (car.position[0] == row_win_car or car.position[0] + 1 == row_win_car) and car.lenght == 2:
                 if 1 in list(moves_dict[car]):
                     car.move(1)
                     self.print_move_made((car, 1))
