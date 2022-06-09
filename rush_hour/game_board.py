@@ -24,22 +24,29 @@ class Board():
         self.update_grid()
         self.print()
 
-    def possible_moves(self: Board) -> dict[Car: int]:
+    def possible_moves(self: Board) -> dict[Car, List[int]]:
 
         # create dictionary to store possible moves in
-        moves_dict: dict[Car: int] = {}
+        moves_dict: dict[Car, List[int]] = {}
 
-        # 
+        # loop through all cars to find their moves
         for car in self.car_list:
+
+            # initialise key value par with empty list for storing moves
             moves_dict[car] = []
+
+            # moves can be either forward or backward
             for dir in [-1, 1]:
-                test_pos = car.test_move(dir)
+
+                # Car returns the spot that would be taken up by the move. saved if valid
+                test_pos: Tuple[int, int] = car.test_move(dir)
                 print('jjjjj', car.name ,test_pos)
                 if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] == None:
                     print(test_pos)
                     print(self.grid[test_pos[0]][test_pos[1]])
                     moves_dict[car].append(dir)
 
+            # no possible moves deletes the key value pair
             if len(moves_dict[car]) == 0:
                 del moves_dict[car]
 
