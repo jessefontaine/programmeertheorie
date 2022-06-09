@@ -40,7 +40,10 @@ class Board():
 
                 # Car returns the spot that would be taken up by the move. saved if valid
                 test_pos: Tuple[int, int] = car.test_move(dir)
+                print('jjjjj', car.name ,test_pos)
                 if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] == None:
+                    print(test_pos)
+                    print(self.grid[test_pos[0]][test_pos[1]])
                     moves_dict[car].append(dir)
 
             # no possible moves deletes the key value pair
@@ -56,10 +59,14 @@ class Board():
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
     def random_final_move(self, dict):
+        for car in dict:
+            print(car.name, dict[car])
         # random choice from the dictionary
         car_move = random.choice(list(dict.items()))
         ran_choice = random.choice(car_move[1])
         car_move[0].move(ran_choice)
+        print('random')
+        self.print_move_made((car_move[0], ran_choice))
 
     def update_grid(self: Board) -> None:
         """
@@ -107,6 +114,20 @@ class Board():
             else:
                 print(move[0].name, 'D')
 
+    def move_made_to_file(self, move):
+        if move[0].orientation == 'H':
+            if move[1] < 0:
+                print(move[0].name, 'L')
+            else:
+                print(move[0].name, 'R')
+        else:
+            if move[1] < 0:
+                print(move[0].name, 'U')
+            else:
+                print(move[0].name, 'D')
+
+
+
     def win_car_move(self, moves_dict):
         if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
             self.win_car.move(1)
@@ -133,15 +154,21 @@ class Board():
                 car.move(1)
                 self.print_move_made((car, 1))
                 return True
-            elif car.orientation == 'V' and (car.position[0] == row_win_car or car.position[0] + 1 == row_win_car) and car.lenght == 2:
-                if 1 in list(moves_dict[car]):
-                    car.move(1)
-                    self.print_move_made((car, 1))
-                    return True
-                else:
-                    car.move(-1)
-                    self.print_move_made((car, -1))
-                    return True
+            elif car.orientation == 'V' and (car.position[0] == row_win_car or car.position[0] + 1 == row_win_car) and car.length == 2:
+                random_move = random.choice(list(moves_dict[car]))
+                car.move(random_move)
+                self.print_move_made((car, random_move))
+
+                return True
+
+                # if 1 in list(moves_dict[car]):
+                #     car.move(1)
+                #     self.print_move_made((car, 1))
+                #     return True
+                # else:
+                #     car.move(-1)
+                #     self.print_move_made((car, -1))
+                #     return True
 
         return False
 
