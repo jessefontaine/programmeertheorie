@@ -24,15 +24,21 @@ class Board():
         self.update_grid()
         self.print()
 
-    def possible_moves(self):
-        moves_dict = {}
+    def possible_moves(self: Board) -> dict[Car: int]:
 
+        # create dictionary to store possible moves in
+        moves_dict: dict[Car: int] = {}
+
+        # 
         for car in self.car_list:
             moves_dict[car] = []
             for dir in [-1, 1]:
                 test_pos = car.test_move(dir)
                 if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] == None:
                     moves_dict[car].append(dir)
+
+            if len(moves_dict[car]) == 0:
+                del moves_dict[car]
 
         return moves_dict
     
@@ -64,11 +70,7 @@ class Board():
                 self.grid[pos[0]][pos[1]] = car
 
     def win(self):
-        # if self.win_postition == self.win_car.position:
-        #     return True
-        # else:
         for i in range(self.win_car.position[1] + 2, self.size[1]):
-            print(i)
             if self.grid[self.win_car.position[0]][i] != None:
                 return False
 
@@ -86,14 +88,6 @@ class Board():
                 ) for sublist in self.grid]
             )
         )
-
-    def step_random(self):
-        while not self.win():
-            pos_moves = self.possible_moves()
-            self.random_final_move(pos_moves)
-            self.update_grid()
-        print('GEWONNEN')
-        self.print()
 
     def print_move_made(self, move):
         if move[0].orientation == 'H':
@@ -164,13 +158,17 @@ class Board():
     def step_random(self):
         while not self.win():
             pos_moves = self.possible_moves()
+            if self.win_car_move(pos_moves):
+                self.update_grid()
+                self.print()
+                pass
             self.random_final_move(pos_moves)
             self.update_grid()
             self.print()
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_easywin.csv")
+    a = Board("game_boards/Rushhour6x6_2.csv")
     # a.win_car_move(a.possible_moves())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
