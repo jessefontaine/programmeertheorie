@@ -70,11 +70,7 @@ class Board():
                 self.grid[pos[0]][pos[1]] = car
 
     def win(self):
-        # if self.win_postition == self.win_car.position:
-        #     return True
-        # else:
         for i in range(self.win_car.position[1] + 2, self.size[1]):
-            print(i)
             if self.grid[self.win_car.position[0]][i] != None:
                 return False
 
@@ -162,6 +158,10 @@ class Board():
     def step_random(self):
         while not self.win():
             pos_moves = self.possible_moves()
+            if self.win_car_move(pos_moves):
+                self.update_grid()
+                self.print()
+                pass
             self.random_final_move(pos_moves)
             self.update_grid()
             self.print()
