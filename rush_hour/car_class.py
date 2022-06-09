@@ -51,9 +51,9 @@ class Car():
 
         # movement up/down or left/right depending on orientation
         if self.orientation == 'H':
-            test_pos: Tuple[int, int] = (self.positions[list_index][0], self.positions[list_index][1] + direction)
+            test_pos: Tuple[int, int] = (self.position[0], self.positions[list_index][1] + direction)
         else:
-            test_pos = (self.positions[list_index][0] + direction, self.positions[list_index][1])
+            test_pos = (self.positions[list_index][0] + direction, self.position[1])
 
         return test_pos
 
