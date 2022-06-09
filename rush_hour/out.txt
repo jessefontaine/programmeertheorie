@@ -1,0 +1,4380 @@
+..AABB
+.CCDDH
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, 1)
+(0, 1)
+None
+jjjjj A (0, 4)
+jjjjj B (0, 3)
+jjjjj B (0, 6)
+jjjjj C (1, 0)
+(1, 0)
+None
+jjjjj C (1, 3)
+jjjjj D (1, 2)
+jjjjj D (1, 5)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A L
+.AA.BB
+.CCDDH
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+(0, 3)
+None
+jjjjj B (0, 3)
+(0, 3)
+None
+jjjjj B (0, 6)
+jjjjj C (1, 0)
+(1, 0)
+None
+jjjjj C (1, 3)
+jjjjj D (1, 2)
+jjjjj D (1, 5)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A L
+AA..BB
+.CCDDH
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 3)
+(0, 3)
+None
+jjjjj B (0, 6)
+jjjjj C (1, 0)
+(1, 0)
+None
+jjjjj C (1, 3)
+jjjjj D (1, 2)
+jjjjj D (1, 5)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+B L
+AA.BB.
+.CCDDH
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, 0)
+(1, 0)
+None
+jjjjj C (1, 3)
+jjjjj D (1, 2)
+jjjjj D (1, 5)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+B L
+AABB..
+.CCDDH
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, 0)
+(1, 0)
+None
+jjjjj C (1, 3)
+jjjjj D (1, 2)
+jjjjj D (1, 5)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+C L
+AABB..
+CC.DDH
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+(1, 2)
+None
+jjjjj D (1, 2)
+(1, 2)
+None
+jjjjj D (1, 5)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+D L
+AABB..
+CCDD.H
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+(1, 4)
+None
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+(1, 4)
+None
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+G U
+AABB..
+CCDDGH
+..XXGH
+EEFF.H
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+(3, 4)
+None
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+(3, 4)
+None
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+G D
+AABB..
+CCDD.H
+..XXGH
+EEFFGH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+(1, 4)
+None
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+jjjjj G (1, 4)
+(1, 4)
+None
+jjjjj G (4, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+G U
+AABB..
+CCDDGH
+..XXGH
+EEFF.H
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+(3, 4)
+None
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+(3, 4)
+None
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+G U
+AABBG.
+CCDDGH
+..XX.H
+EEFF.H
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+(3, 4)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBG.
+CCDDGH
+...XXH
+EEFF.H
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+(3, 4)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+jjjjj F (3, 1)
+jjjjj F (3, 4)
+(3, 4)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+F [1]
+H [-1]
+X [-1]
+random
+F R
+AABBG.
+CCDDGH
+...XXH
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+E [1]
+F [-1]
+H [-1]
+X [-1]
+random
+X L
+AABBG.
+CCDDGH
+..XX.H
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBG.
+CCDDGH
+...XXH
+EE.FFH
+J..KII
+J..KLL
+E [1]
+F [-1]
+G [1]
+H [-1]
+X [-1, 1]
+random
+G D
+AABB..
+CCDDGH
+...XXH
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+B [1]
+E [1]
+F [-1]
+G [-1]
+H [-1]
+X [-1]
+random
+H U
+AABB.H
+CCDDGH
+...XXH
+EE.FF.
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+B [1]
+E [1]
+F [-1, 1]
+G [-1]
+H [1]
+X [-1]
+random
+G U
+AABBGH
+CCDDGH
+...XXH
+EE.FF.
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+E [1]
+F [-1, 1]
+H [1]
+X [-1]
+random
+X L
+AABBGH
+CCDDGH
+..XX.H
+EE.FF.
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBGH
+CCDDGH
+...XXH
+EE.FF.
+J..KII
+J..KLL
+E [1]
+F [-1, 1]
+G [1]
+H [1]
+X [-1, 1]
+random
+H D
+AABBG.
+CCDDGH
+...XXH
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+E [1]
+F [-1]
+H [-1]
+X [-1]
+random
+X L
+AABBG.
+CCDDGH
+..XX.H
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBG.
+CCDDGH
+...XXH
+EE.FFH
+J..KII
+J..KLL
+E [1]
+F [-1]
+G [1]
+H [-1]
+X [-1, 1]
+random
+E R
+AABBG.
+CCDDGH
+...XXH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+E [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+J U
+AABBG.
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+H [-1]
+J [-1, 1]
+X [-1]
+random
+H U
+AABBGH
+CCDDGH
+...XXH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+J U
+AABBGH
+CCDDGH
+J..XXH
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+F [1]
+H [1]
+J [1]
+X [-1]
+random
+X L
+AABBGH
+CCDDGH
+J.XX.H
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBGH
+CCDDGH
+J..XXH
+JEEFF.
+...KII
+...KLL
+F [1]
+G [1]
+H [1]
+J [1]
+X [-1, 1]
+random
+G D
+AABB.H
+CCDDGH
+J..XXH
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+B [1]
+F [1]
+G [-1]
+H [1]
+J [1]
+X [-1]
+random
+H D
+AABB..
+CCDDGH
+J..XXH
+JEEFFH
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+B [1]
+G [-1]
+H [-1]
+J [1]
+X [-1]
+random
+J D
+AABB..
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+B [1]
+G [-1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+G U
+AABBG.
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+H [-1]
+J [-1, 1]
+X [-1]
+random
+H U
+AABBGH
+CCDDGH
+...XXH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+J U
+AABBGH
+CCDDGH
+J..XXH
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+F [1]
+H [1]
+J [1]
+X [-1]
+random
+X L
+AABBGH
+CCDDGH
+J.XX.H
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBGH
+CCDDGH
+J..XXH
+JEEFF.
+...KII
+...KLL
+F [1]
+G [1]
+H [1]
+J [1]
+X [-1, 1]
+random
+J D
+AABBGH
+CCDDGH
+...XXH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+F R
+AABBGH
+CCDDGH
+...XXH
+JEE.FF
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+(3, 3)
+None
+jjjjj F (3, 3)
+(3, 3)
+None
+jjjjj F (3, 6)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+(3, 3)
+None
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+E [1]
+F [-1]
+J [-1, 1]
+K [-1]
+X [-1]
+random
+F L
+AABBGH
+CCDDGH
+...XXH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+J D
+AABBGH
+CCDDGH
+...XXH
+.EEFF.
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+E [-1]
+F [1]
+H [1]
+J [-1]
+X [-1]
+random
+X L
+AABBGH
+CCDDGH
+..XX.H
+.EEFF.
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBGH
+CCDDGH
+...XXH
+.EEFF.
+J..KII
+J..KLL
+E [-1]
+F [1]
+G [1]
+H [1]
+J [-1]
+X [-1, 1]
+random
+X L
+AABBGH
+CCDDGH
+..XX.H
+.EEFF.
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBGH
+CCDDGH
+...XXH
+.EEFF.
+J..KII
+J..KLL
+E [-1]
+F [1]
+G [1]
+H [1]
+J [-1]
+X [-1, 1]
+random
+H D
+AABBG.
+CCDDGH
+...XXH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+E [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+X L
+AABBG.
+CCDDGH
+..XX.H
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBG.
+CCDDGH
+...XXH
+.EEFFH
+J..KII
+J..KLL
+E [-1]
+G [1]
+H [-1]
+J [-1]
+X [-1, 1]
+random
+G D
+AABB..
+CCDDGH
+...XXH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+B [1]
+E [-1]
+G [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+X L
+AABB..
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+B [1]
+E [-1]
+G [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+J U
+AABB..
+CCDDGH
+..XXGH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+B [1]
+G [-1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+B R
+AA.BB.
+CCDDGH
+..XXGH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1, 1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+X L
+AA.BB.
+CCDDGH
+.XX.GH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 0)
+(2, 0)
+None
+jjjjj X (2, 3)
+(2, 3)
+None
+X R
+AA.BB.
+CCDDGH
+..XXGH
+JEEFFH
+J..KII
+...KLL
+A [1]
+B [-1, 1]
+H [-1]
+J [-1, 1]
+X [-1, 1]
+random
+J D
+AA.BB.
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1, 1]
+E [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+X L
+AA.BB.
+CCDDGH
+.XX.GH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 0)
+(2, 0)
+None
+jjjjj X (2, 3)
+(2, 3)
+None
+X R
+AA.BB.
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+A [1]
+B [-1, 1]
+E [-1]
+H [-1]
+J [-1]
+X [-1, 1]
+random
+X L
+AA.BB.
+CCDDGH
+.XX.GH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 0)
+(2, 0)
+None
+jjjjj X (2, 3)
+(2, 3)
+None
+X R
+AA.BB.
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+A [1]
+B [-1, 1]
+E [-1]
+H [-1]
+J [-1]
+X [-1, 1]
+random
+A R
+.AABB.
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+B [1]
+E [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+B R
+.AA.BB
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+(0, 3)
+None
+jjjjj B (0, 3)
+(0, 3)
+None
+jjjjj B (0, 6)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1, 1]
+B [-1]
+E [-1]
+J [-1]
+X [-1]
+random
+B L
+.AABB.
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+B [1]
+E [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+E L
+.AABB.
+CCDDGH
+..XXGH
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+B [1]
+E [1]
+F [-1]
+H [-1]
+X [-1]
+random
+B R
+.AA.BB
+CCDDGH
+..XXGH
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+(0, 3)
+None
+jjjjj B (0, 3)
+(0, 3)
+None
+jjjjj B (0, 6)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1, 1]
+B [-1]
+E [1]
+F [-1]
+X [-1]
+random
+B L
+.AABB.
+CCDDGH
+..XXGH
+EE.FFH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+B [1]
+E [1]
+F [-1]
+H [-1]
+X [-1]
+random
+E R
+.AABB.
+CCDDGH
+..XXGH
+.EEFFH
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+B [1]
+E [-1]
+H [-1]
+J [-1]
+X [-1]
+random
+H U
+.AABBH
+CCDDGH
+..XXGH
+.EEFF.
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+E [-1]
+F [1]
+H [1]
+J [-1]
+X [-1]
+random
+E L
+.AABBH
+CCDDGH
+..XXGH
+EE.FF.
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 2)
+(3, 2)
+None
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+E [1]
+F [-1, 1]
+H [1]
+X [-1]
+random
+F R
+.AABBH
+CCDDGH
+..XXGH
+EE..FF
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, -1)
+jjjjj E (3, 2)
+(3, 2)
+None
+jjjjj F (3, 3)
+(3, 3)
+None
+jjjjj F (3, 6)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+(3, 3)
+None
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+E [1]
+F [-1]
+K [-1]
+X [-1]
+random
+E R
+.AABBH
+CCDDGH
+..XXGH
+.EE.FF
+J..KII
+J..KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+(3, 0)
+None
+jjjjj E (3, 3)
+(3, 3)
+None
+jjjjj F (3, 3)
+(3, 3)
+None
+jjjjj F (3, 6)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (3, 0)
+(3, 0)
+None
+jjjjj J (6, 0)
+jjjjj K (3, 3)
+(3, 3)
+None
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+E [-1, 1]
+F [-1]
+J [-1]
+K [-1]
+X [-1]
+random
+J U
+.AABBH
+CCDDGH
+..XXGH
+JEE.FF
+J..KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+(3, 3)
+None
+jjjjj F (3, 3)
+(3, 3)
+None
+jjjjj F (3, 6)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+(3, 3)
+None
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+E [1]
+F [-1]
+J [-1, 1]
+K [-1]
+X [-1]
+random
+K U
+.AABBH
+CCDDGH
+..XXGH
+JEEKFF
+J..KII
+....LL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 3)
+jjjjj F (3, 6)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (2, 3)
+jjjjj K (5, 3)
+(5, 3)
+None
+jjjjj L (5, 3)
+(5, 3)
+None
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+J [-1, 1]
+K [1]
+L [-1]
+X [-1]
+random
+A L
+AA.BBH
+CCDDGH
+..XXGH
+JEEKFF
+J..KII
+....LL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 3)
+jjjjj F (3, 6)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (2, 3)
+jjjjj K (5, 3)
+(5, 3)
+None
+jjjjj L (5, 3)
+(5, 3)
+None
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1]
+J [-1, 1]
+K [1]
+L [-1]
+X [-1]
+random
+K D
+AA.BBH
+CCDDGH
+..XXGH
+JEE.FF
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+(3, 3)
+None
+jjjjj F (3, 3)
+(3, 3)
+None
+jjjjj F (3, 6)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+(3, 3)
+None
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1]
+E [1]
+F [-1]
+J [-1, 1]
+K [-1]
+X [-1]
+random
+F L
+AA.BBH
+CCDDGH
+..XXGH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+A R
+.AABBH
+CCDDGH
+..XXGH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+J U
+.AABBH
+CCDDGH
+J.XXGH
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+F [1]
+H [1]
+J [1]
+X [-1]
+random
+X L
+.AABBH
+CCDDGH
+JXX.GH
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 0)
+jjjjj X (2, 3)
+(2, 3)
+None
+X R
+.AABBH
+CCDDGH
+J.XXGH
+JEEFF.
+...KII
+...KLL
+A [-1]
+F [1]
+H [1]
+J [1]
+X [1]
+random
+H D
+.AABB.
+CCDDGH
+J.XXGH
+JEEFFH
+...KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+B [1]
+H [-1]
+J [1]
+X [-1]
+random
+A L
+AA.BB.
+CCDDGH
+J.XXGH
+JEEFFH
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1, 1]
+H [-1]
+J [1]
+X [-1]
+random
+H U
+AA.BBH
+CCDDGH
+J.XXGH
+JEEFF.
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1]
+F [1]
+H [1]
+J [1]
+X [-1]
+random
+J D
+AA.BBH
+CCDDGH
+..XXGH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+A R
+.AABBH
+CCDDGH
+..XXGH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+X L
+.AABBH
+CCDDGH
+.XX.GH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 0)
+(2, 0)
+None
+jjjjj X (2, 3)
+(2, 3)
+None
+X R
+.AABBH
+CCDDGH
+..XXGH
+JEEFF.
+J..KII
+...KLL
+A [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1, 1]
+random
+X R
+.AABBH
+CCDDGH
+...XXH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+H D
+.AABB.
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, 0)
+(0, 0)
+None
+jjjjj A (0, 3)
+jjjjj B (0, 2)
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [-1]
+B [1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+A L
+AA.BB.
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [1]
+B [-1, 1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+B R
+AA..BB
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 3)
+(0, 3)
+None
+jjjjj B (0, 6)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [1]
+B [-1]
+J [-1, 1]
+X [-1]
+random
+B L
+AA.BB.
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [1]
+B [-1, 1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+J U
+AA.BB.
+CCDDGH
+J..XXH
+JEEFFH
+...KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (1, 0)
+jjjjj J (4, 0)
+(4, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [1]
+B [-1, 1]
+H [-1]
+J [1]
+X [-1]
+random
+J D
+AA.BB.
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+(0, 5)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [1]
+B [-1, 1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+H U
+AA.BBH
+CCDDGH
+...XXH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 2)
+(2, 2)
+None
+jjjjj X (2, 5)
+A [1]
+B [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+X L
+AA.BBH
+CCDDGH
+..XXGH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+(0, 2)
+None
+jjjjj B (0, 2)
+(0, 2)
+None
+jjjjj B (0, 5)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+A [1]
+B [-1]
+F [1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+B L
+AABB.H
+CCDDGH
+..XXGH
+JEEFF.
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+(3, 5)
+None
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (-1, 5)
+jjjjj H (3, 5)
+(3, 5)
+None
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+B [1]
+F [1]
+G [-1]
+H [1]
+J [-1, 1]
+X [-1]
+random
+H D
+AABB..
+CCDDGH
+..XXGH
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+(0, 4)
+None
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (0, 4)
+(0, 4)
+None
+jjjjj G (3, 4)
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+B [1]
+G [-1]
+H [-1]
+J [-1, 1]
+X [-1]
+random
+G U
+AABBG.
+CCDDGH
+..XX.H
+JEEFFH
+J..KII
+...KLL
+jjjjj A (0, -1)
+jjjjj A (0, 2)
+jjjjj B (0, 1)
+jjjjj B (0, 4)
+jjjjj C (1, -1)
+jjjjj C (1, 2)
+jjjjj D (1, 1)
+jjjjj D (1, 4)
+jjjjj E (3, 0)
+jjjjj E (3, 3)
+jjjjj F (3, 2)
+jjjjj F (3, 5)
+jjjjj G (-1, 4)
+jjjjj G (2, 4)
+(2, 4)
+None
+jjjjj H (0, 5)
+(0, 5)
+None
+jjjjj H (4, 5)
+jjjjj I (4, 3)
+jjjjj I (4, 6)
+jjjjj J (2, 0)
+(2, 0)
+None
+jjjjj J (5, 0)
+(5, 0)
+None
+jjjjj K (3, 3)
+jjjjj K (6, 3)
+jjjjj L (5, 3)
+jjjjj L (5, 6)
+jjjjj X (2, 1)
+(2, 1)
+None
+jjjjj X (2, 4)
+(2, 4)
+None
+X R
+AABBG.
+CCDDGH
+...XXH
+JEEFFH
+J..KII
+...KLL
+G [1]
+H [-1]
+J [-1, 1]
+X [-1, 1]
+random
+X R
+AABBG.
+CCDDGH
+....XX
+JEEFFH
+J..KII
+...KLL
+GEWONNEN
