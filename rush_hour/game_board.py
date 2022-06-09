@@ -40,15 +40,14 @@ class Board():
 
                 # Car returns the spot that would be taken up by the move. saved if valid
                 test_pos: Tuple[int, int] = car.test_move(dir)
-                print('jjjjj', car.name ,test_pos)
                 if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] == None:
-                    print(test_pos)
-                    print(self.grid[test_pos[0]][test_pos[1]])
                     moves_dict[car].append(dir)
 
             # no possible moves deletes the key value pair
             if len(moves_dict[car]) == 0:
                 del moves_dict[car]
+
+            print('===================================', car.name)
 
         return moves_dict
     
@@ -65,7 +64,6 @@ class Board():
         car_move = random.choice(list(dict.items()))
         ran_choice = random.choice(car_move[1])
         car_move[0].move(ran_choice)
-        print('random')
         self.print_move_made((car_move[0], ran_choice))
 
     def update_grid(self: Board) -> None:
@@ -80,7 +78,8 @@ class Board():
 
         # loop through every cars occupied positions and place car object on grid
         for car in self.car_list:
-            for pos in car.positions:
+            for pos in car.positions:   
+                print(car.positions)
                 self.grid[pos[0]][pos[1]] = car
 
     def win(self):
@@ -125,8 +124,6 @@ class Board():
                 print(move[0].name, 'U')
             else:
                 print(move[0].name, 'D')
-
-
 
     def win_car_move(self, moves_dict):
         if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
@@ -182,22 +179,25 @@ class Board():
             elif self.cars_move_vertical(pos_moves):
                 pass
             else:
-                self.step_random()
+                self.step_random(pos_moves)
                 break
             self.update_grid()
             self.print()
         print('GEWONNEN')
 
-    def step_random(self):
+    def step_random(self, pos_moves=None):
         while not self.win():
-            pos_moves = self.possible_moves()
+
+            if pos_moves == None:
+                pos_moves = self.possible_moves()
+            
             if self.win_car_move(pos_moves):
                 self.update_grid()
                 self.print()
-                pass
-            self.random_final_move(pos_moves)
-            self.update_grid()
-            self.print()
+            else: 
+                self.random_final_move(pos_moves)
+                self.update_grid()
+                self.print()
         
 
 if __name__ == "__main__":
