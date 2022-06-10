@@ -10,7 +10,7 @@ class Board():
     def __init__(self: Board, filepath: str) -> None:
 
         # parse board size from filename
-        size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+        size = re.findall("[0-9]+x[0-9]+", filepath)[0].split('x')
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         self.car_list: List[Car] = loader(filepath)
@@ -123,7 +123,8 @@ class Board():
     def win_car_move(self, moves_dict):
         if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
             self.win_car.move(1)
-            # self.print_move_made((self.win_car, 1))
+            self.print_move_made((self.win_car, 1))
+            self.move_made_to_file((self.win_car.name, 1))
             return True
 
         return False
@@ -196,18 +197,22 @@ class Board():
 
             self.update_grid()
             # print(self.moves_made)
+
+        while self.win_car.position != self.win_postition:
+            pos_moves = self.possible_moves()
+            self.win_car_move(pos_moves)
             
         print('GEWONNEN')
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_1.csv")
+    a = Board("game_boards/Rushhour12x12_7.csv")
 
     a.step_random()
 
     import pandas
 
-    
+
 
     pandas.DataFrame(a.moves_made, columns=['car', 'move']).to_csv('output.csv', index=False)
     # print(moves)
