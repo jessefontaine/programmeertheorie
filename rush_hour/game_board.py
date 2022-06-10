@@ -24,7 +24,7 @@ class Board():
 
         # setup first grid and print
         self.update_grid()
-        self.print()
+        # self.print()
 
     def possible_moves(self: Board) -> dict[Car, List[int]]:
         """
@@ -134,7 +134,7 @@ class Board():
         for car in moves_dict:
             if car.orientation == 'H' and -1 in list(moves_dict[car]) and car.name != "X":
                 car.move(-1)
-                self.print_move_made((car, -1))
+                # self.print_move_made((car, -1))
                 return True
 
         return False
@@ -145,12 +145,12 @@ class Board():
         for car in moves_dict:
             if car.orientation == 'V' and car.length == 3 and 1 in list(moves_dict[car]):
                 car.move(1)
-                self.print_move_made((car, 1))
+                # self.print_move_made((car, 1))
                 return True
             elif car.orientation == 'V' and (car.position[0] == row_win_car or car.position[0] + 1 == row_win_car) and car.length == 2:
                 random_move = random.choice(list(moves_dict[car]))
                 car.move(random_move)
-                self.print_move_made((car, random_move))
+                # self.print_move_made((car, random_move))
 
                 return True
 
@@ -179,7 +179,7 @@ class Board():
                 break
             self.update_grid()
             # self.print()
-        print('GEWONNEN')
+        # print('GEWONNEN')
 
     def step_random(self, pos_moves=None):
         while not self.win():
@@ -202,7 +202,7 @@ class Board():
             pos_moves = self.possible_moves()
             self.win_car_move(pos_moves)
             
-        print('GEWONNEN')
+        # print('GEWONNEN')
         
 
 if __name__ == "__main__":
