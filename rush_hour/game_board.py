@@ -195,7 +195,7 @@ class Board():
                 # self.print()
 
             self.update_grid()
-            print(self.moves_made)
+            # print(self.moves_made)
             
         print('GEWONNEN')
         
@@ -205,3 +205,7 @@ if __name__ == "__main__":
 
     a.step_random()
 
+    import pandas
+
+    pandas.DataFrame(a.moves_made, columns=['car', 'move']).to_csv('output.csv', index=False)
+    # print(moves)
