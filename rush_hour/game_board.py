@@ -47,7 +47,7 @@ class Board():
             if len(moves_dict[car]) == 0:
                 del moves_dict[car]
 
-            print('===================================', car.name)
+            # print('===================================', car.name)
 
         return moves_dict
     
@@ -181,41 +181,27 @@ class Board():
                 self.step_random(pos_moves)
                 break
             self.update_grid()
-            self.print()
+            # self.print()
         print('GEWONNEN')
 
     def step_random(self, pos_moves=None):
         while not self.win():
 
-            if pos_moves == None:
-                pos_moves = self.possible_moves()
+            # if pos_moves == None:
+            pos_moves = self.possible_moves()
             
             if self.win_car_move(pos_moves):
                 self.update_grid()
-                self.print()
+                # self.print()
             else: 
                 self.random_final_move(pos_moves)
                 self.update_grid()
-                self.print()
+                # self.print()
+        print('GEWONNEN')
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_1.csv")
-    # a.win_car_move(a.possible_moves())
-    # a.random_final_move(a.possible_moves())
-    # a.update_grid()
-    a.step()
+    a = Board("game_boards/Rushhour6x6_easywin.csv")
 
-    # print(' ')
-    # a.print()
-    # a.cars_to_left(a.possible_moves())
-    # a.update_grid()
-
-
-    # print(a.win())
-    # a.random_final_move(a.possible_moves())
-    # a.update_grid()
-    # print(a.win())
-    # a.random_final_move(a.possible_moves())
-    # a.update_grid()
+    a.step_random()
 
