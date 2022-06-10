@@ -10,7 +10,7 @@ class Board():
     def __init__(self: Board, filepath: str) -> None:
 
         # parse board size from filename
-        size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
+        size = re.findall("[0-9]+x[0-9]+", filepath)[0].split('x')
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         self.car_list: List[Car] = loader(filepath)
@@ -206,11 +206,10 @@ class Board():
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_1.csv")
+    a = Board("game_boards/Rushhour12x12_7.csv")
 
     a.step_random()
 
     import pandas
-
     pandas.DataFrame(a.moves_made, columns=['car', 'move']).to_csv('output.csv', index=False)
     # print(moves)
