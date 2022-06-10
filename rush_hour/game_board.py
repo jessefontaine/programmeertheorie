@@ -124,6 +124,7 @@ class Board():
         if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
             self.win_car.move(1)
             self.print_move_made((self.win_car, 1))
+            self.move_made_to_file((self.win_car.name, 1))
             return True
 
         return False
@@ -196,12 +197,16 @@ class Board():
 
             self.update_grid()
             # print(self.moves_made)
+
+        while self.win_car.position != self.win_postition:
+            pos_moves = self.possible_moves()
+            self.win_car_move(pos_moves)
             
         print('GEWONNEN')
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_easywin.csv")
+    a = Board("game_boards/Rushhour6x6_1.csv")
 
     a.step_random()
 
