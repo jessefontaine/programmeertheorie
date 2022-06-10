@@ -200,7 +200,7 @@ class Board():
         
 
 if __name__ == "__main__":
-    a = Board("game_boards/Rushhour6x6_2.csv")
+    a = Board("game_boards/Rushhour6x6_1.csv")
     # a.win_car_move(a.possible_moves())
     # a.random_final_move(a.possible_moves())
     # a.update_grid()
