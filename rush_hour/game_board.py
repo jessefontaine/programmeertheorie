@@ -211,8 +211,5 @@ if __name__ == "__main__":
     a.step_random()
 
     import pandas
-
-
-
     pandas.DataFrame(a.moves_made, columns=['car', 'move']).to_csv('output.csv', index=False)
     # print(moves)
