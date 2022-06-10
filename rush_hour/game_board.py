@@ -68,7 +68,7 @@ class Board():
         car_move = random.choice(list(dict.items()))
         ran_choice = random.choice(car_move[1])
         car_move[0].move(ran_choice)
-        # self.print_move_made((car_move[0], ran_choice))
+        #self.print_move_made((car_move[0], ran_choice))
         self.move_made_to_file((car_move[0].name, ran_choice))
 
     def update_grid(self: Board) -> None:
@@ -123,7 +123,7 @@ class Board():
     def win_car_move(self, moves_dict):
         if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
             self.win_car.move(1)
-            self.print_move_made((self.win_car, 1))
+            #self.print_move_made((self.win_car, 1))
             self.move_made_to_file((self.win_car.name, 1))
             return True
 
