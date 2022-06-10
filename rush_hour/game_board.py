@@ -24,7 +24,7 @@ class Board():
 
         # setup first grid and print
         self.update_grid()
-        self.print()
+        # self.print()
 
     def possible_moves(self: Board) -> dict[Car, List[int]]:
         """
@@ -179,7 +179,7 @@ class Board():
                 break
             self.update_grid()
             # self.print()
-        print('GEWONNEN')
+        # print('GEWONNEN')
 
     def step_random(self, pos_moves=None):
         while not self.win():
@@ -202,7 +202,7 @@ class Board():
             pos_moves = self.possible_moves()
             self.win_car_move(pos_moves)
             
-        print('GEWONNEN')
+        # print('GEWONNEN')
         
 
 if __name__ == "__main__":
