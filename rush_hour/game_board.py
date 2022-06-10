@@ -14,6 +14,7 @@ class Board():
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         self.car_list: List[Car] = loader(filepath)
+        self.moves_made: List[Tuple[str, int]] = []
 
         # save position when game should finished
         for car in self.car_list:
@@ -68,6 +69,7 @@ class Board():
         ran_choice = random.choice(car_move[1])
         car_move[0].move(ran_choice)
         self.print_move_made((car_move[0], ran_choice))
+        self.move_made_to_file((car_move[0].name, ran_choice))
 
     def update_grid(self: Board) -> None:
         """
@@ -116,16 +118,7 @@ class Board():
                 print(move[0].name, 'D')
 
     def move_made_to_file(self, move):
-        if move[0].orientation == 'H':
-            if move[1] < 0:
-                print(move[0].name, 'L')
-            else:
-                print(move[0].name, 'R')
-        else:
-            if move[1] < 0:
-                print(move[0].name, 'U')
-            else:
-                print(move[0].name, 'D')
+        self.moves_made.append(move)
 
     def win_car_move(self, moves_dict):
         if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
@@ -193,13 +186,17 @@ class Board():
             # if pos_moves == None:
             pos_moves = self.possible_moves()
             
-            if self.win_car_move(pos_moves):
-                self.update_grid()
+            # if self.win_car_move(pos_moves):
+            #     #self.update_grid()
+            #     # self.print()
+            # else: 
+            self.random_final_move(pos_moves)
+                #self.update_grid()
                 # self.print()
-            else: 
-                self.random_final_move(pos_moves)
-                self.update_grid()
-                # self.print()
+
+            self.update_grid()
+            print(self.moves_made)
+            
         print('GEWONNEN')
         
 
