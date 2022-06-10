@@ -11,12 +11,18 @@ class Car():
         row: Union[int, str], 
         length: Union[int, str]
         ) -> None:
+        """
+            Instantiate car object with given parameters. 
+            Requires orientation the be either 'V' or 'H'.
+        """
 
+        # save object variables
         self.name: str = name
         self.position: Tuple[int, int] = (int(row) - 1, int(col) - 1)
         self.orientation: str = orientation
         self.length: int = int(length)
 
+        # create list of all positions on the grid the car takes up
         self.positions_update()
 
     def positions_update(self: Car) -> None:
@@ -40,8 +46,11 @@ class Car():
             Requires non-zero direction parameter.
         """
 
-        # force proper usage
-        assert direction != 0, 'testing direction cannot be 0'
+        # ensure proper usage
+        if not isinstance(direction, int):
+            raise TypeError('Direction must be of type \'int\'.')
+        if direction == 0:
+            raise ValueError('Direction must be non-zero.')
 
         # derive index of self.positions list that is the in the movement direction
         if direction > 0:
@@ -65,6 +74,12 @@ class Car():
             up or to the right, while negative integers will move down or to the left (all
             with respect to cars orientation).
         """
+
+        # ensure proper usage
+        if not isinstance(move, int):
+            raise TypeError('Move must be of type \'int\'.')
+        if move == 0:
+            raise ValueError('Value for move must be non-zero.')
 
         # change position depending on cars orientation
         if self.orientation == 'H':
