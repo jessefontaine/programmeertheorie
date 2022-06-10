@@ -1,5 +1,6 @@
 from game_board import *
 import pandas
+import matplotlib.pyplot as plt
 
 
 def batch_run(filepath):
@@ -13,4 +14,8 @@ def batch_run(filepath):
 
     return list_amount_of_moves
 
-print(batch_run("game_boards/Rushhour6x6_1.csv"))
+#print(batch_run("game_boards/Rushhour6x6_1.csv"))
+
+plt.hist(batch_run("game_boards/Rushhour6x6_1.csv"))
+
+plt.savefig("plots/Rushour6x6_1_10.png")
