@@ -13,18 +13,23 @@ class Board():
         size = re.findall("[0-9]x[0-9]", filepath)[0].split('x')
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
-        self.car_list = loader(filepath)
+        self.car_list: List[Car] = loader(filepath)
 
         # save position when game should finished
         for car in self.car_list:
             if car.name == "X":
-                self.win_postition = (car.position[0], self.size[1] - 2)
-                self.win_car = car
+                self.win_postition: Tuple[int, int] = (car.position[0], self.size[1] - 2)
+                self.win_car: Car = car
 
+        # setup first grid and print
         self.update_grid()
         self.print()
 
     def possible_moves(self: Board) -> dict[Car, List[int]]:
+        """
+            Returns a dictionary with all cars that can move in the current board setup
+            and the directions they can move in.
+        """
 
         # create dictionary to store possible moves in
         moves_dict: dict[Car, List[int]] = {}
@@ -46,8 +51,6 @@ class Board():
             # no possible moves deletes the key value pair
             if len(moves_dict[car]) == 0:
                 del moves_dict[car]
-
-            # print('===================================', car.name)
 
         return moves_dict
     
@@ -97,7 +100,7 @@ class Board():
                 [''.join(
                     ['.' if cell == None else cell.name for cell in sublist]
                 ) for sublist in self.grid]
-            ), '\n---------------------------'
+            ), '\n' + self.size[0] * '#'
         )
 
     def print_move_made(self, move):
