@@ -58,8 +58,8 @@ class Board():
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
     def random_final_move(self, dict):
-        for car in dict:
-            print(car.name, dict[car])
+        # for car in dict:
+        #     print(car.name, dict[car])
         # random choice from the dictionary
         car_move = random.choice(list(dict.items()))
         ran_choice = random.choice(car_move[1])
@@ -78,8 +78,7 @@ class Board():
 
         # loop through every cars occupied positions and place car object on grid
         for car in self.car_list:
-            for pos in car.positions:   
-                print(car.positions)
+            for pos in car.positions:
                 self.grid[pos[0]][pos[1]] = car
 
     def win(self):
