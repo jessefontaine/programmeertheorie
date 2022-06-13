@@ -53,8 +53,19 @@ class First_Alg():
 
         return False
 
+    def move_random(self: First_Alg) -> Tuple[Car, int]:
+        """
+            Returns a random move; a tuple with car object and the direction.
+            Requires a dictionary with all possible moves.
+        """
+
+        # chooses random move from dictionary
+        car_move: Car = random.choice(list(self.board.moves_dict.keys()))
+        ran_choice = random.choice(self.board.moves_dict[car_move])
+
+        return (car_move, ran_choice)
+
     def step(self):
-        print(self.board)
         while not self.board.win():
             if self.move_win_car():
                 pass
@@ -62,7 +73,9 @@ class First_Alg():
                 pass
             elif self.cars_vertical():
                 pass
-            print(self.board)
+            else:
+                while not self.board.win():
+                    self.moves_made.append(self.board.make_move(*self.move_random()))
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
