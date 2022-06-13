@@ -1,14 +1,13 @@
 from __future__ import annotations
-from logging import exception
 from typing import Tuple, List, Dict
 from .car import Car
 from csv import DictReader
-import random
 import re
 
 
 class ImpossibleMoveError(Exception):
     pass
+
 
 class Board():
 
@@ -19,7 +18,7 @@ class Board():
             of the game-board, i.e. 6x6 or 12x12 (with no numbers adjacent to this part
             of the name!).
         """
-        
+
         # parse board size from filename
         size = re.findall("[0-9]+x[0-9]+", filepath)[0].split('x')
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
@@ -43,7 +42,7 @@ class Board():
         """
 
         # make grid with car object names and dots for empty spaces
-        rep = '\n'.join([''.join(['.' if cell == None else cell.name for cell in sublist]) for sublist in self.grid])
+        rep = '\n'.join([''.join(['.' if cell is None else cell.name for cell in sublist]) for sublist in self.grid])
         return rep
 
     def loader(self, filepath):
@@ -106,7 +105,7 @@ class Board():
 
                 # Car returns the spot that would be taken up by the move. saved if valid
                 test_pos: Tuple[int, int] = car.test_move(dir)
-                if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] == None:
+                if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] is None:
                     self.moves_dict[car].append(dir)
 
             # no possible moves deletes the key value pair
@@ -134,7 +133,7 @@ class Board():
 
         if move not in self.moves_dict[car]:
             raise ImpossibleMoveError('Given move is not possible with current board setup!')
-        
+
         car.move(move)
         self.update_grid()
 
@@ -146,7 +145,7 @@ class Board():
 
     def win(self) -> bool:
         for i in range(self.win_car.position[1] + 2, self.size[1]):
-            if self.grid[self.win_car.position[0]][i] != None:
+            if self.grid[self.win_car.position[0]][i] is not None:
                 return False
 
         return True
@@ -156,5 +155,3 @@ class Board():
             self.possible_moves()
             self.make_move(self.win_car, 1)
             self.update_grid()
-
-
