@@ -5,51 +5,44 @@ import matplotlib.pyplot as plt
 import os
 import pandas
 
-from code import *
+# from code.classes import Board
+# from code.algorithms import *
+from code.classes import Board
+from code.algorithms import *
+from code.functions import batch_runner
+
+# from code import algorithms
+
+# from code.algorithms.random_alg import Random_Alg
+# from code.functions.functions import batch_runner
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int):
 
+    board = Board(infile)
+
+    if mode == 'random':
+        algorithm = Random_Alg(board)
+    else:
+        print("TODO")
     
-
-
-    amt_list = batch_run(infile, runs)
-
-    # plot all runs
-    plt.hist(amt_list, density=True)
+    amount_moves, moves_made = batch_runner(algorithm, runs)
 
     try:
         os.makedirs(outfolder)
     except FileExistsError:
         pass
 
+    # plot all runs
+    plt.hist(amount_moves, density=True)
+
     plt.savefig(
         f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}.png")
 
     # convert to str and write to file
-    amt_list = [str(x) for x in amt_list]
+    amount_moves = [str(x) for x in amount_moves]
     with open(f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}.txt", 'w') as file:
-        file.write('\n'.join(amt_list))
-
-
-def batch_run(filepath, runs):
-    list_amount_of_moves = []
-
-    for i in range(runs):
-        # game = Board(filepath)
-        # game.step_random()
-        game = Board(filepath)
-        alg = Random_Alg(game)
-        alg.step()
-        df = pandas.DataFrame(game.moves_made, columns=['car', 'move'])
-        list_amount_of_moves.append(len(df.index))
-        print(f"run {i}/{runs}", end='\r')
-
-    print('\n')
-
-    return list_amount_of_moves
-
-#print(batch_run("game_boards/Rushhour6x6_1.csv"))
+        file.write('\n'.join(amount_moves))
 
 
 if __name__ == "__main__":

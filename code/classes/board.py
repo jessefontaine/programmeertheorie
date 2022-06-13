@@ -121,7 +121,21 @@ class Board():
         """
             Returns bool, true if position is on the grid.
         """
+        
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
+
+    def reset_board(self: Board) -> None:
+        """
+            Resets the board to it's original setup. Also clears all moves made.
+        """
+
+        # set all cars back to start position
+        for car in list(self.cars.values()):
+            car.reset_car()
+
+        # clear moves made and reset grid
+        self.moves_made = []
+        self._update_grid()
 
     def make_move(self: Board, car: Car, move: int) -> Tuple[str, int]:
         """

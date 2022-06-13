@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import Tuple, List
 
-from ..classes import Board, Car
+from ..classes import *
 
 
 class Random_Alg():
@@ -36,3 +36,6 @@ class Random_Alg():
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
+
+        # store amount of moves
+        self.moves_amount: int = len(self.moves_made)

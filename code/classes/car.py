@@ -20,14 +20,15 @@ class Car():
 
         # save object variables
         self.name: str = name
+        self.start_position: Tuple[int, int] = (int(row) - 1, int(col) - 1)
         self.position: Tuple[int, int] = (int(row) - 1, int(col) - 1)
         self.orientation: str = orientation
         self.length: int = int(length)
 
         # create list of all positions on the grid the car takes up
-        self.positions_update()
+        self._positions_update()
 
-    def positions_update(self: Car) -> None:
+    def _positions_update(self: Car) -> None:
         """
             Method updates the list of all positions the car object takes up on the game
             board.
@@ -39,6 +40,13 @@ class Car():
             (self.position[0] + i, self.position[1])
             for i in range(self.length)
         ]
+
+    def reset_car(self: Car) -> None:
+        """
+            Resets the car to it's original position.
+        """
+        self.position = self.start_position
+        self._positions_update()
 
     def test_move(self: Car, direction: int) -> Tuple[int, int]:
         """
@@ -90,4 +98,4 @@ class Car():
             self.position = (self.position[0] + move, self.position[1])
 
         # update the positions the car takes up
-        self.positions_update()
+        self._positions_update()

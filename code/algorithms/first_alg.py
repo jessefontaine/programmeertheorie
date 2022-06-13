@@ -104,7 +104,7 @@ class First_Alg():
             i += 1
 
 
-    def step(self: First_Alg) -> None:
+    def run_algorithm(self: First_Alg) -> None:
         """
             Runs the algoritm until the game is won.
             Makes use of moving win car to right, all horizontal cars to left,
