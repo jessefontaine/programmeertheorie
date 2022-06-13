@@ -20,10 +20,10 @@ def batch_run(filepath, runs):
 amt_list = batch_run("game_boards/Rushhour9x9_5.csv", 10000)
 
 # plot all runs
-plt.hist(amt_list, density=True, bins=50)
-plt.savefig("plots/Rushour9x9_5_10000.png")
+plt.hist(amt_list, density=True)
+plt.savefig("plots/Rushour6x6_1_10000.png")
 
 # convert to str and write to file
 amt_list = [str(x) for x in amt_list]
-with open('batch_run.txt', 'w') as file:
+with open('batch_run_1_10000.txt', 'w') as file:
     file.write('\n'.join(amt_list))
