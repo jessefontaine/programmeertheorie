@@ -18,7 +18,7 @@ def batch_run(filepath, runs):
 #print(batch_run("game_boards/Rushhour6x6_1.csv"))
 
 # batch run
-amt_list = batch_run("game_boards/Rushhour6x6_1.csv", 10000)
+amt_list = batch_run("game_boards/Rushhour6x6_1.csv", 10)
 
 # plot all runs
 plt.hist(amt_list, density=True)
