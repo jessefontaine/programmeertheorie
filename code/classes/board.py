@@ -37,6 +37,15 @@ class Board():
         # setup first grid
         self.update_grid()
 
+    def __str__(self: Board) -> str:
+        """
+            return out current game board in readable format.
+        """
+
+        # make grid with car object names and dots for empty spaces
+        rep = '\n'.join([''.join(['.' if cell == None else cell.name for cell in sublist]) for sublist in self.grid])
+        return rep
+
     def loader(self, filepath):
         """
             Using the path to a game_board csv-file, create and place Car objects
@@ -148,19 +157,6 @@ class Board():
 
         return True
 
-    def print(self: Board) -> None:
-        """
-            Print out current game board in readable format.
-        """
-
-        # print grid with car object names and dots for empty spaces
-        print(
-            '\n'.join(
-                [''.join(
-                    ['.' if cell == None else cell.name for cell in sublist]
-                ) for sublist in self.grid]
-            ), '\n' + self.size[0] * '#'
-        )
 
     """
     def print_move_made(self, move):
