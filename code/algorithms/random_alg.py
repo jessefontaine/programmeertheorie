@@ -1,5 +1,7 @@
 from __future__ import annotations
 from typing import Tuple, List
+from code import Board, Car
+
 import random
 
 class Random_Alg():

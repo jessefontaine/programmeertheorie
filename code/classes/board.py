@@ -116,12 +116,17 @@ class Board():
         return self.moves_dict
 
     def make_move(self: Board, car: Car, move: int) -> None:
+        """
+            Make a move on the board.
+        """
 
+        # check if car parameter is of right type and value
         if not isinstance(car, Car):
             raise TypeError(f'Car argument must be Car object! Car is type {type(car)}')
         elif car not in list(self.cars.values()):
             raise ValueError(f'No car with name {car} exists!')
         
+        # check if move parameter is of right type and value
         if not isinstance(move, int):
             raise TypeError('Move argument must be integer!')
         elif move == 0:
