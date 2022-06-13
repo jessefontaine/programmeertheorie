@@ -1,8 +1,10 @@
 from __future__ import annotations
-from ..classes import Board, Car
+
 from typing import Tuple, List
-from code import Board, Car
 import random
+
+from ..classes import Board, Car
+# from code import Board, Car
 
 
 class First_Alg():
@@ -64,6 +66,6 @@ class First_Alg():
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
-        
+
         print(self.moves_made)
 

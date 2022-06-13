@@ -1,11 +1,13 @@
 from __future__ import annotations
-from typing import Tuple, List, Dict
-from .car import Car
+
 from csv import DictReader
 import re
+from typing import Tuple, List, Dict
+
+from .car import Car
 
 
-class ImpossibleMoveError(Exception):
+class InvalidMoveError(Exception):
     pass
 
 
@@ -24,7 +26,7 @@ class Board():
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         # save board setup and place cars
-        self.loader(filepath)
+        self._loader(filepath)
 
         # setup list to store all moves in
         self.moves_made: List[Tuple[str, int]] = []
@@ -34,7 +36,7 @@ class Board():
         self.win_postition: Tuple[int, int] = (self.win_car.position[0], self.size[1] - 2)
 
         # setup first grid
-        self.update_grid()
+        self._update_grid()
 
     def __str__(self: Board) -> str:
         """
@@ -45,7 +47,7 @@ class Board():
         rep = '\n'.join([''.join(['.' if cell is None else cell.name for cell in sublist]) for sublist in self.grid])
         return rep
 
-    def loader(self, filepath):
+    def _loader(self, filepath):
         """
             Using the path to a game_board csv-file, create and place Car objects
             into list, then return.
@@ -60,7 +62,7 @@ class Board():
             )
 
         # list for car objects
-        self.cars: Dict[Car] = {}
+        self.cars: Dict[str, Car] = {}
 
         # go through lines in file
         with open(filepath, 'r') as file:
@@ -70,7 +72,7 @@ class Board():
                 new_car = Car(*list(row.values()))
                 self.cars[new_car.name] = new_car
 
-    def update_grid(self: Board) -> None:
+    def _update_grid(self: Board) -> None:
         """
             Creates/updates the current game board. The board consists of a nested list.
             Every occupied space holds the car object that occupies it. Unoccupied space is
@@ -86,9 +88,9 @@ class Board():
                 self.grid[pos[0]][pos[1]] = car
         
         # calculate the possible moves with current board setup
-        self.possible_moves()
+        self._possible_moves()
 
-    def possible_moves(self: Board) -> None:
+    def _possible_moves(self: Board) -> None:
         """
             Returns a dictionary with all cars that can move in the current board setup
             and the directions they can move in.
@@ -108,16 +110,22 @@ class Board():
 
                 # Car returns the spot that would be taken up by the move. saved if valid
                 test_pos: Tuple[int, int] = car.test_move(dir)
-                if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] is None:
+                if self._within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] is None:
                     self.moves_dict[car].append(dir)
 
             # no possible moves deletes the key value pair
             if len(self.moves_dict[car]) == 0:
                 del self.moves_dict[car]
 
-    def make_move(self: Board, car: Car, move: int) -> None:
+    def _within_range(self: Board, position: Tuple[int, int]) -> bool:
         """
-            Make a move on the board.
+            Returns bool, true if position is on the grid.
+        """
+        return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
+
+    def make_move(self: Board, car: Car, move: int) -> Tuple[str, int]:
+        """
+            Make a move on the board and return the move as a tuple.
         """
 
         # check if car parameter is of right type and value
@@ -132,17 +140,16 @@ class Board():
         elif move == 0:
             raise ValueError('Move cannot be 0!')
 
+        # make sure move is valid
         if move not in self.moves_dict[car]:
-            raise ImpossibleMoveError('Given move is not possible with current board setup!')
+            raise InvalidMoveError('Given move is not possible with current board setup!')
 
+        # move the car and update the grid
         car.move(move)
-        self.update_grid()
+        self._update_grid()
 
-    def within_range(self: Board, position: Tuple[int, int]) -> bool:
-        """
-            Returns bool, true if position is on the grid.
-        """
-        return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
+        # return the move as a tuple
+        return (car.name, move)
 
     def win(self) -> bool:
         for i in range(self.win_car.position[1] + 2, self.size[1]):
@@ -152,7 +159,11 @@ class Board():
         return True
 
     def exit_moves(self):
+        last_moves: List[Tuple[Car, int]] = []
+
         while self.win_car.position != self.win_postition:
-            self.possible_moves()
-            self.make_move(self.win_car, 1)
-            self.update_grid()
+            # self._possible_moves()
+            last_moves.append(self.make_move(self.win_car, 1))
+            self._update_grid()
+        
+        return last_moves
