@@ -58,14 +58,14 @@ class First_Alg():
             # moves a car of length 3 down
             if car.orientation == "V" and car.length == 3 and 1 in list(dict[car]):
                 self.moves_made.append(self.board.make_move(car, 1))
-                
+
                 return True
             # moves a car of length 2 down or up if it is in the way of win car
             elif car.orientation == "V" and (car.position[0] == row_win_car or\
                  car.position[0] + 1 == row_win_car and car.length == 2):
                 random_move = random.choice(list(dict[car]))
                 self.moves_made.append(self.board.make_move(car, random_move))
-                
+
                 return True
 
         return False
@@ -81,10 +81,10 @@ class First_Alg():
 
         return (car_move, ran_choice)
 
-    def step(self) -> None:
+    def step(self: First_Alg) -> None:
         """
             Runs the algoritm until the game is won.
-            Makes use of moving win car to right, all horizontal cars to left, 
+            Makes use of moving win car to right, all horizontal cars to left,
             all vertical cars up or down and then random until in win position.
         """
 
@@ -103,4 +103,3 @@ class First_Alg():
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
-
