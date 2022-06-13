@@ -30,7 +30,7 @@ class Random_Alg():
 
         # make random steps in game untill red car is in win position
         while not self.board.win():
-            pos_moves = self.board.possible_moves()
+            pos_moves = self.board.moves_dict
 
             move = self.move(pos_moves)
 

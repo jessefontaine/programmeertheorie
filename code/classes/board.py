@@ -84,8 +84,11 @@ class Board():
         for car in list(self.cars.values()):
             for pos in car.positions:
                 self.grid[pos[0]][pos[1]] = car
+        
+        # calculate the possible moves with current board setup
+        self.possible_moves()
 
-    def possible_moves(self: Board) -> dict[Car, List[int]]:
+    def possible_moves(self: Board) -> None:
         """
             Returns a dictionary with all cars that can move in the current board setup
             and the directions they can move in.
@@ -111,8 +114,6 @@ class Board():
             # no possible moves deletes the key value pair
             if len(self.moves_dict[car]) == 0:
                 del self.moves_dict[car]
-
-        return self.moves_dict
 
     def make_move(self: Board, car: Car, move: int) -> None:
         """
