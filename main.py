@@ -1,8 +1,9 @@
-from code import Board
+from __future__ import annotations
 import pandas
 import matplotlib.pyplot as plt
 from argparse import ArgumentParser, Namespace
 import os
+from code import Board
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int):
