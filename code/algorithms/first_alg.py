@@ -68,4 +68,20 @@ class First_Alg():
         self.moves_made.extend(self.board.exit_moves())
 
         print(self.moves_made)
+        i = 0
+        while i < len(self.moves_made) - 1:
+            if self.moves_made[i][0] == self.moves_made[i + 1][0]:
+                self.moves_made[i] = (self.moves_made[i][0], self.moves_made[i][1] + self.moves_made[i + 1][1])
+                del self.moves_made[i + 1]
+                i = i - 1
+
+            i = i + 1
+        print(self.moves_made)
+        # for i in range(len(self.moves_made) - 1):
+        #     print(i, len(self.moves_made) - 1)
+        #     if self.moves_made[i][0] == self.moves_made[i + 1][0]:
+        #         self.moves_made[i] = (self.moves_made[i][0], self.moves_made[i][1] + self.moves_made[i + 1][1])
+        #         del self.moves_made[i + 1]
+        #         i = i - 2
+        # print(self.moves_made)
 

@@ -13,7 +13,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int):
     
 
 
-
+    amt_list = batch_run(infile, runs)
 
     # plot all runs
     plt.hist(amt_list, density=True)
