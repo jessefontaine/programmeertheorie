@@ -15,7 +15,6 @@ class Random_Alg():
     def move(self: Random_Alg) -> Tuple[Car, int]:
         """
             Returns a random move; a tuple with car object and the direction.
-            Requires a dictionary with all possible moves.
         """
 
         # chooses random move from dictionary
