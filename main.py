@@ -9,8 +9,11 @@ from code import Board, Random_Alg
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int):
-    # batch run
-    amt_list = batch_run(infile, runs)
+
+    
+
+
+
 
     # plot all runs
     plt.hist(amt_list, density=True)

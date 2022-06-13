@@ -3,27 +3,26 @@ from __future__ import annotations
 import random
 from typing import Tuple, List
 
-# from code import Board, Car
 from ..classes import Board, Car
-
 
 
 class Random_Alg():
 
     def __init__(self: Random_Alg, board: Board) -> None:
         self.board = board
+        self.moves_made: List[Tuple[str, int]] = []
 
-    def move(self: Random_Alg, dict: dict[Car, List[int]]) -> Tuple[Car, int]:
+    def move(self: Random_Alg) -> Tuple[Car, int]:
         """
             Returns a random move; a tuple with car object and the direction.
             Requires a dictionary with all possible moves.
         """
 
         # chooses random move from dictionary
-        car_move = random.choice(list(dict.items()))
-        ran_choice = random.choice(car_move[1])
+        car_move: Car = random.choice(list(self.board.moves_dict.keys()))
+        ran_choice = random.choice(self.board.moves_dict[car_move])
 
-        return car_move[0], ran_choice
+        return (car_move, ran_choice)
 
     def step(self) -> None:
         """
@@ -32,12 +31,9 @@ class Random_Alg():
 
         # make random steps in game untill red car is in win position
         while not self.board.win():
-            pos_moves = self.board.moves_dict
+            
+            # make and store the moves
+            self.moves_made.append(self.board.make_move(*self.move()))
 
-            move = self.move(pos_moves)
-
-            self.board.make_move(*move)
-
-            self.board.update_grid()
-
-        self.board.exit_moves()
+        # make and store the final moves
+        self.moves_made.extend(self.board.exit_moves())
