@@ -1,18 +1,19 @@
 from __future__ import annotations
 from typing import Union, Tuple, List
 
+
 class Car():
 
     def __init__(
-        self: Car, 
-        name: str, 
-        orientation: str, 
-        col: Union[int, str], 
-        row: Union[int, str], 
+        self: Car,
+        name: str,
+        orientation: str,
+        col: Union[int, str],
+        row: Union[int, str],
         length: Union[int, str]
-        ) -> None:
+         ) -> None:
         """
-            Instantiate car object with given parameters. 
+            Instantiate car object with given parameters.
             Requires orientation the be either 'V' or 'H'.
         """
 
@@ -33,11 +34,11 @@ class Car():
 
         # list comprehension method for updating all positions
         self.positions: List[Tuple[int, int]] = [
-            (self.position[0], self.position[1] + i) if self.orientation == 'H' else 
-            (self.position[0] + i, self.position[1]) 
+            (self.position[0], self.position[1] + i) if self.orientation == 'H' else
+            (self.position[0] + i, self.position[1])
             for i in range(self.length)
         ]
-    
+
     def test_move(self: Car, direction: int) -> Tuple[int, int]:
         """
             Method returns a position coordinate of the spot that is taken up when
@@ -68,7 +69,7 @@ class Car():
 
     def move(self: Car, move: int) -> None:
         """
-            Change car position on gameboard. 
+            Change car position on gameboard.
 
             Move can be a positive or negative integer. Positive values will move the car
             up or to the right, while negative integers will move down or to the left (all
