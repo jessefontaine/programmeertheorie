@@ -148,6 +148,12 @@ class Board():
 
         return True
 
+    def exit_moves(self):
+        while self.win_car.position != self.win_postition:
+            self.possible_moves()
+            self.make_move(self.win_car, 1)
+            self.update_grid()
+
     def print(self: Board) -> None:
         """
             Print out current game board in readable format.
