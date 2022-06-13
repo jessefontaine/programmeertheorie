@@ -4,10 +4,8 @@ import matplotlib.pyplot as plt
 from argparse import ArgumentParser, Namespace
 import os
 
+
 def main(infile: str, outfolder: str, mode: str, runs: int):
-
-
-
     # batch run
     amt_list = batch_run(infile, runs)
 
@@ -19,7 +17,8 @@ def main(infile: str, outfolder: str, mode: str, runs: int):
     except FileExistsError:
         pass
 
-    plt.savefig(f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}.png")
+    plt.savefig(
+        f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}.png")
 
     # convert to str and write to file
     amt_list = [str(x) for x in amt_list]
@@ -36,17 +35,19 @@ def batch_run(filepath, runs):
         df = pandas.DataFrame(game.moves_made, columns=['car', 'move'])
         list_amount_of_moves.append(len(df.index))
         print(f"run {i}/{runs}", end='\r')
-    
+
     print('\n')
 
     return list_amount_of_moves
 
 #print(batch_run("game_boards/Rushhour6x6_1.csv"))
 
+
 if __name__ == "__main__":
 
     # setup cla parser
-    parser: ArgumentParser = ArgumentParser(description="Run the rush-hour solver")
+    parser: ArgumentParser = ArgumentParser(
+        description="Run the rush-hour solver")
 
     # add cla's
     parser.add_argument('input_csv', help='gameboard csv file')
