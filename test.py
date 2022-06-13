@@ -12,7 +12,7 @@ from code.algorithms.first_alg import First_Alg
 
 # print(alg.board)
 
-c = Board("game_boards/Rushhour6x6_1.csv")
+c = Board("game_boards/Rushhour6x6_2.csv")
 
 first_alg = First_Alg(c)
 
