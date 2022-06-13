@@ -139,17 +139,6 @@ class Board():
         """
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    """
-        def random_final_move(self: Board, dict: dict[Car, List[int]]):
-            
-
-         
-            car_move = random.choice(list(dict.items()))
-            ran_choice = random.choice(car_move[1])
-            car_move[0].move(ran_choice)
-            self.move_made_to_file((car_move[0].name, ran_choice))
-    """
-
     def win(self) -> bool:
         for i in range(self.win_car.position[1] + 2, self.size[1]):
             if self.grid[self.win_car.position[0]][i] != None:
@@ -157,105 +146,10 @@ class Board():
 
         return True
 
-
-    """
-    def print_move_made(self, move):
-        if move[0].orientation == 'H':
-            if move[1] < 0:
-                print(move[0].name, 'L')
-            else:
-                print(move[0].name, 'R')
-        else:
-            if move[1] < 0:
-                print(move[0].name, 'U')
-            else:
-                print(move[0].name, 'D')
-
-    def move_made_to_file(self, move):
-        self.moves_made.append(move)
-
-    def win_car_move(self, moves_dict):
-        if self.win_car in moves_dict and 1 in list(moves_dict[self.win_car]):
-            self.win_car.move(1)
-            #self.print_move_made((self.win_car, 1))
-            self.move_made_to_file((self.win_car.name, 1))
-            return True
-
-        return False
-
-    def cars_to_left(self, moves_dict):
-        #for car in self.car_list:
-        for car in moves_dict:
-            if car.orientation == 'H' and -1 in list(moves_dict[car]) and car.name != "X":
-                car.move(-1)
-                # self.print_move_made((car, -1))
-                return True
-
-        return False
-
-    def cars_move_vertical(self, moves_dict):
-        row_win_car = self.win_car.position[0]
-        #for car in self.car_list:
-        for car in moves_dict:
-            if car.orientation == 'V' and car.length == 3 and 1 in list(moves_dict[car]):
-                car.move(1)
-                # self.print_move_made((car, 1))
-                return True
-            elif car.orientation == 'V' and (car.position[0] == row_win_car or \
-                 car.position[0] + 1 == row_win_car) and car.length == 2:
-                 
-                random_move = random.choice(list(moves_dict[car]))
-                car.move(random_move)
-                # self.print_move_made((car, random_move))
-
-                return True
-
-                # if 1 in list(moves_dict[car]):
-                #     car.move(1)
-                #     self.print_move_made((car, 1))
-                #     return True
-                # else:
-                #     car.move(-1)
-                #     self.print_move_made((car, -1))
-                #     return True
-
-        return False
-
-    def step(self):
-        while not self.win():
-            pos_moves = self.possible_moves()
-            if self.win_car_move(pos_moves):
-                pass
-            elif self.cars_to_left(pos_moves):
-                pass
-            elif self.cars_move_vertical(pos_moves):
-                pass
-            else:
-                self.step_random(pos_moves)
-                break
-            self.update_grid()
-            # self.print()
-        # print('GEWONNEN')
-
-    def step_random(self, pos_moves=None):
-        while not self.win():
-
-            # if pos_moves == None:
-            pos_moves = self.possible_moves()
-            
-            # if self.win_car_move(pos_moves):
-            #     #self.update_grid()
-            #     # self.print()
-            # else: 
-            self.random_final_move(pos_moves)
-                #self.update_grid()
-                # self.print()
-
-            self.update_grid()
-            # print(self.moves_made)
-
+    def exit_moves(self):
         while self.win_car.position != self.win_postition:
-            pos_moves = self.possible_moves()
-            self.win_car_move(pos_moves)
-            
-    """
+            self.possible_moves()
+            self.make_move(self.win_car, 1)
+            self.update_grid()
+
+
