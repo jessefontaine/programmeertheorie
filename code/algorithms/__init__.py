@@ -1,1 +1,2 @@
-from .random_alg import Random_Alg
+from .random_alg import *
+from .first_alg import *

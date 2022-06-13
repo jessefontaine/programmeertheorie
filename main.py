@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import os
 import pandas
 
-from code import Board, Random_Alg
+from code import *
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int):

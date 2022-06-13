@@ -1,2 +1,3 @@
-from .classes import Board, Car
-from .algorithms import Random_Alg
+from .algorithms import *
+from .classes import *
+from .functions import *

@@ -9,10 +9,10 @@ from ..classes import Board, Car
 class Random_Alg():
 
     def __init__(self: Random_Alg, board: Board) -> None:
-        self.board = board
+        self.board: Board = board
         self.moves_made: List[Tuple[str, int]] = []
 
-    def move(self: Random_Alg) -> Tuple[Car, int]:
+    def _move(self: Random_Alg) -> Tuple[Car, int]:
         """
             Returns a random move; a tuple with car object and the direction.
         """
@@ -21,9 +21,9 @@ class Random_Alg():
         car_move: Car = random.choice(list(self.board.moves_dict.keys()))
         ran_choice = random.choice(self.board.moves_dict[car_move])
 
-        return (car_move, ran_choice)
+        return car_move, ran_choice
 
-    def step(self) -> None:
+    def run_algorithm(self: Board) -> None:
         """
             Runs the random algoritm until the game is won.
         """
@@ -32,7 +32,7 @@ class Random_Alg():
         while not self.board.win():
             
             # make and store the moves
-            self.moves_made.append(self.board.make_move(*self.move()))
+            self.moves_made.append(self.board.make_move(*self._move()))
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())

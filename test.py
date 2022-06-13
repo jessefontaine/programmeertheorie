@@ -1,6 +1,6 @@
-from code import Board, Random_Alg
+from code import Board, Random_Alg, First_Alg
 
-from code.algorithms.first_alg import First_Alg
+# from code.algorithms.first_alg import First_Alg
 
 # b = Board("game_boards/Rushhour6x6_3.csv")
 
@@ -14,6 +14,6 @@ from code.algorithms.first_alg import First_Alg
 
 c = Board("game_boards/Rushhour6x6_2.csv")
 
-first_alg = First_Alg(c)
+first_alg = Random_Alg(c)
 
-first_alg.step()
+first_alg.run_algorithm()
