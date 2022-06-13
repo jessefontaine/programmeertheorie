@@ -1,4 +1,4 @@
-from code import Board
+from code import Board, Random_Alg
 import pandas
 import matplotlib.pyplot as plt
 from argparse import ArgumentParser, Namespace
@@ -30,8 +30,11 @@ def batch_run(filepath, runs):
     list_amount_of_moves = []
 
     for i in range(runs):
+        # game = Board(filepath)
+        # game.step_random()
         game = Board(filepath)
-        game.step_random()
+        alg = Random_Alg(game)
+        alg.step()
         df = pandas.DataFrame(game.moves_made, columns=['car', 'move'])
         list_amount_of_moves.append(len(df.index))
         print(f"run {i}/{runs}", end='\r')
