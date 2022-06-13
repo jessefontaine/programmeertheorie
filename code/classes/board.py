@@ -1,9 +1,14 @@
 from __future__ import annotations
-from typing import Tuple, List
+from logging import exception
+from typing import Tuple, List, Dict
 from .car import Car
 from csv import DictReader
 import random
 import re
+
+
+class ImpossibleMoveError(Exception):
+    pass
 
 class Board():
 
@@ -26,10 +31,8 @@ class Board():
         self.moves_made: List[Tuple[str, int]] = []
 
         # save position when game should finished
-        for car in self.car_list:
-            if car.name == "X":
-                self.win_postition: Tuple[int, int] = (car.position[0], self.size[1] - 2)
-                self.win_car: Car = car
+        self.win_car: Car = self.cars['X']
+        self.win_postition: Tuple[int, int] = (self.win_car.position[0], self.size[1] - 2)
 
         # setup first grid
         self.update_grid()
@@ -49,16 +52,15 @@ class Board():
             )
 
         # list for car objects
-        cars: List[Car] = []
+        self.cars: Dict[Car] = {}
 
         # go through lines in file
         with open(filepath, 'r') as file:
 
             # create car objects and place into list
             for row in DictReader(file):
-                cars.append(Car(*list(row.values())))
-
-        self.car_list: List[Car] = cars
+                new_car = Car(*list(row.values()))
+                self.cars[new_car.name] = new_car
 
     def update_grid(self: Board) -> None:
         """
@@ -71,7 +73,7 @@ class Board():
         self.grid: List[List] = [[None for _ in range(self.size[1])] for _ in range(self.size[0])]
 
         # loop through every cars occupied positions and place car object on grid
-        for car in self.car_list:
+        for car in list(self.cars.values()):
             for pos in car.positions:
                 self.grid[pos[0]][pos[1]] = car
 
@@ -82,13 +84,13 @@ class Board():
         """
 
         # create dictionary to store possible moves in
-        moves_dict: dict[Car, List[int]] = {}
+        self.moves_dict: dict[Car, List[int]] = {}
 
         # loop through all cars to find their moves
-        for car in self.car_list:
+        for car in list(self.cars.values()):
 
             # initialise key value par with empty list for storing moves
-            moves_dict[car] = []
+            self.moves_dict[car] = []
 
             # moves can be either forward or backward
             for dir in [-1, 1]:
@@ -96,32 +98,50 @@ class Board():
                 # Car returns the spot that would be taken up by the move. saved if valid
                 test_pos: Tuple[int, int] = car.test_move(dir)
                 if self.within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] == None:
-                    moves_dict[car].append(dir)
+                    self.moves_dict[car].append(dir)
 
             # no possible moves deletes the key value pair
-            if len(moves_dict[car]) == 0:
-                del moves_dict[car]
+            if len(self.moves_dict[car]) == 0:
+                del self.moves_dict[car]
 
-        return moves_dict
-    
+        return self.moves_dict
+
+    def make_move(self: Board, car: Car, move: int) -> None:
+
+        if not isinstance(car, Car):
+            raise TypeError(f'Car argument must be Car object! Car is type {type(car)}')
+        elif car not in list(self.cars.values()):
+            raise ValueError(f'No car with name {car} exists!')
+        
+        if not isinstance(move, int):
+            raise TypeError('Move argument must be integer!')
+        elif move == 0:
+            raise ValueError('Move cannot be 0!')
+
+        if move not in self.moves_dict[car]:
+            raise ImpossibleMoveError('Given move is not possible with current board setup!')
+        
+        car.move(move)
+        self.update_grid()
+
     def within_range(self: Board, position: Tuple[int, int]) -> bool:
         """
             Returns bool, true if position is on the grid.
         """
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    def random_final_move(self: Board, dict: dict[Car, List[int]]):
-        """
+    """
+        def random_final_move(self: Board, dict: dict[Car, List[int]]):
+            
 
-        """
+         
+            car_move = random.choice(list(dict.items()))
+            ran_choice = random.choice(car_move[1])
+            car_move[0].move(ran_choice)
+            self.move_made_to_file((car_move[0].name, ran_choice))
+    """
 
-        #
-        car_move = random.choice(list(dict.items()))
-        ran_choice = random.choice(car_move[1])
-        car_move[0].move(ran_choice)
-        self.move_made_to_file((car_move[0].name, ran_choice))
-
-    def win(self):
+    def win(self) -> bool:
         for i in range(self.win_car.position[1] + 2, self.size[1]):
             if self.grid[self.win_car.position[0]][i] != None:
                 return False
@@ -142,6 +162,7 @@ class Board():
             ), '\n' + self.size[0] * '#'
         )
 
+    """
     def print_move_made(self, move):
         if move[0].orientation == 'H':
             if move[1] < 0:
@@ -241,4 +262,4 @@ class Board():
             pos_moves = self.possible_moves()
             self.win_car_move(pos_moves)
             
-        # print('GEWONNEN')
+    """
