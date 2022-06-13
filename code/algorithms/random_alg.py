@@ -20,31 +20,7 @@ class Random_Alg():
 
         return car_move[0], ran_choice
 
-    def step_random(self, pos_moves=None):
-        while not self.win():
-
-            # if pos_moves == None:
-            pos_moves = self.possible_moves()
-            
-            # if self.win_car_move(pos_moves):
-            #     #self.update_grid()
-            #     # self.print()
-            # else: 
-            self.random_final_move(pos_moves)
-                #self.update_grid()
-                # self.print()
-
-            self.update_grid()
-            # print(self.moves_made)
-
-        while self.win_car.position != self.win_postition:
-            pos_moves = self.possible_moves()
-            self.win_car_move(pos_moves)
-            
-        # print('GEWONNEN')
-
     def step(self):
-
         while not self.board.win():
             pos_moves = self.board.possible_moves()
 
