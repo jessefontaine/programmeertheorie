@@ -1,5 +1,4 @@
-from code import Board
-from code import Random_Alg
+from code import Board, Random_Alg
 
 
 b = Board("game_boards/Rushhour6x6_3.csv")
@@ -10,5 +9,5 @@ print(alg)
 
 alg.step()
 
-alg.board.print()
+print(alg.board)
 
