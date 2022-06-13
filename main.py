@@ -1,9 +1,11 @@
 from __future__ import annotations
-from code import Board, Random_Alg
-import pandas
-import matplotlib.pyplot as plt
+
 from argparse import ArgumentParser, Namespace
+import matplotlib.pyplot as plt
 import os
+import pandas
+
+from code import Board, Random_Alg
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int):

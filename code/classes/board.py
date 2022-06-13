@@ -1,8 +1,10 @@
 from __future__ import annotations
-from typing import Tuple, List, Dict
-from .car import Car
+
 from csv import DictReader
 import re
+from typing import Tuple, List, Dict
+
+from .car import Car
 
 
 class ImpossibleMoveError(Exception):

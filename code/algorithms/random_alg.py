@@ -1,9 +1,11 @@
 from __future__ import annotations
-from ..classes import Board, Car
-from typing import Tuple, List
-from code import Board, Car
 
 import random
+from typing import Tuple, List
+
+# from code import Board, Car
+from ..classes import Board, Car
+
 
 
 class Random_Alg():
