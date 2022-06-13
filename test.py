@@ -1,12 +1,19 @@
 from code import Board, Random_Alg
 
-b = Board("game_boards/Rushhour6x6_3.csv")
+from code.algorithms.first_alg import First_Alg
 
-alg = Random_Alg(b)
+# b = Board("game_boards/Rushhour6x6_3.csv")
 
-print(alg)
+# alg = Random_Alg(b)
 
-alg.step()
+# print(alg)
 
-print(alg.board)
+# alg.step()
 
+# print(alg.board)
+
+c = Board("game_boards/Rushhour6x6_easywin.csv")
+
+first_alg = First_Alg(c)
+
+first_alg.step()
