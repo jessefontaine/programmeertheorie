@@ -144,8 +144,8 @@ class Board():
 
         # check if car parameter is of right type and value
         if not isinstance(car, str):
-            raise TypeError(f'Car argument must be Car object! Car is type {type(car)}')
-        elif car not in list(self.cars.values()):
+            raise TypeError(f'Car argument must be a string! Car is type {type(car)}')
+        elif car not in list(self.cars.keys()):
             raise ValueError(f'No car with name {car} exists!')
         
         # check if move parameter is of right type and value
@@ -177,7 +177,7 @@ class Board():
 
         while self.win_car.position != self.win_postition:
             # self._possible_moves()
-            last_moves.append(self.make_move(self.win_car, 1))
+            last_moves.append(self.make_move(self.win_car.name, 1))
             self._update_grid()
         
         return last_moves
