@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Tuple, List
 from code.classes import Board
 import queue
-# import copy
+import copy
 
 
 class Breadth_Alg():
