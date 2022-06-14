@@ -97,13 +97,13 @@ class Board():
         """
 
         # create dictionary to store possible moves in
-        self.moves_dict: dict[Car, List[int]] = {}
+        self.moves_dict: dict[str, List[int]] = {}
 
         # loop through all cars to find their moves
         for car in list(self.cars.values()):
 
             # initialise key value par with empty list for storing moves
-            self.moves_dict[car] = []
+            self.moves_dict[car.name] = []
 
             # moves can be either forward or backward
             for dir in [-1, 1]:
@@ -111,11 +111,11 @@ class Board():
                 # Car returns the spot that would be taken up by the move. saved if valid
                 test_pos: Tuple[int, int] = car.test_move(dir)
                 if self._within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] is None:
-                    self.moves_dict[car].append(dir)
+                    self.moves_dict[car.name].append(dir)
 
             # no possible moves deletes the key value pair
-            if len(self.moves_dict[car]) == 0:
-                del self.moves_dict[car]
+            if len(self.moves_dict[car.name]) == 0:
+                del self.moves_dict[car.name]
 
     def _within_range(self: Board, position: Tuple[int, int]) -> bool:
         """
@@ -137,15 +137,15 @@ class Board():
         self.moves_made = []
         self._update_grid()
 
-    def make_move(self: Board, car: Car, move: int) -> Tuple[str, int]:
+    def make_move(self: Board, car: str, move: int) -> Tuple[str, int]:
         """
             Make a move on the board and return the move as a tuple.
         """
 
         # check if car parameter is of right type and value
-        if not isinstance(car, Car):
-            raise TypeError(f'Car argument must be Car object! Car is type {type(car)}')
-        elif car not in list(self.cars.values()):
+        if not isinstance(car, str):
+            raise TypeError(f'Car argument must be a string! Car is type {type(car)}')
+        elif car not in list(self.cars.keys()):
             raise ValueError(f'No car with name {car} exists!')
         
         # check if move parameter is of right type and value
@@ -159,11 +159,11 @@ class Board():
             raise InvalidMoveError('Given move is not possible with current board setup!')
 
         # move the car and update the grid
-        car.move(move)
+        self.cars[car].move(move)
         self._update_grid()
 
         # return the move as a tuple
-        return (car.name, move)
+        return (car, move)
 
     def win(self) -> bool:
         for i in range(self.win_car.position[1] + 2, self.size[1]):
@@ -177,7 +177,7 @@ class Board():
 
         while self.win_car.position != self.win_postition:
             # self._possible_moves()
-            last_moves.append(self.make_move(self.win_car, 1))
+            last_moves.append(self.make_move(self.win_car.name, 1))
             self._update_grid()
         
         return last_moves
