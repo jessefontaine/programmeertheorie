@@ -23,9 +23,18 @@ class Breadth_Alg():
 
             for i in range(1):
                 print(i)
-                for car in self.board.moves_dict:
+                for car in state.moves_dict:
                     print(car)
-                    print(str(self.board))
+                    child = copy.deepcopy(state)
+                    print(type(child))
+            #         print(self.board.moves_dict[car])
+                    print(child.moves_dict)
+                    for direction in child.moves_dict[car]:
+                        child.make_move(car, direction)
+                        print(child)
+            #             print(str(child))
+                    
+
 
     """
     def voorbeeld(self: Breadth_Alg):
