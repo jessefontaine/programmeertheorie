@@ -40,7 +40,7 @@ class Board():
 
     def __str__(self: Board) -> str:
         """
-            return out current game board in readable format.
+            Return current game board in readable format.
         """
 
         # make grid with car object names and dots for empty spaces
