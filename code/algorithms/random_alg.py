@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import Tuple, List
 
-from ..classes import *
+from ..classes import Board, Car
 
 
 class Random_Alg():
@@ -22,12 +22,14 @@ class Random_Alg():
 
         return car_move, ran_choice
 
-    def run_algorithm(self: Board) -> None:
+    def run_algorithm(self: Random_Alg) -> None:
         """
             Runs the random algoritm until the game is won.
         """
 
+        # clear the moves made list
         self.moves_made: List[Tuple[str, int]] = []
+
         # make random steps in game untill red car is in win position
         while not self.board.win():
             
