@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from typing import Tuple, List
 import random
+from typing import Tuple, List
 
 from ..classes import Board, Car
 # from code import Board, Car
@@ -113,17 +113,27 @@ class First_Alg():
         self.moves_made: List[Tuple[str, int]] = []
         
         # make steps in game until red car is in win position
+        # print('-' * 80)
         while not self.board.win():
+            # print('checking moves.......')
             if self.move_win_car():
-                pass
+                # print('found move!')
+                continue
             elif self.cars_to_left():
-                pass
+                # print('found move!')
+                continue
             elif self.cars_vertical():
-                pass
+                # print('found move!')
+                continue
             else:
                 # make random steps in game until red car is in win position
+                rand_moves = 0
                 while not self.board.win():
+                    # print('random move: ', rand_moves)
+                    if rand_moves == 20:
+                        break
                     self.moves_made.append(self.board.make_move(*self.move_random()))
+                    rand_moves += 1
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
