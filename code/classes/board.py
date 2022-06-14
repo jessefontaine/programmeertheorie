@@ -17,8 +17,8 @@ class Board():
         """
             Setup board: create car objects and full game-board-grid with objects.
             Requires filepath as argument. Filepath name should include the dimensions
-            of the game-board, i.e. 6x6 or 12x12 (with no numbers adjacent to this part
-            of the name!).
+            of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent 
+            to this part of the name!).
         """
 
         # parse board size from filename
@@ -123,6 +123,36 @@ class Board():
         """
         
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
+
+    def set_board(self: Board, setup: str):
+        """
+            Setup the board accoring to a setup string. Setup string should be similar to
+            the board representation this class creates and include all car names, orientations and
+            lengths as the original board setup.
+        """
+
+        # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
+
+        # remove unnessessairy \n
+        setup_str = setup.replace('\n', '')
+
+        # get a list of all car names
+        cars_repeats: str = setup_str.replace('.', '')
+        cars: List[str] = list(set(cars_repeats))
+
+        # find first occurence for eacht car and set it to that place
+        for car in cars:
+
+            # calculate the rows and colums
+            str_place: int = setup_str.find(car)
+            row: int = str_place // self.size[0]
+            col: int = str_place % self.size[1]
+
+            # set the car to that row and column
+            self.cars[car].set_car(row, col)
+        
+        # update the board
+        self._update_grid()
 
     def reset_board(self: Board) -> None:
         """

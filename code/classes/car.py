@@ -40,6 +40,14 @@ class Car():
             (self.position[0] + i, self.position[1])
             for i in range(self.length)
         ]
+    
+    def set_car(self: Car, row: int, col: int) -> None:
+        """
+            Set the car to a specific positions. Indexing starts at 0.
+        """
+
+        self.position = (row, col)
+        self._positions_update()
 
     def reset_car(self: Car) -> None:
         """
