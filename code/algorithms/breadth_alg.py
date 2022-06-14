@@ -14,8 +14,24 @@ class Breadth_Alg():
     def breadth(self):
         depth = 3
         layer = queue.Queue()
+        layer.put(str(self.board))
+
+        while not layer.empty():
+            state = layer.get()
+            print(state)
+
+            for i in range(1):
+                print(i)
+                for car in self.board.moves_dict:
+                    print(car)
+                    print(str(self.board))
+
+
+    def voorbeeld(self):
+        depth = 3
+        layer = queue.Queue()
         layer.put("")
-        
+
         while not layer.empty():
             state = layer.get()
             print(state)
@@ -25,10 +41,7 @@ class Breadth_Alg():
                     child = copy.deepcopy(state)
                     child += i
                     layer.put(child)
-
-        for q_item in list(layer.queue):
-            print('g', q_item)
-        print('h', list(layer.queue))
+                    print(list(layer.queue))
 
 
     def run_algorithm(self: Board) -> None:
