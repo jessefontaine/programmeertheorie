@@ -126,6 +126,6 @@ class First_Alg():
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
-        self.merge_moves()
+        # self.merge_moves()
 
         self.moves_amount: int = len(self.moves_made)

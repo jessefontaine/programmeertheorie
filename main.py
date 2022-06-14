@@ -36,7 +36,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int):
         pass
 
     # plot all runs
-    plt.hist(amount_moves, density=True)
+    plt.hist(amount_moves, density=True, bins=50)
 
     plt.savefig(
         f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}.png")
