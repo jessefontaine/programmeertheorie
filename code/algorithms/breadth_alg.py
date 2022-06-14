@@ -1,19 +1,20 @@
 from __future__ import annotations
 from typing import Tuple, List
-from ..classes import Board, Car
+from code.classes import Board
 import queue
-import copy
+# import copy
 
 
 class Breadth_Alg():
 
     def __init__(self: Breadth_Alg, board: Board) -> None:
-        self.board = board
+        self.board: Board = board
         self.moves_made: List[Tuple[str, int]] = []
+        self.moves_amount: int = 0
 
     def breadth(self):
-        depth = 3
-        layer = queue.Queue()
+        depth: int = 3
+        layer: queue = queue.Queue()
         layer.put(str(self.board))
 
         while not layer.empty():
@@ -26,8 +27,8 @@ class Breadth_Alg():
                     print(car)
                     print(str(self.board))
 
-
-    def voorbeeld(self):
+    """
+    def voorbeeld(self: Breadth_Alg):
         depth = 3
         layer = queue.Queue()
         layer.put("")
@@ -42,11 +43,12 @@ class Breadth_Alg():
                     child += i
                     layer.put(child)
                     print(list(layer.queue))
+    """
 
-
-    def run_algorithm(self: Board) -> None:
+    def run_algorithm(self: Breadth_Alg) -> None:
         """
             Runs the random algoritm until the game is won.
         """
 
-        self.breadth()
+        # self.breadth()
+        pass
