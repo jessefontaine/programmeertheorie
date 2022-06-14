@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import Tuple, List
 
-from ..classes import Board, Car
+from code.classes import Board, Car
 
 
 class Random_Alg():
@@ -17,7 +17,7 @@ class Random_Alg():
         """
 
         # chooses random move from dictionary
-        car_move: Car = random.choice(list(self.board.moves_dict.keys()))
+        car_move: str = random.choice(list(self.board.moves_dict.keys()))
         ran_choice = random.choice(self.board.moves_dict[car_move])
 
         return car_move, ran_choice
