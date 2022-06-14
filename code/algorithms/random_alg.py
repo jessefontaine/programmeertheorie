@@ -11,7 +11,7 @@ class Random_Alg():
     def __init__(self: Random_Alg, board: Board) -> None:
         self.board: Board = board
 
-    def _move(self: Random_Alg) -> Tuple[Car, int]:
+    def _move(self: Random_Alg) -> Tuple[str, int]:
         """
             Returns a random move; a tuple with car object and the direction.
         """
