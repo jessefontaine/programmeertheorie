@@ -10,7 +10,6 @@ class Random_Alg():
 
     def __init__(self: Random_Alg, board: Board) -> None:
         self.board: Board = board
-        self.moves_made: List[Tuple[str, int]] = []
 
     def _move(self: Random_Alg) -> Tuple[Car, int]:
         """
@@ -28,6 +27,7 @@ class Random_Alg():
             Runs the random algoritm until the game is won.
         """
 
+        self.moves_made: List[Tuple[str, int]] = []
         # make random steps in game untill red car is in win position
         while not self.board.win():
             

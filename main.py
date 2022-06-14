@@ -23,6 +23,8 @@ def main(infile: str, outfolder: str, mode: str, runs: int):
 
     if mode == 'random':
         algorithm = Random_Alg(board)
+    elif mode == 'first':
+        algorithm = First_Alg(board)
     else:
         print("TODO")
     

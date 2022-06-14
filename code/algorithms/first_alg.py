@@ -110,7 +110,7 @@ class First_Alg():
             Makes use of moving win car to right, all horizontal cars to left,
             all vertical cars up or down and then random until in win position.
         """
-
+        self.moves_made: List[Tuple[str, int]] = []
         # make steps in game until red car is in win position
         while not self.board.win():
             if self.move_win_car():
@@ -127,3 +127,5 @@ class First_Alg():
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
         self.merge_moves()
+
+        self.moves_amount: int = len(self.moves_made)
