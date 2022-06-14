@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import Tuple, List
 
-from ..classes import Board, Car
+from code.classes import Board, Car
 
 
 class Random_Alg():

@@ -6,7 +6,9 @@ import os
 import pandas
 from typing import Union, List, Tuple
 
-from code import Board, batch_runner, First_Alg, Random_Alg
+from code.classes import Board
+from code.algorithms import First_Alg, Random_Alg, Breadth_Alg
+from code.functions import batch_runner
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int):
@@ -14,9 +16,12 @@ def main(infile: str, outfolder: str, mode: str, runs: int):
     board: Board = Board(infile)
 
     if mode == 'random':
-        algorithm: Union[Random_Alg, First_Alg] = Random_Alg(board)
+        algorithm: Union[Random_Alg, First_Alg, Breadth_Alg] = Random_Alg(board)
     elif mode == 'first':
         algorithm = First_Alg(board)
+
+    elif mode == 'breadth':
+        algorithm = Breadth_Alg(board)
     else:
         print("TODO")
     
