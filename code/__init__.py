@@ -1,3 +1,3 @@
-from .algorithms import *
-from .classes import *
-from .functions import *
+from .algorithms import Random_Alg, First_Alg
+from .classes import Board, Car
+from .functions import batch_runner

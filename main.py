@@ -4,30 +4,24 @@ from argparse import ArgumentParser, Namespace
 import matplotlib.pyplot as plt
 import os
 import pandas
+from typing import Union, List, Tuple
 
-# from code.classes import Board
-# from code.algorithms import *
-from code.classes import Board
-from code.algorithms import *
-from code.functions import batch_runner
-
-# from code import algorithms
-
-# from code.algorithms.random_alg import Random_Alg
-# from code.functions.functions import batch_runner
+from code import Board, batch_runner, First_Alg, Random_Alg
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int):
 
-    board = Board(infile)
+    board: Board = Board(infile)
 
     if mode == 'random':
-        algorithm = Random_Alg(board)
+        algorithm: Union[Random_Alg, First_Alg] = Random_Alg(board)
     elif mode == 'first':
         algorithm = First_Alg(board)
     else:
         print("TODO")
     
+    amount_moves: List[int]
+    moves_made: List[List[Tuple[str, int]]]
     amount_moves, moves_made = batch_runner(algorithm, runs)
 
     try:
@@ -42,9 +36,9 @@ def main(infile: str, outfolder: str, mode: str, runs: int):
         f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}.png")
 
     # convert to str and write to file
-    amount_moves = [str(x) for x in amount_moves]
+    amount_moves_str: List[str] = [str(x) for x in amount_moves]
     with open(f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}.txt", 'w') as file:
-        file.write('\n'.join(amount_moves))
+        file.write('\n'.join(amount_moves_str))
 
 
 if __name__ == "__main__":

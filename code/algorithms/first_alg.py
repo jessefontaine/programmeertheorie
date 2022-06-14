@@ -11,7 +11,6 @@ class First_Alg():
 
     def __init__(self: First_Alg, board: Board) -> None:
         self.board = board
-        self.moves_made: List[Tuple[str, int]] = []
 
     def move_win_car(self: First_Alg) -> bool:
         """
@@ -110,7 +109,9 @@ class First_Alg():
             Makes use of moving win car to right, all horizontal cars to left,
             all vertical cars up or down and then random until in win position.
         """
+
         self.moves_made: List[Tuple[str, int]] = []
+        
         # make steps in game until red car is in win position
         while not self.board.win():
             if self.move_win_car():
