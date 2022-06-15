@@ -201,6 +201,9 @@ class Board():
                 return False
 
         return True
+    
+    def on_win_position(self: Board) -> bool:
+        return self.win_car.position == self.win_postition
 
     def exit_moves(self):
         last_moves: List[Tuple[Car, int]] = []
