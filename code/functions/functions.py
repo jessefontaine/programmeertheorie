@@ -65,5 +65,5 @@ def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> N
     run_moves: List[Tuple[str, int]]
     for run_moves in moves_made:
         with open(f'{path}.csv', 'w') as file:
-            moves_of_run = ['car,move'].extend([f'{move[0]},{move[1]}' for move in run_moves])
-            file.write('\n'.join(moves_of_run))
+            file.write('car,move\n')
+            file.write('\n'.join([f'{move[0]},{move[1]}' for move in run_moves]))
