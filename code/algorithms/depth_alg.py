@@ -6,9 +6,9 @@ import queue
 import copy
 
 
-class Deep_Alg():
+class Depth_Alg():
 
-    def __init__(self: Deep_Alg, board: Board) -> None:
+    def __init__(self: Depth_Alg, board: Board) -> None:
         self.board: Board = board
         self.moves_made: List[Tuple[str, int]] = []
         self.moves_amount: int = 0
@@ -34,7 +34,7 @@ class Deep_Alg():
                 print("############")
                 print(bla)
 
-    def deep(self):
+    def depth(self: Depth_Alg) -> Tuple(Board, List[Tuple[str, int]]):
         board_set_ups: Set = set()
         head_board: Board = self.board
         #depth: int = 2
@@ -78,16 +78,44 @@ class Deep_Alg():
 
                         if head_board.win():
                             return head_board, child.steps_taken
-        print(" ")
-        for bla in stack:
-            print(bla.steps_taken)
 
+    def merge_moves(self: Depth_Alg) -> None:
+        """
+            Merges moves together.
+            Deletes the move if direction is 0.
+        """
+        i = 0
 
-    def run_algorithm(self: Deep_Alg) -> None:
+        # loop over moves made
+        while i < len(self.moves_made) - 1:
+            # check if next move is done with the same car
+            if self.moves_made[i][0] == self.moves_made[i + 1][0]:
+                self.moves_made[i] = (self.moves_made[i][0], self.moves_made[i][1] + self.moves_made[i + 1][1])
+                # delete the move which is added
+                del self.moves_made[i + 1]
+                
+                # if the move is undone, delete move
+                if self.moves_made[i][1] == 0:
+                    del self.moves_made[i]
+                    i -= 1
+                i -= 1
+            i += 1
+
+    def run_algorithm(self: Depth_Alg) -> None:
         """
             
         """
 
-        bla = self.deep()
-        print(bla[0])
-        print(bla[1])
+        # store end board and the moves made to work towards this board
+        tmp = self.depth()
+
+        self.board = tmp[0]
+        self.moves_made = tmp[1]
+
+        # make and store the final moves
+        self.moves_made.extend(self.board.exit_moves())
+
+        self.merge_moves()
+
+        # store amount of moves
+        self.moves_amount: int = len(self.moves_made)
