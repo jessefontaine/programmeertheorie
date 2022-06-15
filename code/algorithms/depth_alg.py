@@ -10,19 +10,17 @@ class Depth_Alg():
     def __init__(self: Depth_Alg, board: Board) -> None:
         self.board: Board = board
         self.moves_made: List[Tuple[str, int]] = []
-        self.moves_amount: int = 0
 
-    def depth(self: Depth_Alg) -> Tuple(Board, List[Tuple[str, int]]):
+    def depth(self: Depth_Alg) -> Tuple[Board, List[Tuple[str, int]]]:
         board_set_ups: Set = set()
         head_board: Board = self.board
-        #depth: int = 2
 
         # make begin node and add it in stack and save as a board set up
         begin_node = Node(str(head_board))
         stack = [begin_node]
         board_set_ups.add(begin_node.board_rep)
 
-        #for _ in range(depth):
+        # loop though all possible bord until win board is found
         while True:
             parent = stack.pop()
             head_board.set_board(parent.board_rep)
@@ -71,7 +69,7 @@ class Depth_Alg():
                 self.moves_made[i] = (self.moves_made[i][0], self.moves_made[i][1] + self.moves_made[i + 1][1])
                 # delete the move which is added
                 del self.moves_made[i + 1]
-                
+
                 # if the move is undone, delete move
                 if self.moves_made[i][1] == 0:
                     del self.moves_made[i]
