@@ -3,8 +3,8 @@ from __future__ import annotations
 import random
 from typing import Tuple, List, Dict
 
-# from ..classes import Board, Car
 from code.classes import Board, Car
+from code.functions import merge_moves
 
 
 class First_Alg():
@@ -82,29 +82,6 @@ class First_Alg():
 
         return car_move, ran_choice
 
-    def merge_moves(self: First_Alg) -> None:
-        """
-            Merges moves together.
-            Deletes the move if direction is 0.
-        """
-        i = 0
-
-        # loop over moves made
-        while i < len(self.moves_made) - 1:
-            # check if next move is done with the same car
-            if self.moves_made[i][0] == self.moves_made[i + 1][0]:
-                self.moves_made[i] = (self.moves_made[i][0], self.moves_made[i][1] + self.moves_made[i + 1][1])
-                # delete the move which is added
-                del self.moves_made[i + 1]
-                
-                # if the move is undone, delete move
-                if self.moves_made[i][1] == 0:
-                    del self.moves_made[i]
-                    i -= 1
-                i -= 1
-            i += 1
-
-
     def run_algorithm(self: First_Alg) -> None:
         """
             Runs the algoritm until the game is won.
@@ -139,6 +116,6 @@ class First_Alg():
 
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
-        # self.merge_moves()
+        self.moves_made = merge_moves(self.moves_made)
 
         self.moves_amount: int = len(self.moves_made)
