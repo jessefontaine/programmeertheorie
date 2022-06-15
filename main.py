@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from argparse import ArgumentParser, Namespace
 import os
-import pandas
+# import pandas
 from typing import Union, List, Tuple
 
 from code.classes import Board

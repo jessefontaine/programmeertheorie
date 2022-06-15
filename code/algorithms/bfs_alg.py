@@ -5,6 +5,7 @@ from queue import Queue
 
 from .node import Node
 from code.classes import Board
+# from code.functions import merge
 
 
 class Bfs():
@@ -39,7 +40,7 @@ class Bfs():
             state: Node = layer.get()
             self.board.set_board(state.board_rep)
             # print(f'Moves: {state.steps_taken}\n{state.board_rep}\n' + '-' * 80)
-            # print(f'depth: {len(state.steps_taken)}/{self.depth}', end='\r')
+            print(f'depth: {len(state.steps_taken)}/{self.depth}', end='\r')
 
             # go no deeper than depth
             if len(state.steps_taken) < self.depth:
