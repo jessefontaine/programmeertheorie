@@ -7,7 +7,7 @@ import pandas
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import First_Alg, Random_Alg, Breadth_Alg
+from code.algorithms import First_Alg, Random_Alg, Breadth_Alg, Depth_Alg
 from code.functions import batch_runner
 
 
@@ -22,6 +22,8 @@ def main(infile: str, outfolder: str, mode: str, runs: int):
 
     elif mode == 'breadth':
         algorithm = Breadth_Alg(board)
+    elif mode == "depth":
+        algorithm = Depth_Alg(board)
     else:
         print("TODO")
     
