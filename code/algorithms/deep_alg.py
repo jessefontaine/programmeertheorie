@@ -37,15 +37,17 @@ class Deep_Alg():
     def deep(self):
         board_set_ups: Set = set()
         head_board: Board = self.board
-        depth: int = 2
+        #depth: int = 2
 
         # make begin node and add it in stack and save as a board set up
         begin_node = Node(str(head_board))
         stack = [begin_node]
         board_set_ups.add(begin_node.board_rep)
 
-        for _ in range(depth):
+        #for _ in range(depth):
+        while True:
             parent = stack.pop()
+            head_board.set_board(parent.board_rep)
 
             # for each possible moveable car save the board representation
             for car in head_board.moves_dict:
@@ -73,6 +75,9 @@ class Deep_Alg():
                         # save board representation in stack and our set
                         stack.append(child)
                         board_set_ups.add(child.board_rep)
+
+                        if head_board.win():
+                            return head_board, child.steps_taken
         print(" ")
         for bla in stack:
             print(bla.steps_taken)
@@ -83,4 +88,6 @@ class Deep_Alg():
             
         """
 
-        self.deep()
+        bla = self.deep()
+        print(bla[0])
+        print(bla[1])
