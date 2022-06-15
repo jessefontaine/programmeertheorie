@@ -13,38 +13,15 @@ class Depth_Alg():
         self.moves_made: List[Tuple[str, int]] = []
         self.moves_amount: int = 0
 
-    def deep_zonder_pruning(self):
-        depth: int = 3
-        stack = [self.board]
-
-        for _ in range(depth):
-            print('BEGIN')
-            state = stack.pop()
-            print(state)
-
-            for car in state.moves_dict:
-                child = copy.deepcopy(state)
-
-                for direction in child.moves_dict[car]:
-                    child.make_move(car, direction)
-                    stack.append(child)
-                    
-            print(stack)
-            for bla in stack:
-                print("############")
-                print(bla)
-
     def depth(self: Depth_Alg) -> Tuple[Board, List[Tuple[str, int]]]:
         board_set_ups: Set = set()
         head_board: Board = self.board
-        #depth: int = 2
 
         # make begin node and add it in stack and save as a board set up
         begin_node = Node(str(head_board))
         stack = [begin_node]
         board_set_ups.add(begin_node.board_rep)
 
-        #for _ in range(depth):
         while True:
             parent = stack.pop()
             head_board.set_board(parent.board_rep)
