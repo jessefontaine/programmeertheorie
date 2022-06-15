@@ -22,4 +22,4 @@ b.run_algorithm()
 
 
 # print(cars)
-
+print(a)
