@@ -6,7 +6,7 @@ import pandas
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import First_Alg, Random_Alg, Bfs
+from code.algorithms import First_Alg, Random_Alg, Bfs, Depth_Alg
 from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
 
 
@@ -15,12 +15,14 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == 'random':
-        algorithm: Union[Random_Alg, First_Alg, Bfs] = Random_Alg(board)
+        algorithm: Union[Random_Alg, First_Alg, Bfs, Depth_Alg] = Random_Alg(board)
     elif mode == 'first':
         algorithm = First_Alg(board)
 
     elif mode == 'breadth':
         algorithm = Bfs(board, 300)
+    elif mode == "depth":
+        algorithm = Depth_Alg(board)
     else:
         print("TODO")
     
