@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import Tuple, List, Set
 from code.classes import Board
 from .node import Node
-import queue
-import copy
+from ..functions import merge_moves
 
 
 class Depth_Alg():
@@ -12,27 +11,6 @@ class Depth_Alg():
         self.board: Board = board
         self.moves_made: List[Tuple[str, int]] = []
         self.moves_amount: int = 0
-
-    def deep_zonder_pruning(self):
-        depth: int = 3
-        stack = [self.board]
-
-        for _ in range(depth):
-            print('BEGIN')
-            state = stack.pop()
-            print(state)
-
-            for car in state.moves_dict:
-                child = copy.deepcopy(state)
-
-                for direction in child.moves_dict[car]:
-                    child.make_move(car, direction)
-                    stack.append(child)
-                    
-            print(stack)
-            for bla in stack:
-                print("############")
-                print(bla)
 
     def depth(self: Depth_Alg) -> Tuple(Board, List[Tuple[str, int]]):
         board_set_ups: Set = set()
@@ -103,7 +81,8 @@ class Depth_Alg():
 
     def run_algorithm(self: Depth_Alg) -> None:
         """
-            
+            Runs the depth first algorithm until a solution is found.
+            Merges all moves of the same car and saves how many moves necessary.
         """
 
         # store end board and the moves made to work towards this board
@@ -115,7 +94,8 @@ class Depth_Alg():
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
 
-        self.merge_moves()
+        # merge moves of same car together
+        self.moves_made = merge_moves(self.moves_made)
 
         # store amount of moves
         self.moves_amount: int = len(self.moves_made)
