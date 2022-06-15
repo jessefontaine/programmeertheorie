@@ -6,7 +6,11 @@ from typing import List, Tuple, Union
 # from code.algorithms import Random_Alg, First_Alg, Bfs, Depth_Alg
 # from code.classes import Board, Car
 
+<<<<<<< HEAD
 def batch_runner(algorithm: Union['Random_Alg', 'First_Alg', 'Bfs', 'Depth_Alg'], runs: int):
+=======
+def batch_runner(algorithm: Union["Random_Alg", "First_Alg", "Bfs", "Depth_Alg"], runs: int):
+>>>>>>> 757938661bbd6232e035a129602c1b7d1238d945
     
     amount_moves_per_runs: List[int] = []
     moves_made_in_runs: List[List[Tuple[str, int]]] = []

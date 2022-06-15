@@ -55,6 +55,31 @@ class Depth_Alg():
                         if head_board.win():
                             return head_board, child.steps_taken
 
+<<<<<<< HEAD
+=======
+    # def merge_moves(self: Depth_Alg) -> None:
+    #     """
+    #         Merges moves together.
+    #         Deletes the move if direction is 0.
+    #     """
+    #     i = 0
+
+    #     # loop over moves made
+    #     while i < len(self.moves_made) - 1:
+    #         # check if next move is done with the same car
+    #         if self.moves_made[i][0] == self.moves_made[i + 1][0]:
+    #             self.moves_made[i] = (self.moves_made[i][0], self.moves_made[i][1] + self.moves_made[i + 1][1])
+    #             # delete the move which is added
+    #             del self.moves_made[i + 1]
+
+    #             # if the move is undone, delete move
+    #             if self.moves_made[i][1] == 0:
+    #                 del self.moves_made[i]
+    #                 i -= 1
+    #             i -= 1
+    #         i += 1
+
+>>>>>>> 757938661bbd6232e035a129602c1b7d1238d945
     def run_algorithm(self: Depth_Alg) -> None:
         """
             Runs the depth first algorithm until a solution is found.
