@@ -98,4 +98,4 @@ class Depth_Alg():
         self.moves_made = merge_moves(self.moves_made)
 
         # store amount of moves
-        self.moves_amount = len(self.moves_made)
+        self.moves_amount: int = len(self.moves_made)
