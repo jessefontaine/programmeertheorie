@@ -45,17 +45,17 @@ class Deep_Alg():
         board_set_ups.add(begin_node.board_rep)
 
         for _ in range(depth):
-            state = stack.pop()
+            parent = stack.pop()
 
             # for each possible moveable car save the board representation
             for car in head_board.moves_dict:
                 # update the board with right car representation
-                head_board.set_board(state.board_rep)
+                head_board.set_board(parent.board_rep)
 
                 # for each move save the board representation
                 for direction in head_board.moves_dict[car]:
                     # update board with right car representation
-                    head_board.set_board(state.board_rep)
+                    head_board.set_board(parent.board_rep)
 
                     # make new board representation and save as new node
                     head_board.make_move(car, direction)
@@ -64,10 +64,18 @@ class Deep_Alg():
                     # do not save board representation when we already have/had it in stack
                     if child.board_rep in board_set_ups:
                         pass
-                    # save board representation in stack and our set
                     else:
+                        # save all the steps taken to the node
+                        tmp = parent.steps_taken[:]
+                        tmp.append((car, direction))
+                        child.steps_taken = tmp
+
+                        # save board representation in stack and our set
                         stack.append(child)
                         board_set_ups.add(child.board_rep)
+        print(" ")
+        for bla in stack:
+            print(bla.steps_taken)
 
 
     def run_algorithm(self: Deep_Alg) -> None:
