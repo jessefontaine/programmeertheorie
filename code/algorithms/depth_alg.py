@@ -34,7 +34,7 @@ class Depth_Alg():
                 print("############")
                 print(bla)
 
-    def depth(self: Depth_Alg) -> Tuple(Board, List[Tuple[str, int]]):
+    def depth(self: Depth_Alg) -> Tuple[Board, List[Tuple[str, int]]]:
         board_set_ups: Set = set()
         head_board: Board = self.board
         #depth: int = 2
