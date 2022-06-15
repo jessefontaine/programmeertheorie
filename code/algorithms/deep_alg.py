@@ -87,7 +87,7 @@ class Deep_Alg():
         """
             
         """
-
+        
         bla = self.deep()
-        print(bla[0])
-        print(bla[1])
+        bla = bla[1:]
+        
