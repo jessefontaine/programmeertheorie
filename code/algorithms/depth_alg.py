@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import Tuple, List, Set
 from code.classes import Board
 from .node import Node
-import queue
-import copy
+from ..functions import merge_moves
 
 
 class Depth_Alg():
@@ -80,7 +79,8 @@ class Depth_Alg():
 
     def run_algorithm(self: Depth_Alg) -> None:
         """
-            
+            Runs the depth first algorithm until a solution is found.
+            Merges all moves of the same car and saves how many moves necessary.
         """
 
         # store end board and the moves made to work towards this board
@@ -92,7 +92,8 @@ class Depth_Alg():
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
 
-        self.merge_moves()
+        # merge moves of same car together
+        self.moves_made = merge_moves(self.moves_made)
 
         # store amount of moves
         self.moves_amount: int = len(self.moves_made)

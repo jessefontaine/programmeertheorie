@@ -26,6 +26,29 @@ def batch_runner(algorithm: Union[Random_Alg, First_Alg, Bfs, Depth_Alg], runs: 
 
     return amount_moves_per_runs, moves_made_in_runs
 
+def merge_moves(moves: List[Tuple[str, int]]) -> List[Tuple[str, int]]:
+        """
+            Merges moves together.
+            Deletes the move if direction is 0.
+        """
+        i = 0
+
+        # loop over moves made
+        while i < len(moves) - 1:
+            # check if next move is done with the same car
+            if moves[i][0] == moves[i + 1][0]:
+                moves[i] = (moves[i][0], moves[i][1] + moves[i + 1][1])
+                # delete the move which is added
+                del moves[i + 1]
+                
+                # if the move is undone, delete move
+                if moves[i][1] == 0:
+                    del moves[i]
+                    i -= 1
+                i -= 1
+            i += 1
+
+        return moves
 
 def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
 
