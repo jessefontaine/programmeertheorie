@@ -9,13 +9,13 @@ from code.functions import merge_moves
 
 class First_Alg():
 
-    def __init__(self: First_Alg, board: Board) -> None:
+    def __init__(self, board: Board) -> None:
         self.board: Board = board
         self.cars: Dict[str, Car] = self.board.cars
 
-    def move_win_car(self: First_Alg) -> bool:
+    def move_win_car(self) -> bool:
         """
-            Returns a bool if a win car can go to right; if it does it makes the move and saves it.
+        Returns a bool if a win car can go to right; if it does it makes the move and saves it.
         """
 
         dict: Dict[str, List[int]] = self.board.moves_dict
@@ -28,9 +28,9 @@ class First_Alg():
 
         return False
 
-    def cars_to_left(self: First_Alg) -> bool:
+    def cars_to_left(self) -> bool:
         """
-            Returns a bool if a horizontal car can go to left; if it does it makes the move and saves it.
+        Returns a bool if a horizontal car can go to left; if it does it makes the move and saves it.
         """
 
         dict = self.board.moves_dict
@@ -45,9 +45,9 @@ class First_Alg():
 
         return False
 
-    def cars_vertical(self: First_Alg) -> bool:
+    def cars_vertical(self) -> bool:
         """
-            Returns a bool if a vertical car can go up or down; if it does it makes the move and saves it.
+        Returns a bool if a vertical car can go up or down; if it does it makes the move and saves it.
         """
 
         dict = self.board.moves_dict
@@ -71,9 +71,9 @@ class First_Alg():
 
         return False
 
-    def move_random(self: First_Alg) -> Tuple[str, int]:
+    def move_random(self) -> Tuple[str, int]:
         """
-            Returns a random move; a tuple with car object and the direction.
+        Returns a random move; a tuple with car object and the direction.
         """
 
         # chooses random move from dictionary
@@ -82,11 +82,11 @@ class First_Alg():
 
         return car_move, ran_choice
 
-    def run_algorithm(self: First_Alg) -> None:
+    def run_algorithm(self) -> None:
         """
-            Runs the algoritm until the game is won.
-            Makes use of moving win car to right, all horizontal cars to left,
-            all vertical cars up or down and then random until in win position.
+        Runs the algoritm until the game is won.
+        Makes use of moving win car to right, all horizontal cars to left,
+        all vertical cars up or down and then random until in win position.
         """
 
         self.moves_made: List[Tuple[str, int]] = []

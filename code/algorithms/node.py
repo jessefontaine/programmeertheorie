@@ -5,7 +5,7 @@ from typing import List, Tuple
 
 class Node():
 
-    def __init__(self: Node, board_rep: str):
+    def __init__(self, board_rep: str):
         
         self.board_rep: str = board_rep
         self.steps_taken: List[Tuple[str, int]] = []

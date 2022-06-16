@@ -8,12 +8,12 @@ from code.classes import Board, Car
 
 class Random_Alg():
 
-    def __init__(self: Random_Alg, board: Board) -> None:
+    def __init__(self, board: Board) -> None:
         self.board: Board = board
 
-    def _move(self: Random_Alg) -> Tuple[str, int]:
+    def _move(self) -> Tuple[str, int]:
         """
-            Returns a random move; a tuple with car object and the direction.
+        Returns a random move; a tuple with car object and the direction.
         """
 
         # chooses random move from dictionary
@@ -22,9 +22,9 @@ class Random_Alg():
 
         return car_move, ran_choice
 
-    def run_algorithm(self: Random_Alg) -> None:
+    def run_algorithm(self) -> None:
         """
-            Runs the random algoritm until the game is won.
+        Runs the random algoritm until the game is won.
         """
 
         # clear the moves made list

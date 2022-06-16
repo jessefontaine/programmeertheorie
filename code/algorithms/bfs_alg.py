@@ -11,11 +11,11 @@ from code.functions.functions import merge_moves
 
 class Bfs():
 
-    def __init__(self: Bfs, board: Board, depth: int):
+    def __init__(self, board: Board, depth: int):
         self.board: Board = board
         self.depth: int = depth        
     
-    def run_algorithm(self: Bfs):
+    def run_algorithm(self):
 
         # save begin state from the board        
         begin_state: Node = Node(str(self.board))
