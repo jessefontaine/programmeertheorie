@@ -86,19 +86,19 @@ def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> N
     # trim path if a filetype was specified
     path = path.split('.')[0]
 
-    path = path.split('/')
-    name = path[-1]
-    path = '/'.join(path[:-1]) + '/runs/'
-    print(path)
+    # make the path to the files
+    name: str = path.split('/')[-1]
+    folder: str = '/'.join(path.split('/')[:-1]) + '/runs'
+
     # make a subfolder
     try:
-        os.makedirs(path)
+        os.makedirs(folder)
     except FileExistsError:
         pass
 
-
+    # save all the files
     run_moves: List[Tuple[str, int]]
     for run, run_moves in enumerate(moves_made):
-        with open(f'{path}/{name}_run_{run}.csv', 'w') as file:
+        with open(f'{folder}/{name}_run_{run}.csv', 'w') as file:
             file.write('car,move\n')
             file.write('\n'.join([f'{move[0]},{move[1]}' for move in run_moves]))
