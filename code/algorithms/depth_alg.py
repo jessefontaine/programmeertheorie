@@ -80,7 +80,5 @@ class Depth_Alg():
         # merge moves of same car together
         self.moves_made = merge_moves(self.moves_made)
 
-        write_moves_to_file(self.moves_made, "output/test.csv")
-
         # store amount of moves
         self.moves_amount: int = len(self.moves_made)
