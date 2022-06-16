@@ -82,7 +82,7 @@ def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
-    
+
     # trim path if a filetype was specified
     path = path.split('.')[0]
 
