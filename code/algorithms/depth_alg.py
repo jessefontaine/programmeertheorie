@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Tuple, List, Set
 from code.classes import Board
+from code.functions.functions import write_moves_to_file
 from .node import Node
 from code.functions import merge_moves
 
@@ -78,6 +79,8 @@ class Depth_Alg():
 
         # merge moves of same car together
         self.moves_made = merge_moves(self.moves_made)
+
+        write_moves_to_file(self.moves_made, "output/test.csv")
 
         # store amount of moves
         self.moves_amount: int = len(self.moves_made)
