@@ -4,6 +4,7 @@ from code.classes import Board
 from .node import Node
 from code.functions import merge_moves
 
+import random
 
 class Depth_Alg():
 
@@ -25,18 +26,23 @@ class Depth_Alg():
             parent = stack.pop()
             head_board.set_board(parent.board_rep)
 
+            moves_list = list(head_board.moves_dict.items())
+            random.shuffle(moves_list)
+
             # for each possible moveable car save the board representation
-            for car in head_board.moves_dict:
+            for car in moves_list:
                 # update the board with right car representation
                 head_board.set_board(parent.board_rep)
 
+                random.shuffle(car[1])
+
                 # for each move save the board representation
-                for direction in head_board.moves_dict[car]:
+                for direction in car[1]:
                     # update board with right car representation
                     head_board.set_board(parent.board_rep)
 
                     # make new board representation and save as new node
-                    head_board.make_move(car, direction)
+                    head_board.make_move(car[0], direction)
                     child = Node(str(head_board))
 
                     # do not save board representation when we already have/had it in stack
