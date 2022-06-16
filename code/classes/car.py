@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Union, Tuple, List
+from typing import Iterable, Union, Tuple, List
 
 
 class Car():
@@ -56,7 +56,7 @@ class Car():
         self.position = self.start_position
         self._positions_update()
 
-    def test_move(self: Car, direction: int) -> Tuple[int, int]:
+    def test_move(self: Car, direction: int) -> List[Tuple[int, int]]:
         """
             Method returns a position coordinate of the spot that is taken up when
             the car moves in the provided direction.
@@ -76,13 +76,26 @@ class Car():
         else:
             list_index = 0
 
-        # movement up/down or left/right depending on orientation
-        if self.orientation == 'H':
-            test_pos: Tuple[int, int] = (self.position[0], self.positions[list_index][1] + direction)
-        else:
-            test_pos = (self.positions[list_index][0] + direction, self.position[1])
+        # list to store all positions in the car will drive over
+        test_pos_list: List[Tuple[int, int]] = []
 
-        return test_pos
+        if direction < 0:
+            check_list: Iterable[int] = range(direction, 0)
+        else:
+            check_list = range(1, direction)
+
+        for distance in check_list:
+
+            # movement up/down or left/right depending on orientation
+            if self.orientation == 'H':
+                test_pos: Tuple[int, int] = (self.position[0], self.positions[list_index][1] + distance)
+            else:
+                test_pos = (self.positions[list_index][0] + distance, self.position[1])
+
+            # add pos to list
+            test_pos_list.append(test_pos)
+
+        return test_pos_list
 
     def move(self: Car, move: int) -> None:
         """

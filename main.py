@@ -14,6 +14,9 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     board: Board = Board(infile)
     print(board)
+    print(board.moves_dict)
+
+    return
 
     if mode == 'random':
         algorithm: Union[Random_Alg, First_Alg, Bfs, Depth_Alg] = Random_Alg(board)

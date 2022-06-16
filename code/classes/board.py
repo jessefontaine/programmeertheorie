@@ -106,12 +106,19 @@ class Board():
             self.moves_dict[car.name] = []
 
             # moves can be either forward or backward
-            for dir in [-1, 1]:
+            for dir in list(range(-1 * max(self.size) + 1, 0)) + list(range(1, max(self.size))):
 
                 # Car returns the spot that would be taken up by the move. saved if valid
-                test_pos: Tuple[int, int] = car.test_move(dir)
-                if self._within_range(test_pos) and self.grid[test_pos[0]][test_pos[1]] is None:
+                test_pos_list: List[Tuple[int, int]] = car.test_move(dir)
+
+                row_obstacles: List[bool] = []
+                for test_pos in test_pos_list:
+
+                    row_obstacles.append(not self._within_range(test_pos) or self.grid[test_pos[0]][test_pos[1]] is not None)
+                
+                if not any(row_obstacles) and len(row_obstacles) > 0:
                     self.moves_dict[car.name].append(dir)
+                
 
             # no possible moves deletes the key value pair
             if len(self.moves_dict[car.name]) == 0:
