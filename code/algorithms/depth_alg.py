@@ -50,7 +50,7 @@ class Depth_Alg():
                         pass
                     else:
                         # save all the steps taken to the node
-                        tmp = parent.steps_taken[:]
+                        tmp: List[Tuple[str, int]] = parent.steps_taken[:]
                         tmp.append((car[0], direction))
                         child.steps_taken = tmp
 
