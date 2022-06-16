@@ -51,7 +51,7 @@ class Depth_Alg():
                     else:
                         # save all the steps taken to the node
                         tmp = parent.steps_taken[:]
-                        tmp.append((car, direction))
+                        tmp.append((car[0], direction))
                         child.steps_taken = tmp
 
                         # save board representation in stack and our set

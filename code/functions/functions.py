@@ -14,7 +14,7 @@ def batch_runner(algorithm: Union['Random_Alg', 'First_Alg', 'Bfs', 'Depth_Alg']
     for run in range(runs):
 
         # print status
-        # print(f'run {run + 1}/{runs}', end='\r')
+        print(f'run {run + 1}/{runs}', end='\r')
 
         # run algorithm on clean board
         algorithm.board.reset_board()
