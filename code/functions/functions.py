@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from matplotlib import pyplot as plt
 from typing import List, Tuple, Union
+import os
 
 # from code.algorithms import Random_Alg, First_Alg, Bfs, Depth_Alg
 # from code.classes import Board, Car
@@ -14,7 +15,7 @@ def batch_runner(algorithm: Union['Random_Alg', 'First_Alg', 'Bfs', 'Depth_Alg']
     for run in range(runs):
 
         # print status
-        # print(f'run {run + 1}/{runs}', end='\r')
+        print(f'run {run + 1}/{runs}', end='\r')
 
         # run algorithm on clean board
         algorithm.board.reset_board()
@@ -85,8 +86,19 @@ def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> N
     # trim path if a filetype was specified
     path = path.split('.')[0]
 
+    # make the path to the files
+    name: str = path.split('/')[-1]
+    folder: str = '/'.join(path.split('/')[:-1]) + '/runs'
+
+    # make a subfolder
+    try:
+        os.makedirs(folder)
+    except FileExistsError:
+        pass
+
+    # save all the files
     run_moves: List[Tuple[str, int]]
-    for run_moves in moves_made:
-        with open(f'{path}.csv', 'w') as file:
+    for run, run_moves in enumerate(moves_made):
+        with open(f'{folder}/{name}_run_{run}.csv', 'w') as file:
             file.write('car,move\n')
             file.write('\n'.join([f'{move[0]},{move[1]}' for move in run_moves]))
