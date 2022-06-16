@@ -3,9 +3,10 @@ from __future__ import annotations
 from typing import List, Dict, Tuple
 from queue import Queue
 
+
 from .node import Node
 from code.classes import Board
-# from code.functions import merge
+from code.functions.functions import merge_moves
 
 
 class Bfs():
@@ -83,5 +84,6 @@ class Bfs():
                         break
 
         self.moves_made: List[Tuple[str, int]] = unique_nodes[-1].steps_taken
+        self.moves_made = merge_moves(self.moves_made)
         self.moves_amount: int = len(unique_nodes[-1].steps_taken)
 
