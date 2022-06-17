@@ -17,10 +17,10 @@ class Random_Alg():
         """
 
         # chooses random move from dictionary
-        car_move: str = random.choice(list(self.board.moves_dict.keys()))
-        ran_choice = random.choice(self.board.moves_dict[car_move])
+        # car_move: str = random.choice(list(self.board.moves_dict.keys()))
+        ran_move = random.choice(self.board.possible_moves)
 
-        return car_move, ran_choice
+        return ran_move
 
     def run_algorithm(self: Random_Alg) -> None:
         """

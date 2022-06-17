@@ -6,22 +6,19 @@ import os
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import First_Alg, Random_Alg, Bfs, Depth_Alg
+from code.algorithms import Random_Alg, Bfs, Depth_Alg
 from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     board: Board = Board(infile)
-    print(board)
-    print(board.moves_dict)
-
-    return
 
     if mode == 'random':
-        algorithm: Union[Random_Alg, First_Alg, Bfs, Depth_Alg] = Random_Alg(board)
+        algorithm: Union[Random_Alg, Bfs, Depth_Alg] = Random_Alg(board)
     elif mode == 'first':
-        algorithm = First_Alg(board)
+        # algorithm = First_Alg(board)
+        pass
 
     elif mode == 'breadth':
         algorithm = Bfs(board, 300)
@@ -62,7 +59,7 @@ if __name__ == "__main__":
     parser.add_argument('runs', help='amount of runs')
 
     # optional arguments
-    parser.add_argument("-m", "--output_moves", type=bool, default = False, help="Output moves made to file(s)")
+    parser.add_argument("-m", "--output_moves", action='store_true', help="Output moves made to file(s)")
 
     # read cla's
     args: Namespace = parser.parse_args()

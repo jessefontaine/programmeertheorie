@@ -27,40 +27,39 @@ class Depth_Alg():
             parent = stack.pop()
             head_board.set_board(parent.board_rep)
 
-            moves_list = list(head_board.moves_dict.items())
+            moves_list = head_board.possible_moves
             random.shuffle(moves_list)
 
             # for each possible moveable car save the board representation
-            for car in moves_list:
+            for move in moves_list:
                 # update the board with right car representation
                 head_board.set_board(parent.board_rep)
 
-                random.shuffle(car[1])
+                # random.shuffle(car[1])
 
                 # for each move save the board representation
-                for direction in car[1]:
-                    # update board with right car representation
-                    head_board.set_board(parent.board_rep)
+                # update board with right car representation
+                head_board.set_board(parent.board_rep)
 
-                    # make new board representation and save as new node
-                    head_board.make_move(car[0], direction)
-                    child = Node(str(head_board))
+                # make new board representation and save as new node
+                head_board.make_move(*move)
+                child = Node(str(head_board))
 
-                    # do not save board representation when we already have/had it in stack
-                    if child.board_rep in board_set_ups:
-                        pass
-                    else:
-                        # save all the steps taken to the node
-                        tmp: List[Tuple[str, int]] = parent.steps_taken[:]
-                        tmp.append((car[0], direction))
-                        child.steps_taken = tmp
+                # do not save board representation when we already have/had it in stack
+                if child.board_rep in board_set_ups:
+                    pass
+                else:
+                    # save all the steps taken to the node
+                    tmp: List[Tuple[str, int]] = parent.steps_taken[:]
+                    tmp.append(move)
+                    child.steps_taken = tmp
 
-                        # save board representation in stack and our set
-                        stack.append(child)
-                        board_set_ups.add(child.board_rep)
+                    # save board representation in stack and our set
+                    stack.append(child)
+                    board_set_ups.add(child.board_rep)
 
-                        if head_board.win():
-                            return head_board, child.steps_taken
+                    if head_board.win():
+                        return head_board, child.steps_taken
 
     def run_algorithm(self: Depth_Alg) -> None:
         """

@@ -72,9 +72,9 @@ class Car():
 
         # derive index of self.positions list that is the in the movement direction
         if direction > 0:
-            list_index: int = -1
+            car_side: Tuple[int, int] = self.positions[-1]
         else:
-            list_index = 0
+            car_side = self.positions[0]
 
         # list to store all positions in the car will drive over
         test_pos_list: List[Tuple[int, int]] = []
@@ -82,15 +82,15 @@ class Car():
         if direction < 0:
             check_list: Iterable[int] = range(direction, 0)
         else:
-            check_list = range(1, direction)
+            check_list = range(1, direction + 1)
 
         for distance in check_list:
 
             # movement up/down or left/right depending on orientation
             if self.orientation == 'H':
-                test_pos: Tuple[int, int] = (self.position[0], self.positions[list_index][1] + distance)
+                test_pos: Tuple[int, int] = (car_side[0], car_side[1] + distance)
             else:
-                test_pos = (self.positions[list_index][0] + distance, self.position[1])
+                test_pos = (car_side[0] + distance, car_side[1])
 
             # add pos to list
             test_pos_list.append(test_pos)

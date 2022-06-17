@@ -89,40 +89,29 @@ class Board():
         
         # calculate the possible moves with current board setup
         self._possible_moves()
+    
+    def _free_spot(self, position: Tuple[int, int]) -> bool:
+        return self._within_range(position) and self.grid[position[0]][position[1]] == None
 
-    def _possible_moves(self: Board) -> None:
+    def _possible_moves(self) -> None:
         """
             Returns a dictionary with all cars that can move in the current board setup
             and the directions they can move in.
         """
+        
+        self.possible_moves: List[Tuple[str, int]] = []
 
-        # create dictionary to store possible moves in
-        self.moves_dict: dict[str, List[int]] = {}
+        check_distances: List[int] = list(range(-1 * max(self.size) + 2, 0)) + list(range(1, max(self.size) - 1))
 
-        # loop through all cars to find their moves
         for car in list(self.cars.values()):
 
-            # initialise key value par with empty list for storing moves
-            self.moves_dict[car.name] = []
+            for distance in check_distances:
 
-            # moves can be either forward or backward
-            for dir in list(range(-1 * max(self.size) + 1, 0)) + list(range(1, max(self.size))):
+                check_positions: List[Tuple[int, int]] = car.test_move(distance)
 
-                # Car returns the spot that would be taken up by the move. saved if valid
-                test_pos_list: List[Tuple[int, int]] = car.test_move(dir)
+                if all([self._free_spot(pos) for pos in check_positions]):
 
-                row_obstacles: List[bool] = []
-                for test_pos in test_pos_list:
-
-                    row_obstacles.append(not self._within_range(test_pos) or self.grid[test_pos[0]][test_pos[1]] is not None)
-                
-                if not any(row_obstacles) and len(row_obstacles) > 0:
-                    self.moves_dict[car.name].append(dir)
-                
-
-            # no possible moves deletes the key value pair
-            if len(self.moves_dict[car.name]) == 0:
-                del self.moves_dict[car.name]
+                    self.possible_moves.append((car.name, distance))
 
     def _within_range(self: Board, position: Tuple[int, int]) -> bool:
         """
@@ -192,7 +181,7 @@ class Board():
             raise ValueError('Move cannot be 0!')
 
         # make sure move is valid
-        if move not in self.moves_dict[car]:
+        if (car, move) not in self.possible_moves:
             raise InvalidMoveError('Given move is not possible with current board setup!')
 
         # move the car and update the grid

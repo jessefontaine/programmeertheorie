@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Union
 from queue import Queue
 
 
@@ -11,9 +11,10 @@ from code.functions.functions import merge_moves
 
 class Bfs():
 
-    def __init__(self: Bfs, board: Board, depth: int):
+    def __init__(self: Bfs, board: Board, depth: int, endboard: str = None):
         self.board: Board = board
-        self.depth: int = depth        
+        self.depth: int = depth
+        self.endboard: Union[str, None] = endboard        
     
     def run_algorithm(self: Bfs):
 
@@ -47,11 +48,7 @@ class Bfs():
             if len(state.steps_taken) < self.depth:
 
                 # get all possible actions
-                actions: List[Tuple[str, int]] = [
-                    (name, direction) 
-                        for name in list(self.board.moves_dict.keys()) 
-                            for direction in self.board.moves_dict[name]
-                ]
+                actions: List[Tuple[str, int]] = self.board.possible_moves
 
                 # loop through all actions
                 for move in actions:
@@ -78,12 +75,15 @@ class Bfs():
                         # add node to queue
                         layer.put(child)
 
-                    win_found = self.board.on_win_position()
+                    if self.endboard == None:
+                        win_found = self.board.on_win_position()
+                    else:
+                        win_found = self.endboard == str(self.board)
 
                     if win_found:
                         break
 
         self.moves_made: List[Tuple[str, int]] = unique_nodes[-1].steps_taken
-        self.moves_made = merge_moves(self.moves_made)
+        # self.moves_made = merge_moves(self.moves_made)
         self.moves_amount: int = len(unique_nodes[-1].steps_taken)
 
