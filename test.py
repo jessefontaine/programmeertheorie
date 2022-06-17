@@ -6,10 +6,10 @@ import os
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import First_Alg, Random_Alg, Bfs, Depth_Alg, BDF_Alg
+from code.algorithms import First_Alg, Random_Alg, Bfs, Depth_Alg, BDF_Alg, RandomAlgBO
 
 a = Board("game_boards/Rushhour6x6_easywin.csv")
 
-b = BDF_Alg(a)
+b = RandomAlgBO(a)
 
 b.run_algorithm()

@@ -9,11 +9,11 @@ import random
 
 class BDF_Alg():
 
-    def __init__(self: BDF_Alg, board: Board) -> None:
+    def __init__(self, board: Board) -> None:
         self.board: Board = board
         self.moves_made: List[Tuple[str, int]] = []
 
-    def best_depth(self: BDF_Alg) -> Tuple[Board, List[Tuple[str, int]]]:
+    def best_depth(self) -> Tuple[Board, List[Tuple[str, int]]]:
         board_set_ups: Set = set()
         head_board: Board = self.board
 
@@ -96,10 +96,10 @@ class BDF_Alg():
 
         return best_choice
 
-    def run_algorithm(self: BDF_Alg) -> None:
+    def run_algorithm(self) -> None:
         """
-            Runs the depth first algorithm until a solution is found.
-            Merges all moves of the same car and saves how many moves necessary.
+        Runs the depth first algorithm until a solution is found.
+        Merges all moves of the same car and saves how many moves necessary.
         """
 
         # store end board and the moves made to work towards this board

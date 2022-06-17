@@ -209,8 +209,14 @@ class Board():
         last_moves: List[Tuple[Car, int]] = []
 
         while self.win_car.position != self.win_postition:
-            # self._possible_moves()
             last_moves.append(self.make_move(self.win_car.name, 1))
             self._update_grid()
         
         return last_moves
+
+
+    def exit_boards(self):
+        self.make_move(self.win_car.name, 1)
+        self._update_grid()
+
+        return self
