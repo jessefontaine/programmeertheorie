@@ -119,8 +119,8 @@ class BDFAlg:
 
     def run_algorithm(self) -> None:
         """
-            Runs the depth first algorithm until a solution is found.
-            Merges all moves of the same car and saves how many moves necessary.
+        Runs the depth first algorithm until a solution is found.
+        Merges all moves of the same car and saves how many moves necessary.
         """
 
         # store end board and the moves made to work towards this board

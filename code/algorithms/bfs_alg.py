@@ -11,9 +11,10 @@ from code.functions.functions import merge_moves
 
 class Bfs():
 
-    def __init__(self, board: Board, depth: int):
+    def __init__(self, board: Board, depth: int, endboard = None):
         self.board: Board = board
-        self.depth: int = depth        
+        self.depth: int = depth    
+        self.endboard = endboard
     
     def run_algorithm(self):
 
@@ -78,12 +79,19 @@ class Bfs():
                         # add node to queue
                         layer.put(child)
 
-                    win_found = self.board.on_win_position()
+                    if self.endboard == None:
+                        print('áaaaaaaaaaaaaaaaaaaaaaaaaa')
+                        win_found = self.board.on_win_position()
+                    else:
+                        print('bbbbbbbbbbbbbbbbbbbb')
+                        win_found = self.endboard == str(self.board)
 
                     if win_found:
+                        print('win found ====================================')
                         break
 
         self.moves_made: List[Tuple[str, int]] = unique_nodes[-1].steps_taken
         self.moves_made = merge_moves(self.moves_made)
         self.moves_amount: int = len(unique_nodes[-1].steps_taken)
+        # print(self.moves_amount)
 
