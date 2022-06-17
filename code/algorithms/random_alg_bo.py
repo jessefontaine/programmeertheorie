@@ -12,7 +12,6 @@ class RandomAlgBO:
     def __init__(self, board: Board) -> None:
         self.board: Board = board
         self.boards: List = [Node(str(self.board))]
-        # print(self.boards[0].board_rep)
 
     def _move(self) -> Tuple[str, int]:
         """
@@ -46,9 +45,11 @@ class RandomAlgBO:
             self.boards.append(Node(str(self.board.exit_boards())))
 
 
-        for i in range(len(self.boards)):
-            print(self.boards[i].board_rep)
-            print(10 * "#")
+        # for i in range(len(self.boards)):
+        #     print(self.boards[i].board_rep)
+        #     print(10 * "#")
 
         # store amount of moves
         self.moves_amount: int = len(self.moves_made)
+
+        return self.boards
