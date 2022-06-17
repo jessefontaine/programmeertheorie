@@ -18,9 +18,8 @@ class BDFAlg:
         head_board: Board = self.board
 
         # make begin node and add it in stack and save as a board set up
-        begin_node = Node(str(head_board))
+        begin_node = Node(str(head_board), None)
         stack: List[Node] = [begin_node]
-        tmp_stack: List[Node] = []
         board_set_ups.add(begin_node.board_rep)
 
         # loop though all possible bord until win board is found
@@ -28,21 +27,16 @@ class BDFAlg:
         #for _ in range(3):
             # print("BEGIN")
             print('stack', stack)
-            print('tmp', tmp_stack)
 
             if len(stack) == 0:
                 print('vorige parent', parent)
-                print('wh', tmp_stack.remove(parent))
             if len(stack) > 1:
                 parent = self.best_rep(stack)
                 print('parent', parent)
             else:
                 parent = stack.pop()
 
-            # print('parent', parent)
-            tmp_stack: List[Node] = stack.copy()
             stack.clear()
-            # print(stack)
 
             head_board.set_board(parent.board_rep)
 
@@ -63,7 +57,7 @@ class BDFAlg:
 
                     # make new board representation and save as new node
                     head_board.make_move(car[0], direction)
-                    child = Node(str(head_board))
+                    child = Node(str(head_board), parent)
 
                     # do not save board representation when we already have/had it in stack
                     if child.board_rep in board_set_ups:
