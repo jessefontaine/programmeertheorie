@@ -7,7 +7,7 @@ from code.functions import merge_moves
 
 import random
 
-class Depth_Alg():
+class DepthFirst():
 
     def __init__(self, board: Board) -> None:
         self.board: Board = board
@@ -18,8 +18,8 @@ class Depth_Alg():
         head_board: Board = self.board
 
         # make begin node and add it in stack and save as a board set up
-        begin_node = Node(str(head_board))
-        stack = [begin_node]
+        begin_node: Node = Node(str(head_board), None)
+        stack: List[Node] = [begin_node]
         board_set_ups.add(begin_node.board_rep)
 
         # loop though all possible bord until win board is found
@@ -44,7 +44,7 @@ class Depth_Alg():
 
                     # make new board representation and save as new node
                     head_board.make_move(car[0], direction)
-                    child = Node(str(head_board))
+                    child = Node(str(head_board), parent)
 
                     # do not save board representation when we already have/had it in stack
                     if child.board_rep in board_set_ups:
