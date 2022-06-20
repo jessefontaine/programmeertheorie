@@ -11,10 +11,11 @@ class Treesearcher:
         self.board: Board = board
         self.depth: int = depth
         
-        if start_node is not None:
-            self.start_node: Node = start_node
+        if start_node is None:
+            self.start_node: Node = Node(str(board))
         else:
-            self.start_node = Node(str(board))
+            self.start_node = start_node
+
         if end_node is not None:
             self.end_node: Node = end_node
         
