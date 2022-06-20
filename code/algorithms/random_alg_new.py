@@ -42,7 +42,6 @@ class RandomAlg:
             # add child node to list of states
             self.states.append(Node(str(self.board), move, self.states[-1]))
 
-        print(self.states)
         # make and store the final moves
         self.moves_made.extend(self.board.exit_moves())
 

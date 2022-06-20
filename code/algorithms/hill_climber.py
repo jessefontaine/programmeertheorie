@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import Tuple, List, Set, Union
+from .random_alg_new import RandomAlg
 from code.classes import Board
 from code.functions.functions import write_moves_to_file
 from code.classes import Node
@@ -8,8 +9,23 @@ import random
 
 class HillClimber:
 
-    def __init__(self, solution: Node):
-        pass
+    def __init__(self, board: Board):
+        self.board: Board = board
+
+        a = RandomAlg(self.board)
+        a.run_algorithm()
+        self.states: List[Node] = a.states
+
+    def run_algorithm(self) -> None:
+        interval = 10
+        start = random.randint(0, len(self.states) - interval)
+        print(start)
+        print('')
+
+        self.moves_made = []
+
+        # store amount of moves
+        self.moves_amount: int = 0
 
 """
 from __future__ import annotations
@@ -43,7 +59,4 @@ b.run_algorithm()
 
 # solution2 = x.run_algorithm()
 # print(solution2)
-
-
-
 """
