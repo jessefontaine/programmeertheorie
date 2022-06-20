@@ -7,7 +7,7 @@ import os
 # from code.algorithms import Random_Alg, First_Alg, Bfs, Depth_Alg
 # from code.classes import Board, Car
 
-def batch_runner(algorithm: Union['Random_Alg', 'Bfs', 'Depth_Alg'], runs: int):
+def batch_runner(algorithm: Union['Random_Alg', 'Bfs', 'Dfs', 'Bdfs'], runs: int):
     
     amount_moves_per_runs: List[int] = []
     moves_made_in_runs: List[List[Tuple[str, int]]] = []
@@ -69,7 +69,6 @@ def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
     with open(f"{path}.txt", 'w') as file:
         file.write('\n'.join(amount_moves_str))
 
-
 def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
 
     # trim path if a filetype was specified
@@ -79,7 +78,6 @@ def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
     amount_moves_str: List[str] = [str(x) for x in amount_of_steps]
     with open(f"{path}.txt", 'w') as file:
         file.write('\n'.join(amount_moves_str))
-
 
 def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
 
