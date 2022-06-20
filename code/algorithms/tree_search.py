@@ -1,9 +1,8 @@
 from __future__ import annotations
 from typing import Tuple, List, Set, Union
 from code.classes import Board
-from .node import Node
 from code.functions.functions import write_moves_to_file
-from .node import Node
+from code.classes import Node
 
 
 class Treesearcher:
