@@ -11,11 +11,11 @@ class Node:
         
         if parent is None:
             self.has_parent: bool = False
-            self.steps_taken: List[Optional[Tuple[str, int]]] = [None]
+            self.steps_taken: List[Optional[Tuple[str, int]]] = []
         
         else:
 
             self.has_parent = True
             self.parent: Node = parent
-            self.parent.steps_taken.append(step)
+            self.steps_taken = self.parent.steps_taken[:] + [step]
         
