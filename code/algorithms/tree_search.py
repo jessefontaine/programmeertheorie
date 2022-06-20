@@ -72,4 +72,8 @@ class Treesearcher:
 
         
         self.moves_made: List[Tuple[str, int]] = current_state.steps_taken
+
+        
+
+
         self.moves_amount: int = len(self.moves_made)

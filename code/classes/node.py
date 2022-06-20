@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List, Tuple, Union, Optional
+from typing import Tuple
 
 
 class Node:
@@ -11,11 +11,10 @@ class Node:
         
         if parent is None:
             self.has_parent: bool = False
-            self.steps_taken: List[Optional[Tuple[str, int]]] = []
+            self.step_taken: Tuple[str, int] = step
         
         else:
 
             self.has_parent = True
             self.parent: Node = parent
-            self.steps_taken = self.parent.steps_taken[:] + [step]
-        
+            self.step_taken = step        
