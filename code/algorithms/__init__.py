@@ -2,4 +2,4 @@
 from .random_alg import Random_Alg
 from .bfs_alg import Bfs
 from .depth_alg import Depth_Alg
-from .node import Node
+from .bfs_new import Bfs_new

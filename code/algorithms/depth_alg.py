@@ -1,8 +1,8 @@
 from __future__ import annotations
-from typing import Tuple, List, Set
-from code.classes import Board
+from typing import Tuple, List, Set, Optional
+from code.classes import Board, Node
 from code.functions.functions import write_moves_to_file
-from .node import Node
+
 from code.functions import merge_moves
 
 import random
@@ -50,7 +50,7 @@ class Depth_Alg():
                     pass
                 else:
                     # save all the steps taken to the node
-                    tmp: List[Tuple[str, int]] = parent.steps_taken[:]
+                    tmp: List[Optional[Tuple[str, int]]] = parent.steps_taken[:]
                     tmp.append(move)
                     child.steps_taken = tmp
 
