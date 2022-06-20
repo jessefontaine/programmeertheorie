@@ -6,24 +6,26 @@ import random
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import First_Alg, Random_Alg, Bfs, Depth_Alg, BDFAlg
+from code.algorithms import First_Alg, Random_Alg, Bfs, BDFAlg, BestDepthFirst
 
 a = Board("game_boards/Rushhour6x6_easywin.csv")
 
-b = BDFAlg(a)
+b = BestDepthFirst(a)
 
-solution = b.run_algorithm()
+b.run_algorithm()
 
-print(solution)
+# solution = b.run_algorithm()
 
-print(len(solution))
+# print(solution)
 
-interval = random.randint(7, 12)
-start = random.randint(0, len(solution) - interval)
-print(start, start + interval, interval)
+# print(len(solution))
 
-a.set_board(solution[start].board_rep)
-x = Bfs(a, 20, solution[start + interval].board_rep)
+# interval = random.randint(7, 12)
+# start = random.randint(0, len(solution) - interval)
+# print(start, start + interval, interval)
 
-solution2 = x.run_algorithm()
-print(solution2)
+# a.set_board(solution[start].board_rep)
+# x = Bfs(a, 20, solution[start + interval].board_rep)
+
+# solution2 = x.run_algorithm()
+# print(solution2)

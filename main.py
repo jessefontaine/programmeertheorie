@@ -6,7 +6,7 @@ import os
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import First_Alg, Random_Alg, Bfs, Depth_Alg, BDFAlg
+from code.algorithms import First_Alg, Random_Alg, Bfs, DepthFirst, BDFAlg, BestDepthFirst
 from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
 
 
@@ -16,16 +16,16 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     print(board)
 
     if mode == 'random':
-        algorithm: Union[Random_Alg, First_Alg, Bfs, Depth_Alg, BDFAlg] = Random_Alg(board)
+        algorithm: Union[Random_Alg, First_Alg, Bfs, DepthFirst, BestDepthFirst] = Random_Alg(board)
     elif mode == 'first':
         algorithm = First_Alg(board)
 
     elif mode == 'breadth':
         algorithm = Bfs(board, 300)
     elif mode == "depth":
-        algorithm = Depth_Alg(board)
+        algorithm = DepthFirst(board)
     elif mode == "bestdepth":
-        algorithm = BDFAlg(board)
+        algorithm = BestDepthFirst(board)
     else:
         print("TODO")
     
