@@ -60,6 +60,22 @@ class Treesearcher:
         else:
             return state.board_rep == self.end_node.board_rep
 
+    def create_run_data(self, final_node: Node):
+
+        self.node_list: List[Node] = []
+        self.moves_made: List[Tuple[str, int]] = []
+
+        current: Node = final_node
+        self.moves_amount = 0
+        while current.step_taken is not None:
+            self.node_list.append(current)
+            self.moves_made.append(current.step_taken)
+            self.moves_amount += 1
+            current = current.parent
+        
+        self.node_list = self.node_list[::-1]
+        self.moves_made = self.moves_made[::-1]
+
     def run_algorithm(self):
         while self.states:
 
@@ -70,10 +86,4 @@ class Treesearcher:
 
             self.build_children(current_state)
 
-        
-        self.moves_made: List[Tuple[str, int]] = current_state.steps_taken
-
-        
-
-
-        self.moves_amount: int = len(self.moves_made)
+        self.create_run_data(current_state)
