@@ -76,9 +76,14 @@ class Treesearcher:
         self.node_list = self.node_list[::-1]
         self.moves_made = self.moves_made[::-1]
 
-    def run_algorithm(self):
-        while self.states:
+    def reset_algorithm(self):
+        self.states = [self.start_node]
+        self.unique_board_setups = set([self.start_node.board_rep])
 
+    def run_algorithm(self):
+        print(self.start_node)
+        print(self.states)
+        while self.states:
             current_state: Node = self.get_current_state()
             
             if self.check_finished(current_state):
