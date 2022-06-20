@@ -22,6 +22,10 @@ class RandomAlg:
         ran_move = random.choice(self.board.possible_moves)
 
         return ran_move
+    
+    def reset_algorithm(self):
+        self.states = [self.start_node]
+        self.unique_board_setups = set([self.start_node.board_rep])
 
     def run_algorithm(self: RandomAlg) -> None:
         """
