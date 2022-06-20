@@ -73,30 +73,3 @@ class Treesearcher:
         
         self.moves_made: List[Tuple[str, int]] = current_state.steps_taken
         self.moves_amount: int = len(self.moves_made)
-        
-
-
-        # """
-        # Runs the algorithm untill all possible states are visited.
-        # """
-        # while self.states:
-        #     new_graph = self.get_next_state()
-
-        #     # Retrieve the next empty node.
-        #     node = new_graph.get_empty_node()
-
-        #     if node is not None:
-        #         self.build_children(new_graph, node)
-        #     else:
-        #         # Stop if we find a solution
-        #         # break
-
-        #         # or ontinue looking for better graph
-        #         self.check_solution(new_graph)
-
-        # # Update the input graph with the best result found.
-        # self.graph = self.best_solution
-        
-        
-    
-    
