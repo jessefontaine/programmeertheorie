@@ -1,0 +1,10 @@
+!code/*
+!game_boards/*
+!main.py
+!README.md
+!requirements.txt
+
+__pychache__/
+.mypy_cache/
+*.py[cod]
+
