@@ -81,8 +81,6 @@ class Treesearcher:
         self.unique_board_setups = set([self.start_node.board_rep])
 
     def run_algorithm(self):
-        print(self.start_node)
-        print(self.states)
         while self.states:
             current_state: Node = self.get_current_state()
             
