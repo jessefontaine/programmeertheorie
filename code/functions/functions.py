@@ -30,8 +30,8 @@ def batch_runner(algorithm: Union['Random_Alg', 'Bfs', 'Dfs'], runs: int):
 
 def merge_moves(moves: List[Tuple[str, int]]) -> List[Tuple[str, int]]:
         """
-            Merges moves together.
-            Deletes the move if direction is 0.
+        Merges moves together.
+        Deletes the move if direction is 0.
         """
         i = 0
 

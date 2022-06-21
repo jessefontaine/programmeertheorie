@@ -8,11 +8,11 @@ from code.classes import Board, Node
 
 class RandomAlg:
 
-    def __init__(self: RandomAlg, board: Board) -> None:
+    def __init__(self, board: Board) -> None:
         self.board: Board = board
         self.states: List[Node] = [Node(str(self.board))]
 
-    def _move(self: RandomAlg) -> Tuple[str, int]:
+    def _move(self) -> Tuple[str, int]:
         """
         Returns a random move; a tuple with car object and the direction.
         """
@@ -27,7 +27,7 @@ class RandomAlg:
         self.states = [self.start_node]
         self.unique_board_setups = set([self.start_node.board_rep])
 
-    def run_algorithm(self: RandomAlg) -> None:
+    def run_algorithm(self) -> None:
         """
         Runs the random algoritm until the game is won.
         """

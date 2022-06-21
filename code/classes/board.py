@@ -13,12 +13,12 @@ class InvalidMoveError(Exception):
 
 class Board():
 
-    def __init__(self: Board, filepath: str) -> None:
+    def __init__(self, filepath: str) -> None:
         """
-            Setup board: create car objects and full game-board-grid with objects.
-            Requires filepath as argument. Filepath name should include the dimensions
-            of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent 
-            to this part of the name!).
+        Setup board: create car objects and full game-board-grid with objects.
+        Requires filepath as argument. Filepath name should include the dimensions
+        of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent 
+        to this part of the name!).
         """
 
         # parse board size from filename
@@ -38,9 +38,9 @@ class Board():
         # setup first grid
         self._update_grid()
 
-    def __str__(self: Board) -> str:
+    def __str__(self) -> str:
         """
-            Return current game board in readable format.
+        Return current game board in readable format.
         """
 
         # make grid with car object names and dots for empty spaces
@@ -49,10 +49,10 @@ class Board():
 
     def _loader(self, filepath):
         """
-            Using the path to a game_board csv-file, create and place Car objects
-            into list, then return.
+        Using the path to a game_board csv-file, create and place Car objects
+        into list, then return.
 
-            Requires Car class.
+        Requires Car class.
         """
 
         # ensure argument contains board dimensions
@@ -72,11 +72,11 @@ class Board():
                 new_car = Car(*list(row.values()))
                 self.cars[new_car.name] = new_car
 
-    def _update_grid(self: Board) -> None:
+    def _update_grid(self) -> None:
         """
-            Creates/updates the current game board. The board consists of a nested list.
-            Every occupied space holds the car object that occupies it. Unoccupied space is
-            marked with `None`
+        Creates/updates the current game board. The board consists of a nested list.
+        Every occupied space holds the car object that occupies it. Unoccupied space is
+        marked with `None`
         """
 
         # create empty nested list to store occupied spaces
@@ -95,8 +95,8 @@ class Board():
 
     def _possible_moves(self) -> None:
         """
-            Returns a dictionary with all cars that can move in the current board setup
-            and the directions they can move in.
+        Returns a dictionary with all cars that can move in the current board setup
+        and the directions they can move in.
         """
         
         self.possible_moves: List[Tuple[str, int]] = []
@@ -113,18 +113,18 @@ class Board():
 
                     self.possible_moves.append((car.name, distance))
 
-    def _within_range(self: Board, position: Tuple[int, int]) -> bool:
+    def _within_range(self, position: Tuple[int, int]) -> bool:
         """
-            Returns bool, true if position is on the grid.
+        Returns bool, true if position is on the grid.
         """
         
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    def set_board(self: Board, setup: str):
+    def set_board(self, setup: str):
         """
-            Setup the board accoring to a setup string. Setup string should be similar to
-            the board representation this class creates and include all car names, orientations and
-            lengths as the original board setup.
+        Setup the board accoring to a setup string. Setup string should be similar to
+        the board representation this class creates and include all car names, orientations and
+        lengths as the original board setup.
         """
 
         # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
@@ -150,9 +150,9 @@ class Board():
         # update the board
         self._update_grid()
 
-    def reset_board(self: Board) -> None:
+    def reset_board(self) -> None:
         """
-            Resets the board to it's original setup. Also clears all moves made.
+        Resets the board to it's original setup. Also clears all moves made.
         """
 
         # set all cars back to start position
@@ -163,9 +163,9 @@ class Board():
         self.moves_made = []
         self._update_grid()
 
-    def make_move(self: Board, car: str, move: int) -> Tuple[str, int]:
+    def make_move(self, car: str, move: int) -> Tuple[str, int]:
         """
-            Make a move on the board and return the move as a tuple.
+        Make a move on the board and return the move as a tuple.
         """
 
         # check if car parameter is of right type and value
@@ -198,7 +198,7 @@ class Board():
 
         return True
     
-    def on_win_position(self: Board) -> bool:
+    def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition
 
     def exit_moves(self):
