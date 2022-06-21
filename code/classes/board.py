@@ -191,22 +191,22 @@ class Board():
         # return the move as a tuple
         return (car, move)
 
-    def win(self) -> bool:
-        for i in range(self.win_car.position[1] + 2, self.size[1]):
-            if self.grid[self.win_car.position[0]][i] is not None:
-                return False
+    # def win(self) -> bool:
+    #     for i in range(self.win_car.position[1] + 2, self.size[1]):
+    #         if self.grid[self.win_car.position[0]][i] is not None:
+    #             return False
 
-        return True
+    #     return True
     
     def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition
 
-    def exit_moves(self):
-        last_moves: List[Tuple[Car, int]] = []
+    # def exit_moves(self):
+    #     last_moves: List[Tuple[Car, int]] = []
 
-        while self.win_car.position != self.win_postition:
-            # self._possible_moves()
-            last_moves.append(self.make_move(self.win_car.name, 1))
-            self._update_grid()
+    #     while self.win_car.position != self.win_postition:
+    #         # self._possible_moves()
+    #         last_moves.append(self.make_move(self.win_car.name, 1))
+    #         self._update_grid()
         
-        return last_moves
+    #     return last_moves

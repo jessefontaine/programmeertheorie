@@ -67,12 +67,13 @@ class Treesearcher:
 
         current: Node = final_node
         self.moves_amount = 0
-        while current.step_taken is not None:
+        while current is not self.start_node:
             self.node_list.append(current)
             self.moves_made.append(current.step_taken)
             self.moves_amount += 1
             current = current.parent
         
+        self.node_list.append(self.start_node)
         self.node_list = self.node_list[::-1]
         self.moves_made = self.moves_made[::-1]
 

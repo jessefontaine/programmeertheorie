@@ -17,3 +17,7 @@ class Node:
 
             self.has_parent = True
             self.parent: Node = parent
+
+    def new_parent(self, parent: Node) -> None:
+        self.has_parent = True
+        self.parent = parent

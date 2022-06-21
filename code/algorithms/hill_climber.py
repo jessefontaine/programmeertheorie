@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Tuple, List, Set, Union
 from .random_alg_new import RandomAlg
+from .bfs import Bfs
 from code.classes import Board
 from code.functions.functions import write_moves_to_file
 from code.classes import Node
@@ -14,18 +15,40 @@ class HillClimber:
 
         a = RandomAlg(self.board)
         a.run_algorithm()
-        self.states: List[Node] = a.states
+        print(a.moves_amount)
+        self.node_list: List[Node] = a.node_list
+
+    def reset_algorithm(self):
+        pass
+
+    def create_moves_made(self, start_node: Node, final_node: Node) -> None:
+        self.moves_made: List[Tuple[str, int]] = []
+
+        current: Node = final_node
+        self.moves_amount = 0
+        while current is not start_node:
+            self.moves_made.append(current.step_taken)
+            self.moves_amount += 1
+            current = current.parent
+        
+        self.moves_made = self.moves_made[::-1]
 
     def run_algorithm(self) -> None:
-        interval = 10
-        start = random.randint(0, len(self.states) - interval)
-        print(start)
-        print('')
+        for _ in range(100):
+            interval = random.randint(5, 20)
+            start = random.randint(0, len(self.node_list) - interval)
 
-        self.moves_made = []
+            b = Bfs(self.board, 300, self.node_list[start], self.node_list[start + interval])
 
-        # store amount of moves
-        self.moves_amount: int = 0
+            b.run_algorithm()
+        
+            self.node_list[start + interval + 1].new_parent(b.node_list[-1])
+        
+            self.node_list = self.node_list[:start] + b.node_list + self.node_list[start + interval + 1:]
+        
+        self.create_moves_made(self.node_list[0], self.node_list[-1])
+
+        print(self.moves_amount, " ")
 
 """
 from __future__ import annotations

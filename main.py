@@ -15,7 +15,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == 'random':
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = Random_Alg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(board)
     elif mode == 'first':
         # algorithm = First_Alg(board)
         pass
