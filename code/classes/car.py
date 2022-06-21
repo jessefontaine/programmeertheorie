@@ -6,7 +6,7 @@ from typing import Iterable, Union, Tuple, List
 class Car():
 
     def __init__(
-        self: Car,
+        self,
         name: str,
         orientation: str,
         col: Union[int, str],
@@ -14,8 +14,8 @@ class Car():
         length: Union[int, str]
          ) -> None:
         """
-            Instantiate car object with given parameters.
-            Requires orientation the be either 'V' or 'H'.
+        Instantiate car object with given parameters.
+        Requires orientation the be either 'V' or 'H'.
         """
 
         # save object variables
@@ -28,10 +28,10 @@ class Car():
         # create list of all positions on the grid the car takes up
         self._positions_update()
 
-    def _positions_update(self: Car) -> None:
+    def _positions_update(self) -> None:
         """
-            Method updates the list of all positions the car object takes up on the game
-            board.
+        Method updates the list of all positions the car object takes up on the game
+        board.
         """
 
         # list comprehension method for updating all positions
@@ -41,27 +41,27 @@ class Car():
             for i in range(self.length)
         ]
     
-    def set_car(self: Car, row: int, col: int) -> None:
+    def set_car(self, row: int, col: int) -> None:
         """
-            Set the car to a specific positions. Indexing starts at 0.
+        Set the car to a specific positions. Indexing starts at 0.
         """
 
         self.position = (row, col)
         self._positions_update()
 
-    def reset_car(self: Car) -> None:
+    def reset_car(self) -> None:
         """
-            Resets the car to it's original position.
+        Resets the car to it's original position.
         """
         self.position = self.start_position
         self._positions_update()
 
-    def test_move(self: Car, direction: int) -> List[Tuple[int, int]]:
+    def test_move(self, direction: int) -> List[Tuple[int, int]]:
         """
-            Method returns a position coordinate of the spot that is taken up when
-            the car moves in the provided direction.
+        Method returns a position coordinate of the spot that is taken up when
+        the car moves in the provided direction.
 
-            Requires non-zero direction parameter.
+        Requires non-zero direction parameter.
         """
 
         # ensure proper usage
@@ -97,13 +97,13 @@ class Car():
 
         return test_pos_list
 
-    def move(self: Car, move: int) -> None:
+    def move(self, move: int) -> None:
         """
-            Change car position on gameboard.
+        Change car position on gameboard.
 
-            Move can be a positive or negative integer. Positive values will move the car
-            up or to the right, while negative integers will move down or to the left (all
-            with respect to cars orientation).
+        Move can be a positive or negative integer. Positive values will move the car
+        up or to the right, while negative integers will move down or to the left (all
+        with respect to cars orientation).
         """
 
         # ensure proper usage

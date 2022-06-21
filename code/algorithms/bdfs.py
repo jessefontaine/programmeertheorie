@@ -12,7 +12,7 @@ from code.functions.functions import merge_moves
 class Bdfs(Dfs):
     def sort_children(self, children: List[Node]) -> List[Node]:
         """
-        uses bubble sort
+        Uses bubble sort
         """
         tmp_board: Board = self.board
 
