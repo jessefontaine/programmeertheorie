@@ -1,13 +1,11 @@
 from __future__ import annotations
-from platform import node
-from typing import Tuple, List, Set, Union
-from xml.dom.minicompat import NodeList
-from .random_alg_new import RandomAlg
-from .bfs import Bfs
-from code.classes import Board
-from code.functions.functions import write_moves_to_file
-from code.classes import Node
+
 import random
+from typing import Tuple, List
+
+from code.algorithms.random_algorithm import RandomAlg
+from code.algorithms.bfs import Bfs
+from code.classes import Board, Node
 
 
 class HillClimber:

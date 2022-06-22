@@ -1,4 +1,4 @@
-from .random_alg_new import RandomAlg
+from .random_algorithm import RandomAlg
 from .bfs import Bfs
 from .dfs import Dfs
 from .bdfs import Bdfs

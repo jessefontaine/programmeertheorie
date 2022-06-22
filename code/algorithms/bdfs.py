@@ -1,13 +1,10 @@
 from __future__ import annotations
-from .dfs import Dfs
 
 
-from typing import List, Dict, Tuple, Union
-from queue import Queue
+from typing import List
 
-from code.classes import Board
-from code.classes import Node
-from code.functions.functions import merge_moves
+from code.algorithms.dfs import Dfs
+from code.classes import Board, Node
 
 class Bdfs(Dfs):
     def sort_children(self, children: List[Node]) -> List[Node]:

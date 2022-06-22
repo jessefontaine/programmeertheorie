@@ -1,9 +1,10 @@
 from __future__ import annotations
-from typing import Tuple, List, Set, Union, Optional
-from code.functions.functions import write_moves_to_file
+
+import random
+from typing import List, Set, Union
+
 from code.classes import Board, Node
 from code.algorithms.base_algorithm import BaseAlg
-import random
 
 
 class Treesearcher(BaseAlg):

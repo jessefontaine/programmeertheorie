@@ -1,5 +1,7 @@
 from __future__ import annotations
+
 from typing import Tuple, List, Set, Union, Optional
+
 from code.classes import Board, Node
 
 class BaseAlg:

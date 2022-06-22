@@ -15,13 +15,13 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == 'random':
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimber] = RandomAlg(board)
     elif mode == 'first':
         # algorithm = First_Alg(board)
         pass
 
     elif mode == 'breadth':
-        algorithm = Bfs(board, 10)
+        algorithm = Bfs(board, 300)
     elif mode == "depth":
         algorithm = Dfs(board, 300)
     elif mode == "bestdepth":
