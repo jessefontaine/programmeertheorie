@@ -33,7 +33,7 @@ class RandomAlg:
         """
 
         # clear the moves made list
-        self.moves_made: List[Tuple[str, int]] = []
+        self.moves_made = []
 
         # make random steps in game untill red car is in win position
         while not self.board.on_win_position():
