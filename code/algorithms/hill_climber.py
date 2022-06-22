@@ -1,6 +1,7 @@
 from __future__ import annotations
 from platform import node
 from typing import Tuple, List, Set, Union
+from xml.dom.minicompat import NodeList
 from .random_alg_new import RandomAlg
 from .bfs import Bfs
 from code.classes import Board
@@ -36,10 +37,10 @@ class HillClimber:
 
     def run_algorithm(self) -> None:
         for _ in range(100):
-            interval: int = len(self.node_list) + 1
+            interval: int = len(self.node_list)
 
             # want interval that is not bigger then node list
-            while interval > len(self.node_list):
+            while interval >= len(self.node_list):
                 interval = random.randint(5, 20)
 
             # choose ranodm start point in node list
@@ -51,7 +52,7 @@ class HillClimber:
             b.run_algorithm()
 
             # put the new improved part of node list into the node list, different when you improve the very last part
-            if start + interval == len(self.node_list):
+            if start + interval == len(self.node_list) - 1:
                 self.node_list = self.node_list[:start] + b.node_list
             else:
                 self.node_list[start + interval + 1].new_parent(b.node_list[-1])
