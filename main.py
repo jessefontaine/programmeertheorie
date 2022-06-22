@@ -21,7 +21,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         pass
 
     elif mode == 'breadth':
-        algorithm = Bfs(board, 300)
+        algorithm = Bfs(board, 10)
     elif mode == "depth":
         algorithm = Dfs(board, 300)
     elif mode == "bestdepth":

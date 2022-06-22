@@ -11,12 +11,13 @@ class Node:
         self.step_taken: Optional[Tuple[str, int]] = step
         
         if parent is None:
-            self.has_parent: bool = False            
+            self.has_parent: bool = False
+            self.depth: int = 0           
         
         else:
-
             self.has_parent = True
             self.parent: Node = parent
+            self.depth = self.parent.depth + 1
 
     def new_parent(self, parent: Node) -> None:
         self.has_parent = True
