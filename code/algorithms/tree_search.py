@@ -3,7 +3,8 @@ from __future__ import annotations
 import random
 from typing import List, Set, Union
 
-from code.classes import Board, Node
+from code.classes import Board
+from code.classes import TreeNode as Node
 from code.algorithms.base_algorithm import BaseAlg
 
 
@@ -65,7 +66,7 @@ class Treesearcher(BaseAlg):
             self.board.make_move(*move)
 
             # pruning step
-            if repr(self.board) not in self.unique_board_setups:
+            if str(self.board) not in self.unique_board_setups:
 
                 # create child and add state to set of seen states
                 child = Node(str(self.board), move, parent)

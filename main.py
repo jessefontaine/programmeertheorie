@@ -13,7 +13,6 @@ from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_fil
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     board: Board = Board(infile)
-    print(board)
 
     if mode == 'random':
         algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimber] = RandomAlg(board)
