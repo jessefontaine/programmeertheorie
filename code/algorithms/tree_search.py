@@ -1,27 +1,16 @@
 from __future__ import annotations
-from typing import Tuple, List, Set, Union
-from code.classes import Board
+from lib2to3.pytree import Base
+from typing import Tuple, List, Set, Union, Optional
 from code.functions.functions import write_moves_to_file
-from code.classes import Node
+from code.classes import Board, Node
+from code.algorithms.base_algorithm import BaseAlg
 import random
 
 
-class Treesearcher:
+class Treesearcher(BaseAlg):
   
-    def __init__(self, board: Board, depth: int, start_node: Union[Node, None] = None, end_node: Union[Node, None] = None):
-        self.board: Board = board
-        self.depth: int = depth
-        
-        if start_node is None:
-            self.start_node: Node = Node(str(self.board))
-        else:
-            self.start_node = start_node
-
-        if end_node is None:
-            self.find_win: bool = True
-        else:
-            self.find_win = False
-            self.end_node: Node = end_node
+    def __init__(self, board: Board, depth: int = None, start_node: Union[Node, None] = None, end_node: Union[Node, None] = None):
+        super().__init__(board, depth, start_node, end_node)
         
         self.states: List[Node] = [self.start_node]
         self.unique_board_setups: Set = set([self.start_node.board_rep])
@@ -63,7 +52,7 @@ class Treesearcher:
     def create_run_data(self, final_node: Node):
 
         self.node_list: List[Node] = []
-        self.moves_made: List[Tuple[str, int]] = []
+        self.moves_made: List[Optional[Tuple[str, int]]] = []
 
         current: Node = final_node
         self.moves_amount = 0
