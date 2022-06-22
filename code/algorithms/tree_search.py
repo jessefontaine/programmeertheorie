@@ -65,7 +65,7 @@ class Treesearcher(BaseAlg):
             self.board.make_move(*move)
 
             # pruning step
-            if str(self.board) not in self.unique_board_setups:
+            if repr(self.board) not in self.unique_board_setups:
 
                 # create child and add state to set of seen states
                 child = Node(str(self.board), move, parent)

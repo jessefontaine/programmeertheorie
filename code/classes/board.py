@@ -44,8 +44,22 @@ class Board():
         """
 
         # make grid with car object names and dots for empty spaces
-        rep = '\n'.join([''.join(['.' if cell is None else cell.name for cell in sublist]) for sublist in self.grid])
-        return rep
+        # string = '\n'.join(['  '.join(['.' if cell is None else cell.name for cell in sublist]) for sublist in self.grid])
+
+        
+
+        string = []
+        for sublist in self.grid:
+            substring = ''
+            for cell in sublist:
+                if cell is None:
+                    substring += '.' + self.max_name_length * ' '
+                else:
+                    substring += cell.name + (self.max_name_length - len(cell.name) + 1) * ' '
+            string.append(substring)
+
+
+        return '\n'.join(string)
 
     def _loader(self, filepath):
         """
@@ -71,6 +85,9 @@ class Board():
             for row in DictReader(file):
                 new_car = Car(*list(row.values()))
                 self.cars[new_car.name] = new_car
+        
+        # find the longest name length
+        self.max_name_length = max([len(car) for car in list(self.cars.keys())])
 
     def _update_grid(self) -> None:
         """
@@ -133,14 +150,13 @@ class Board():
         setup_str = setup.replace('\n', '')
 
         # get a list of all car names
-        cars_repeats: str = setup_str.replace('.', '')
-        cars: List[str] = list(set(cars_repeats))
+        cars: List[str] = list(self.cars.keys())
 
-        # find first occurence for eacht car and set it to that place
+        # find first occurence for each car and set it to that place
         for car in cars:
 
             # calculate the rows and colums
-            str_place: int = setup_str.find(car)
+            str_place: int = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
             col: int = str_place % self.size[1]
 
