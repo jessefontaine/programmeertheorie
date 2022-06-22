@@ -42,10 +42,6 @@ class BaseAlg:
             return self.board.on_win_position()
         else:
             return state.board_rep == self.end_node.board_rep
-
-    def reset_algorithm(self):
-        self.node_list: List[Node] = [Node(str(self.board))]
-        self.moves_made: List[Optional[Tuple[str, int]]] = []
         
     def create_run_data(self, final_node: Node) -> None:
         """
@@ -77,3 +73,16 @@ class BaseAlg:
         # invert all lists, since they are built from children to parents
         self.node_list = self.node_list[::-1]
         self.moves_made = self.moves_made[::-1]
+
+    def reset_algorithm(self):
+        self.node_list: List[Node] = [Node(str(self.board))]
+        self.moves_made: List[Optional[Tuple[str, int]]] = []
+
+    def algorithm(self) -> Node:
+        raise NotImplementedError
+    
+    def run_algorithm(self) -> Tuple[Node, Node]:
+        end_state: Node = self.algorithm()
+        self.create_run_data(end_state)
+
+        return self.start_node, end_state

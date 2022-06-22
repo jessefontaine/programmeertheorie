@@ -15,6 +15,11 @@ class Treesearcher(BaseAlg):
         self.states: List[Node] = [self.start_node]
         self.unique_board_setups: Set = set([self.start_node.board_rep])
 
+    def reset_algorithm(self):
+        super().reset_algorithm()
+        self.states = [self.start_node]
+        self.unique_board_setups = set([self.start_node.board_rep])
+
     def get_current_state(self):
         raise NotImplementedError
 
@@ -42,20 +47,14 @@ class Treesearcher(BaseAlg):
 
         self.states.extend(children)
 
-    def reset_algorithm(self):
-        self.states = [self.start_node]
-        self.unique_board_setups = set([self.start_node.board_rep])
+    def algorithm(self):
 
-    def run_algorithm(self):
-        states = 0
         while self.states:
             current_state: Node = self.get_current_state()
-            states += 1
             
             if self.check_finished(current_state):
                 break
 
             self.build_children(current_state)
 
-        self.create_run_data(current_state)
-        # print(f'amount of states: {states}')
+        return current_state
