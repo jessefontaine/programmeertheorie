@@ -42,37 +42,15 @@ class Treesearcher(BaseAlg):
 
         self.states.extend(children)
 
-    def check_finished(self, state: Node) -> bool:
-        self.board.set_board(state.board_rep)
-        if self.find_win:
-            return self.board.on_win_position()
-        else:
-            return state.board_rep == self.end_node.board_rep
-
-    def create_run_data(self, final_node: Node):
-
-        self.node_list: List[Node] = []
-        self.moves_made: List[Optional[Tuple[str, int]]] = []
-
-        current: Node = final_node
-        self.moves_amount = 0
-        while current is not self.start_node:
-            self.node_list.append(current)
-            self.moves_made.append(current.step_taken)
-            self.moves_amount += 1
-            current = current.parent
-        
-        self.node_list.append(self.start_node)
-        self.node_list = self.node_list[::-1]
-        self.moves_made = self.moves_made[::-1]
-
     def reset_algorithm(self):
         self.states = [self.start_node]
         self.unique_board_setups = set([self.start_node.board_rep])
 
     def run_algorithm(self):
+        states = 0
         while self.states:
             current_state: Node = self.get_current_state()
+            states += 1
             
             if self.check_finished(current_state):
                 break
@@ -80,3 +58,4 @@ class Treesearcher(BaseAlg):
             self.build_children(current_state)
 
         self.create_run_data(current_state)
+        # print(f'amount of states: {states}')

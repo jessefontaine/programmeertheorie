@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import random
-from typing import Tuple, List
+from typing import Tuple, List, Union
 
 from code.classes import Board, Node
+from code.algorithms.base_algorithm import BaseAlg
 
 
-class RandomAlg:
+class RandomAlg(BaseAlg):
 
-    def __init__(self, board: Board) -> None:
+    def __init__(self, board: Board, start_node: Union[Node, None] = None, end_node: Union[Node, None] = None) -> None:
         self.board: Board = board
         self.node_list: List[Node] = [Node(str(self.board))]
 
@@ -23,9 +24,7 @@ class RandomAlg:
 
         return ran_move
     
-    def reset_algorithm(self):
-        self.node_list: List[Node] = [Node(str(self.board))]
-        self.moves_made: List[Tuple[str, int]] = []
+
 
     def run_algorithm(self) -> None:
         """
