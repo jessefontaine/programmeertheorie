@@ -35,8 +35,9 @@ class HillClimber:
 
     def run_algorithm(self) -> None:
         for _ in range(100):
-            interval = random.randint(5, 20)
-            start = random.randint(0, len(self.node_list) - interval)
+            interval = random.randint(15, 50)
+
+            start = random.randint(0, len(self.node_list) - interval - 1)
 
             b = Bfs(self.board, 300, self.node_list[start], self.node_list[start + interval])
 
@@ -45,7 +46,7 @@ class HillClimber:
             self.node_list[start + interval + 1].new_parent(b.node_list[-1])
         
             self.node_list = self.node_list[:start] + b.node_list + self.node_list[start + interval + 1:]
-        
+            print(interval, len(self.node_list))
         self.create_moves_made(self.node_list[0], self.node_list[-1])
 
         print(self.moves_amount, " ")
