@@ -59,8 +59,11 @@ class BaseAlg:
 
         # moving backwards from the winning node, construct the entire node list
         current: Node = final_node
+        print('current', current)
+        print('startnode', self.start_node)
         while current is not self.start_node:
             print(current)
+            print('ja')
 
             # save the data
             self.node_list.append(current)
@@ -76,6 +79,8 @@ class BaseAlg:
         # invert all lists, since they are built from children to parents
         self.node_list = self.node_list[::-1]
         self.moves_made = self.moves_made[::-1]
+
+        print('t', self.node_list)
 
     def reset_algorithm(self):
         self.node_list: List[Node] = [Node(str(self.board))]
