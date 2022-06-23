@@ -2,12 +2,15 @@ from __future__ import annotations
 
 from argparse import ArgumentParser, Namespace
 import os
+import sys
 from typing import Union, List, Tuple
 
 from code.classes import Board
 from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimber
 from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
 
+class InvalidAlgorithmError(Exception):
+    pass
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
@@ -22,9 +25,9 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HillClimber(board, 10, 'random', 'depth')
+        algorithm = HillClimber(board, 100, 'random', 'depth')
     else:
-        print("No valid algorithm entered")
+        raise InvalidAlgorithmError('Given algorithm does not exist')
     
     # run the algorithm and collect the data
     amount_moves: List[int]
@@ -64,6 +67,11 @@ if __name__ == "__main__":
 
     # read cla's
     args: Namespace = parser.parse_args()
+
+    # If the puzzle does not exist, exit
+    if not os.path.exists(args.input_csv):
+        print(f"The file {args.input_csv} does not exist")
+        sys.exit(1)
 
     # call main with cla's
     main(args.input_csv, args.output_folder, args.mode, int(args.runs), args.output_moves)
