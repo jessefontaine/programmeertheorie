@@ -7,7 +7,6 @@ from queue import Queue
 
 from code.classes import Board
 from code.classes import Node
-from code.functions.functions import merge_moves
 
 class Bdfs(Dfs):
     def sort_children(self, children: List[Node]) -> List[Node]:

@@ -47,10 +47,13 @@ hill
 Om de puzzels op te lossen zijn er verschillende algoritmen die gebruikt kunnen worden. Deze algoritmen zijn random, constructief (Breadth First Search, 
 Depth First Search en Best Depth First Search) en iteratief (Hill Climber). Hierbij wordt gebruik gemaakt van stappen die een voertuig kan doen. Zo wordt verticaal of horizontaal bewegen gezien als een stap, ongeacht de hoeveelheid hokjes die het voertuig verplaatst over het speelbord.
 ### Random
-In het random algoritme wordt er telkens een willekeurig gekozen stap gezet totdat de rode auto voor de uitgang staat. 
+In het random algoritme wordt er telkens een willekeurig gekozen stap gezet totdat de rode auto voor de uitgang staat.
 ### Breadth First Search
+Bij Breadth First Search maken we een graaf aan, waar de wortel (beginknoop) van de graaf het startbord is van het spel. Vanuit iedere knoop worden kinderen aangemaakt aan de hand van de verschillende stappen die gezet kunnen worden. Vervolgens wordt voor elk van de kinderen gekeken of de oplossing is gevonden. Het algortime gaat door totdat de oplossing is gevonden, dit is tevens altijd de kortste oplossing.
 ### Depth First Search
+Bij Depth First Search maken we een graaf aan, waar de wortel (beginknoop) van de graaf het startbord is van het spel. Hierbij worden eerst de kinderen aangemaakt aan de hand van de verschillende stappen die gezet kunnen worden. Vervolgens wordt er willekeurig een van deze kinderen gekozen. Hiermee wordt dus een tak gekozen en vervolgens wordt er in deze tak zo ver mogelijk doorgezocht totdat de oplossing is gevonden. Wanneer een van de kinderen een bord is wat eerder is tegenkomen, wordt de tak gepruned.
 ### Best Depth First Search
+Het Best Depth First Search algoritme borduurt voort op het Depth First Search algoritme. Echter wordt er niet willekeurig een van de kinderen gekozen, maar op zo'n manier dat er rekening wordt gehouden met de plek van de rode auto en de hoeveelheid voertuigen die de uitgang blokkeren. 
 ### Hill Climber
 
 ## Structuur
