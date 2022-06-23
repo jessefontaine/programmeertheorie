@@ -4,20 +4,20 @@ from typing import Tuple, List, Set, Union, Optional
 
 from code.classes import Board, Node
 
-class BaseAlg:
 
+class BaseAlg:
     def __init__(
-        self, 
-        board: Board, 
-        depth: int = None, 
-        start_node: Union[Node, None] = None, 
-        end_node: Union[Node, None] = None
-        ) -> None:
+        self,
+        board: Board,
+        depth: int = None,
+        start_node: Union[Node, None] = None,
+        end_node: Union[Node, None] = None,
+    ) -> None:
 
         # save the gameboard and maximum depth constructive algorithms can go
         self.board: Board = board
         self.depth: Optional[int] = depth
-        
+
         # starting without a start node means the current gameboard setup is the start
         if start_node is None:
             self.start_node: Node = Node(str(self.board))
@@ -30,7 +30,7 @@ class BaseAlg:
         else:
             self.find_win = False
             self.end_node: Node = end_node
-        
+
     def check_finished(self, state: Node) -> bool:
         """
         Checks whether a given state satisfies the constraints.
@@ -44,7 +44,7 @@ class BaseAlg:
             return self.board.on_win_position()
         else:
             return state.board_rep == self.end_node.board_rep
-        
+
     def create_run_data(self, final_node: Node) -> None:
         """
         After a run, calculate the data for the found solution
@@ -68,7 +68,7 @@ class BaseAlg:
 
             # switch to the parent
             current = current.parent
-        
+
         # append the first node
         self.node_list.append(self.start_node)
 
@@ -82,7 +82,7 @@ class BaseAlg:
 
     def algorithm(self) -> Node:
         raise NotImplementedError
-    
+
     def run_algorithm(self) -> Tuple[Node, Node]:
         end_state: Node = self.algorithm()
         self.create_run_data(end_state)

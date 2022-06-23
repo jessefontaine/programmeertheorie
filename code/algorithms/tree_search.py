@@ -4,15 +4,20 @@ import random
 from typing import List, Set, Union
 
 from code.classes import Board
-from code.classes import TreeNode as Node
+from code.classes import Node
 from code.algorithms.base_algorithm import BaseAlg
 
 
 class Treesearcher(BaseAlg):
-  
-    def __init__(self, board: Board, depth: int = None, start_node: Union[Node, None] = None, end_node: Union[Node, None] = None):
+    def __init__(
+        self,
+        board: Board,
+        depth: int = None,
+        start_node: Union[Node, None] = None,
+        end_node: Union[Node, None] = None,
+    ):
         super().__init__(board, depth, start_node, end_node)
-        
+
         # states list to function as stack or queue
         self.states: List[Node] = [self.start_node]
 
@@ -32,14 +37,14 @@ class Treesearcher(BaseAlg):
 
     def get_current_state(self):
         """
-        Method to get the next state from stack or queue. 
+        Method to get the next state from stack or queue.
         """
 
         raise NotImplementedError
 
     def sort_children(self, children):
         """
-        Method to sort the list of children before they are added to the 
+        Method to sort the list of children before they are added to the
         stack or queue.
         """
 
@@ -72,7 +77,7 @@ class Treesearcher(BaseAlg):
                 child = Node(str(self.board), move, parent)
                 children.append(child)
                 self.unique_board_setups.add(child.board_rep)
-        
+
         # sort children based on sorting method
         children = self.sort_children(children)
 
@@ -81,20 +86,20 @@ class Treesearcher(BaseAlg):
 
     def algorithm(self):
         """
-        Basic tree searcher algorithm. 
+        Basic tree searcher algorithm.
         """
 
         # run the tree searcher over all states in stack or queue
         current_state: Node = self.start_node
 
-        while self.states: # and current_state.depth < self.depth:
+        while self.states:  # and current_state.depth < self.depth:
             # get the state to work with
             current_state = self.get_current_state()
-            
+
             # check if its the final one
             if self.check_finished(current_state):
                 break
-            
+
             # add child states to stack or queue
             self.build_children(current_state)
 

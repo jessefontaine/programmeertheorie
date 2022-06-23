@@ -2,35 +2,41 @@ from __future__ import annotations
 
 from argparse import ArgumentParser, Namespace
 import os
+
 # import pandas
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimber
-from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew
+from code.functions import (
+    batch_runner,
+    plot_steps_to_file,
+    steps_amount_to_file,
+    write_moves_to_file,
+)
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     board: Board = Board(infile)
 
-    if mode == 'random':
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimber] = RandomAlg(board)
-    elif mode == 'first':
+    if mode == "random":
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew] = RandomAlg(board)
+    elif mode == "first":
         # algorithm = First_Alg(board)
         pass
 
-    elif mode == 'breadth':
+    elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
         algorithm = Dfs(board, 300)
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HillClimber(board, 10, 'random', 'depth')
+        algorithm = HillClimberNew(board, 10, "random", "depth")
     else:
         print("TODO")
-    
+
     # run the algorithm and collect the data
     amount_moves: List[int]
     moves_made: List[List[Tuple[str, int]]]
@@ -55,20 +61,23 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 if __name__ == "__main__":
 
     # setup cla parser
-    parser: ArgumentParser = ArgumentParser(
-        description="Run the Rush Hour solver")
+    parser: ArgumentParser = ArgumentParser(description="Run the Rush Hour solver")
 
     # add cla's
-    parser.add_argument('input_csv', help='gameboard csv file')
-    parser.add_argument('output_folder', help='folder for output')
-    parser.add_argument('mode', help='solver mode')
-    parser.add_argument('runs', help='amount of runs')
+    parser.add_argument("input_csv", help="gameboard csv file")
+    parser.add_argument("output_folder", help="folder for output")
+    parser.add_argument("mode", help="solver mode")
+    parser.add_argument("runs", help="amount of runs")
 
     # optional arguments
-    parser.add_argument("-m", "--output_moves", action='store_true', help="Output moves made to file(s)")
+    parser.add_argument(
+        "-m", "--output_moves", action="store_true", help="Output moves made to file(s)"
+    )
 
     # read cla's
     args: Namespace = parser.parse_args()
 
     # call main with cla's
-    main(args.input_csv, args.output_folder, args.mode, int(args.runs), args.output_moves)
+    main(
+        args.input_csv, args.output_folder, args.mode, int(args.runs), args.output_moves
+    )
