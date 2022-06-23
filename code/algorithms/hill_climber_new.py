@@ -1,33 +1,37 @@
 from __future__ import annotations
-from platform import node
-from typing import Tuple, List, Set, Union
-from xml.dom.minicompat import NodeList
+from typing import Tuple, List, Union
 from .bfs import Bfs
 from .dfs import Dfs
 from .bdfs import Bdfs
 from code.classes import Board
 from code.algorithms import RandomAlg
-from code.functions.functions import write_moves_to_file
+from code.algorithms.base_algorithm import BaseAlg
 from code.classes import Node
 import random
 
 
-class HillClimberNew:
+class HillClimberNew(BaseAlg):
+    def __init__(
+        self, board: Board, iteration: int, start_mode: str, improve_mode: str
+    ):
+        super().__init__(board)
 
-    def __init__(self, board: Board, iteration: int, start_mode: str, improve_mode: str):
-        self.board: Board = board
         self.iteration: int = iteration
         self.improve_mode: str = improve_mode
-        self.node_list: List[Node] = self.begin_solution(self.make_algorithm(start_mode))
+        self.node_list: List[Node] = self.begin_solution(
+            self.make_algorithm(start_mode)
+        )
 
-        # REMOVE LATER
-        print(len(self.node_list))
-
-    def make_algorithm(self, mode: str, start_node: Union[Node, None] = None, end_node: Union[Node, None] = None) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
+    def make_algorithm(
+        self,
+        mode: str,
+        start_node: Union[Node, None] = None,
+        end_node: Union[Node, None] = None,
+    ) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
         # RANDOM FIXEN DAT JE BEGIN EN START PUNT KAN DOEN
-        if mode == 'random':
-            algorithm: Union[RandomAlg, Bfs] = RandomAlg(self.board)
-        elif mode == 'breadth':
+        if mode == "random":
+            algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(self.board)
+        elif mode == "breadth":
             algorithm = Bfs(self.board, 300, start_node, end_node)
         elif mode == "depth":
             algorithm = Dfs(self.board, 300, start_node, end_node)
@@ -42,55 +46,64 @@ class HillClimberNew:
         return algorithm.node_list
 
     def reset_algorithm(self):
-        pass
+        super().reset_algorithm()
 
     def choose_interval(self) -> int:
         interval: int = len(self.node_list)
 
         # want interval that is not bigger then node list
-        while interval >= len(self.node_list):
-            interval = random.randint(5, 20)    #DEZE OOK NOG VARIABLE MAKEN!!!!!!!!
+        while interval < len(self.node_list):
+            interval = random.randint(5, 20)  # DEZE OOK NOG VARIABLE MAKEN!!!!!!!!
+        print("bla1")
 
         return interval
 
-    def create_moves_made(self, start_node: Node, final_node: Node) -> None:
-        self.moves_made: List[Tuple[str, int]] = []
+    # def create_moves_made(self, start_node: Node, final_node: Node) -> None:
+    #     self.moves_made: List[Tuple[str, int]] = []
 
-        current: Node = final_node
-        self.moves_amount = 0
-        while current is not start_node:
-            self.moves_made.append(current.step_taken)
-            self.moves_amount += 1
-            current = current.parent
-        
-        self.moves_made = self.moves_made[::-1]
+    #     current: Node = final_node
+    #     self.moves_amount = 0
+    #     while current is not start_node:
+    #         self.moves_made.append(current.step_taken)
+    #         self.moves_amount += 1
+    #         current = current.parent
 
-    def run_algorithm(self) -> None:
-        #MOET NOG EEN MAX OPKOMEN
+    #     self.moves_made = self.moves_made[::-1]
+
+    def algorithm(self) -> Node:
+        # MOET NOG EEN MAX OPKOMEN
         for _ in range(self.iteration):
             interval: int = self.choose_interval()
+            print("bla")
 
             # choose ranodm start point in node list
             start = random.randint(0, len(self.node_list) - interval - 1)
 
             # do algoritme on small part to get it better
-            alg = self.make_algorithm(self.improve_mode, self.node_list[start], self.node_list[start + interval])
+            alg = self.make_algorithm(
+                self.improve_mode,
+                self.node_list[start],
+                self.node_list[start + interval],
+            )
             alg.run_algorithm()
-            print(interval)
-            print('g', len(alg.node_list))
-            print(alg.node_list)
+            print(interval, ": ", alg.moves_amount)
+            # print('g', len(alg.node_list))
+            # print(alg.node_list)
 
-            if interval <= len(alg.node_list):
-                continue
+            if interval > len(alg.node_list):
 
-            # put the new improved part of node list into the node list, different when you improve the very last part
-            if start + interval == len(self.node_list) - 1:
-                self.node_list = self.node_list[:start] + alg.node_list
-            else:
-                self.node_list[start + interval + 1].new_parent(alg.node_list[-1])
-        
-                self.node_list = self.node_list[:start] + alg.node_list + self.node_list[start + interval + 1:]
-        
-        self.create_moves_made(self.node_list[0], self.node_list[-1])
+                # put the new improved part of node list into the node list, different when you improve the very last part
+                if start + interval == len(self.node_list) - 1:
+                    self.node_list = self.node_list[:start] + alg.node_list
+                else:
+                    self.node_list[start + interval + 1].new_parent(alg.node_list[-1])
 
-        print(self.moves_amount, " ")
+                    self.node_list = (
+                        self.node_list[:start]
+                        + alg.node_list
+                        + self.node_list[start + interval + 1 :]
+                    )
+
+        self.create_run_data(self.node_list[-1])
+
+        return self.node_list[-1]
