@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     # setup cla parser
     parser: ArgumentParser = ArgumentParser(
-        description="Run the rush-hour solver")
+        description="Run the Rush Hour solver")
 
     # add cla's
     parser.add_argument('input_csv', help='gameboard csv file')
