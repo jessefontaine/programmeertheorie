@@ -44,7 +44,8 @@ class HillClimber:
                 interval = random.randint(5, 20)
 
             # choose ranodm start point in node list
-            start = random.randint(0, len(self.node_list) - interval - 1)
+            start = random.randint(0, len(self.node_list) - interval)
+            print(len(self.node_list) - interval, len(self.node_list), interval, start)
 
             # do algoritme on small part to get it better
             b = Bfs(self.board, 300, self.node_list[start], self.node_list[start + interval])
