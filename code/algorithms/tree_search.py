@@ -86,8 +86,8 @@ class Treesearcher(BaseAlg):
 
         # run the tree searcher over all states in stack or queue
         current_state: Node = self.start_node
-        while self.states and current_state.depth < self.depth:
 
+        while self.states: # and current_state.depth < self.depth:
             # get the state to work with
             current_state = self.get_current_state()
             

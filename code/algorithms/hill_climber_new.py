@@ -76,9 +76,8 @@ class HillClimberNew:
             # do algoritme on small part to get it better
             alg = self.make_algorithm(self.improve_mode, self.node_list[start], self.node_list[start + interval])
             alg.run_algorithm()
-            print(interval)
-            print('g', len(alg.node_list))
-            print(alg.node_list)
+            # print(interval)
+            # print('g', len(alg.node_list))
 
             if interval <= len(alg.node_list):
                 continue
@@ -93,4 +92,4 @@ class HillClimberNew:
         
         self.create_moves_made(self.node_list[0], self.node_list[-1])
 
-        print(self.moves_amount, " ")
+        print(self.moves_amount, "  ")
