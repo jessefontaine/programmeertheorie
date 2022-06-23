@@ -24,6 +24,7 @@ class HillClimberNew:
         print(len(self.node_list))
 
     def make_algorithm(self, mode: str, start_node: Union[Node, None] = None, end_node: Union[Node, None] = None) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
+        # RANDOM FIXEN DAT JE BEGIN EN START PUNT KAN DOEN
         if mode == 'random':
             algorithm: Union[RandomAlg, Bfs] = RandomAlg(self.board)
         elif mode == 'breadth':
@@ -67,7 +68,6 @@ class HillClimberNew:
     def run_algorithm(self) -> None:
         #MOET NOG EEN MAX OPKOMEN
         for _ in range(self.iteration):
-            print('yess')
             interval: int = self.choose_interval()
 
             # choose ranodm start point in node list
@@ -80,7 +80,7 @@ class HillClimberNew:
             print(len(alg.node_list))
 
             if interval <= len(alg.node_list):
-                break
+                continue
 
             # put the new improved part of node list into the node list, different when you improve the very last part
             if start + interval == len(self.node_list) - 1:
@@ -93,30 +93,3 @@ class HillClimberNew:
         self.create_moves_made(self.node_list[0], self.node_list[-1])
 
         print(self.moves_amount, " ")
-
-    # def run_algorithm(self) -> None:
-    #     for _ in range(self.iteration):
-    #         interval: int = len(self.node_list)
-
-    #         # want interval that is not bigger then node list
-    #         while interval >= len(self.node_list):
-    #             interval = random.randint(5, 20)
-
-    #         # choose ranodm start point in node list
-    #         start = random.randint(0, len(self.node_list) - interval - 1)
-
-    #         # do algoritme on small part to get it better
-    #         b = Bfs(self.board, 300, self.node_list[start], self.node_list[start + interval])
-    #         b.run_algorithm()
-
-    #         # put the new improved part of node list into the node list, different when you improve the very last part
-    #         if start + interval == len(self.node_list) - 1:
-    #             self.node_list = self.node_list[:start] + b.node_list
-    #         else:
-    #             self.node_list[start + interval + 1].new_parent(b.node_list[-1])
-        
-    #             self.node_list = self.node_list[:start] + b.node_list + self.node_list[start + interval + 1:]
-        
-    #     self.create_moves_made(self.node_list[0], self.node_list[-1])
-
-    #     print(self.moves_amount, " ")
