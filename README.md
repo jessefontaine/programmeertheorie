@@ -53,7 +53,7 @@ Bij Breadth First Search maken we een graaf aan, waar de wortel (beginknoop) van
 ### Depth First Search
 Bij Depth First Search maken we een graaf aan, waar de wortel (beginknoop) van de graaf het startbord is van het spel. Hierbij worden eerst de kinderen aangemaakt aan de hand van de verschillende stappen die gezet kunnen worden. Vervolgens wordt er willekeurig een van deze kinderen gekozen. Hiermee wordt dus een tak gekozen en vervolgens wordt er in deze tak zo ver mogelijk doorgezocht totdat de oplossing is gevonden. Wanneer een van de kinderen een bord is wat eerder is tegenkomen, wordt de tak gepruned.
 ### Best Depth First Search
-Het Best Depth First Search borduurt voort op het Depth First Search algoritme. Echter wordt er niet willekeurig een van de kinderen gekozen, maar op zo'n  manier dat er rekening wordt gehouden met de plek van de rode auto en de hoeveelheid voertuigen die de uitgang blokkeren. 
+Het Best Depth First Search algoritme borduurt voort op het Depth First Search algoritme. Echter wordt er niet willekeurig een van de kinderen gekozen, maar op zo'n manier dat er rekening wordt gehouden met de plek van de rode auto en de hoeveelheid voertuigen die de uitgang blokkeren. 
 ### Hill Climber
 
 ## Structuur
