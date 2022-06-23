@@ -18,7 +18,7 @@ De code kan gerund worden door het aanroepen van
 $ python3 main.py -h
 usage: main.py [-h] [-m] input_csv output_folder mode runs
 
-Run the rush-hour solver
+Run the Rush Hour solver
 
 positional arguments:
   input_csv           gameboard csv file
@@ -46,7 +46,12 @@ hill
 ## Structuur
 De volgende lijst toont de belangrijkste mappen en files in dit project en waar je ze kunt vinden:
 - **/code**: bevat alle code van dit project
-    - **/code/algorithms**: bevat de code voor alle algortimes
-    - **/code/classes**: bevat de 
-    - **/code/functions**:
-- **/game_boards**
+    - **/code/algorithms**: bevat de code voor alle algoritmen
+    - **/code/classes**: bevat de drie verschillende classes voor de case
+    - **/code/functions**: bevat de functies om main te runnen
+- **/game_boards**: bevat de verschillende speelborden
+
+## Auteurs
+- Annemarie Geertsema
+- Jesse Fontaine
+- Laura Haverkorn
