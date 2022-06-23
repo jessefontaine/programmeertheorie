@@ -6,7 +6,7 @@ import os
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimber, Random_Alg
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimber, Random_Alg, HillClimberNew
 from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
 
 
@@ -27,7 +27,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HillClimber(board)
+        algorithm = HillClimberNew(board, 10, 'random', 'bestdepth')
     else:
         print("TODO")
     
