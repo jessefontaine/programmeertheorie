@@ -6,7 +6,7 @@ import os
 from typing import Union, List, Tuple
 
 from code.classes import Board
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimber
 from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
 
 
@@ -15,7 +15,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == 'random':
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew] = RandomAlg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimber] = RandomAlg(board)
     elif mode == 'first':
         # algorithm = First_Alg(board)
         pass
@@ -27,7 +27,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HillClimberNew(board, 100, 'random', 'breadth')
+        algorithm = HillClimber(board, 10, 'random', 'depth')
     else:
         print("TODO")
     

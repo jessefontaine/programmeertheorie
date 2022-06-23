@@ -55,6 +55,7 @@ Bij Depth First Search maken we een graaf aan, waar de wortel (beginknoop) van d
 ### Best Depth First Search
 Het Best Depth First Search algoritme borduurt voort op het Depth First Search algoritme. Echter wordt er niet willekeurig een van de kinderen gekozen, maar op zo'n manier dat er rekening wordt gehouden met de plek van de rode auto en de hoeveelheid voertuigen die de uitgang blokkeren. 
 ### Hill Climber
+Het Hill Climber algoritme kan gebruikt worden om een kortere oplossing te vinden. Door over een oplossing heen te itereren worden er telkens twee willekeurige borden binnen de oplossing gekozen. Vervolgens wordt er geprobeerd een nieuw, korter pad te vinden, zodat de uiteindelijke oplossing wordt verkleind. Dit algoritme kan toegepast worden op iedere gevonden oplossing en kan verbeterd worden met random, Breadth First Search, Depth First Search en Best Depth First Search. 
 
 ## Structuur
 De volgende lijst toont de belangrijkste mappen en files in dit project en waar je ze kunt vinden:
