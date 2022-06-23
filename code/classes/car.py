@@ -3,16 +3,15 @@ from __future__ import annotations
 from typing import Iterable, Union, Tuple, List
 
 
-class Car():
-
+class Car:
     def __init__(
         self,
         name: str,
         orientation: str,
         col: Union[int, str],
         row: Union[int, str],
-        length: Union[int, str]
-         ) -> None:
+        length: Union[int, str],
+    ) -> None:
         """
         Instantiate car object with given parameters.
         Requires orientation the be either 'V' or 'H'.
@@ -36,11 +35,12 @@ class Car():
 
         # list comprehension method for updating all positions
         self.positions: List[Tuple[int, int]] = [
-            (self.position[0], self.position[1] + i) if self.orientation == 'H' else
-            (self.position[0] + i, self.position[1])
+            (self.position[0], self.position[1] + i)
+            if self.orientation == "H"
+            else (self.position[0] + i, self.position[1])
             for i in range(self.length)
         ]
-    
+
     def set_car(self, row: int, col: int) -> None:
         """
         Set the car to a specific positions. Indexing starts at 0.
@@ -66,9 +66,9 @@ class Car():
 
         # ensure proper usage
         if not isinstance(direction, int):
-            raise TypeError('Direction must be of type \'int\'.')
+            raise TypeError("Direction must be of type 'int'.")
         if direction == 0:
-            raise ValueError('Direction must be non-zero.')
+            raise ValueError("Direction must be non-zero.")
 
         # derive index of self.positions list that is the in the movement direction
         if direction > 0:
@@ -87,7 +87,7 @@ class Car():
         for distance in check_list:
 
             # movement up/down or left/right depending on orientation
-            if self.orientation == 'H':
+            if self.orientation == "H":
                 test_pos: Tuple[int, int] = (car_side[0], car_side[1] + distance)
             else:
                 test_pos = (car_side[0] + distance, car_side[1])
@@ -108,12 +108,12 @@ class Car():
 
         # ensure proper usage
         if not isinstance(move, int):
-            raise TypeError('Move must be of type \'int\'.')
+            raise TypeError("Move must be of type 'int'.")
         if move == 0:
-            raise ValueError('Value for move must be non-zero.')
+            raise ValueError("Value for move must be non-zero.")
 
         # change position depending on cars orientation
-        if self.orientation == 'H':
+        if self.orientation == "H":
             self.position = (self.position[0], self.position[1] + move)
         else:
             self.position = (self.position[0] + move, self.position[1])

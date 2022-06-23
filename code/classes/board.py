@@ -11,18 +11,17 @@ class InvalidMoveError(Exception):
     pass
 
 
-class Board():
-
+class Board:
     def __init__(self, filepath: str) -> None:
         """
         Setup board: create car objects and full game-board-grid with objects.
         Requires filepath as argument. Filepath name should include the dimensions
-        of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent 
+        of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent
         to this part of the name!).
         """
 
         # parse board size from filename
-        size = re.findall("[0-9]+x[0-9]+", filepath)[0].split('x')
+        size = re.findall("[0-9]+x[0-9]+", filepath)[0].split("x")
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         # save board setup and place cars
@@ -32,8 +31,11 @@ class Board():
         self.moves_made: List[Tuple[str, int]] = []
 
         # save position when game should finished
-        self.win_car: Car = self.cars['X']
-        self.win_postition: Tuple[int, int] = (self.win_car.position[0], self.size[1] - 2)
+        self.win_car: Car = self.cars["X"]
+        self.win_postition: Tuple[int, int] = (
+            self.win_car.position[0],
+            self.size[1] - 2,
+        )
 
         # setup first grid
         self._update_grid()
@@ -46,20 +48,19 @@ class Board():
         # make grid with car object names and dots for empty spaces
         # string = '\n'.join(['  '.join(['.' if cell is None else cell.name for cell in sublist]) for sublist in self.grid])
 
-        
-
         string = []
         for sublist in self.grid:
-            substring = ''
+            substring = ""
             for cell in sublist:
                 if cell is None:
-                    substring += '.' + self.max_name_length * ' '
+                    substring += "." + self.max_name_length * " "
                 else:
-                    substring += cell.name + (self.max_name_length - len(cell.name) + 1) * ' '
+                    substring += (
+                        cell.name + (self.max_name_length - len(cell.name) + 1) * " "
+                    )
             string.append(substring)
 
-
-        return '\n'.join(string)
+        return "\n".join(string)
 
     def _loader(self, filepath):
         """
@@ -72,20 +73,20 @@ class Board():
         # ensure argument contains board dimensions
         if not re.compile(r"[^0-9][0-9]+x[0-9]+[^0-9]").search(filepath):
             raise ValueError(
-                'Given filepath argument does not contain board dimensions in proper format.'
+                "Given filepath argument does not contain board dimensions in proper format."
             )
 
         # list for car objects
         self.cars: Dict[str, Car] = {}
 
         # go through lines in file
-        with open(filepath, 'r') as file:
+        with open(filepath, "r") as file:
 
             # create car objects and place into list
             for row in DictReader(file):
                 new_car = Car(*list(row.values()))
                 self.cars[new_car.name] = new_car
-        
+
         # find the longest name length
         self.max_name_length = max([len(car) for car in list(self.cars.keys())])
 
@@ -97,28 +98,34 @@ class Board():
         """
 
         # create empty nested list to store occupied spaces
-        self.grid: List[List] = [[None for _ in range(self.size[1])] for _ in range(self.size[0])]
+        self.grid: List[List] = [
+            [None for _ in range(self.size[1])] for _ in range(self.size[0])
+        ]
 
         # loop through every cars occupied positions and place car object on grid
         for car in list(self.cars.values()):
             for pos in car.positions:
                 self.grid[pos[0]][pos[1]] = car
-        
+
         # calculate the possible moves with current board setup
         self._possible_moves()
-    
+
     def _free_spot(self, position: Tuple[int, int]) -> bool:
-        return self._within_range(position) and self.grid[position[0]][position[1]] == None
+        return (
+            self._within_range(position) and self.grid[position[0]][position[1]] == None
+        )
 
     def _possible_moves(self) -> None:
         """
         Returns a dictionary with all cars that can move in the current board setup
         and the directions they can move in.
         """
-        
+
         self.possible_moves: List[Tuple[str, int]] = []
 
-        check_distances: List[int] = list(range(-1 * max(self.size) + 2, 0)) + list(range(1, max(self.size) - 1))
+        check_distances: List[int] = list(range(-1 * max(self.size) + 2, 0)) + list(
+            range(1, max(self.size) - 1)
+        )
 
         for car in list(self.cars.values()):
 
@@ -134,7 +141,7 @@ class Board():
         """
         Returns bool, true if position is on the grid.
         """
-        
+
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
     def set_board(self, setup: str):
@@ -147,7 +154,7 @@ class Board():
         # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
 
         # remove unnessessairy \n
-        setup_str = setup.replace('\n', '')
+        setup_str = setup.replace("\n", "")
 
         # get a list of all car names
         cars: List[str] = list(self.cars.keys())
@@ -162,7 +169,7 @@ class Board():
 
             # set the car to that row and column
             self.cars[car].set_car(row, col)
-        
+
         # update the board
         self._update_grid()
 
@@ -186,19 +193,21 @@ class Board():
 
         # check if car parameter is of right type and value
         if not isinstance(car, str):
-            raise TypeError(f'Car argument must be a string! Car is type {type(car)}')
+            raise TypeError(f"Car argument must be a string! Car is type {type(car)}")
         elif car not in list(self.cars.keys()):
-            raise ValueError(f'No car with name {car} exists!')
-        
+            raise ValueError(f"No car with name {car} exists!")
+
         # check if move parameter is of right type and value
         if not isinstance(move, int):
-            raise TypeError('Move argument must be integer!')
+            raise TypeError("Move argument must be integer!")
         elif move == 0:
-            raise ValueError('Move cannot be 0!')
+            raise ValueError("Move cannot be 0!")
 
         # make sure move is valid
         if (car, move) not in self.possible_moves:
-            raise InvalidMoveError('Given move is not possible with current board setup!')
+            raise InvalidMoveError(
+                "Given move is not possible with current board setup!"
+            )
 
         # move the car and update the grid
         self.cars[car].move(move)
@@ -207,22 +216,5 @@ class Board():
         # return the move as a tuple
         return (car, move)
 
-    # def win(self) -> bool:
-    #     for i in range(self.win_car.position[1] + 2, self.size[1]):
-    #         if self.grid[self.win_car.position[0]][i] is not None:
-    #             return False
-
-    #     return True
-    
     def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition
-
-    # def exit_moves(self):
-    #     last_moves: List[Tuple[Car, int]] = []
-
-    #     while self.win_car.position != self.win_postition:
-    #         # self._possible_moves()
-    #         last_moves.append(self.make_move(self.win_car.name, 1))
-    #         self._update_grid()
-        
-    #     return last_moves

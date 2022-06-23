@@ -6,6 +6,7 @@ from typing import List
 from code.algorithms.dfs import Dfs
 from code.classes import Board, Node
 
+
 class Bdfs(Dfs):
     def sort_children(self, children: List[Node]) -> List[Node]:
         """
@@ -21,29 +22,45 @@ class Bdfs(Dfs):
             tmp_board.set_board(node.board_rep)
             list_cars_in_front.append(self.cars_in_front(tmp_board))
 
-            list_distance.append(tmp_board.size[1] - tmp_board.win_car.position[1] - tmp_board.win_car.length)
+            list_distance.append(
+                tmp_board.size[1]
+                - tmp_board.win_car.position[1]
+                - tmp_board.win_car.length
+            )
 
         swapped = False
         # Looping from size of list from last index[-1] to index [0]
-        for n in range(len(children)-1, 0, -1):
+        for n in range(len(children) - 1, 0, -1):
             for i in range(n):
                 # swap nodes such that node with least cars in front goes to back of list
                 if list_cars_in_front[i] < list_cars_in_front[i + 1]:
                     swapped = True
 
                     # swapping data of all lists
-                    children[i], children[i + 1] = children[i + 1], children[i] 
-                    list_cars_in_front[i], list_cars_in_front[i + 1] = list_cars_in_front[i + 1], list_cars_in_front[i]
-                    list_distance[i], list_distance[i + 1] = list_distance[i + 1], list_distance[i]
+                    children[i], children[i + 1] = children[i + 1], children[i]
+                    list_cars_in_front[i], list_cars_in_front[i + 1] = (
+                        list_cars_in_front[i + 1],
+                        list_cars_in_front[i],
+                    )
+                    list_distance[i], list_distance[i + 1] = (
+                        list_distance[i + 1],
+                        list_distance[i],
+                    )
                 # swap nodes such that node with less distance of win car to exit goes to back of list
                 if list_cars_in_front[i] == list_cars_in_front[i + 1]:
                     if list_distance[i] < list_distance[i + 1]:
                         swapped = True
 
                         # swapping data of all lists
-                        children[i], children[i + 1] = children[i + 1], children[i] 
-                        list_cars_in_front[i], list_cars_in_front[i + 1] = list_cars_in_front[i + 1], list_cars_in_front[i]
-                        list_distance[i], list_distance[i + 1] = list_distance[i + 1], list_distance[i]
+                        children[i], children[i + 1] = children[i + 1], children[i]
+                        list_cars_in_front[i], list_cars_in_front[i + 1] = (
+                            list_cars_in_front[i + 1],
+                            list_cars_in_front[i],
+                        )
+                        list_distance[i], list_distance[i + 1] = (
+                            list_distance[i + 1],
+                            list_distance[i],
+                        )
 
             if not swapped:
                 # exiting the loop if we didn't make a single swap, so list is sorted
