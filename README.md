@@ -43,6 +43,16 @@ depth
 bestdepth
 hill
 ```
+## Algoritmen
+Om de puzzels op te lossen zijn er verschillende algoritmen die gebruikt kunnen worden. Deze algoritmen zijn random, constructief (Breadth First Search, 
+Depth First Search en Best Depth First Search) en iteratief (Hill Climber). Hierbij wordt gebruik gemaakt van stappen die een voertuig kan doen. Zo wordt verticaal of horizontaal bewegen gezien als een stap, ongeacht de hoeveelheid hokjes die het voertuig verplaatst over het speelbord.
+### Random
+In het random algoritme wordt er telkens een willekeurig gekozen stap gezet totdat de rode auto voor de uitgang staat. 
+### Breadth First Search
+### Depth First Search
+### Best Depth First Search
+### Hill Climber
+
 ## Structuur
 De volgende lijst toont de belangrijkste mappen en files in dit project en waar je ze kunt vinden:
 - **/code**: bevat alle code van dit project
@@ -55,10 +65,3 @@ De volgende lijst toont de belangrijkste mappen en files in dit project en waar 
 - Annemarie Geertsema
 - Jesse Fontaine
 - Laura Haverkorn
-
-## Algoritmen
-### Random
-### Breadth First Search
-### Depth First Search
-### Best Depth First Search
-### Hill Climber
