@@ -2,11 +2,11 @@ from __future__ import annotations
 from platform import node
 from typing import Tuple, List, Set, Union
 from xml.dom.minicompat import NodeList
-from .random_alg_new import RandomAlg
 from .bfs import Bfs
 from .dfs import Dfs
 from .bdfs import Bdfs
 from code.classes import Board
+from code.algorithms import RandomAlg
 from code.functions.functions import write_moves_to_file
 from code.classes import Node
 import random
@@ -76,7 +76,7 @@ class HillClimberNew:
             # do algoritme on small part to get it better
             alg = self.make_algorithm(self.improve_mode, self.node_list[start], self.node_list[start + interval])
             alg.run_algorithm()
-            print(interval)
+            print(interval, ': ', end='')
             print(len(alg.node_list))
 
             if interval <= len(alg.node_list):

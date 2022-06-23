@@ -60,6 +60,7 @@ class BaseAlg:
         # moving backwards from the winning node, construct the entire node list
         current: Node = final_node
         while current is not self.start_node:
+            print(current)
 
             # save the data
             self.node_list.append(current)
