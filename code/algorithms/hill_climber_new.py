@@ -86,9 +86,6 @@ class HillClimberNew(BaseAlg):
                 self.node_list[start + interval],
             )
             alg.run_algorithm()
-            print(interval, ": ", alg.moves_amount)
-            # print('g', len(alg.node_list))
-            # print(alg.node_list)
 
             if interval > len(alg.node_list):
 
