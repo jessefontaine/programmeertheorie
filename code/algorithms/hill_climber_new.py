@@ -18,9 +18,13 @@ class HillClimberNew(BaseAlg):
 
         self.iteration: int = iteration
         self.improve_mode: str = improve_mode
-        self.node_list: List[Node] = self.begin_solution(
+        self.start_node_list: List[Node] = self.begin_solution(
             self.make_algorithm(start_mode)
         )
+
+        self.node_list: List[Node] = self.start_node_list
+
+        print(len(self.node_list))
 
     def make_algorithm(
         self,
@@ -46,15 +50,17 @@ class HillClimberNew(BaseAlg):
         return algorithm.node_list
 
     def reset_algorithm(self):
-        super().reset_algorithm()
+        self.node_list = self.start_node_list
+        self.moves_made = []
+        # super().reset_algorithm()
 
     def choose_interval(self) -> int:
         interval: int = len(self.node_list)
+        print('start interval', interval)
 
         # want interval that is not bigger then node list
-        while interval < len(self.node_list):
-            interval = random.randint(5, 20)  # DEZE OOK NOG VARIABLE MAKEN!!!!!!!!
-        print("bla1")
+        while interval >= len(self.node_list):
+            interval = random.randint(5, 20)    #DEZE OOK NOG VARIABLE MAKEN!!!!!!!!
 
         return interval
 
@@ -71,10 +77,11 @@ class HillClimberNew(BaseAlg):
     #     self.moves_made = self.moves_made[::-1]
 
     def algorithm(self) -> Node:
+        print('alg')
         # MOET NOG EEN MAX OPKOMEN
         for _ in range(self.iteration):
             interval: int = self.choose_interval()
-            print("bla")
+            print("interval")
 
             # choose ranodm start point in node list
             start = random.randint(0, len(self.node_list) - interval - 1)
@@ -100,7 +107,12 @@ class HillClimberNew(BaseAlg):
                         + alg.node_list
                         + self.node_list[start + interval + 1 :]
                     )
+        
+        print('start node', self.start_node)
+        print(self.start_node.board_rep)
 
         self.create_run_data(self.node_list[-1])
+        # self.create_moves_made(self.node_list[0], self.node_list[-1])
+
 
         return self.node_list[-1]
