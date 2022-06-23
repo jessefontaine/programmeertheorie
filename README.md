@@ -55,3 +55,10 @@ De volgende lijst toont de belangrijkste mappen en files in dit project en waar 
 - Annemarie Geertsema
 - Jesse Fontaine
 - Laura Haverkorn
+
+## Algoritmen
+### Random
+### Breadth First Search
+### Depth First Search
+### Best Depth First Search
+### Hill Climber
