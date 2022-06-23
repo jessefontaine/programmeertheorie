@@ -66,6 +66,6 @@ De volgende lijst toont de belangrijkste mappen en files in dit project en waar 
 - **/game_boards**: bevat de verschillende speelborden
 
 ## Auteurs
-- Annemarie Geertsema
 - Jesse Fontaine
+- Annemarie Geertsema
 - Laura Haverkorn
