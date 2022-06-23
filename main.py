@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from argparse import ArgumentParser, Namespace
 import os
-# import pandas
 from typing import Union, List, Tuple
 
 from code.classes import Board
@@ -16,10 +15,6 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     if mode == 'random':
         algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew] = RandomAlg(board)
-    elif mode == 'first':
-        # algorithm = First_Alg(board)
-        pass
-
     elif mode == 'breadth':
         algorithm = Bfs(board, 300)
     elif mode == "depth":
@@ -29,7 +24,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "hill":
         algorithm = HillClimber(board, 10, 'random', 'depth')
     else:
-        print("TODO")
+        print("No valid algorithm entered")
     
     # run the algorithm and collect the data
     amount_moves: List[int]
