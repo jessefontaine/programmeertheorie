@@ -27,7 +27,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HillClimberNew(board, 10, 'random', 'depth')
+        algorithm = HillClimber(board, 10, 'random', 'depth')
     else:
         print("TODO")
     

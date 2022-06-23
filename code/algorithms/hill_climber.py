@@ -1,117 +1,96 @@
-# from __future__ import annotations
+from __future__ import annotations
+from platform import node
+from typing import Tuple, List, Set, Union
+from xml.dom.minicompat import NodeList
+from .bfs import Bfs
+from .dfs import Dfs
+from .bdfs import Bdfs
+from code.classes import Board
+from code.algorithms import RandomAlg
+from code.functions.functions import write_moves_to_file
+from code.classes import Node
+import random
 
-# import random
-# from typing import Tuple, List
-# import time
 
-# from code.algorithms.random_algorithm import RandomAlg
-# from code.algorithms.bfs import Bfs
-# from code.algorithms.base_algorithm import BaseAlg
-# from code.classes import Board, Node
+class HillClimber:
 
+    def __init__(self, board: Board, iteration: int, start_mode: str, improve_mode: str):
+        self.board: Board = board
+        self.iteration: int = iteration
+        self.improve_mode: str = improve_mode
+        self.node_list: List[Node] = self.begin_solution(self.make_algorithm(start_mode))
 
-# class HillClimber(BaseAlg):
+        # REMOVE LATER
+        print(len(self.node_list))
 
-#     def __init__(self, board: Board):
-#         super().__init__(board=board)
+    def make_algorithm(self, mode: str, start_node: Union[Node, None] = None, end_node: Union[Node, None] = None) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
+        # RANDOM FIXEN DAT JE BEGIN EN START PUNT KAN DOEN
+        if mode == 'random':
+            algorithm: Union[RandomAlg, Bfs] = RandomAlg(self.board)
+        elif mode == 'breadth':
+            algorithm = Bfs(self.board, 300, start_node, end_node)
+        elif mode == "depth":
+            algorithm = Dfs(self.board, 300, start_node, end_node)
+        elif mode == "bestdepth":
+            algorithm = Bdfs(self.board, 300, start_node, end_node)
 
-#     def algorithm(self) -> Node:
+        return algorithm
 
-#         # generate a solution
-#         start_alg = RandomAlg(self.board)
-#         start_node, end_node = start_alg.run_algorithm()
-#         node_list = start_alg.node_list
-#         moves_amount = start_alg.moves_amount
+    def begin_solution(self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]) -> List[Node]:
+        algorithm.run_algorithm()
 
-#         # end_time = time.time() + 10
+        return algorithm.node_list
 
-#         # while time.time() < end_time:
+    def reset_algorithm(self):
+        pass
 
+    def choose_interval(self) -> int:
+        interval: int = len(self.node_list)
+
+        # want interval that is not bigger then node list
+        while interval >= len(self.node_list):
+            interval = random.randint(5, 20)    #DEZE OOK NOG VARIABLE MAKEN!!!!!!!!
+
+        return interval
+
+    def create_moves_made(self, start_node: Node, final_node: Node) -> None:
+        self.moves_made: List[Tuple[str, int]] = []
+
+        current: Node = final_node
+        self.moves_amount = 0
+        while current is not start_node:
+            self.moves_made.append(current.step_taken)
+            self.moves_amount += 1
+            current = current.parent
         
+        self.moves_made = self.moves_made[::-1]
 
-#         # pick two random nodes
-#         node_1, node_2, route_length = self.pick_nodes(node_list, moves_amount)
+    def run_algorithm(self) -> None:
+        #MOET NOG EEN MAX OPKOMEN
+        for _ in range(self.iteration):
+            interval: int = self.choose_interval()
 
-#         # run algorithm between two nodes
-#         iter_alg = RandomAlg(self.board, node_1, node_2)
-#         iter_start_node, iter_end_node = iter_alg.run_algorithm
+            # choose ranodm start point in node list
+            start = random.randint(0, len(self.node_list) - interval - 1)
 
-#         # check if new route is same or better
-#         if iter_alg.moves_amount <= route_length:
-            
-#             # if so implant the new route
-#             pass
+            # do algoritme on small part to get it better
+            alg = self.make_algorithm(self.improve_mode, self.node_list[start], self.node_list[start + interval])
+            alg.run_algorithm()
+            print(interval)
+            print('g', len(alg.node_list))
+            print(alg.node_list)
 
-#     def create_moves_made(self, start_node: Node, final_node: Node) -> None:
-#         self.moves_made: List[Tuple[str, int]] = []
+            if interval <= len(alg.node_list):
+                continue
 
-#         current: Node = final_node
-#         self.moves_amount = 0
-#         while current is not start_node:
-#             self.moves_made.append(current.step_taken)
-#             self.moves_amount += 1
-#             current = current.parent
+            # put the new improved part of node list into the node list, different when you improve the very last part
+            if start + interval == len(self.node_list) - 1:
+                self.node_list = self.node_list[:start] + alg.node_list
+            else:
+                self.node_list[start + interval + 1].new_parent(alg.node_list[-1])
         
-#         self.moves_made = self.moves_made[::-1]
-
-#     def run_algorithm(self) -> None:
-#         for _ in range(100):
-#             interval: int = len(self.node_list)
-
-#             # want interval that is not bigger then node list
-#             while interval >= len(self.node_list):
-#                 interval = random.randint(5, 20)
-
-#             # choose ranodm start point in node list
-#             start = random.randint(0, len(self.node_list) - interval)
-#             print(len(self.node_list) - interval, len(self.node_list), interval, start)
-
-#             # do algoritme on small part to get it better
-#             b = Bfs(self.board, 300, self.node_list[start], self.node_list[start + interval])
-#             b.run_algorithm()
-
-#             # put the new improved part of node list into the node list, different when you improve the very last part
-#             if start + interval == len(self.node_list) - 1:
-#                 self.node_list = self.node_list[:start] + b.node_list
-#             else:
-#                 self.node_list[start + interval + 1].new_parent(b.node_list[-1])
+                self.node_list = self.node_list[:start] + alg.node_list + self.node_list[start + interval + 1:]
         
-#                 self.node_list = self.node_list[:start] + b.node_list + self.node_list[start + interval + 1:]
-        
-#         self.create_moves_made(self.node_list[0], self.node_list[-1])
+        self.create_moves_made(self.node_list[0], self.node_list[-1])
 
-#         print(self.moves_amount, " ")
-
-# """
-# from __future__ import annotations
-
-# from argparse import ArgumentParser, Namespace
-# import os
-# import random
-# from typing import Union, List, Tuple
-
-# from code.classes import Board
-# from code.algorithms import First_Alg, Random_Alg, Bfs, BDFAlg, BestDepthFirst
-
-# a = Board("game_boards/Rushhour6x6_easywin.csv")
-
-# b = BestDepthFirst(a)
-
-# b.run_algorithm()
-
-# # solution = b.run_algorithm()
-
-# # print(solution)
-
-# # print(len(solution))
-
-# # interval = random.randint(7, 12)
-# # start = random.randint(0, len(solution) - interval)
-# # print(start, start + interval, interval)
-
-# # a.set_board(solution[start].board_rep)
-# # x = Bfs(a, 20, solution[start + interval].board_rep)
-
-# # solution2 = x.run_algorithm()
-# # print(solution2)
-# """
+        print(self.moves_amount, " ")
