@@ -7,7 +7,6 @@ import os
 from typing import Union, List, Tuple
 
 from code.classes import Board
-<<<<<<< HEAD
 from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew
 from code.functions import (
     batch_runner,
@@ -15,25 +14,15 @@ from code.functions import (
     steps_amount_to_file,
     write_moves_to_file,
 )
-=======
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimber
-from code.functions import batch_runner, plot_steps_to_file, steps_amount_to_file, write_moves_to_file
->>>>>>> e26ba4effea73fce0a4850341568d21b26688b9a
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     board: Board = Board(infile)
 
-<<<<<<< HEAD
     if mode == "random":
         algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew] = RandomAlg(board)
     elif mode == "first":
-=======
-    if mode == 'random':
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimber] = RandomAlg(board)
-    elif mode == 'first':
->>>>>>> e26ba4effea73fce0a4850341568d21b26688b9a
         # algorithm = First_Alg(board)
         pass
 
@@ -44,11 +33,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-<<<<<<< HEAD
         algorithm = HillClimberNew(board, 10, "random", "depth")
-=======
-        algorithm = HillClimber(board, 10, 'random', 'depth')
->>>>>>> e26ba4effea73fce0a4850341568d21b26688b9a
     else:
         print("TODO")
 
