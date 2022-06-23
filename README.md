@@ -4,10 +4,10 @@ Rush Hour is een simpel puzzeltje waarbij op een vierkant veld een rode auto sta
 ## Aan de slag
 ### Vereisten
 Deze codebase is volledig geschreven in Python 3.7. In requirements.txt staan alle benodigde packages om de code te draaien. Deze zijn te installeren via 
-'''
+```
 pip install -r requirements.txt
-'''
+```
 Of via conda:
-'''
+```
 conda install --file requirements.txt
-'''
+```
