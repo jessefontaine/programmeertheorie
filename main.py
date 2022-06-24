@@ -4,10 +4,20 @@ from argparse import ArgumentParser, Namespace
 import os
 import sys
 from typing import Union, List, Tuple
+
 # from code.algorithms.hill_climber_repeat import HCR
 
 from code.classes import Board
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC  # , HillClimberNew
+from code.algorithms import (
+    RandomAlg,
+    Bfs,
+    Dfs,
+    Bdfs,
+    HC,
+    RHC,
+    SHC,
+    SA,
+)  # , HillClimberNew
 from code.functions import (
     batch_runner,
     bla,
@@ -27,7 +37,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == "random":
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC] = RandomAlg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC, SA] = RandomAlg(board)
     elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
@@ -43,6 +53,9 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         algorithm = RHC(board, iteration, 4, 40, "random", "breadth", plateau_iteration)
     elif mode == "steephill":
         algorithm = SHC(board, 5, 4, 40, "random", "depth")
+    elif mode == "sa":
+        iteration = 500
+        algorithm = SA(board, iteration, 4, 10, "random", "depth")
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
 
@@ -62,6 +75,8 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         amount_moves: List[int]
 
         amount_moves, moves_made = batch_runner(algorithm, runs)
+        plot_steps_to_file(amount_moves, filepath)
+        steps_amount_to_file(amount_moves, filepath)
 
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)
