@@ -4,9 +4,11 @@ from argparse import ArgumentParser, Namespace
 import os
 import sys
 from typing import Union, List, Tuple
+from code.algorithms.hill_climber_new import HillClimberNew
+from code.algorithms.hill_climber_repeat import HCR
 
 from code.classes import Board
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HCR, RHC, SHC
 from code.functions import (
     batch_runner,
     plot_steps_to_file,
@@ -30,7 +32,11 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HillClimberNew(board, 100, 'random', 'depth')
+        algorithm = HCR(board, 10, 4, 40, "random", "depth")
+    elif mode == "resarthill":
+        algorithm = RHC(board, 5, 4, 40, "random", "depth")
+    elif mode == "steephill":
+        algorithm = SHC(board, 5, 4, 40, "random", "depth")
     else:
         raise InvalidAlgorithmError('Given algorithm does not exist')
     
