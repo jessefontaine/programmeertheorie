@@ -48,7 +48,9 @@ class HCA:
     ) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
         # RANDOM FIXEN DAT JE BEGIN EN START PUNT KAN DOEN
         if mode == "random":
-            algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(self.board)
+            algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(
+                self.board, start_node, end_node
+            )
         elif mode == "breadth":
             algorithm = Bfs(self.board, 300, start_node, end_node)
         elif mode == "depth":
@@ -94,7 +96,12 @@ class HCA:
 
         self.moves_made = self.moves_made[::-1]
 
-    def step_algorithm(self) -> bool:
+    def accept_insert(
+        self, initial_size: int, insert_size: int, iteration: int
+    ) -> bool:
+        return initial_size >= insert_size
+
+    def step_algorithm(self, iteration) -> bool:
         interval: int = self.choose_interval()
 
         # choose ranodm start point in node list
@@ -106,7 +113,7 @@ class HCA:
         )
         alg.run_algorithm()
 
-        if interval >= len(alg.node_list):
+        if self.accept_insert(interval, len(alg.node_list), iteration):
             # put the new improved part of node list into the node list, different when you improve the very last part
             if start + interval == len(self.node_list) - 1:
                 self.node_list = self.node_list[:start] + alg.node_list
@@ -125,14 +132,14 @@ class HCA:
 
     def run_algorithm(self) -> None:
         for i in range(self.iteration):
-            self.step_algorithm()
+            self.step_algorithm(i)
             self.create_moves_made(self.node_list[0], self.node_list[-1])
-            #print(self.moves_amount, self.moves_made)
+            # print(self.moves_amount, self.moves_made)
             self.list_moves_amount.append(self.moves_amount)
 
-        #print(self.list_moves_amount)
+        # print(self.list_moves_amount)
 
-        print("end", self.moves_amount)
+        # print("end", self.moves_amount)
 
     # def run_algorithm(self) -> None:
     #     print('k', len(self.node_list))
