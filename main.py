@@ -34,7 +34,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HCR(board, 500, 4, 40, "random", "breadth")
+        algorithm = HCR(board, 10, 4, 40, "random", "breadth")
     elif mode == "restarthill":
         algorithm = RHC(board, 5, 4, 40, "random", "depth")
     elif mode == "steephill":
