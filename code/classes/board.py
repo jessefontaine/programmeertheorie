@@ -46,8 +46,6 @@ class Board:
         """
 
         # make grid with car object names and dots for empty spaces
-        # string = '\n'.join(['  '.join(['.' if cell is None else cell.name for cell in sublist]) for sublist in self.grid])
-
         string = []
         for sublist in self.grid:
             substring = ""
@@ -112,7 +110,7 @@ class Board:
 
     def _free_spot(self, position: Tuple[int, int]) -> bool:
         return (
-            self._within_range(position) and self.grid[position[0]][position[1]] == None
+            self._within_range(position) and self.grid[position[0]][position[1]] is None
         )
 
     def _possible_moves(self) -> None:

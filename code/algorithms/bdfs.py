@@ -23,7 +23,7 @@ class Bdfs(Dfs):
         list_cars_in_front: List[int] = []
         list_distance: List[int] = []
 
-        # for each node calculate cars in front of win car and distance of win car to exit
+        # for each node calculate cars in front of win car and distance to exit
         for node in children:
             tmp_board.set_board(node.board_rep)
             list_cars_in_front.append(self.cars_in_front(tmp_board))
@@ -51,7 +51,7 @@ class Bdfs(Dfs):
                 if list_cars_in_front[i] == list_cars_in_front[i + 1]:
                     if list_distance[i] < list_distance[i + 1]:
                         swapped = True
-                        
+
                         self.swap(children, i, i + 1)
                         self.swap(list_cars_in_front, i, i + 1)
                         self.swap(list_distance, i, i + 1)

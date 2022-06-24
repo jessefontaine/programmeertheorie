@@ -5,7 +5,6 @@ from typing import List, Tuple, Union
 import os
 
 
-
 def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
 
     amount_moves_per_runs: List[int] = []
