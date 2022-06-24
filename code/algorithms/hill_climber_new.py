@@ -14,9 +14,10 @@ class HillClimberNew(BaseAlg):
     def __init__(
         self, board: Board, iteration: int, start_mode: str, improve_mode: str
     ):
-        super().__init__(board)
-
+        # super().__init__(board)
+        self.board = board
         self.iteration: int = iteration
+        self.start_mode: str = start_mode
         self.improve_mode: str = improve_mode
         self.node_list: List[Node] = self.begin_solution(
             self.make_algorithm(start_mode)
@@ -46,35 +47,22 @@ class HillClimberNew(BaseAlg):
         return algorithm.node_list
 
     def reset_algorithm(self):
-        super().reset_algorithm()
+        pass
+        # super().reset_algorithm()
 
     def choose_interval(self) -> int:
         interval: int = len(self.node_list)
-
+        print()
         # want interval that is not bigger then node list
-        while interval < len(self.node_list):
+        while interval >= len(self.node_list):
             interval = random.randint(5, 20)  # DEZE OOK NOG VARIABLE MAKEN!!!!!!!!
-        print("bla1")
 
         return interval
-
-    # def create_moves_made(self, start_node: Node, final_node: Node) -> None:
-    #     self.moves_made: List[Tuple[str, int]] = []
-
-    #     current: Node = final_node
-    #     self.moves_amount = 0
-    #     while current is not start_node:
-    #         self.moves_made.append(current.step_taken)
-    #         self.moves_amount += 1
-    #         current = current.parent
-
-    #     self.moves_made = self.moves_made[::-1]
 
     def algorithm(self) -> Node:
         # MOET NOG EEN MAX OPKOMEN
         for _ in range(self.iteration):
             interval: int = self.choose_interval()
-            print("bla")
 
             # choose ranodm start point in node list
             start = random.randint(0, len(self.node_list) - interval - 1)
