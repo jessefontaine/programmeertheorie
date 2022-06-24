@@ -45,10 +45,12 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        iteration = 500
-        algorithm = HC(board, iteration, 4, 10, "random", "breadth")
+        iteration = 100
+        algorithm = HC(board, iteration, 4, 40, "random", "breadth")
     elif mode == "restarthill":
-        algorithm = RHC(board, 5, 4, 40, "random", "depth")
+        iteration = 4
+        plateau_iteration = 50
+        algorithm = RHC(board, iteration, 4, 40, "random", "breadth", plateau_iteration)
     elif mode == "steephill":
         algorithm = SHC(board, 5, 4, 40, "random", "depth")
     elif mode == "sa":
@@ -64,11 +66,16 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
+<<<<<<< HEAD
     if mode in ["hill", "sa"]:
         list_moves_amount, moves_made = bla(algorithm)
         moves_made = [moves_made]
+=======
+    if mode == "hill" or "restarthill":
+        list_moves_amount, moves_made, iterations = bla(algorithm)
+>>>>>>> 3feea46290300eafa6b4a2a5f4a8cf5e48bd97f5
 
-        plot_line(iteration, list_moves_amount, filepath)
+        plot_line(iterations, list_moves_amount, filepath)
     else:
         # run the algorithm and collect the data
         amount_moves: List[int]
