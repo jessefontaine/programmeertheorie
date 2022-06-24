@@ -48,7 +48,7 @@ class BHC:
     ) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
         # RANDOM FIXEN DAT JE BEGIN EN START PUNT KAN DOEN
         if mode == "random":
-            algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(self.board)
+            algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(self.board, start_node, end_node)
         elif mode == "breadth":
             algorithm = Bfs(self.board, 300, start_node, end_node)
         elif mode == "depth":
@@ -58,10 +58,10 @@ class BHC:
 
         return algorithm
 
-    def reset_algorithm(self):
-        # DOE HIER NOG WAT AAN
-        self.node_list = self.start_node_list
-        self.moves_made = []
+    # def reset_algorithm(self):
+    #     # DOE HIER NOG WAT AAN
+    #     self.node_list = self.start_node_list
+    #     self.moves_made = []
 
     def start_solution(self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]) -> List[Node]:
         algorithm.run_algorithm()
@@ -78,7 +78,7 @@ class BHC:
         while interval >= len(self.node_list):
             interval = random.randint(
                 self.min_interval, self.max_interval
-            )  # DEZE OOK NOG VARIABLE MAKEN!!!!!!!!
+            )
 
         return interval
 
@@ -125,10 +125,14 @@ class BHC:
 
     def run_algorithm(self) -> None:
         for i in range(self.iteration):
+            print(i)
             self.step_algorithm()
             self.create_moves_made(self.node_list[0], self.node_list[-1])
             #print(self.moves_amount, self.moves_made)
             self.list_moves_amount.append(self.moves_amount)
+
+        self.iterations: int = self.iteration
+        self.moves_made_in_run: List[List[str, int]] = [self.moves_made]
 
         #print(self.list_moves_amount)
 
