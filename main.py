@@ -35,7 +35,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HCR(board, 10, 4, 40, "random", "breadth")
+        algorithm = HCR(board, 500, 4, 40, "random", "breadth")
     elif mode == "restarthill":
         algorithm = RHC(board, 5, 4, 40, "random", "depth")
     elif mode == "steephill":
@@ -59,7 +59,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
-    plot_line(10, list_moves_amount, filepath)
+    plot_line(500, list_moves_amount, filepath)
     # # plot steps for all runs
     # plot_steps_to_file(amount_moves, filepath)
     # steps_amount_to_file(amount_moves, filepath)
