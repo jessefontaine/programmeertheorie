@@ -61,6 +61,7 @@ Het Hill Climber algoritme kan gebruikt worden om een kortere oplossing te vinde
 De volgende lijst toont de belangrijkste mappen en files in dit project en waar je ze kunt vinden:
 - **/code**: bevat alle code van dit project
     - **/code/algorithms**: bevat de code voor alle algoritmen
+      -**/code/algorithms/base_algorithms**: bevat de basis code die voor meerdere algoritmen gebruikt wordt
     - **/code/classes**: bevat de drie verschillende classes voor de case
     - **/code/functions**: bevat de functies om main te runnen
 - **/game_boards**: bevat de verschillende speelborden

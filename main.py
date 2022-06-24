@@ -4,10 +4,10 @@ from argparse import ArgumentParser, Namespace
 import os
 import sys
 from typing import Union, List, Tuple
-from code.algorithms.hill_climber_repeat import HCR
+# from code.algorithms.hill_climber_repeat import HCR
 
 from code.classes import Board
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HCR, RHC, SHC  # , HillClimberNew
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC  # , HillClimberNew
 from code.functions import (
     batch_runner,
     bla,
@@ -27,7 +27,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == "random":
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HCR, RHC, SHC] = RandomAlg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC] = RandomAlg(board)
     elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
@@ -35,7 +35,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HCR(board, 500, 4, 40, "random", "breadth")
+        algorithm = HC(board, 500, 4, 40, "random", "breadth")
     elif mode == "restarthill":
         algorithm = RHC(board, 5, 4, 40, "random", "depth")
     elif mode == "steephill":
@@ -59,10 +59,10 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
-    plot_line(500, list_moves_amount, filepath)
+    #plot_line(10, list_moves_amount, filepath)
     # # plot steps for all runs
-    # plot_steps_to_file(amount_moves, filepath)
-    # steps_amount_to_file(amount_moves, filepath)
+    plot_steps_to_file(amount_moves, filepath)
+    steps_amount_to_file(amount_moves, filepath)
 
     # print the moves if user marked for it
     if output_moves:

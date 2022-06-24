@@ -4,7 +4,7 @@ from code.algorithms.base_algorithms.hill_climber_alg import HCA
 from code.classes import Node, Board
 
 
-class HCR(HCA):
+class HC(HCA):
     def __init__(
         self,
         board: Board,
