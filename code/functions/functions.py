@@ -69,10 +69,10 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
     plt.plot(list_iteration, list_moves_amount)
 
     plt.title(
-        f"Density plot {len(list_moves_amount)} runs: game board {path.split('/')[1].split('.')[0]}"
+        f"Hill Climber {len(list_moves_amount)} iterations: game board {path.split('/')[1].split('.')[0]}"
     )
-    plt.xlabel("Number of steps")
-    plt.ylabel("iterations")
+    plt.xlabel("Iterations")
+    plt.ylabel("Number of steps")
     plt.savefig(f"{path}.png")
 
     # convert to str and write to file
