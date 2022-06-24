@@ -21,9 +21,9 @@ class HC(BHC):
             self.make_algorithm(self.start_mode)
         )
         # REMOVE LATER
-        print(len(self.start_node_list))
+        # print(len(self.start_node_list))
 
         self.node_list: List[Node] = self.start_node_list
 
         # REMOVE LATER
-        print("begin", len(self.node_list))
+        # print("begin", len(self.node_list))
