@@ -43,15 +43,6 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
 
-    if mode == "hill":
-        list_moves_amount, moves_made = bla(algorithm)
-        moves_made = [moves_made]
-    else:
-        # run the algorithm and collect the data
-        amount_moves: List[int]
-
-        amount_moves, moves_made = batch_runner(algorithm, runs)
-
     try:
         os.makedirs(outfolder)
     except FileExistsError:
@@ -59,10 +50,23 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
+    if mode == "hill":
+        list_moves_amount, moves_made = bla(algorithm)
+        moves_made = [moves_made]
+        plot_line(10, list_moves_amount, filepath)
+    else:
+        # run the algorithm and collect the data
+        amount_moves: List[int]
+
+        amount_moves, moves_made = batch_runner(algorithm, runs)
+        plot_steps_to_file(amount_moves, filepath)
+        steps_amount_to_file(amount_moves, filepath)
+
+
     # plot_line(10, list_moves_amount, filepath)
-    # # plot steps for all runs
-    plot_steps_to_file(amount_moves, filepath)
-    steps_amount_to_file(amount_moves, filepath)
+    # # # plot steps for all runs
+    # plot_steps_to_file(amount_moves, filepath)
+    # steps_amount_to_file(amount_moves, filepath)
 
     # print the moves if user marked for it
     if output_moves:
