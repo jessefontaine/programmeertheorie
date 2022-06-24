@@ -23,6 +23,8 @@ class HCA:
         self.start_mode: str = start_mode
         self.improve_mode: str = improve_mode
 
+        self.list_moves_amount: List[int] = []
+
         # self.node_list: List[Node] = self.begin_solution(self.make_algorithm(start_mode))
         # self.start_node_list: List[Node] = self.start_solution(
         #     self.make_algorithm(start_mode)
@@ -104,10 +106,13 @@ class HCA:
         return False
 
     def run_algorithm(self) -> None:
-        for _ in range(self.iteration):
+        for i in range(self.iteration):
             self.step_algorithm()
+            self.create_moves_made(self.node_list[0], self.node_list[-1])
+            #print(self.moves_amount, self.moves_made)
+            self.list_moves_amount.append(self.moves_amount)
 
-        self.create_moves_made(self.node_list[0], self.node_list[-1])
+        #print(self.list_moves_amount)
 
         print('end', self.moves_amount)
 

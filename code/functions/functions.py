@@ -4,6 +4,8 @@ from matplotlib import pyplot as plt
 from typing import List, Tuple, Union
 import os
 
+from code import algorithms
+
 
 
 def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
@@ -27,6 +29,14 @@ def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
 
     return amount_moves_per_runs, moves_made_in_runs
 
+def bla(algorithm):
+    algorithm.run_algorithm()
+
+    list_moves_amount: List[int] = algorithm.list_moves_amount
+    #moves_made: List[Tuple[str, int]] = algorithm.moves_made
+    print('j', list_moves_amount)
+    print('moves', len(algorithm.moves_made))
+    return list_moves_amount, algorithm.moves_made
 
 def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
 
@@ -48,6 +58,29 @@ def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
     with open(f"{path}.txt", "w") as file:
         file.write("\n".join(amount_moves_str))
 
+def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
+
+    list_iteration: List[int] = list(range(1, iteration + 1))
+    print(list_iteration)
+
+    # trim path if a filetype was specified
+    path = path.split(".")[0]
+
+    # plot all runs
+    plt.plot(list_iteration, list_moves_amount)
+
+    plt.title(
+        f"Density plot {len(list_moves_amount)} runs: game board {path.split('/')[1].split('.')[0]}"
+    )
+    plt.xlabel("Number of steps")
+    plt.ylabel("iterations")
+    plt.savefig(f"{path}.png")
+
+    # convert to str and write to file
+    amount_moves_str: List[str] = [str(x) for x in list_moves_amount]
+    with open(f"{path}.txt", "w") as file:
+        file.write("\n".join(amount_moves_str))
+
 
 def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
 
@@ -61,6 +94,7 @@ def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
+    print(moves_made)
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
