@@ -4,11 +4,10 @@ from argparse import ArgumentParser, Namespace
 import os
 import sys
 from typing import Union, List, Tuple
-from code.algorithms.hill_climber_new import HillClimberNew
 from code.algorithms.hill_climber_repeat import HCR
 
 from code.classes import Board
-from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HCR, RHC, SHC
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HCR, RHC, SHC  # , HillClimberNew
 from code.functions import (
     batch_runner,
     bla,
@@ -18,16 +17,18 @@ from code.functions import (
     write_moves_to_file,
 )
 
+
 class InvalidAlgorithmError(Exception):
     pass
+
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     board: Board = Board(infile)
 
     if mode == "random":
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HillClimberNew] = RandomAlg(board)
-    elif mode == 'breadth':
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HCR, RHC, SHC] = RandomAlg(board)
+    elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
         algorithm = Dfs(board, 300)
@@ -40,7 +41,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "steephill":
         algorithm = SHC(board, 5, 4, 40, "random", "depth")
     else:
-        raise InvalidAlgorithmError('Given algorithm does not exist')
+        raise InvalidAlgorithmError("Given algorithm does not exist")
 
     if mode == "hill":
         list_moves_amount, moves_made = bla(algorithm)
@@ -48,7 +49,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     else:
         # run the algorithm and collect the data
         amount_moves: List[int]
-        moves_made: List[List[Tuple[str, int]]]
+
         amount_moves, moves_made = batch_runner(algorithm, runs)
 
     try:

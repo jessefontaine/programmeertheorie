@@ -45,7 +45,6 @@ class Board:
         Return current game board in readable format.
         """
 
-        # make grid with car object names and dots for empty spaces
         string = []
         for sublist in self.grid:
             substring = ""
