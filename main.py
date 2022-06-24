@@ -33,7 +33,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
         algorithm = HCR(board, 10, 4, 40, "random", "depth")
-    elif mode == "resarthill":
+    elif mode == "restarthill":
         algorithm = RHC(board, 5, 4, 40, "random", "depth")
     elif mode == "steephill":
         algorithm = SHC(board, 5, 4, 40, "random", "depth")
