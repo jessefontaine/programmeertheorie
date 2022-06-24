@@ -109,7 +109,7 @@ class Board:
 
     def _free_spot(self, position: Tuple[int, int]) -> bool:
         return (
-            self._within_range(position) and self.grid[position[0]][position[1]] == None
+            self._within_range(position) and self.grid[position[0]][position[1]] is None
         )
 
     def _possible_moves(self) -> None:
