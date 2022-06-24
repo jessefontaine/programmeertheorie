@@ -63,7 +63,7 @@ def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
 def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
 
     list_iteration: List[int] = list(range(1, iteration + 1))
-    print(list_iteration)
+    # print(list_iteration)
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
@@ -96,7 +96,7 @@ def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
-    print(moves_made)
+    # print(moves_made)
 
     # trim path if a filetype was specified
     path = path.split(".")[0]

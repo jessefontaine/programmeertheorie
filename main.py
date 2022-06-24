@@ -52,7 +52,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "steephill":
         algorithm = SHC(board, 5, 4, 40, "random", "depth")
     elif mode == "sa":
-        iteration = 500
+        iteration = 200
         algorithm = SA(board, iteration, 4, 10, "random", "depth")
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
@@ -64,7 +64,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
-    if mode == "hill":
+    if mode in ["hill", "sa"]:
         list_moves_amount, moves_made = bla(algorithm)
         moves_made = [moves_made]
 
