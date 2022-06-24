@@ -5,7 +5,7 @@ from typing import List, Set, Union
 
 from code.classes import Board
 from code.classes import Node
-from code.algorithms.base_algorithm import BaseAlg
+from code.algorithms.base_algorithms.base_algorithm import BaseAlg
 
 
 class Treesearcher(BaseAlg):

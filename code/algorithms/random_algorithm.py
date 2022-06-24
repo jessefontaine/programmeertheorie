@@ -4,7 +4,7 @@ import random
 from typing import Union
 
 from code.classes import Board, Node
-from code.algorithms.base_algorithm import BaseAlg
+from code.algorithms.base_algorithms.base_algorithm import BaseAlg
 
 
 class RandomAlg(BaseAlg):

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from code.algorithms.tree_search import Treesearcher
+from code.algorithms.base_algorithms.tree_search import Treesearcher
 
 
 class Bfs(Treesearcher):
