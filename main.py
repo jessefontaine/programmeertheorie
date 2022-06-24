@@ -35,22 +35,14 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif mode == "hill":
-        algorithm = HC(board, 500, 4, 40, "random", "breadth")
+        iteration = 500
+        algorithm = HC(board, iteration, 4, 40, "random", "breadth")
     elif mode == "restarthill":
         algorithm = RHC(board, 5, 4, 40, "random", "depth")
     elif mode == "steephill":
         algorithm = SHC(board, 5, 4, 40, "random", "depth")
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
-
-    if mode == "hill":
-        list_moves_amount, moves_made = bla(algorithm)
-        moves_made = [moves_made]
-    else:
-        # run the algorithm and collect the data
-        amount_moves: List[int]
-
-        amount_moves, moves_made = batch_runner(algorithm, runs)
 
     try:
         os.makedirs(outfolder)
@@ -59,10 +51,20 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
-    #plot_line(10, list_moves_amount, filepath)
-    # # plot steps for all runs
-    plot_steps_to_file(amount_moves, filepath)
-    steps_amount_to_file(amount_moves, filepath)
+    if mode == "hill":
+        list_moves_amount, moves_made = bla(algorithm)
+        moves_made = [moves_made]
+
+        plot_line(iteration, list_moves_amount, filepath)
+    else:
+        # run the algorithm and collect the data
+        amount_moves: List[int]
+
+        amount_moves, moves_made = batch_runner(algorithm, runs)
+
+        # plot steps for all runs
+        plot_steps_to_file(amount_moves, filepath)
+        steps_amount_to_file(amount_moves, filepath)
 
     # print the moves if user marked for it
     if output_moves:
