@@ -11,7 +11,7 @@ from code.algorithms.bdfs import Bdfs
 import random
 
 
-class HCA:
+class BHC:
     def __init__(
         self,
         board: Board,

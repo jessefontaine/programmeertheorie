@@ -3,11 +3,11 @@ from __future__ import annotations
 from typing import Tuple, List
 
 from numpy import infty
-from code.algorithms.base_algorithms.hill_climber_alg import HCA
+from code.algorithms.base_algorithms.base_hill_climber import BHC
 from code.classes import Node, Board
 
 
-class SHC(HCA):
+class SHC(BHC):
     def __init__(
         self,
         board: Board,
