@@ -49,7 +49,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     else:
         # run the algorithm and collect the data
         amount_moves: List[int]
-        moves_made: List[List[Tuple[str, int]]]
+
         amount_moves, moves_made = batch_runner(algorithm, runs)
 
     try:
