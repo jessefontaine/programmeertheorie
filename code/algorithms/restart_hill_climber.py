@@ -1,10 +1,10 @@
 from __future__ import annotations
 from typing import List
-from code.algorithms.base_algorithms.hill_climber_alg import HCA
+from code.algorithms.base_algorithms.base_hill_climber import BHC
 from code.classes import Node, Board
 
 
-class RHC(HCA):
+class RHC(BHC):
     def __init__(
         self,
         board: Board,

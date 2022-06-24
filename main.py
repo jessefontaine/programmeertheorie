@@ -74,6 +74,8 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         amount_moves: List[int]
 
         amount_moves, moves_made = batch_runner(algorithm, runs)
+        plot_steps_to_file(amount_moves, filepath)
+        steps_amount_to_file(amount_moves, filepath)
 
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)
