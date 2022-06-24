@@ -7,7 +7,6 @@ import os
 from code import algorithms
 
 
-
 def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
 
     amount_moves_per_runs: List[int] = []
