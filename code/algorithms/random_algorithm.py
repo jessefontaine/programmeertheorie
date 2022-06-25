@@ -22,6 +22,7 @@ class RandomAlg(BaseAlg):
         """
 
         current_state: Node = self.start_node
+
         while not self.check_finished(current_state):
             # get the possible moves of current state
             moves = self.board.possible_moves
