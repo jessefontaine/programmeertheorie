@@ -30,23 +30,13 @@ class BHC:
 
         self.list_moves_amount: List[int] = []
 
-        # self.node_list: List[Node] = self.begin_solution(self.make_algorithm(start_mode))
-        # self.start_node_list: List[Node] = self.start_solution(
-        #     self.make_algorithm(start_mode)
-        # )
-        # print(len(self.start_node_list))
-        # self.node_list: List[Node] = self.start_node_list
-
-        # # REMOVE LATER
-        # print('begin', len(self.node_list))
-
     def make_algorithm(
         self,
         mode: str,
         start_node: Union[Node, None] = None,
         end_node: Union[Node, None] = None,
     ) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
-        # RANDOM FIXEN DAT JE BEGIN EN START PUNT KAN DOEN
+
         if mode == "random":
             algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(
                 self.board, start_node, end_node
@@ -60,27 +50,17 @@ class BHC:
 
         return algorithm
 
-    # def reset_algorithm(self):
-    #     # DOE HIER NOG WAT AAN
-    #     self.node_list = self.start_node_list
-    #     self.moves_made = []
+    def reset_board(self) -> None:
+        self.board.set_board(self.node_list[0].board_rep)
 
     def start_solution(self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]) -> List[Node]:
         algorithm.run_algorithm()
 
         return algorithm.node_list
 
-    # def new_solution(self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]) -> List[Node]:
-    #     raise NotImplementedError
-
     def choose_interval(self) -> int:
-        interval: int = len(self.node_list)
-
-        # want interval that is not bigger then node list
-        while interval >= len(self.node_list):
-            interval = random.randint(
-                self.min_interval, self.max_interval
-            )
+        # choose interval within range and that is not bigger then node list
+        interval: int = random.randint(self.min_interval, min(self.max_interval, len(self.node_list) - 1))
 
         return interval
 
@@ -134,40 +114,7 @@ class BHC:
         for i in range(self.iteration):
             self.step_algorithm(i)
             self.create_moves_made(self.node_list[0], self.node_list[-1])
-            # print(self.moves_amount, self.moves_made)
             self.list_moves_amount.append(self.moves_amount)
 
         self.iterations: int = self.iteration
         self.moves_made_in_run: List[List[str, int]] = [self.moves_made]
-
-        #print(self.list_moves_amount)
-
-        # print("end", self.moves_amount)
-
-    # def run_algorithm(self) -> None:
-    #     print('k', len(self.node_list))
-    #     #MOET NOG EEN MAX OPKOMEN
-    #     for _ in range(self.iteration):
-    #         interval: int = self.choose_interval()
-
-    #         # choose ranodm start point in node list
-    #         start = random.randint(0, len(self.node_list) - interval - 1)
-
-    #         # do algoritme on small part to get it better
-    #         alg = self.make_algorithm(self.improve_mode, self.node_list[start], self.node_list[start + interval])
-    #         alg.run_algorithm()
-
-    #         if interval <= len(alg.node_list):
-    #             continue
-
-    #         # put the new improved part of node list into the node list, different when you improve the very last part
-    #         if start + interval == len(self.node_list) - 1:
-    #             self.node_list = self.node_list[:start] + alg.node_list
-    #         else:
-    #             self.node_list[start + interval + 1].new_parent(alg.node_list[-1])
-
-    #             self.node_list = self.node_list[:start] + alg.node_list + self.node_list[start + interval + 1:]
-
-    #     self.create_moves_made(self.node_list[0], self.node_list[-1])
-
-    #     print('end', self.moves_amount)
