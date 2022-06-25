@@ -167,7 +167,10 @@ class Board:
 
             # calculate the rows and colums
             if len(car) == 1:
-                str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1) 
+                if setup_str.find(car) == 0:
+                    str_place: int = setup_str.find(car) 
+                else:
+                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1) 
             else:
                 str_place: int = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
