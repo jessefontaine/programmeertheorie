@@ -17,13 +17,22 @@ from code.functions import (
 
 
 class InvalidAlgorithmError(Exception):
+    """
+    Invalid algorithm exception.
+    """
+
     pass
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
+    """
+    Makes and runs the given algorithm.
+    Plots the output and saves the output when output_moves True.
+    """
 
     board: Board = Board(infile)
 
+    # make the given algorithm
     if mode == "random":
         algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA] = RandomAlg(board)
     elif mode == "breadth":
@@ -56,6 +65,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     except FileExistsError:
         pass
 
+    # run the algorithm and output the result to a plot
     if "hill" in mode:
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
 
@@ -63,7 +73,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         plot_line(iterations, list_moves_amount, filepath)
     else:
-        filepath: str = (
+        filepath = (
             f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
         )
 

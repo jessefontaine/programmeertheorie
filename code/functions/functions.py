@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import os
 
 
-def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs", "Bdfs"], runs: int):
+def batch_runner(algorithm: Union["RandomAlg", "Bfs", "Dfs", "Bdfs"], runs: int):
     """
     Run the algorithm multiple times.
     Returns the number of moves and the solution.
