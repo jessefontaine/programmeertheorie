@@ -56,6 +56,13 @@ class Car:
         self.position = self.start_position
         self._positions_update()
 
+    def set_offset(self, offset):
+        self.position = self.start_position
+        if not offset == 0:
+            self.move(offset)
+        else:
+            self._positions_update()
+
     def test_move(self, direction: int) -> List[Tuple[int, int]]:
         """
         Method returns a position coordinate of the spot that is taken up when

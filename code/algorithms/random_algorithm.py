@@ -34,7 +34,9 @@ class RandomAlg(BaseAlg):
             self.board.make_move(*move)
 
             # create node
-            new_node: Node = Node(str(self.board), move, current_state)
+            new_node: Node = Node(
+                str(self.board), self.board.offset_from_start, move, current_state
+            )
 
             # set current state to the new node
             current_state = new_node

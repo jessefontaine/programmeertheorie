@@ -20,7 +20,7 @@ class BaseAlg:
 
         # starting without a start node means the current gameboard setup is the start
         if start_node is None:
-            self.start_node: Node = Node(str(self.board))
+            self.start_node: Node = Node(repr(self.board), self.board.offset_from_start)
         else:
             self.start_node = start_node
 
@@ -37,7 +37,7 @@ class BaseAlg:
         """
         if set_board_every_check:
             # setup the board according to the given state
-            self.board.set_board(state.board_rep)
+            self.board.set_board(state.board_offsets)
 
         # return whether contraints are satisfied
         if self.find_win:
@@ -77,14 +77,20 @@ class BaseAlg:
         self.moves_made = self.moves_made[::-1]
 
     def reset_algorithm(self):
-        self.node_list: List[Node] = [Node(str(self.board))]
+        self.node_list: List[Node] = [
+            Node(repr(self.board), self.board.offset_from_start)
+        ]
         self.moves_made: List[Optional[Tuple[str, int]]] = []
 
     def algorithm(self) -> Node:
         raise NotImplementedError
 
     def run_algorithm(self) -> Tuple[Node, Node]:
-        end_state: Node = self.algorithm()
+        try:
+            end_state: Node = self.algorithm()
+        except KeyboardInterrupt:
+            print(self.moves_made)
+
         self.create_run_data(end_state)
 
         return self.start_node, end_state

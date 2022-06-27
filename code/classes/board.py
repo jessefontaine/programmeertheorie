@@ -27,6 +27,11 @@ class Board:
         # save board setup and place cars
         self._loader(filepath)
 
+        # dictionary for storing car offsets from their start positions
+        self.offset_from_start: Dict[str, int] = dict(
+            zip(list(self.cars.keys()), [0] * len(self.cars))
+        )
+
         # setup list to store all moves in
         self.moves_made: List[Tuple[str, int]] = []
 
@@ -58,6 +63,14 @@ class Board:
             string.append(substring)
 
         return "\n".join(string)
+
+    def __repr__(self) -> str:
+
+        repr_str = ""
+        for item in self.offset_from_start.items():
+            repr_str += f"{item[0]} {item[1]}\n"
+
+        return repr_str
 
     def _loader(self, filepath):
         """
@@ -141,7 +154,7 @@ class Board:
 
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    def set_board(self, setup: str):
+    def set_board1(self, setup: str):
         """
         Setup the board accoring to a setup string. Setup string should be similar to
         the board representation this class creates and include all car names, orientations and
@@ -162,18 +175,51 @@ class Board:
             # calculate the rows and colums
             if len(car) == 1:
                 if setup_str.find(car) == 0:
-                    str_place: int = setup_str.find(car) 
+                    str_place: int = setup_str.find(car)
                 else:
-                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1) 
+                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (
+                        self.max_name_length + 1
+                    )
             else:
                 str_place: int = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
             col: int = str_place % self.size[1]
-            #print('set up van bord', car, str_place, row, col)
+            # print('set up van bord', car, str_place, row, col)
             # set the car to that row and column
             self.cars[car].set_car(row, col)
 
         # update the board
+        self._update_grid()
+
+    def set_board(self, setup: Dict[str, int]):
+        """
+        TODO
+
+        A3
+        B5
+        C-1
+        D-3
+        E0
+
+        representation sets the board to the new displacements.
+        Original setup needed.
+
+        """
+
+        # offset_list: List[str] = setup.split("\n")[:-1]
+        # offset_list_nested: List[List[str]] = [
+        #     car_offset.split(" ") for car_offset in offset_list
+        # ]
+        # offset_list_tuples: List[Tuple[str, int]] = [
+        #     (line[0], int(line[1])) for line in offset_list_nested
+        # ]
+
+        for car_name, car_offset in setup.items():
+
+            self.cars[car_name].set_offset(car_offset)
+
+            self.offset_from_start[car_name] = car_offset
+
         self._update_grid()
 
     def reset_board(self) -> None:
@@ -215,10 +261,13 @@ class Board:
         # move the car and update the grid
         self.cars[car].move(move)
 
+        # add offset
+        self.offset_from_start[car] = self.offset_from_start[car] + move
+
         self._update_grid()
 
         # return the move as a tuple
-        #return (car, move)
+        # return (car, move)
 
     def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition
