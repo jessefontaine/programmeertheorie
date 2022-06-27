@@ -99,7 +99,7 @@ class BaseAlg:
         self.node_list: List[Node] = [Node(str(self.board))]
         self.moves_made: List[Optional[Tuple[str, int]]] = []
 
-    def _algorithm(self) -> Node:
+    def algorithm(self) -> Node:
         """
         To implement the algorithm.
         """
@@ -112,7 +112,7 @@ class BaseAlg:
         Returns the start and end state.
         """
 
-        end_state: Node = self._algorithm()
+        end_state: Node = self.algorithm()
         self._create_run_data(end_state)
 
         return self.start_node, end_state

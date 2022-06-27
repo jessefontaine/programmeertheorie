@@ -84,7 +84,7 @@ class Treesearcher(BaseAlg):
         # add children nodes to stack or queue
         self.states.extend(children)
 
-    def _algorithm(self):
+    def algorithm(self):
         """
         Basic tree searcher algorithm.
         """
