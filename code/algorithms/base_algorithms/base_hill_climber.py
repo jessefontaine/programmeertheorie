@@ -132,7 +132,7 @@ class BHC:
         for i in range(self.iteration):
 
             print(i)
-            self.step_algorithm()
+            self.step_algorithm(i)
 
             self.create_moves_made(self.node_list[0], self.node_list[-1])
             # print(self.moves_amount, self.moves_made)
