@@ -4,8 +4,6 @@ from matplotlib import pyplot as plt
 from typing import List, Tuple, Union
 import os
 
-from code import algorithms
-
 
 def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs", "Bdfs"], runs: int):
     """
@@ -97,20 +95,6 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
 
     # convert to str and write to file
     amount_moves_str: List[str] = [str(x) for x in list_moves_amount]
-    with open(f"{path}.txt", "w") as file:
-        file.write("\n".join(amount_moves_str))
-
-
-def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
-    """
-    Write the amount of steps to a csv file.
-    """
-
-    # trim path if a filetype was specified
-    path = path.split(".")[0]
-
-    # convert to str and write to file
-    amount_moves_str: List[str] = [str(x) for x in amount_of_steps]
     with open(f"{path}.txt", "w") as file:
         file.write("\n".join(amount_moves_str))
 
