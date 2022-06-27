@@ -120,11 +120,6 @@ class Board:
         # calculate the possible moves with current board setup
         self._possible_moves()
 
-    def _free_spot(self, position: Tuple[int, int]) -> bool:
-        return (
-            self._within_range(position) and self.grid[position[0]][position[1]] is None
-        )
-
     def _possible_moves(self) -> None:
         """
         Returns a dictionary with all cars that can move in the current board setup
@@ -133,19 +128,26 @@ class Board:
 
         self.possible_moves: List[Tuple[str, int]] = []
 
-        check_distances: List[int] = list(range(-1 * max(self.size) + 2, 0)) + list(
-            range(1, max(self.size) - 1)
-        )
-
         for car in list(self.cars.values()):
 
-            for distance in check_distances:
+            positive_dir_list, negative_dir_list = car.test_moves(max(self.size))
 
-                check_positions: List[Tuple[int, int]] = car.test_move(distance)
+            for index, pos in enumerate(positive_dir_list):
+                if self._free_spot(pos):
+                    self.possible_moves.append((car.name, index + 1))
+                else:
+                    break
 
-                if all([self._free_spot(pos) for pos in check_positions]):
+            for index, pos in enumerate(negative_dir_list):
+                if self._free_spot(pos):
+                    self.possible_moves.append((car.name, -1 * (index + 1)))
+                else:
+                    break
 
-                    self.possible_moves.append((car.name, distance))
+    def _free_spot(self, position: Tuple[int, int]) -> bool:
+        return (
+            self._within_range(position) and self.grid[position[0]][position[1]] is None
+        )
 
     def _within_range(self, position: Tuple[int, int]) -> bool:
         """
@@ -155,6 +157,7 @@ class Board:
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
     def set_board1(self, setup: str):
+        # obsolete
         """
         Setup the board accoring to a setup string. Setup string should be similar to
         the board representation this class creates and include all car names, orientations and

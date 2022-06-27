@@ -63,7 +63,7 @@ class Car:
         else:
             self._positions_update()
 
-    def test_move(self, direction: int) -> List[Tuple[int, int]]:
+    def test_moves(self, board_size):
         """
         Method returns a position coordinate of the spot that is taken up when
         the car moves in the provided direction.
@@ -71,38 +71,29 @@ class Car:
         Requires non-zero direction parameter.
         """
 
-        # ensure proper usage
-        if not isinstance(direction, int):
-            raise TypeError("Direction must be of type 'int'.")
-        if direction == 0:
-            raise ValueError("Direction must be non-zero.")
+        # forward
+        max_moves = board_size - self.length
 
-        # derive index of self.positions list that is the in the movement direction
-        if direction > 0:
-            car_side: Tuple[int, int] = self.positions[-1]
+        if self.orientation == "V":
+            positive_dir_list = [
+                (self.positions[-1][0] + move, self.position[1])
+                for move in range(1, max_moves + 1)
+            ]
+            negative_dir_list = [
+                (self.positions[0][0] - move, self.position[1])
+                for move in range(1, max_moves + 1)
+            ]
         else:
-            car_side = self.positions[0]
+            positive_dir_list = [
+                (self.position[0], self.positions[-1][1] + move)
+                for move in range(1, max_moves + 1)
+            ]
+            negative_dir_list = [
+                (self.position[0], self.positions[0][1] - move)
+                for move in range(1, max_moves + 1)
+            ]
 
-        # list to store all positions in the car will drive over
-        test_pos_list: List[Tuple[int, int]] = []
-
-        if direction < 0:
-            check_list: Iterable[int] = range(direction, 0)
-        else:
-            check_list = range(1, direction + 1)
-
-        for distance in check_list:
-
-            # movement up/down or left/right depending on orientation
-            if self.orientation == "H":
-                test_pos: Tuple[int, int] = (car_side[0], car_side[1] + distance)
-            else:
-                test_pos = (car_side[0] + distance, car_side[1])
-
-            # add pos to list
-            test_pos_list.append(test_pos)
-
-        return test_pos_list
+        return positive_dir_list, negative_dir_list
 
     def move(self, move: int) -> None:
         """
