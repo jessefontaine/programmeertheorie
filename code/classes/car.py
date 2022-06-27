@@ -53,6 +53,7 @@ class Car:
         """
         Resets the car to it's original position.
         """
+
         self.position = self.start_position
         self._positions_update()
 

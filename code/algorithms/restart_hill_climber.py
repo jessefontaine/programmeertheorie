@@ -29,7 +29,7 @@ class RHC(BHC):
         """
 
         self.iterations: int = 0
-        self.moves_made_in_run: List[List[str, int]] = []
+        self.moves_made_in_run: List[List] = []
 
         for i in range(self.iteration):
             # print board

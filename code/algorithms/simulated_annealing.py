@@ -9,6 +9,10 @@ class SA(HC):
     def _accept_insert(
         self, initial_size: int, insert_size: int, iteration: int
     ) -> bool:
+        """
+        Defines different accept rate for the Hill Climber algorithm.
+        Returns if new solutions is accepted.
+        """
 
         start_temperature: int = 5
 

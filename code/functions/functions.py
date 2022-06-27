@@ -31,7 +31,7 @@ def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs", "Bdfs"], runs: int
     return amount_moves_per_runs, moves_made_in_runs
 
 
-def hill_runner(algorithm) -> Tuple[List[int], List[List[str, int]], int]:
+def hill_runner(algorithm) -> Tuple[List[int], List[List], int]:
     """
     Runs the algorithm Hill Climber.
     Returns the number of moves, iterations and the solution.
@@ -40,7 +40,7 @@ def hill_runner(algorithm) -> Tuple[List[int], List[List[str, int]], int]:
     algorithm.run_algorithm()
 
     list_moves_amount: List[int] = algorithm.list_moves_amount
-    list_moves_made_in_run: List[List[str, int]] = algorithm.moves_made_in_run
+    list_moves_made_in_run: List[List] = algorithm.moves_made_in_run
 
     return list_moves_amount, list_moves_made_in_run, algorithm.iterations
 

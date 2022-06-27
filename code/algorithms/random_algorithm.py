@@ -24,10 +24,8 @@ class RandomAlg(BaseAlg):
         current_state: Node = self.start_node
 
         while not self.check_finished(current_state, set_board_every_check=True):
-            # get the possible moves of current state
+            # get the possible moves of current state and pick random
             moves = self.board.possible_moves
-
-            # pick one random move
             move = random.choice(moves)
 
             # make the move
@@ -39,5 +37,4 @@ class RandomAlg(BaseAlg):
             # set current state to the new node
             current_state = new_node
 
-        # return the ending node
         return current_state
