@@ -6,6 +6,12 @@ from code.algorithms import HC
 
 
 class SA(HC):
+    """
+    The Simulated Annealing class runs a hill climber algorithm.
+    Impoves solution by changing small parts of the solution, for given amount of iterations.
+    Accepts changes with an acceptance chance.
+    """
+
     def _accept_insert(
         self, initial_size: int, insert_size: int, iteration: int
     ) -> bool:

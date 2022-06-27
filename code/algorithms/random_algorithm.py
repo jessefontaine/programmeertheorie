@@ -8,6 +8,10 @@ from code.algorithms.base_algorithms.base_algorithm import BaseAlg
 
 
 class RandomAlg(BaseAlg):
+    """
+    The Random Algorithm class makes random moves untill the board is in a winning state.
+    """
+
     def __init__(
         self,
         board: Board,
