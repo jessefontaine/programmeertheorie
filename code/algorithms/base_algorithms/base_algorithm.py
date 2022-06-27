@@ -31,13 +31,14 @@ class BaseAlg:
             self.find_win = False
             self.end_node: Node = end_node
 
-    def check_finished(self, state: Node) -> bool:
+    def check_finished(self, state: Node, set_board_every_check: bool = True) -> bool:
         """
         Checks whether a given state satisfies the constraints.
         """
 
-        # setup the board according to the given state
-        self.board.set_board(state.board_rep)
+        if set_board_every_check:
+            # setup the board according to the given state
+            self.board.set_board(state.board_rep)
 
         # return whether contraints are satisfied
         if self.find_win:
@@ -77,13 +78,26 @@ class BaseAlg:
         self.moves_made = self.moves_made[::-1]
 
     def reset_algorithm(self):
+        """
+        Resets everything to the initial state.
+        """
+
         self.node_list: List[Node] = [Node(str(self.board))]
         self.moves_made: List[Optional[Tuple[str, int]]] = []
 
     def algorithm(self) -> Node:
+        """
+        To implement the algorithm.
+        """
+
         raise NotImplementedError
 
     def run_algorithm(self) -> Tuple[Node, Node]:
+        """
+        Runs the algorithm.
+        Returns the start and end state.
+        """
+
         end_state: Node = self.algorithm()
         self.create_run_data(end_state)
 

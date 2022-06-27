@@ -6,21 +6,12 @@ import sys
 from typing import Union, List
 
 from code.classes import Board
-from code.algorithms import (
-    RandomAlg,
-    Bfs,
-    Dfs,
-    Bdfs,
-    HC,
-    RHC,
-    SA,
-)
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
 from code.functions import (
     batch_runner,
     hill_runner,
     plot_steps_to_file,
     plot_line,
-    steps_amount_to_file,
     write_moves_to_file,
 )
 
@@ -42,13 +33,19 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif "hill" in mode:
-        mode, start_mode, improve_mode = mode.split('/')[0], mode.split('/')[1], mode.split('/')[2]
+        mode, start_mode, improve_mode = (
+            mode.split("/")[0],
+            mode.split("/")[1],
+            mode.split("/")[2],
+        )
 
-        if mode == 'hill':
+        if mode == "hill":
             algorithm = HC(board, runs, 4, 10, start_mode, improve_mode)
         elif mode == "restarthill":
             plateau_iteration = 20
-            algorithm = RHC(board, runs, 4, 10, start_mode, improve_mode, plateau_iteration)
+            algorithm = RHC(
+                board, runs, 4, 10, start_mode, improve_mode, plateau_iteration
+            )
         elif mode == "sa":
             algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
     else:
@@ -64,9 +61,11 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         list_moves_amount, moves_made, iterations = hill_runner(algorithm)
 
-        plot_line(iterations, list_moves_amount, filepath)
+        plot_line(iterations, list_moves_amount, filepath)    
     else:
-        filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
+        filepath: str = (
+            f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
+        )
 
         # run the algorithm and collect the data
         amount_moves: List[int]
@@ -75,7 +74,6 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)
-        steps_amount_to_file(amount_moves, filepath)
 
     # print the moves if user marked for it
     if output_moves:
