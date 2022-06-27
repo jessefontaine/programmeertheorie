@@ -3,24 +3,13 @@ from __future__ import annotations
 from argparse import ArgumentParser, Namespace
 import os
 import sys
-from typing import Union, List, Tuple
-
-# from code.algorithms.hill_climber_repeat import HCR
+from typing import Union, List
 
 from code.classes import Board
-from code.algorithms import (
-    RandomAlg,
-    Bfs,
-    Dfs,
-    Bdfs,
-    HC,
-    RHC,
-    SHC,
-    SA,
-)  # , HillClimberNew
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
 from code.functions import (
     batch_runner,
-    bla,
+    hill_runner,
     plot_steps_to_file,
     plot_line,
     steps_amount_to_file,
@@ -37,25 +26,29 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == "random":
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC, SA] = RandomAlg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA] = RandomAlg(board)
     elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
         algorithm = Dfs(board, 300)
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
-    elif mode == "hill":
-        iteration = 100
-        algorithm = HC(board, iteration, 4, 40, "random", "breadth")
-    elif mode == "restarthill":
-        iteration = 4
-        plateau_iteration = 50
-        algorithm = RHC(board, iteration, 4, 40, "random", "breadth", plateau_iteration)
-    elif mode == "steephill":
-        algorithm = SHC(board, 5, 4, 40, "random", "depth")
-    elif mode == "sa":
-        iteration = 2000
-        algorithm = SA(board, iteration, 4, 10, "random", "depth")
+    elif "hill" in mode:
+        mode, start_mode, improve_mode = (
+            mode.split("/")[0],
+            mode.split("/")[1],
+            mode.split("/")[2],
+        )
+
+        if mode == "hill":
+            algorithm = HC(board, runs, 4, 10, start_mode, improve_mode)
+        elif mode == "restarthill":
+            plateau_iteration = 20
+            algorithm = RHC(
+                board, runs, 4, 10, start_mode, improve_mode, plateau_iteration
+            )
+        elif mode == "sa":
+            algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
 
@@ -64,19 +57,21 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     except FileExistsError:
         pass
 
-    filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
+    if "hill" in mode:
+        filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
 
-    if mode in ["hill", "restarthill", "sa"]:
-        list_moves_amount, moves_made, iterations = bla(algorithm)
+        list_moves_amount, moves_made, iterations = hill_runner(algorithm)
 
         plot_line(iterations, list_moves_amount, filepath)
     else:
+        filepath: str = (
+            f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
+        )
+
         # run the algorithm and collect the data
         amount_moves: List[int]
 
         amount_moves, moves_made = batch_runner(algorithm, runs)
-        plot_steps_to_file(amount_moves, filepath)
-        steps_amount_to_file(amount_moves, filepath)
 
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)

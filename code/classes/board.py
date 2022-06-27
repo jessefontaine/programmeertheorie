@@ -102,6 +102,12 @@ class Board:
         # loop through every cars occupied positions and place car object on grid
         for car in list(self.cars.values()):
             for pos in car.positions:
+                if pos[0] >= 12 or pos[1] >= 12:
+                    print("!!!!!!!!!!!!!!!!!!!!!!!!")
+                    for bla in list(self.cars.values()):
+                        print(bla.name, bla.positions)
+                    print('de fout', car.name, car.positions)
+                    print(pos)
                 self.grid[pos[0]][pos[1]] = car
 
         # calculate the possible moves with current board setup
@@ -160,10 +166,16 @@ class Board:
         for car in cars:
 
             # calculate the rows and colums
-            str_place: int = setup_str.find(car) // (self.max_name_length + 1)
+            if len(car) == 1:
+                if setup_str.find(car) == 0:
+                    str_place: int = setup_str.find(car) 
+                else:
+                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1) 
+            else:
+                str_place: int = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
             col: int = str_place % self.size[1]
-
+            #print('set up van bord', car, str_place, row, col)
             # set the car to that row and column
             self.cars[car].set_car(row, col)
 
@@ -208,10 +220,11 @@ class Board:
 
         # move the car and update the grid
         self.cars[car].move(move)
+
         self._update_grid()
 
         # return the move as a tuple
-        return (car, move)
+        #return (car, move)
 
     def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition
