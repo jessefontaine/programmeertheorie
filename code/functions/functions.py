@@ -7,7 +7,11 @@ import os
 from code import algorithms
 
 
-def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
+def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs", "Bdfs"], runs: int):
+    """
+    Run the algorithm multiple times.
+    Returns the number of moves and the solution.
+    """
 
     amount_moves_per_runs: List[int] = []
     moves_made_in_runs: List[List[Tuple[str, int]]] = []
@@ -30,6 +34,11 @@ def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
 
 
 def hill_runner(algorithm) -> Tuple[List[int], List[List[str, int]], int]:
+    """
+    Runs the algorithm Hill Climber.
+    Returns the number of moves, iterations and the solution.
+    """
+
     algorithm.run_algorithm()
 
     list_moves_amount: List[int] = algorithm.list_moves_amount
@@ -39,6 +48,11 @@ def hill_runner(algorithm) -> Tuple[List[int], List[List[str, int]], int]:
 
 
 def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
+    """
+    Plot a figure with the number of steps.
+    Write the amount of steps to a csv file.
+    Used for constructive algorithms.
+    """
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
@@ -60,8 +74,13 @@ def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
+    """
+    Plot a line figure with the number of steps.
+    Write the amount of steps to a csv file.
+    Used for iterative algorithms.
+    """
+
     list_iteration: List[int] = list(range(1, iteration + 1))
-    # print(list_iteration)
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
@@ -83,6 +102,9 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
 
 
 def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
+    """
+    Write the amount of steps to a csv file.
+    """
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
@@ -94,7 +116,9 @@ def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
-    # print(moves_made)
+    """
+    Write the solution to a csv file.
+    """
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
