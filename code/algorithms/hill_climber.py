@@ -9,6 +9,7 @@ class HC(BHC):
     The Hill Climber class that runs a hill climber algorithm.
     Impoves solution by improving small parts of the solution, for given amount of iterations.
     """
+
     def __init__(
         self,
         board: Board,

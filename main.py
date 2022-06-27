@@ -61,7 +61,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         list_moves_amount, moves_made, iterations = hill_runner(algorithm)
 
-        plot_line(iterations, list_moves_amount, filepath)    
+        plot_line(iterations, list_moves_amount, filepath)
     else:
         filepath: str = (
             f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
@@ -93,7 +93,10 @@ if __name__ == "__main__":
 
     # optional arguments
     parser.add_argument(
-        "-m", "--output_moves", action="store_true", help="output moves made to csv file(s)"
+        "-m",
+        "--output_moves",
+        action="store_true",
+        help="output moves made to csv file(s)",
     )
 
     # read cla's

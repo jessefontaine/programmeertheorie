@@ -23,6 +23,7 @@ class BHC:
     The Base Hill Climber class that can be used too run a basic hill climber algorithm.
     Impoves solution by improving small parts of the solution.
     """
+
     def __init__(
         self,
         board: Board,
@@ -72,7 +73,9 @@ class BHC:
 
         self.board.set_board(self.node_list[0].board_rep)
 
-    def _start_solution(self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]) -> List[Node]:
+    def _start_solution(
+        self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]
+    ) -> List[Node]:
         """
         Run the algorithm.
         Returns the steps of the solutions as nodes.
@@ -147,7 +150,7 @@ class BHC:
                 self.node_list = (
                     self.node_list[:start]
                     + alg.node_list
-                    + self.node_list[start + interval + 1:]
+                    + self.node_list[start + interval + 1 :]
                 )
 
             return True
