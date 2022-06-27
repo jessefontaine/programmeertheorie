@@ -15,9 +15,8 @@ from code.algorithms import (
     Bdfs,
     HC,
     RHC,
-    SHC,
     SA,
-)  # , HillClimberNew
+)
 from code.functions import (
     batch_runner,
     hill_runner,
@@ -52,8 +51,6 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         elif mode == "restarthill":
             plateau_iteration = 20
             algorithm = RHC(board, runs, 4, 10, start_mode, improve_mode, plateau_iteration)
-        # elif mode == "steephill":
-        #     algorithm = SHC(board, 5, 4, 40, "random", "depth")
         elif mode == "sa":
             algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
     else:
