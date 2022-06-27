@@ -34,7 +34,10 @@ Om bijvoorbeeld de eerste puzzel tien keer op te lossen met het random algoritme
 ```
 python3 main.py game_boards/Rushhour6x6_1.csv output random 10
 ```
-
+Voor de algoritmen die gebruik maken van een Hill Climber is er ook een begin- en eindalgoritme nodig. Om bijvoorbeeld 50 keer Hill Climber toe te passen op een depth oplossing en die te verbeteren met een breadth algoritme voor de vierde puzzel, run:
+```
+python3 main.py game_boards/Rushhour9x9_4.csv output hill/depth/breadth 50
+```
 De commands om de verschillende algoritmen te runnen zijn:
 ```
 random
