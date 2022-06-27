@@ -1,3 +1,17 @@
+"""
+functions.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains functions used in multiple algorithms.
+- Batchrunner for constructive algorithms.
+- Batchrunnen for iterative algorithms.
+"""
+
 from __future__ import annotations
 from typing import List, Tuple, Union
 
