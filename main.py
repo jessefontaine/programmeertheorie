@@ -20,7 +20,6 @@ from code.functions import (
     hill_runner,
     plot_steps_to_file,
     plot_line,
-    steps_amount_to_file,
     write_moves_to_file,
 )
 
@@ -64,7 +63,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         list_moves_amount, moves_made, iterations = hill_runner(algorithm)
 
-        plot_line(iterations, list_moves_amount, filepath)
+        plot_line(iterations, list_moves_amount, filepath)    
     else:
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
@@ -75,7 +74,6 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)
-        steps_amount_to_file(amount_moves, filepath)
 
     # print the moves if user marked for it
     if output_moves:
