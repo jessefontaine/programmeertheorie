@@ -51,6 +51,7 @@ class BaseAlg:
         """
         Checks whether a given state has an acceptable depth.
         """
+
         if current_state.depth == self.depth:
             print(current_state.depth)
             print('STOPPEEEEENNNNNNNNNN')
