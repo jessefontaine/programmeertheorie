@@ -26,7 +26,7 @@ class BaseAlg:
         depth: int = None,
         start_node: Union[Node, None] = None,
         end_node: Union[Node, None] = None,
-    ) -> None:
+    ):
 
         # save the gameboard and maximum depth constructive algorithms can go
         self.board: Board = board
@@ -47,12 +47,15 @@ class BaseAlg:
             self.find_win = False
             self.end_node: Node = end_node
 
+<<<<<<< HEAD
     def _check_depth(self, current_state):
         print('checking')
         print(current_state.depth)
         print(current_state)
+=======
+    def _check_depth(self, current_state) -> bool:
+>>>>>>> 23fb88cd02ef05a5690b4567e14709f4da83ee26
         if current_state.depth == self.depth:
-            print('hier moet ie stoppen')
             return False
 
         return True
@@ -103,13 +106,13 @@ class BaseAlg:
         self.node_list = self.node_list[::-1]
         self.moves_made = self.moves_made[::-1]
 
-    def reset_algorithm(self):
+    def reset_algorithm(self) -> None:
         """
         Resets everything to the initial state.
         """
 
-        self.node_list: List[Node] = [Node(str(self.board))]
-        self.moves_made: List[Optional[Tuple[str, int]]] = []
+        self.node_list = [Node(str(self.board))]
+        self.moves_made = []
 
     def algorithm(self) -> Node:
         """

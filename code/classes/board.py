@@ -73,7 +73,7 @@ class Board:
 
         return "\n".join(string)
 
-    def _loader(self, filepath):
+    def _loader(self, filepath) -> None:
         """
         Using the path to a game_board csv-file, create and place Car objects
         into list, then return.
@@ -155,7 +155,7 @@ class Board:
 
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    def set_board(self, setup: str):
+    def set_board(self, setup: str) -> None:
         """
         Setup the board accoring to a setup string. Setup string should be similar to
         the board representation this class creates and include all car names, orientations and

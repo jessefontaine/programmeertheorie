@@ -27,7 +27,7 @@ class Bdfs(Dfs):
     - distance of win car to the exit.
     """
 
-    def swap(self, list, a, b):
+    def swap(self, list, a, b) -> None:
         """
         Swap elements in a list.
         """
