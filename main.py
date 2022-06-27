@@ -15,6 +15,10 @@ from code.functions import (
     write_moves_to_file,
 )
 
+MIN_INTERVAL = 4
+MAX_INTERVAL = 20
+PLATEAU = 500
+
 
 class InvalidAlgorithmError(Exception):
     """
@@ -49,14 +53,13 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         )
 
         if mode == "hill":
-            algorithm = HC(board, runs, 4, 20, start_mode, improve_mode)
+            algorithm = HC(board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode)
         elif mode == "restarthill":
-            plateau_iteration = 500
             algorithm = RHC(
-                board, runs, 4, 15, start_mode, improve_mode, plateau_iteration
+                board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode, PLATEAU
             )
         elif mode == "sahill":
-            algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
+            algorithm = SA(board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode)
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
 
