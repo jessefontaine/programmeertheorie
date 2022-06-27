@@ -6,6 +6,13 @@ from code.classes import Board, Node
 
 
 class Bdfs(Dfs):
+    """
+    The Best Depth First Search class that runs a Depth First Search algorithm.
+    Uses heuristics in choosing branches by:
+    - number of cars in front of the win car,
+    - distance of win car to the exit.
+    """
+
     def swap(self, list, a, b):
         """
         Swap elements in a list.
