@@ -9,7 +9,7 @@ class Bfs(Treesearcher):
     Searches a winning state for every layer of the tree.
     """
 
-    def get_current_state(self):
+    def _get_current_state(self):
         """
         Gets first state from queue.
         """

@@ -45,7 +45,7 @@ class BaseAlg:
             self.find_win = False
             self.end_node: Node = end_node
 
-    def check_finished(self, state: Node, set_board_every_check: bool = True) -> bool:
+    def _check_finished(self, state: Node, set_board_every_check: bool = True) -> bool:
         """
         Checks whether a given state satisfies the constraints.
         """
@@ -60,7 +60,7 @@ class BaseAlg:
         else:
             return state.board_rep == self.end_node.board_rep
 
-    def create_run_data(self, final_node: Node) -> None:
+    def _create_run_data(self, final_node: Node) -> None:
         """
         After a run, calculate the data for the found solution.
         """
@@ -99,7 +99,7 @@ class BaseAlg:
         self.node_list: List[Node] = [Node(str(self.board))]
         self.moves_made: List[Optional[Tuple[str, int]]] = []
 
-    def algorithm(self) -> Node:
+    def _algorithm(self) -> Node:
         """
         To implement the algorithm.
         """
@@ -112,7 +112,7 @@ class BaseAlg:
         Returns the start and end state.
         """
 
-        end_state: Node = self.algorithm()
-        self.create_run_data(end_state)
+        end_state: Node = self._algorithm()
+        self._create_run_data(end_state)
 
         return self.start_node, end_state

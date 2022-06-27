@@ -9,7 +9,7 @@ class Dfs(Treesearcher):
     Searches a branch untill a winning state, if a branch is pruned go back to parent and choose a new branch.
     """
 
-    def get_current_state(self):
+    def _get_current_state(self):
         """
         Gets last state from queue.
         """

@@ -1,3 +1,16 @@
+"""
+simulated_annealing.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class SA (Simulated Annealing).
+- Uses the class HC (Hill Climber).
+"""
+
 from __future__ import annotations
 
 from random import uniform

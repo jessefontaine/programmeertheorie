@@ -9,6 +9,7 @@ Laura Haverkorn - 12392707
 
 - Contains class BHC (Base Hill Climber).
 - Is being used in all the different Hill Climber algorithms.
+- Contains methods
 """
 
 from __future__ import annotations
