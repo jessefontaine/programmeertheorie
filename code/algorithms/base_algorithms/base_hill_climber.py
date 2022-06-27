@@ -137,9 +137,8 @@ class BHC:
         """
 
         if alg.node_list[-1].board_rep == self.node_list[start + interval].board_rep:
-
             return True
-        
+
         return False
 
     def _step_algorithm(self, iteration) -> bool:

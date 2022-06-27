@@ -29,8 +29,8 @@ from code.functions import (
 )
 
 MIN_INTERVAL = 3
-MAX_INTERVAL = 10
-PLATEAU = 1500
+MAX_INTERVAL = 15
+PLATEAU = 2000
 
 
 class InvalidAlgorithmError(Exception):
@@ -55,7 +55,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
-        algorithm = Dfs(board, 30)
+        algorithm = Dfs(board, 300)
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif "hill" in mode:

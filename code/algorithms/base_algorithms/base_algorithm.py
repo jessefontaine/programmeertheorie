@@ -53,7 +53,6 @@ class BaseAlg:
         """
 
         if current_state.depth == self.depth:
-
             return False
 
         return True
