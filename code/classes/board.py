@@ -102,12 +102,6 @@ class Board:
         # loop through every cars occupied positions and place car object on grid
         for car in list(self.cars.values()):
             for pos in car.positions:
-                if pos[0] >= 12 or pos[1] >= 12:
-                    print("!!!!!!!!!!!!!!!!!!!!!!!!")
-                    for bla in list(self.cars.values()):
-                        print(bla.name, bla.positions)
-                    print('de fout', car.name, car.positions)
-                    print(pos)
                 self.grid[pos[0]][pos[1]] = car
 
         # calculate the possible moves with current board setup
