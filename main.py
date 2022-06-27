@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     # optional arguments
     parser.add_argument(
-        "-m", "--output_moves", action="store_true", help="Output moves made to file(s)"
+        "-m", "--output_moves", action="store_true", help="output moves made to csv file(s)"
     )
 
     # read cla's

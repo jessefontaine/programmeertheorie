@@ -28,7 +28,7 @@ positional arguments:
 
 optional arguments:
   -h, --help          show this help message and exit
-  -m, --output_moves  Output moves made to file(s)
+  -m, --output_moves  output moves made to csv file(s)
 ```
 Om bijvoorbeeld de eerste puzzel tien keer op te lossen met het random algoritme, run:
 ```
@@ -56,12 +56,22 @@ Bij Depth First Search maken we een graaf aan, waar de wortel (beginknoop) van d
 Het Best Depth First Search algoritme borduurt voort op het Depth First Search algoritme. Echter wordt er niet willekeurig een van de kinderen gekozen, maar op zo'n manier dat er rekening wordt gehouden met de plek van de rode auto en de hoeveelheid voertuigen die de uitgang blokkeren. 
 ### Hill Climber
 Het Hill Climber algoritme kan gebruikt worden om een kortere oplossing te vinden. Door over een oplossing heen te itereren worden er telkens twee willekeurige borden binnen de oplossing gekozen. Vervolgens wordt er geprobeerd een nieuw, korter pad te vinden, zodat de uiteindelijke oplossing wordt verkleind. Dit algoritme kan toegepast worden op iedere gevonden oplossing en kan verbeterd worden met random, Breadth First Search, Depth First Search en Best Depth First Search. 
+### Restart Hill Climber
+Het Restart Hill Climber 
+
+<!-- Kies een random start state
+Herhaal tot na N-keer niet meer verbetert:
+Doe een kleine random aanpassing
+Als de state is verslechterd:
+Maak de aanpassing ongedaan -->
+### Simulated Annealing
+In tegenstelling tot het Hill Climber algoritme, waar iedere oplossing die kleiner is dan de vorige geaccepteerd wordt, worden er bij Simulated Annealing ook slechtere oplossingen geaccepteerd aan de hand van een temperatuur. De temperatuur neemt af naarmate het aantal iteraties oploopt, waardoor de acceptatiekans wordt verkleind.
 
 ## Structuur
 De volgende lijst toont de belangrijkste mappen en files in dit project en waar je ze kunt vinden:
 - **/code**: bevat alle code van dit project
     - **/code/algorithms**: bevat de code voor alle algoritmen
-      -**/code/algorithms/base_algorithms**: bevat de basis code die voor meerdere algoritmen gebruikt wordt
+      - **/code/algorithms/base_algorithms**: bevat de basis code die voor meerdere algoritmen gebruikt wordt
     - **/code/classes**: bevat de drie verschillende classes voor de case
     - **/code/functions**: bevat de functies om main te runnen
 - **/game_boards**: bevat de verschillende speelborden
