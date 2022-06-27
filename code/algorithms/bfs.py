@@ -13,7 +13,7 @@ Laura Haverkorn - 12392707
 from __future__ import annotations
 
 from code.algorithms.base_algorithms.tree_search import Treesearcher
-
+from code.classes.node import Node
 
 class Bfs(Treesearcher):
     """
@@ -21,7 +21,7 @@ class Bfs(Treesearcher):
     Searches a winning state for every layer of the tree.
     """
 
-    def _get_current_state(self):
+    def _get_current_state(self) -> Node:
         """
         Gets first state from queue.
         """

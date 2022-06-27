@@ -29,7 +29,7 @@ class RandomAlg(BaseAlg):
         board: Board,
         start_node: Union[Node, None] = None,
         end_node: Union[Node, None] = None,
-    ) -> None:
+    ):
         super().__init__(board, start_node=start_node, end_node=end_node)
 
     def algorithm(self) -> Node:

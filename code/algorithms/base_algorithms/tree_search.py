@@ -38,7 +38,7 @@ class Treesearcher(BaseAlg):
         # set of previous found states for pruning
         self.unique_board_setups: Set = set([self.start_node.board_rep])
 
-    def reset_algorithm(self):
+    def reset_algorithm(self) -> None:
         """
         Reset the algorithm to it's beginning state
         """
@@ -49,14 +49,14 @@ class Treesearcher(BaseAlg):
         self.states = [self.start_node]
         self.unique_board_setups = set([self.start_node.board_rep])
 
-    def _get_current_state(self):
+    def _get_current_state(self) -> Node:
         """
         Method to get the next state from stack or queue.
         """
 
         raise NotImplementedError
 
-    def _sort_children(self, children):
+    def _sort_children(self, children) -> List[Node]:
         """
         Method to sort the list of children before they are added to the
         stack or queue.
@@ -64,7 +64,7 @@ class Treesearcher(BaseAlg):
 
         return children
 
-    def _build_children(self, parent: Node):
+    def _build_children(self, parent: Node) -> None:
         """
         Create children node of the given parent. States that have previously been
         found in the current run will be pruned.
@@ -98,7 +98,7 @@ class Treesearcher(BaseAlg):
         # add children nodes to stack or queue
         self.states.extend(children)
 
-    def algorithm(self):
+    def algorithm(self) -> Node:
         """
         Basic tree searcher algorithm.
         """
