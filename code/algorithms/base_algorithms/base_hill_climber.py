@@ -1,8 +1,14 @@
 """
-Contains the parent class BHC (Base Hill Climber).
-Class needs an board, iteration, min_interval, max_interval, start_mode and improve_node.
-The class makes use of RandomAlg, Bfs, Dfs, Bdfs from code.algorithms.
-Contains methods like make_algorithm, reset_board, choose_interval, step_algorithm, run_algorithm etc.
+base_hill_climber.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class BHC (Base Hill Climber).
+- Is being used in all the different Hill Climber algorithms.
 """
 
 from __future__ import annotations
