@@ -47,14 +47,10 @@ class BaseAlg:
             self.find_win = False
             self.end_node: Node = end_node
 
-<<<<<<< HEAD
-    def _check_depth(self, current_state):
+    def _check_depth(self, current_state) -> bool:
         print('checking')
         print(current_state.depth)
         print(current_state)
-=======
-    def _check_depth(self, current_state) -> bool:
->>>>>>> 23fb88cd02ef05a5690b4567e14709f4da83ee26
         if current_state.depth == self.depth:
             return False
 
