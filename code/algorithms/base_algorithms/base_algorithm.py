@@ -53,8 +53,6 @@ class BaseAlg:
         """
 
         if current_state.depth == self.depth:
-            print(current_state.depth)
-            print('STOPPEEEEENNNNNNNNNN')
             return False
 
         return True

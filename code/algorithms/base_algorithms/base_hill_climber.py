@@ -136,12 +136,9 @@ class BHC:
         Checks if the new solution is not bigger then the initial solution.
         """
 
-        print('len alg node', len(alg.node_list))
         if alg.node_list[-1].board_rep == self.node_list[start + interval].board_rep:
-            print('T')
             return True
-        print('F')
-        
+
         return False
 
     def _step_algorithm(self, iteration) -> bool:
@@ -151,9 +148,6 @@ class BHC:
         """
 
         interval: int = self._choose_interval()
-
-        print('bah')
-        print('interval', interval)
 
         # choose ranodm start point in node list
         start = random.randint(0, len(self.node_list) - interval - 1)
