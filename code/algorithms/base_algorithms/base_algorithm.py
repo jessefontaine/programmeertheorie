@@ -38,6 +38,8 @@ class BaseAlg:
         else:
             self.start_node = start_node
 
+        self.start_node.start_depth()
+
         # starting without an end node means the algorithm will try to find a winning setup
         if end_node is None:
             self.find_win: bool = True
@@ -48,6 +50,7 @@ class BaseAlg:
     def _check_depth(self, current_state):
         print('checking')
         print(current_state.depth)
+        print(current_state)
         if current_state.depth == self.depth:
             print('hier moet ie stoppen')
             return False

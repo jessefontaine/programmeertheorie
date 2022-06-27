@@ -52,6 +52,7 @@ class BHC:
     def _make_algorithm(
         self,
         mode: str,
+        depth: int = None,
         start_node: Union[Node, None] = None,
         end_node: Union[Node, None] = None,
     ) -> Union[RandomAlg, Bfs, Dfs, Bdfs]:
@@ -64,11 +65,11 @@ class BHC:
                 self.board, start_node, end_node
             )
         elif mode == "breadth":
-            algorithm = Bfs(self.board, 300, start_node, end_node)
+            algorithm = Bfs(self.board, depth, start_node, end_node)
         elif mode == "depth":
-            algorithm = Dfs(self.board, 300, start_node, end_node)
+            algorithm = Dfs(self.board, depth, start_node, end_node)
         elif mode == "bestdepth":
-            algorithm = Bdfs(self.board, 300, start_node, end_node)
+            algorithm = Bdfs(self.board, depth, start_node, end_node)
 
         return algorithm
 
@@ -120,14 +121,27 @@ class BHC:
 
         self.moves_made = self.moves_made[::-1]
 
+    # def _accept_insert(
+    #     self, initial_size: int, insert_size: int, iteration: int
+    # ) -> bool:
+    #     """
+    #     Checks if the new solution is not bigger then the initial solution.
+    #     """
+
+    #     return initial_size >= insert_size
+
     def _accept_insert(
-        self, initial_size: int, insert_size: int, iteration: int
-    ) -> bool:
+        self, alg: Union[RandomAlg, Bfs, Dfs, Bdfs], start: int, interval: int) -> bool:
         """
         Checks if the new solution is not bigger then the initial solution.
         """
 
-        return initial_size >= insert_size
+        print('len alg node', len(alg.node_list))
+        if alg.node_list[-1].board_rep == self.node_list[start + interval].board_rep:
+            print('T')
+            return True
+        print('F')
+        return False
 
     def _step_algorithm(self, iteration) -> bool:
         """
@@ -137,16 +151,20 @@ class BHC:
 
         interval: int = self._choose_interval()
 
+        print('bah')
+        print('interval', interval)
+
         # choose ranodm start point in node list
         start = random.randint(0, len(self.node_list) - interval - 1)
 
         # do algoritme on small part to get it better
         alg = self._make_algorithm(
-            self.improve_mode, self.node_list[start], self.node_list[start + interval]
+            self.improve_mode, interval, self.node_list[start], self.node_list[start + interval]
         )
         alg.run_algorithm()
 
-        if self._accept_insert(interval, len(alg.node_list), iteration):
+        # if self._accept_insert(interval, len(alg.node_list), iteration):
+        if self._accept_insert(alg, start, interval):
             # put the new improved part of node list into the node list, different when you improve the very last part
             if start + interval == len(self.node_list) - 1:
                 self.node_list = self.node_list[:start] + alg.node_list

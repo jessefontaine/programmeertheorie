@@ -64,7 +64,7 @@ class Treesearcher(BaseAlg):
 
         return children
 
-    def _build_children(self, parent: Node):
+    def _build_children(self, parent: Node) -> None:
         """
         Create children node of the given parent. States that have previously been
         found in the current run will be pruned.
@@ -98,7 +98,7 @@ class Treesearcher(BaseAlg):
         # add children nodes to stack or queue
         self.states.extend(children)
 
-    def algorithm(self):
+    def algorithm(self) -> Node:
         """
         Basic tree searcher algorithm.
         """
@@ -106,11 +106,9 @@ class Treesearcher(BaseAlg):
         # run the tree searcher over all states in stack or queue
         current_state: Node = self.start_node
 
-        while self.states or self._check_depth:
+        while self.states and self._check_depth(current_state):
             # get the state to work with
             current_state = self._get_current_state()
-
-            self._check_depth(current_state)
 
             # check if its the final one
             if self._check_finished(current_state):

@@ -25,11 +25,14 @@ class Node:
 
         if parent is None:
             self.has_parent: bool = False
-            self.depth: int = 0
+            #self.depth: int = 0
         else:
             self.has_parent = True
             self.parent: Node = parent
-            self.depth = self.parent.depth + 1
+            self.depth: int = self.parent.depth + 1
+
+    def start_depth(self):
+        self.depth: int = 0
 
     def new_parent(self, parent: Node) -> None:
         """
