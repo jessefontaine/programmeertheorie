@@ -78,7 +78,7 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
     Used for iterative algorithms.
     """
 
-    list_iteration: List[int] = list(range(1, iteration + 1))
+    list_iteration: List[int] = list(range(0, iteration))
 
     # trim path if a filetype was specified
     path = path.split(".")[0]

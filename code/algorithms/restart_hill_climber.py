@@ -27,6 +27,9 @@ class RHC(BHC):
         self.moves_made_in_run: List[List[str, int]] = []
 
         for i in range(self.iteration):
+            # print board
+            print(f"board {i + 1}/{self.iteration}", end="\r")
+
             self.reset_board()
 
             self.node_list = self.start_solution(
@@ -35,17 +38,21 @@ class RHC(BHC):
 
             self.list_moves_amount.append(len(self.node_list) - 1)
             self.iterations += 1
-            print(len(self.node_list) - 1)
 
+            iteration: int = 0
             n: int = 0
 
             while n < self.plateau_iterations:
-                if not self.step_algorithm(i):
+                # print iteration
+                print(f"board {i + 1}/{self.iteration}, iteration {iteration + 1}", end="\r")
+
+                if not self.step_algorithm(iteration):
                     n += 1
                 else:
                     n = 0
 
                 self.iterations += 1
+                iteration += 1
 
                 self.create_moves_made(self.node_list[0], self.node_list[-1])
                 self.list_moves_amount.append(self.moves_amount)

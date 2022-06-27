@@ -148,7 +148,9 @@ class BHC:
         """
 
         for i in range(self.iteration):
-            print(i)
+            # print iteration
+            print(f"iteration {i + 1}/{self.iteration}", end="\r")
+
             self.step_algorithm(i)
 
             self.create_moves_made(self.node_list[0], self.node_list[-1])
