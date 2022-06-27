@@ -1,3 +1,17 @@
+"""
+board.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class Board.
+- Functions to set, reset and update the grid.
+- Functions to make and check prossible moves.
+"""
+
 from __future__ import annotations
 from typing import Tuple, List, Dict
 
