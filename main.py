@@ -6,15 +6,7 @@ import sys
 from typing import Union, List
 
 from code.classes import Board
-from code.algorithms import (
-    RandomAlg,
-    Bfs,
-    Dfs,
-    Bdfs,
-    HC,
-    RHC,
-    SA,
-)
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
 from code.functions import (
     batch_runner,
     hill_runner,
@@ -33,7 +25,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == "random":
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC, SA] = RandomAlg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA] = RandomAlg(board)
     elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
@@ -41,13 +33,19 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif "hill" in mode:
-        mode, start_mode, improve_mode = mode.split('/')[0], mode.split('/')[1], mode.split('/')[2]
+        mode, start_mode, improve_mode = (
+            mode.split("/")[0],
+            mode.split("/")[1],
+            mode.split("/")[2],
+        )
 
-        if mode == 'hill':
+        if mode == "hill":
             algorithm = HC(board, runs, 4, 10, start_mode, improve_mode)
         elif mode == "restarthill":
             plateau_iteration = 20
-            algorithm = RHC(board, runs, 4, 10, start_mode, improve_mode, plateau_iteration)
+            algorithm = RHC(
+                board, runs, 4, 10, start_mode, improve_mode, plateau_iteration
+            )
         elif mode == "sa":
             algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
     else:
@@ -65,7 +63,9 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         plot_line(iterations, list_moves_amount, filepath)    
     else:
-        filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
+        filepath: str = (
+            f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
+        )
 
         # run the algorithm and collect the data
         amount_moves: List[int]

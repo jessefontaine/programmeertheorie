@@ -20,10 +20,7 @@ class HC(BHC):
         self.start_node_list: List[Node] = self.start_solution(
             self.make_algorithm(self.start_mode)
         )
-        # REMOVE LATER
-        # print(len(self.start_node_list))
 
         self.node_list: List[Node] = self.start_node_list
 
-        # REMOVE LATER
-        # print("begin", len(self.node_list))
+        self.list_moves_amount.append(len(self.node_list) - 1)

@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import List, Union
 
+from numpy import ndarray
+
 from code.classes import Board, Node
 
 from code.algorithms.random_algorithm import RandomAlg
@@ -60,7 +62,9 @@ class BHC:
 
     def choose_interval(self) -> int:
         # choose interval within range and that is not bigger then node list
-        interval: int = random.randint(self.min_interval, min(self.max_interval, len(self.node_list) - 1))
+        interval: int = random.randint(
+            self.min_interval, min(self.max_interval, len(self.node_list) - 1)
+        )
 
         return interval
 
@@ -114,8 +118,9 @@ class BHC:
         for i in range(self.iteration):
             print(i)
             self.step_algorithm(i)
+
             self.create_moves_made(self.node_list[0], self.node_list[-1])
             self.list_moves_amount.append(self.moves_amount)
 
-        self.iterations: int = self.iteration
+        self.iterations: int = self.iteration + 1
         self.moves_made_in_run: List[List[str, int]] = [self.moves_made]
