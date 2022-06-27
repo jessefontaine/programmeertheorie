@@ -13,7 +13,6 @@ from code.algorithms import (
     Bdfs,
     HC,
     RHC,
-    SHC,
     SA,
 )
 from code.functions import (

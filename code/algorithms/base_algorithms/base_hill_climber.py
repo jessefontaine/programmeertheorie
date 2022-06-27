@@ -112,6 +112,7 @@ class BHC:
 
     def run_algorithm(self) -> None:
         for i in range(self.iteration):
+            print(i)
             self.step_algorithm(i)
             self.create_moves_made(self.node_list[0], self.node_list[-1])
             self.list_moves_amount.append(self.moves_amount)
