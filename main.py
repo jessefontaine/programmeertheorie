@@ -55,7 +55,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":
-        algorithm = Dfs(board, 300)
+        algorithm = Dfs(board, 30)
     elif mode == "bestdepth":
         algorithm = Bdfs(board, 300)
     elif "hill" in mode:

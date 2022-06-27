@@ -12,10 +12,11 @@ class Node:
 
         if parent is None:
             self.has_parent: bool = False
-
+            self.depth: int = 0
         else:
             self.has_parent = True
             self.parent: Node = parent
+            self.depth = self.parent.depth + 1
 
     def new_parent(self, parent: Node) -> None:
         """
@@ -25,12 +26,12 @@ class Node:
         self.has_parent = True
         self.parent = parent
 
-    def __len__(self):
-        """
-        Returns if node has parents.
-        """
+    # def __len__(self):
+    #     """
+    #     Returns if node has parents.
+    #     """
 
-        if self.has_parent:
-            return len(self.parent) + 1
-        else:
-            return 0
+    #     if self.has_parent:
+    #         return len(self.parent) + 1
+    #     else:
+    #         return 0

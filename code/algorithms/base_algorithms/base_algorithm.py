@@ -45,6 +45,15 @@ class BaseAlg:
             self.find_win = False
             self.end_node: Node = end_node
 
+    def _check_depth(self, current_state):
+        print('checking')
+        print(current_state.depth)
+        if current_state.depth == self.depth:
+            print('hier moet ie stoppen')
+            return False
+
+        return True
+
     def _check_finished(self, state: Node, set_board_every_check: bool = True) -> bool:
         """
         Checks whether a given state satisfies the constraints.
