@@ -29,6 +29,7 @@ class BHC:
         self.improve_mode: str = improve_mode
 
         self.list_moves_amount: List[int] = []
+        self.node_list: List[Node]
 
     def make_algorithm(
         self,
@@ -157,4 +158,4 @@ class BHC:
             self.list_moves_amount.append(self.moves_amount)
 
         self.iterations: int = self.iteration + 1
-        self.moves_made_in_run: List[List[str, int]] = [self.moves_made]
+        self.moves_made_in_run: List[List] = [self.moves_made]

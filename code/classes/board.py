@@ -164,9 +164,9 @@ class Board:
                 if setup_str.find(car) == 0:
                     str_place: int = setup_str.find(car)
                 else:
-                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1)
+                    str_place = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1)
             else:
-                str_place: int = setup_str.find(car) // (self.max_name_length + 1)
+                str_place = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
             col: int = str_place % self.size[1]
 
@@ -189,7 +189,7 @@ class Board:
         self.moves_made = []
         self._update_grid()
 
-    def make_move(self, car: str, move: int) -> Tuple[str, int]:
+    def make_move(self, car: str, move: int) -> None:
         """
         Make a move on the board and return the move as a tuple.
         """
