@@ -7,8 +7,8 @@ Jesse Fontaine - 12693375
 Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
 
-- Contains class HC (Hill Climber).
-- Uses the class BHC (Base Hill Climber).
+- Contains class HC (Hill Climber) inherits BHC (Base Hill Climber).
+- Makes a start solution.
 """
 
 from __future__ import annotations

@@ -8,8 +8,9 @@ Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
 
 - Contains class BHC (Base Hill Climber).
-- Is being used in all the different Hill Climber algorithms.
-- Contains methods
+- Is being used in all the different iterative algorithms.
+- Contains functions to reset and correctly run the algorithm.
+- Function to save data from run.
 """
 
 from __future__ import annotations

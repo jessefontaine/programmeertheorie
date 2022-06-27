@@ -7,8 +7,8 @@ Jesse Fontaine - 12693375
 Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
 
-- Contains class SA (Simulated Annealing).
-- Uses the class HC (Hill Climber).
+- Contains class SA (Simulated Annealing) inherits HC (Hill Climber).
+- Contains an different accept insert function then normal Hill Climber.
 """
 
 from __future__ import annotations
