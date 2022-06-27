@@ -3,9 +3,7 @@ from __future__ import annotations
 from argparse import ArgumentParser, Namespace
 import os
 import sys
-from typing import Union, List, Tuple
-
-# from code.algorithms.hill_climber_repeat import HCR
+from typing import Union, List
 
 from code.classes import Board
 from code.algorithms import (
@@ -60,8 +58,6 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         os.makedirs(outfolder)
     except FileExistsError:
         pass
-    
-    # filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
     if "hill" in mode:
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
@@ -76,9 +72,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         amount_moves: List[int]
 
         amount_moves, moves_made = batch_runner(algorithm, runs)
-        plot_steps_to_file(amount_moves, filepath)
-        steps_amount_to_file(amount_moves, filepath)
-        #DOEN WE DIT 2 KEER?
+
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)
         steps_amount_to_file(amount_moves, filepath)
