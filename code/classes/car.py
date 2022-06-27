@@ -1,3 +1,17 @@
+"""
+car.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class Car.
+- Functions to set, reset and update the positions.
+- Functions to make and test moves.
+"""
+
 from __future__ import annotations
 from typing import Iterable, Union, Tuple, List
 
