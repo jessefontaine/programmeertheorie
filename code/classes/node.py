@@ -19,10 +19,18 @@ class Node:
             self.parent: Node = parent
 
     def new_parent(self, parent: Node) -> None:
+        """
+        Gives node a parent.
+        """
+
         self.has_parent = True
         self.parent = parent
 
     def __len__(self):
+        """
+        Returns if node has parents.
+        """
+
         if self.has_parent:
             return len(self.parent) + 1
         else:

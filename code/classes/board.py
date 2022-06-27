@@ -150,7 +150,7 @@ class Board:
 
         # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
 
-        # remove unnessessairy \n
+        # remove unnecessary enters
         setup_str = setup.replace("\n", "")
 
         # get a list of all car names
@@ -162,14 +162,14 @@ class Board:
             # calculate the rows and colums
             if len(car) == 1:
                 if setup_str.find(car) == 0:
-                    str_place: int = setup_str.find(car) 
+                    str_place: int = setup_str.find(car)
                 else:
-                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1) 
+                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1)
             else:
                 str_place: int = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
             col: int = str_place % self.size[1]
-            #print('set up van bord', car, str_place, row, col)
+
             # set the car to that row and column
             self.cars[car].set_car(row, col)
 
@@ -216,9 +216,6 @@ class Board:
         self.cars[car].move(move)
 
         self._update_grid()
-
-        # return the move as a tuple
-        #return (car, move)
 
     def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition
