@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import List, Union
 
+from numpy import ndarray
+
 from code.classes import Board, Node
 
 from code.algorithms.random_algorithm import RandomAlg
@@ -117,5 +119,5 @@ class BHC:
             self.create_moves_made(self.node_list[0], self.node_list[-1])
             self.list_moves_amount.append(self.moves_amount)
 
-        self.iterations: int = self.iteration
+        self.iterations: int = self.iteration + 1
         self.moves_made_in_run: List[List[str, int]] = [self.moves_made]

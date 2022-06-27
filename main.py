@@ -36,7 +36,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     board: Board = Board(infile)
 
     if mode == "random":
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SHC, SA] = RandomAlg(board)
+        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA] = RandomAlg(board)
     elif mode == "breadth":
         algorithm = Bfs(board, 300)
     elif mode == "depth":

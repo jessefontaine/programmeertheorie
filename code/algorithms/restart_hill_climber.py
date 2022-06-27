@@ -33,6 +33,10 @@ class RHC(BHC):
                 self.make_algorithm(self.start_mode)
             )
 
+            self.list_moves_amount.append(len(self.node_list) - 1)
+            self.iterations += 1
+            print(len(self.node_list) - 1)
+
             n: int = 0
 
             while n < self.plateau_iterations:
@@ -40,6 +44,7 @@ class RHC(BHC):
                     n += 1
                 else:
                     n = 0
+
                 self.iterations += 1
 
                 self.create_moves_made(self.node_list[0], self.node_list[-1])
