@@ -1,7 +1,7 @@
 from __future__ import annotations
+from typing import List, Tuple, Union
 
 from matplotlib import pyplot as plt
-from typing import List, Tuple, Union
 import os
 
 

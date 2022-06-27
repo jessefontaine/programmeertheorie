@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 from typing import Tuple, List, Union, Optional
 
 from code.classes import Board, Node

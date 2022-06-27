@@ -1,7 +1,7 @@
 from __future__ import annotations
+from typing import Union
 
 import random
-from typing import Union
 
 from code.classes import Board, Node
 from code.algorithms.base_algorithms.base_algorithm import BaseAlg

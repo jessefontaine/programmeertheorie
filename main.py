@@ -1,9 +1,9 @@
 from __future__ import annotations
+from typing import Union, List
 
 from argparse import ArgumentParser, Namespace
 import os
 import sys
-from typing import Union, List
 
 from code.classes import Board
 from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
