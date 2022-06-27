@@ -20,7 +20,7 @@ class Bdfs(Dfs):
 
         list[a], list[b] = list[b], list[a]
 
-    def sort_children(self, children: List[Node]) -> List[Node]:
+    def _sort_children(self, children: List[Node]) -> List[Node]:
         """
         Uses bubble sort.
         """
@@ -33,7 +33,7 @@ class Bdfs(Dfs):
         # for each node calculate cars in front of win car and distance to exit
         for node in children:
             tmp_board.set_board(node.board_rep)
-            list_cars_in_front.append(self.cars_in_front(tmp_board))
+            list_cars_in_front.append(self._cars_in_front(tmp_board))
 
             list_distance.append(
                 tmp_board.size[1]
@@ -69,7 +69,7 @@ class Bdfs(Dfs):
 
         return children
 
-    def cars_in_front(self, board: Board) -> int:
+    def _cars_in_front(self, board: Board) -> int:
         """
         Counts the number of cars in front of the win car.
         """

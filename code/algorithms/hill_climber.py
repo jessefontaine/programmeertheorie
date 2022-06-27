@@ -1,3 +1,16 @@
+"""
+hill_climber.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class HC (Hill Climber).
+- Uses the class BHC (Base Hill Climber).
+"""
+
 from __future__ import annotations
 from typing import List
 
