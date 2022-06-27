@@ -8,8 +8,10 @@ Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
 
 - Contains functions used in multiple algorithms.
-- Batchrunner for constructive algorithms.
-- Batchrunnen for iterative algorithms.
+- Batch runner to run and save results for constructive algorithms.
+- Function to run and save results for iterative algorithms.
+- Functions to plot the results.
+- Function to save the (moves of a) solution.
 """
 
 from __future__ import annotations

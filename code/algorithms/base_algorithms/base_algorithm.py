@@ -1,3 +1,18 @@
+"""
+base_algorithm.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class BaseAlg (Base Algorithm).
+- Is being used in all the different constructive algorithms.
+- Contains functions to reset and correctly run the algorithm.
+- Function to save data from run.
+"""
+
 from __future__ import annotations
 from typing import Tuple, List, Union, Optional
 
@@ -47,7 +62,7 @@ class BaseAlg:
 
     def create_run_data(self, final_node: Node) -> None:
         """
-        After a run, calculate the data for the found solution
+        After a run, calculate the data for the found solution.
         """
 
         # lists to store the data in
