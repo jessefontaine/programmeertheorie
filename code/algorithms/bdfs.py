@@ -9,6 +9,7 @@ Laura Haverkorn - 12392707
 
 - Contains class Bdfs (Best Depth First Search) inherits Dfs (Depth First Search).
 - Uses a bubble sort algorithm.
+- 
 """
 
 from __future__ import annotations
