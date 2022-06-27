@@ -42,6 +42,8 @@ breadth
 depth
 bestdepth
 hill
+restarthill
+sahill
 ```
 ## Algoritmen
 Om de puzzels op te lossen zijn er verschillende algoritmen die gebruikt kunnen worden. Deze algoritmen zijn random, constructief (Breadth First Search, 
