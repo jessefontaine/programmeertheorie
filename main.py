@@ -40,11 +40,11 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         )
 
         if mode == "hill":
-            algorithm = HC(board, runs, 4, 10, start_mode, improve_mode)
+            algorithm = HC(board, runs, 4, 20, start_mode, improve_mode)
         elif mode == "restarthill":
-            plateau_iteration = 20
+            plateau_iteration = 500
             algorithm = RHC(
-                board, runs, 4, 10, start_mode, improve_mode, plateau_iteration
+                board, runs, 4, 15, start_mode, improve_mode, plateau_iteration
             )
         elif mode == "sahill":
             algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
