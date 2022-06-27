@@ -48,10 +48,12 @@ class BaseAlg:
             self.end_node: Node = end_node
 
     def _check_depth(self, current_state) -> bool:
-        print('checking')
-        print(current_state.depth)
-        print(current_state)
+        """
+        Checks whether a given state has an acceptable depth.
+        """
         if current_state.depth == self.depth:
+            print(current_state.depth)
+            print('STOPPEEEEENNNNNNNNNN')
             return False
 
         return True

@@ -62,7 +62,7 @@ class BHC:
 
         if mode == "random":
             algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(
-                self.board, start_node, end_node
+                self.board, depth, start_node, end_node
             )
         elif mode == "breadth":
             algorithm = Bfs(self.board, depth, start_node, end_node)
@@ -141,6 +141,7 @@ class BHC:
             print('T')
             return True
         print('F')
+        
         return False
 
     def _step_algorithm(self, iteration) -> bool:
