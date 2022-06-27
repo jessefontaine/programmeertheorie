@@ -28,7 +28,7 @@ positional arguments:
 
 optional arguments:
   -h, --help          show this help message and exit
-  -m, --output_moves  Output moves made to file(s)
+  -m, --output_moves  output moves made to csv file(s)
 ```
 Om bijvoorbeeld de eerste puzzel tien keer op te lossen met het random algoritme, run:
 ```
