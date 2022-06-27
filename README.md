@@ -59,13 +59,7 @@ Het Best Depth First Search algoritme borduurt voort op het Depth First Search a
 ### Hill Climber
 Het Hill Climber algoritme kan gebruikt worden om een kortere oplossing te vinden. Door over een oplossing heen te itereren worden er telkens twee willekeurige borden binnen de oplossing gekozen. Vervolgens wordt er geprobeerd een nieuw, korter pad te vinden, zodat de uiteindelijke oplossing wordt verkleind. Dit algoritme kan toegepast worden op iedere gevonden oplossing en kan verbeterd worden met random, Breadth First Search, Depth First Search en Best Depth First Search. 
 ### Restart Hill Climber
-Het Restart Hill Climber 
-
-<!-- Kies een random start state
-Herhaal tot na N-keer niet meer verbetert:
-Doe een kleine random aanpassing
-Als de state is verslechterd:
-Maak de aanpassing ongedaan -->
+Het Restart Hill Climber voert meerdere malen een Hill Climber uit waarbij niet aangegeven wordt hoevaak een stuk verbeterd moet worden maar er wordt een plateau waarde gegeven, die wordt gebruikt om een oplossing te verbeteren totdat hij de plateau waarde aantal keer achter elkaar niet meer verbeterd wordt.
 ### Simulated Annealing
 In tegenstelling tot het Hill Climber algoritme, waar iedere oplossing die kleiner is dan de vorige geaccepteerd wordt, worden er bij Simulated Annealing ook slechtere oplossingen geaccepteerd aan de hand van een temperatuur. De temperatuur neemt af naarmate het aantal iteraties oploopt, waardoor de acceptatiekans wordt verkleind.
 
