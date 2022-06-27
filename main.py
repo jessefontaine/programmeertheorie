@@ -44,7 +44,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         elif mode == "restarthill":
             plateau_iteration = 20
             algorithm = RHC(
-                board, runs, 4, 10, start_mode, improve_mode, plateau_iteration
+                board, runs, 4, 20, start_mode, improve_mode, plateau_iteration
             )
         elif mode == "sahill":
             algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
