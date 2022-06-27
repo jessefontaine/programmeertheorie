@@ -29,8 +29,8 @@ from code.functions import (
 )
 
 MIN_INTERVAL = 4
-MAX_INTERVAL = 15
-PLATEAU = 150
+MAX_INTERVAL = 20
+PLATEAU = 500
 
 
 class InvalidAlgorithmError(Exception):

@@ -154,7 +154,7 @@ class BHC:
         print('bah')
         print('interval', interval)
 
-        # choose ranodm start point in node list
+        # choose random start point in node list
         start = random.randint(0, len(self.node_list) - interval - 1)
 
         # do algoritme on small part to get it better
