@@ -20,9 +20,9 @@ import random
 
 class BHC:
     """
-    Returns algorithm specified by user.
+    The Base Hill Climber class that can be used too run a basic hill climber algorithm.
+    Impoves solution by improving small parts of the solution.
     """
-
     def __init__(
         self,
         board: Board,
@@ -103,6 +103,7 @@ class BHC:
         current: Node = final_node
         self.moves_amount = 0
 
+        # iterate over all nodes untill start node
         while current is not start_node:
             self.moves_made.append(current.step_taken)
             self.moves_amount += 1
@@ -165,6 +166,7 @@ class BHC:
 
             self._step_algorithm(i)
 
+            # update data of moves made and add to amount of moves made to list
             self._create_moves_made(self.node_list[0], self.node_list[-1])
             self.list_moves_amount.append(self.moves_amount)
 
