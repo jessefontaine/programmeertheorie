@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import List
+
 from code.algorithms.base_algorithms.base_hill_climber import BHC
 from code.classes import Node, Board
 

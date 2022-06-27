@@ -6,11 +6,9 @@ Contains methods like make_algorithm, reset_board, choose_interval, step_algorit
 """
 
 from __future__ import annotations
-
 from typing import List, Union
 
 from code.classes import Board, Node
-
 from code.algorithms.random_algorithm import RandomAlg
 from code.algorithms.bfs import Bfs
 from code.algorithms.dfs import Dfs
