@@ -27,6 +27,7 @@ class RandomAlg(BaseAlg):
     def __init__(
         self,
         board: Board,
+        depth: int = None,
         start_node: Union[Node, None] = None,
         end_node: Union[Node, None] = None,
     ):
@@ -39,7 +40,7 @@ class RandomAlg(BaseAlg):
 
         current_state: Node = self.start_node
 
-        while not self._check_finished(current_state, set_board_every_check=True):
+        while not self._check_finished(current_state, set_board_every_check=True) and self._check_depth(current_state):
             # get the possible moves of current state and pick random
             moves = self.board.possible_moves
             move = random.choice(moves)
