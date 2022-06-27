@@ -7,14 +7,16 @@ from code.classes import Board, Node
 class Bdfs(Dfs):
     def swap(self, list, a, b):
         """
-        Swap elements in a list
+        Swap elements in a list.
         """
+
         list[a], list[b] = list[b], list[a]
 
     def sort_children(self, children: List[Node]) -> List[Node]:
         """
-        Uses bubble sort
+        Uses bubble sort.
         """
+
         tmp_board: Board = self.board
 
         list_cars_in_front: List[int] = []
@@ -60,6 +62,9 @@ class Bdfs(Dfs):
         return children
 
     def cars_in_front(self, board: Board) -> int:
+        """
+        Counts the number of cars in front of the win car.
+        """
         amount: int = 0
 
         # calculate how many cars are in front of win car
