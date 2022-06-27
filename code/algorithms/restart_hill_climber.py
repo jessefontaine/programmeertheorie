@@ -9,6 +9,7 @@ class RHC(BHC):
     The Restart Hill Climber class that runs a given amount of times the hill climber algorithm.
     Impoves solution by improving small parts of the solution, untill a plateau in improvement is reached.
     """
+
     def __init__(
         self,
         board: Board,
@@ -43,9 +44,7 @@ class RHC(BHC):
             self._reset_board()
 
             # make start solution and save node list
-            self.node_list = self._start_solution(
-                self._make_algorithm(self.start_mode)
-            )
+            self.node_list = self._start_solution(self._make_algorithm(self.start_mode))
 
             # make start solution and save node list
             self.list_moves_amount.append(len(self.node_list) - 1)
@@ -56,7 +55,10 @@ class RHC(BHC):
 
             while no_improvement < self.plateau_iterations:
                 # print iteration
-                print(f"board {i + 1}/{self.iteration}, iteration {iteration + 1}", end="\r")
+                print(
+                    f"board {i + 1}/{self.iteration}, iteration {iteration + 1}",
+                    end="\r",
+                )
 
                 # update no_improvement count
                 if not self._step_algorithm(iteration):
