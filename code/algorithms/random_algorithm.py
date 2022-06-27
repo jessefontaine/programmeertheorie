@@ -1,3 +1,15 @@
+"""
+random_algorithm.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class RandomAlg (Random Algorithm) inherits BaseAlg.
+"""
+
 from __future__ import annotations
 from typing import Union
 
