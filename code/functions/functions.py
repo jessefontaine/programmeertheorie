@@ -29,14 +29,13 @@ def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
     return amount_moves_per_runs, moves_made_in_runs
 
 
-def bla(algorithm):
+def hill_runner(algorithm) -> Tuple[List[int], List[List[str, int]], int]:
     algorithm.run_algorithm()
 
     list_moves_amount: List[int] = algorithm.list_moves_amount
-    # moves_made: List[Tuple[str, int]] = algorithm.moves_made
-    # print('j', list_moves_amount)
-    # print('moves', len(algorithm.moves_made))
-    return list_moves_amount, algorithm.moves_made
+    list_moves_made_in_run: List[List[str, int]] = algorithm.moves_made_in_run
+
+    return list_moves_amount, list_moves_made_in_run, algorithm.iterations
 
 
 def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
@@ -61,9 +60,8 @@ def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
-
     list_iteration: List[int] = list(range(1, iteration + 1))
-    print(list_iteration)
+    # print(list_iteration)
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
@@ -96,7 +94,7 @@ def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
-    print(moves_made)
+    # print(moves_made)
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
