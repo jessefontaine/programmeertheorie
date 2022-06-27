@@ -17,8 +17,8 @@ class HC(BHC):
         super().__init__(
             board, iteration, min_interval, max_interval, start_mode, improve_mode
         )
-        self.start_node_list: List[Node] = self.start_solution(
-            self.make_algorithm(self.start_mode)
+        self.start_node_list: List[Node] = self._start_solution(
+            self._make_algorithm(self.start_mode)
         )
 
         self.node_list: List[Node] = self.start_node_list

@@ -6,7 +6,7 @@ from code.algorithms import HC
 
 
 class SA(HC):
-    def accept_insert(
+    def _accept_insert(
         self, initial_size: int, insert_size: int, iteration: int
     ) -> bool:
 

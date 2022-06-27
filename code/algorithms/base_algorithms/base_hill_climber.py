@@ -1,3 +1,10 @@
+"""
+Contains the parent class BHC (Base Hill Climber).
+Class needs an board, iteration, min_interval, max_interval, start_mode and improve_node.
+The class makes use of RandomAlg, Bfs, Dfs, Bdfs from code.algorithms.
+Contains methods like make_algorithm, reset_board, choose_interval, step_algorithm, run_algorithm etc.
+"""
+
 from __future__ import annotations
 
 from typing import List, Union
@@ -12,6 +19,10 @@ import random
 
 
 class BHC:
+    """
+    Returns algorithm specified by user.
+    """
+
     def __init__(
         self,
         board: Board,
@@ -30,7 +41,7 @@ class BHC:
 
         self.list_moves_amount: List[int] = []
 
-    def make_algorithm(
+    def _make_algorithm(
         self,
         mode: str,
         start_node: Union[Node, None] = None,
@@ -53,14 +64,14 @@ class BHC:
 
         return algorithm
 
-    def reset_board(self) -> None:
+    def _reset_board(self) -> None:
         """
         Resets everything to the initial state.
         """
 
         self.board.set_board(self.node_list[0].board_rep)
 
-    def start_solution(self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]) -> List[Node]:
+    def _start_solution(self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]) -> List[Node]:
         """
         Run the algorithm.
         Returns the steps of the solutions as nodes.
@@ -69,7 +80,7 @@ class BHC:
 
         return algorithm.node_list
 
-    def choose_interval(self) -> int:
+    def _choose_interval(self) -> int:
         """
         Returns interval within range that is smaller then length of solutions.
         """
@@ -80,7 +91,7 @@ class BHC:
 
         return interval
 
-    def create_moves_made(self, start_node: Node, final_node: Node) -> None:
+    def _create_moves_made(self, start_node: Node, final_node: Node) -> None:
         """
         Creates list of all the moves made from given start to final node.
         Counts the number of moves.
@@ -98,7 +109,7 @@ class BHC:
 
         self.moves_made = self.moves_made[::-1]
 
-    def accept_insert(
+    def _accept_insert(
         self, initial_size: int, insert_size: int, iteration: int
     ) -> bool:
         """
@@ -107,24 +118,24 @@ class BHC:
 
         return initial_size >= insert_size
 
-    def step_algorithm(self, iteration) -> bool:
+    def _step_algorithm(self, iteration) -> bool:
         """
         Runs the algorithm on a given interval.
         Returns true if inital solution is changed.
         """
 
-        interval: int = self.choose_interval()
+        interval: int = self._choose_interval()
 
         # choose ranodm start point in node list
         start = random.randint(0, len(self.node_list) - interval - 1)
 
         # do algoritme on small part to get it better
-        alg = self.make_algorithm(
+        alg = self._make_algorithm(
             self.improve_mode, self.node_list[start], self.node_list[start + interval]
         )
         alg.run_algorithm()
 
-        if self.accept_insert(interval, len(alg.node_list), iteration):
+        if self._accept_insert(interval, len(alg.node_list), iteration):
             # put the new improved part of node list into the node list, different when you improve the very last part
             if start + interval == len(self.node_list) - 1:
                 self.node_list = self.node_list[:start] + alg.node_list
@@ -143,17 +154,17 @@ class BHC:
 
     def run_algorithm(self) -> None:
         """
-        Runs the algorithm.
-        Counts the number of iterations and saves the moves made.
+        Runs the algorithm, for given amount of iterations.
+        Counts the number of iterations and saves the moves made of the last found solution.
         """
 
         for i in range(self.iteration):
             # print iteration
             print(f"iteration {i + 1}/{self.iteration}", end="\r")
 
-            self.step_algorithm(i)
+            self._step_algorithm(i)
 
-            self.create_moves_made(self.node_list[0], self.node_list[-1])
+            self._create_moves_made(self.node_list[0], self.node_list[-1])
             self.list_moves_amount.append(self.moves_amount)
 
         self.iterations: int = self.iteration + 1

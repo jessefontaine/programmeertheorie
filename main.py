@@ -46,7 +46,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
             algorithm = RHC(
                 board, runs, 4, 10, start_mode, improve_mode, plateau_iteration
             )
-        elif mode == "sa":
+        elif mode == "sahill":
             algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
