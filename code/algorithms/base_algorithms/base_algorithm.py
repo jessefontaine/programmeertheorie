@@ -35,6 +35,7 @@ class BaseAlg:
         """
         Checks whether a given state satisfies the constraints.
         """
+
         if set_board_every_check:
             # setup the board according to the given state
             self.board.set_board(state.board_rep)
@@ -77,13 +78,26 @@ class BaseAlg:
         self.moves_made = self.moves_made[::-1]
 
     def reset_algorithm(self):
+        """
+        Resets everything to the initial state.
+        """
+
         self.node_list: List[Node] = [Node(str(self.board))]
         self.moves_made: List[Optional[Tuple[str, int]]] = []
 
     def algorithm(self) -> Node:
+        """
+        To implement the algorithm.
+        """
+
         raise NotImplementedError
 
     def run_algorithm(self) -> Tuple[Node, Node]:
+        """
+        Runs the algorithm.
+        Returns the start and end state.
+        """
+
         end_state: Node = self.algorithm()
         self.create_run_data(end_state)
 
