@@ -28,9 +28,9 @@ from code.functions import (
     write_moves_to_file,
 )
 
-MIN_INTERVAL = 4
-MAX_INTERVAL = 20
-PLATEAU = 500
+MIN_INTERVAL = 3
+MAX_INTERVAL = 10
+PLATEAU = 1500
 
 
 class InvalidAlgorithmError(Exception):
