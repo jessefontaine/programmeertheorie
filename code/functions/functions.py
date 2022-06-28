@@ -20,9 +20,11 @@ from typing import List, Tuple, Union
 from matplotlib import pyplot as plt
 import os
 
+from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
+
 
 def batch_runner(
-    algorithm: Union["RandomAlg", "Bfs", "Dfs", "Bdfs"], runs: int
+    algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs], runs: int
 ) -> Tuple[List[int], List[List[Tuple[str, int]]]]:
     """
     Run the algorithm multiple times.
@@ -49,7 +51,7 @@ def batch_runner(
     return amount_moves_per_runs, moves_made_in_runs
 
 
-def hill_runner(algorithm) -> Tuple[List[int], List[List], int]:
+def hill_runner(algorithm: Union[HC, RHC, SA]) -> Tuple[List[int], List[List], int]:
     """
     Runs the algorithm Hill Climber.
     Returns the number of moves, iterations and the solution.
