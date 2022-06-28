@@ -40,6 +40,7 @@ class RandomAlg(BaseAlg):
 
         current_state: Node = self.start_node
 
+        # get the possible moves of current state
         while not self._check_finished(
             current_state, set_board_every_check=False
         ) and self._check_depth(current_state):
