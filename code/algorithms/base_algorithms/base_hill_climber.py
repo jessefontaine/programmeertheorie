@@ -78,7 +78,7 @@ class BHC:
         Resets everything to the initial state.
         """
 
-        self.board.set_board(self.node_list[0].board_rep)
+        self.board.set_board(self.node_list[0].board_offsets)
 
     def _start_solution(
         self, algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs]
