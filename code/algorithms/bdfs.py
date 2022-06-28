@@ -22,7 +22,7 @@ class Bdfs(Dfs):
 
         # for each node calculate cars in front of win car and distance to exit
         for node in children:
-            tmp_board.set_board(node.board_rep)
+            tmp_board.set_board(node.board_offsets)
             list_cars_in_front.append(self.cars_in_front(tmp_board))
 
             list_distance.append(
