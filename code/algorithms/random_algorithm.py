@@ -40,13 +40,9 @@ class RandomAlg(BaseAlg):
 
         current_state: Node = self.start_node
 
-<<<<<<< HEAD
-        while not self.check_finished(current_state, set_board_every_check=False):
-            # get the possible moves of current state
-=======
-        while not self._check_finished(current_state, set_board_every_check=True) and self._check_depth(current_state):
+        # get the possible moves of current state
+        while not self._check_finished(current_state, set_board_every_check=False) and self._check_depth(current_state):
             # get the possible moves of current state and pick random
->>>>>>> a6928cb561996619edcf004e6e4a9b0d1746dd55
             moves = self.board.possible_moves
             move = random.choice(moves)
 
