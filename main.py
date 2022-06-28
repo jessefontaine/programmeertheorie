@@ -29,17 +29,15 @@ from code.functions import (
 )
 
 DEPTH = 300
-MIN_INTERVAL = 4
+MIN_INTERVAL = 10
 MAX_INTERVAL = 20
-PLATEAU = 10000
+PLATEAU = 5000
 
 
 class InvalidAlgorithmError(Exception):
     """
     Invalid algorithm exception.
     """
-
-    pass
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
@@ -145,6 +143,10 @@ if __name__ == "__main__":
     if not os.path.exists(args.input_csv):
         print(f"The file {args.input_csv} does not exist")
         sys.exit(1)
+
+    if int(args.runs) <= 0:
+        print(f"The runs {args.runs} is a negative or zero number, use a positive integer.")
+        sys.exit(2)
 
     # call main with cla's
     main(

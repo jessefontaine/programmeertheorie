@@ -49,6 +49,12 @@ class BHC:
         self.list_moves_amount: List[int] = []
         self.node_list: List[Node]
 
+        # ensure proper usage
+        if min_interval < 2:
+            raise ValueError("Value for min_interval must be 2 or bigger.")
+        if min_interval > max_interval:
+            raise ValueError("Value for max_interval must be bigger then min_interval.")
+
     def _make_algorithm(
         self,
         mode: str,
@@ -100,7 +106,7 @@ class BHC:
         """
 
         interval: int = random.randint(
-            max(2, self.min_interval), min(self.max_interval, len(self.node_list) - 1)
+            self.min_interval, min(self.max_interval, len(self.node_list) - 1)
         )
 
         return interval, interval
