@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import List, Union
+from typing import List, Union, Tuple
 
 from code.classes import Board, Node
 from code.algorithms.random_algorithm import RandomAlg
@@ -48,6 +48,12 @@ class BHC:
 
         self.list_moves_amount: List[int] = []
         self.node_list: List[Node]
+
+        # ensure proper usage
+        if min_interval < 2:
+            raise ValueError("Value for min_interval must be 2 or bigger.")
+        if min_interval > max_interval:
+            raise ValueError("Value for max_interval must be bigger then min_interval.")
 
     def _make_algorithm(
         self,
@@ -91,7 +97,10 @@ class BHC:
 
         return algorithm.node_list
 
-    def _choose_interval(self) -> int:
+    def _choose_interval(
+        self,
+        iteration: int,
+    ) -> Tuple[int, int]:
         """
         Returns interval within range that is smaller then length of solutions.
         """
@@ -100,7 +109,7 @@ class BHC:
             self.min_interval, min(self.max_interval, len(self.node_list) - 1)
         )
 
-        return interval
+        return interval, interval
 
     def _create_moves_made(self, start_node: Node, final_node: Node) -> None:
         """
@@ -121,25 +130,17 @@ class BHC:
 
         self.moves_made = self.moves_made[::-1]
 
-    # def _accept_insert(
-    #     self, initial_size: int, insert_size: int, iteration: int
-    # ) -> bool:
-    #     """
-    #     Checks if the new solution is not bigger then the initial solution.
-    #     """
-
-    #     return initial_size >= insert_size
-
     def _accept_insert(
-        self, alg: Union[RandomAlg, Bfs, Dfs, Bdfs], start: int, interval: int) -> bool:
+        self,
+        alg: Union[RandomAlg, Bfs, Dfs, Bdfs],
+        start: int,
+        interval: int,
+    ) -> bool:
         """
         Checks if the new solution is not bigger then the initial solution.
         """
 
-        if alg.node_list[-1].board_rep == self.node_list[start + interval].board_rep:
-            return True
-
-        return False
+        return alg.node_list[-1].board_rep == self.node_list[start + interval].board_rep
 
     def _step_algorithm(self, iteration) -> bool:
         """
@@ -147,29 +148,34 @@ class BHC:
         Returns true if inital solution is changed.
         """
 
-        interval: int = self._choose_interval()
+        start_interval: int
+        new_interval: int
+        start_interval, new_interval = self._choose_interval(iteration)
 
         # choose random start point in node list
-        start = random.randint(0, len(self.node_list) - interval - 1)
+        start = random.randint(0, len(self.node_list) - start_interval - 1)
 
         # do algoritme on small part to get it better
         alg = self._make_algorithm(
-            self.improve_mode, interval, self.node_list[start], self.node_list[start + interval]
+            self.improve_mode,
+            new_interval,
+            self.node_list[start],
+            self.node_list[start + start_interval],
         )
+
         alg.run_algorithm()
 
-        # if self._accept_insert(interval, len(alg.node_list), iteration):
-        if self._accept_insert(alg, start, interval):
+        if self._accept_insert(alg, start, start_interval):
             # put the new improved part of node list into the node list, different when you improve the very last part
-            if start + interval == len(self.node_list) - 1:
+            if start + start_interval == len(self.node_list) - 1:
                 self.node_list = self.node_list[:start] + alg.node_list
             else:
-                self.node_list[start + interval + 1].new_parent(alg.node_list[-1])
+                self.node_list[start + start_interval + 1].new_parent(alg.node_list[-1])
 
                 self.node_list = (
                     self.node_list[:start]
                     + alg.node_list
-                    + self.node_list[start + interval + 1 :]
+                    + self.node_list[start + start_interval + 1:]
                 )
 
             return True

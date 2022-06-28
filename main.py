@@ -12,7 +12,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Union, List
+from typing import Union, List, Tuple, Optional
 
 from argparse import ArgumentParser, Namespace
 import os
@@ -30,7 +30,7 @@ from code.functions import (
 
 DEPTH = 300
 MIN_INTERVAL = 4
-MAX_INTERVAL = 20
+MAX_INTERVAL = 30
 PLATEAU = 1500
 
 
@@ -38,8 +38,6 @@ class InvalidAlgorithmError(Exception):
     """
     Invalid algorithm exception.
     """
-
-    pass
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
@@ -96,6 +94,10 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     if "hill" in mode:
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
 
+        list_moves_amount: List[int]
+        moves_made: List[Optional[Tuple[str, int]]]
+        iterations: int
+
         list_moves_amount, moves_made, iterations = hill_runner(algorithm)
 
         plot_line(iterations, list_moves_amount, filepath)
@@ -141,6 +143,10 @@ if __name__ == "__main__":
     if not os.path.exists(args.input_csv):
         print(f"The file {args.input_csv} does not exist")
         sys.exit(1)
+
+    if int(args.runs) <= 0:
+        print(f"The runs {args.runs} is a negative or zero number, use a positive integer.")
+        sys.exit(2)
 
     # call main with cla's
     main(

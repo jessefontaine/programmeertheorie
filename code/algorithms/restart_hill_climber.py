@@ -39,7 +39,13 @@ class RHC(BHC):
         )
 
         self.plateau_iterations: int = plateau_iterations
-        self.node_list: List[Node] = [Node(repr(self.board), self.board.offset_from_start)]
+        self.node_list: List[Node] = [
+            Node(repr(self.board), self.board.offset_from_start)
+        ]
+
+        # ensure proper usage
+        if plateau_iterations < 1:
+            raise ValueError("Value for plateau must be positive.")
 
     def run_algorithm(self) -> None:
         """

@@ -50,7 +50,7 @@ class RandomAlg(BaseAlg):
 
             # create node
             new_node: Node = Node(
-                str(self.board), self.board.offset_from_start, move, current_state
+                repr(self.board), self.board.offset_from_start, move, current_state
             )
 
             # set current state to the new node
