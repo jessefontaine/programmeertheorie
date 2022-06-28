@@ -1,5 +1,19 @@
-from __future__ import annotations
+"""
+base_algorithm.py
 
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class BaseAlg (Base Algorithm).
+- Is being used in all the different constructive algorithms.
+- Contains functions to reset and correctly run the algorithm.
+- Function to save data from run.
+"""
+
+from __future__ import annotations
 from typing import Tuple, List, Union, Optional
 
 from code.classes import Board, Node
@@ -12,7 +26,7 @@ class BaseAlg:
         depth: int = None,
         start_node: Union[Node, None] = None,
         end_node: Union[Node, None] = None,
-    ) -> None:
+    ):
 
         # save the gameboard and maximum depth constructive algorithms can go
         self.board: Board = board
@@ -20,9 +34,11 @@ class BaseAlg:
 
         # starting without a start node means the current gameboard setup is the start
         if start_node is None:
-            self.start_node: Node = Node(str(self.board))
+            self.start_node: Node = Node(repr(self.board), self.board.offset_from_start)
         else:
             self.start_node = start_node
+
+        self.start_node.start_depth()
 
         # starting without an end node means the algorithm will try to find a winning setup
         if end_node is None:
@@ -31,13 +47,24 @@ class BaseAlg:
             self.find_win = False
             self.end_node: Node = end_node
 
-    def check_finished(self, state: Node, set_board_every_check: bool = True) -> bool:
+    def _check_depth(self, current_state) -> bool:
+        """
+        Checks whether a given state has an acceptable depth.
+        """
+
+        if current_state.depth == self.depth:
+            return False
+
+        return True
+
+    def _check_finished(self, state: Node, set_board_every_check: bool = True) -> bool:
         """
         Checks whether a given state satisfies the constraints.
         """
+
         if set_board_every_check:
             # setup the board according to the given state
-            self.board.set_board(state.board_rep)
+            self.board.set_board(state.board_offsets)
 
         # return whether contraints are satisfied
         if self.find_win:
@@ -45,9 +72,9 @@ class BaseAlg:
         else:
             return state.board_rep == self.end_node.board_rep
 
-    def create_run_data(self, final_node: Node) -> None:
+    def _create_run_data(self, final_node: Node) -> None:
         """
-        After a run, calculate the data for the found solution
+        After a run, calculate the data for the found solution.
         """
 
         # lists to store the data in
@@ -76,15 +103,28 @@ class BaseAlg:
         self.node_list = self.node_list[::-1]
         self.moves_made = self.moves_made[::-1]
 
-    def reset_algorithm(self):
-        self.node_list: List[Node] = [Node(str(self.board))]
-        self.moves_made: List[Optional[Tuple[str, int]]] = []
+    def reset_algorithm(self) -> None:
+        """
+        Resets everything to the initial state.
+        """
+
+        self.node_list = [Node(repr(self.board), self.board.offset_from_start)]
+        self.moves_made = []
 
     def algorithm(self) -> Node:
+        """
+        To implement the algorithm.
+        """
+
         raise NotImplementedError
 
     def run_algorithm(self) -> Tuple[Node, Node]:
+        """
+        Runs the algorithm.
+        Returns the start and end state.
+        """
+
         end_state: Node = self.algorithm()
-        self.create_run_data(end_state)
+        self._create_run_data(end_state)
 
         return self.start_node, end_state

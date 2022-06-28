@@ -1,8 +1,22 @@
+"""
+board.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class Board.
+- Functions to set, reset and update the grid.
+- Functions to make and check prossible moves.
+"""
+
 from __future__ import annotations
+from typing import Tuple, List, Dict
 
 from csv import DictReader
 import re
-from typing import Tuple, List, Dict
 
 from .car import Car
 
@@ -26,6 +40,11 @@ class Board:
 
         # save board setup and place cars
         self._loader(filepath)
+
+        # dictionary for storing car offsets from their start positions
+        self.offset_from_start: Dict[str, int] = dict(
+            zip(list(self.cars.keys()), [0] * len(self.cars))
+        )
 
         # setup list to store all moves in
         self.moves_made: List[Tuple[str, int]] = []
@@ -58,6 +77,14 @@ class Board:
             string.append(substring)
 
         return "\n".join(string)
+
+    def __repr__(self) -> str:
+
+        repr_str = ""
+        for item in self.offset_from_start.items():
+            repr_str += f"{item[0]} {item[1]}\n"
+
+        return repr_str
 
     def _loader(self, filepath):
         """
@@ -107,11 +134,6 @@ class Board:
         # calculate the possible moves with current board setup
         self._possible_moves()
 
-    def _free_spot(self, position: Tuple[int, int]) -> bool:
-        return (
-            self._within_range(position) and self.grid[position[0]][position[1]] is None
-        )
-
     def _possible_moves(self) -> None:
         """
         Returns a dictionary with all cars that can move in the current board setup
@@ -120,19 +142,26 @@ class Board:
 
         self.possible_moves: List[Tuple[str, int]] = []
 
-        check_distances: List[int] = list(range(-1 * max(self.size) + 2, 0)) + list(
-            range(1, max(self.size) - 1)
-        )
-
         for car in list(self.cars.values()):
 
-            for distance in check_distances:
+            positive_dir_list, negative_dir_list = car.test_moves(max(self.size))
 
-                check_positions: List[Tuple[int, int]] = car.test_move(distance)
+            for index, pos in enumerate(positive_dir_list):
+                if self._free_spot(pos):
+                    self.possible_moves.append((car.name, index + 1))
+                else:
+                    break
 
-                if all([self._free_spot(pos) for pos in check_positions]):
+            for index, pos in enumerate(negative_dir_list):
+                if self._free_spot(pos):
+                    self.possible_moves.append((car.name, -1 * (index + 1)))
+                else:
+                    break
 
-                    self.possible_moves.append((car.name, distance))
+    def _free_spot(self, position: Tuple[int, int]) -> bool:
+        return (
+            self._within_range(position) and self.grid[position[0]][position[1]] is None
+        )
 
     def _within_range(self, position: Tuple[int, int]) -> bool:
         """
@@ -141,7 +170,8 @@ class Board:
 
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    def set_board(self, setup: str):
+    def set_board1(self, setup: str):
+        # obsolete
         """
         Setup the board accoring to a setup string. Setup string should be similar to
         the board representation this class creates and include all car names, orientations and
@@ -150,7 +180,7 @@ class Board:
 
         # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
 
-        # remove unnessessairy \n
+        # remove unnecessary enters
         setup_str = setup.replace("\n", "")
 
         # get a list of all car names
@@ -162,18 +192,50 @@ class Board:
             # calculate the rows and colums
             if len(car) == 1:
                 if setup_str.find(car) == 0:
-                    str_place: int = setup_str.find(car) 
+                    str_place: int = setup_str.find(car)
                 else:
-                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (self.max_name_length + 1) 
+                    str_place = (setup_str.find(" " + car + " ") + 1) // (
+                        self.max_name_length + 1
+                    )
             else:
-                str_place: int = setup_str.find(car) // (self.max_name_length + 1)
+                str_place = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
             col: int = str_place % self.size[1]
-            #print('set up van bord', car, str_place, row, col)
             # set the car to that row and column
             self.cars[car].set_car(row, col)
 
         # update the board
+        self._update_grid()
+
+    def set_board(self, setup: Dict[str, int]):
+        """
+        TODO
+
+        A3
+        B5
+        C-1
+        D-3
+        E0
+
+        representation sets the board to the new displacements.
+        Original setup needed.
+
+        """
+
+        # offset_list: List[str] = setup.split("\n")[:-1]
+        # offset_list_nested: List[List[str]] = [
+        #     car_offset.split(" ") for car_offset in offset_list
+        # ]
+        # offset_list_tuples: List[Tuple[str, int]] = [
+        #     (line[0], int(line[1])) for line in offset_list_nested
+        # ]
+
+        for car_name, car_offset in setup.items():
+
+            self.cars[car_name].set_offset(car_offset)
+
+            self.offset_from_start[car_name] = car_offset
+
         self._update_grid()
 
     def reset_board(self) -> None:
@@ -189,7 +251,7 @@ class Board:
         self.moves_made = []
         self._update_grid()
 
-    def make_move(self, car: str, move: int) -> Tuple[str, int]:
+    def make_move(self, car: str, move: int) -> None:
         """
         Make a move on the board and return the move as a tuple.
         """
@@ -215,10 +277,10 @@ class Board:
         # move the car and update the grid
         self.cars[car].move(move)
 
-        self._update_grid()
+        # add offset
+        self.offset_from_start[car] = self.offset_from_start[car] + move
 
-        # return the move as a tuple
-        #return (car, move)
+        self._update_grid()
 
     def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition

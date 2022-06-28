@@ -1,9 +1,22 @@
+"""
+main.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Entry point of the code.
+- Makes sure argument parser gets runned.
+"""
+
 from __future__ import annotations
+from typing import Union, List
 
 from argparse import ArgumentParser, Namespace
 import os
 import sys
-from typing import Union, List
 
 from code.classes import Board
 from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
@@ -12,27 +25,46 @@ from code.functions import (
     hill_runner,
     plot_steps_to_file,
     plot_line,
-    steps_amount_to_file,
     write_moves_to_file,
 )
 
+<<<<<<< HEAD
+MIN_INTERVAL = 3
+MAX_INTERVAL = 20
+PLATEAU = 10000
+=======
+DEPTH = 300
+MIN_INTERVAL = 4
+MAX_INTERVAL = 20
+PLATEAU = 10000
+
+>>>>>>> 4f9aac26e709c82ac291ba674eb4d9a3f97d55d7
 
 class InvalidAlgorithmError(Exception):
+    """
+    Invalid algorithm exception.
+    """
+
     pass
 
 
 def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
+    """
+    Makes and runs the given algorithm.
+    Plots the output and saves the output when output_moves True.
+    """
 
     board: Board = Board(infile)
 
+    # make the given algorithm
     if mode == "random":
         algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA] = RandomAlg(board)
     elif mode == "breadth":
-        algorithm = Bfs(board, 300)
+        algorithm = Bfs(board, DEPTH)
     elif mode == "depth":
-        algorithm = Dfs(board, 300)
+        algorithm = Dfs(board, DEPTH)
     elif mode == "bestdepth":
-        algorithm = Bdfs(board, 300)
+        algorithm = Bdfs(board, DEPTH)
     elif "hill" in mode:
         mode, start_mode, improve_mode = (
             mode.split("/")[0],
@@ -41,14 +73,23 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         )
 
         if mode == "hill":
-            algorithm = HC(board, runs, 4, 10, start_mode, improve_mode)
-        elif mode == "restarthill":
-            plateau_iteration = 20
-            algorithm = RHC(
-                board, runs, 4, 10, start_mode, improve_mode, plateau_iteration
+            algorithm = HC(
+                board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
             )
-        elif mode == "sa":
-            algorithm = SA(board, runs, 4, 10, start_mode, improve_mode)
+        elif mode == "restarthill":
+            algorithm = RHC(
+                board,
+                runs,
+                MIN_INTERVAL,
+                MAX_INTERVAL,
+                start_mode,
+                improve_mode,
+                PLATEAU,
+            )
+        elif mode == "sahill":
+            algorithm = SA(
+                board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
+            )
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
 
@@ -57,6 +98,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     except FileExistsError:
         pass
 
+    # run the algorithm and output the result to a plot
     if "hill" in mode:
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
 
@@ -64,9 +106,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         plot_line(iterations, list_moves_amount, filepath)
     else:
-        filepath: str = (
-            f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
-        )
+        filepath = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
         # run the algorithm and collect the data
         amount_moves: List[int]
@@ -75,7 +115,6 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)
-        steps_amount_to_file(amount_moves, filepath)
 
     # print the moves if user marked for it
     if output_moves:
@@ -95,7 +134,10 @@ if __name__ == "__main__":
 
     # optional arguments
     parser.add_argument(
-        "-m", "--output_moves", action="store_true", help="Output moves made to file(s)"
+        "-m",
+        "--output_moves",
+        action="store_true",
+        help="output moves made to csv file(s)",
     )
 
     # read cla's
