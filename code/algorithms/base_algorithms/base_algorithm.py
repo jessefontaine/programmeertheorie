@@ -37,6 +37,7 @@ class BaseAlg:
             self.start_node: Node = Node(repr(self.board), self.board.offset_from_start)
         else:
             self.start_node = start_node
+            self.board.set_board(self.start_node.board_offsets)
 
         self.start_node.start_depth()
 

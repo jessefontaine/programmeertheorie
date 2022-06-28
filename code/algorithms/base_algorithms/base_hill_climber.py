@@ -100,7 +100,7 @@ class BHC:
         """
 
         interval: int = random.randint(
-            self.min_interval, min(self.max_interval, len(self.node_list) - 1)
+            max(2, self.min_interval), min(self.max_interval, len(self.node_list) - 1)
         )
 
         return interval, interval
@@ -156,9 +156,9 @@ class BHC:
             self.node_list[start],
             self.node_list[start + start_interval],
         )
+
         alg.run_algorithm()
 
-        # if self._accept_insert(interval, len(alg.node_list), iteration):
         if self._accept_insert(alg, start, start_interval):
             # put the new improved part of node list into the node list, different when you improve the very last part
             if start + start_interval == len(self.node_list) - 1:

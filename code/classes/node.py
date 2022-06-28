@@ -31,7 +31,6 @@ class Node:
 
         if parent is None:
             self.has_parent: bool = False
-            # self.depth: int = 0
         else:
             self.has_parent = True
             self.parent: Node = parent
