@@ -28,9 +28,10 @@ from code.functions import (
     write_moves_to_file,
 )
 
+DEPTH = 300
 MIN_INTERVAL = 4
-MAX_INTERVAL = 15
-PLATEAU = 500
+MAX_INTERVAL = 20
+PLATEAU = 10000
 
 
 class InvalidAlgorithmError(Exception):
@@ -53,11 +54,11 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     if mode == "random":
         algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA] = RandomAlg(board)
     elif mode == "breadth":
-        algorithm = Bfs(board, 300)
+        algorithm = Bfs(board, DEPTH)
     elif mode == "depth":
-        algorithm = Dfs(board, 300)
+        algorithm = Dfs(board, DEPTH)
     elif mode == "bestdepth":
-        algorithm = Bdfs(board, 300)
+        algorithm = Bdfs(board, DEPTH)
     elif "hill" in mode:
         mode, start_mode, improve_mode = (
             mode.split("/")[0],
