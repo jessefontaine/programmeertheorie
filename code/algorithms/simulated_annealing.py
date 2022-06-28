@@ -1,3 +1,16 @@
+"""
+simulated_annealing.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class SA (Simulated Annealing) inherits HC (Hill Climber).
+- Contains an different accept insert function then normal Hill Climber.
+"""
+
 from __future__ import annotations
 
 from random import uniform
@@ -6,9 +19,19 @@ from code.algorithms import HC
 
 
 class SA(HC):
-    def accept_insert(
+    """
+    The Simulated Annealing class runs a hill climber algorithm.
+    Impoves solution by changing small parts of the solution, for given amount of iterations.
+    Accepts changes with an acceptance chance.
+    """
+
+    def _accept_insert(
         self, initial_size: int, insert_size: int, iteration: int
     ) -> bool:
+        """
+        Defines different accept rate for the Hill Climber algorithm.
+        Returns if new solutions is accepted.
+        """
 
         start_temperature: int = 5
 

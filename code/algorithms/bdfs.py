@@ -1,3 +1,18 @@
+"""
+bdfs.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class Bdfs (Best Depth First Search) inherits Dfs (Depth First Search).
+- Contains heuristics to improve Dfs.
+- Uses a bubble sort algorithm.
+"""
+
+from __future__ import annotations
 from typing import List
 
 from code.algorithms.dfs import Dfs
@@ -5,16 +20,25 @@ from code.classes import Board, Node
 
 
 class Bdfs(Dfs):
-    def swap(self, list, a, b):
+    """
+    The Best Depth First Search class that runs a Depth First Search algorithm.
+    Uses heuristics in choosing branches by:
+    - number of cars in front of the win car,
+    - distance of win car to the exit.
+    """
+
+    def swap(self, list, a, b) -> None:
         """
-        Swap elements in a list
+        Swap elements in a list.
         """
+
         list[a], list[b] = list[b], list[a]
 
-    def sort_children(self, children: List[Node]) -> List[Node]:
+    def _sort_children(self, children: List[Node]) -> List[Node]:
         """
-        Uses bubble sort
+        Uses bubble sort.
         """
+
         tmp_board: Board = self.board
 
         list_cars_in_front: List[int] = []
@@ -59,7 +83,10 @@ class Bdfs(Dfs):
 
         return children
 
-    def cars_in_front(self, board: Board) -> int:
+    def _cars_in_front(self, board: Board) -> int:
+        """
+        Counts the number of cars in front of the win car.
+        """
         amount: int = 0
 
         # calculate how many cars are in front of win car

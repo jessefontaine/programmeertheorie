@@ -1,8 +1,22 @@
+"""
+board.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class Board.
+- Functions to set, reset and update the grid.
+- Functions to make and check prossible moves.
+"""
+
 from __future__ import annotations
+from typing import Tuple, List, Dict
 
 from csv import DictReader
 import re
-from typing import Tuple, List, Dict
 
 from .car import Car
 
@@ -166,7 +180,7 @@ class Board:
 
         # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
 
-        # remove unnessessairy \n
+        # remove unnecessary enters
         setup_str = setup.replace("\n", "")
 
         # get a list of all car names
@@ -180,14 +194,13 @@ class Board:
                 if setup_str.find(car) == 0:
                     str_place: int = setup_str.find(car)
                 else:
-                    str_place: int = (setup_str.find(" " + car + " ") + 1) // (
+                    str_place = (setup_str.find(" " + car + " ") + 1) // (
                         self.max_name_length + 1
                     )
             else:
-                str_place: int = setup_str.find(car) // (self.max_name_length + 1)
+                str_place = setup_str.find(car) // (self.max_name_length + 1)
             row: int = str_place // self.size[0]
             col: int = str_place % self.size[1]
-            # print('set up van bord', car, str_place, row, col)
             # set the car to that row and column
             self.cars[car].set_car(row, col)
 
@@ -238,7 +251,7 @@ class Board:
         self.moves_made = []
         self._update_grid()
 
-    def make_move(self, car: str, move: int) -> Tuple[str, int]:
+    def make_move(self, car: str, move: int) -> None:
         """
         Make a move on the board and return the move as a tuple.
         """
@@ -268,9 +281,6 @@ class Board:
         self.offset_from_start[car] = self.offset_from_start[car] + move
 
         self._update_grid()
-
-        # return the move as a tuple
-        # return (car, move)
 
     def on_win_position(self) -> bool:
         return self.win_car.position == self.win_postition

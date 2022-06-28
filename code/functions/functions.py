@@ -1,13 +1,31 @@
+"""
+functions.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains functions used in multiple algorithms.
+- Batch runner to run and save results for constructive algorithms.
+- Function to run and save results for iterative algorithms.
+- Functions to plot the results.
+- Function to save the (moves of a) solution.
+"""
+
 from __future__ import annotations
+from typing import List, Tuple, Union
 
 from matplotlib import pyplot as plt
-from typing import List, Tuple, Union
 import os
 
-from code import algorithms
 
-
-def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
+def batch_runner(algorithm: Union["RandomAlg", "Bfs", "Dfs", "Bdfs"], runs: int) -> Tuple[List[int], List[List[Tuple[str, int]]]]:
+    """
+    Run the algorithm multiple times.
+    Returns the number of moves and the solution.
+    """
 
     amount_moves_per_runs: List[int] = []
     moves_made_in_runs: List[List[Tuple[str, int]]] = []
@@ -29,16 +47,26 @@ def batch_runner(algorithm: Union["Random_Alg", "Bfs", "Dfs"], runs: int):
     return amount_moves_per_runs, moves_made_in_runs
 
 
-def hill_runner(algorithm) -> Tuple[List[int], List[List[str, int]], int]:
+def hill_runner(algorithm) -> Tuple[List[int], List[List], int]:
+    """
+    Runs the algorithm Hill Climber.
+    Returns the number of moves, iterations and the solution.
+    """
+
     algorithm.run_algorithm()
 
     list_moves_amount: List[int] = algorithm.list_moves_amount
-    list_moves_made_in_run: List[List[str, int]] = algorithm.moves_made_in_run
+    list_moves_made_in_run: List[List] = algorithm.moves_made_in_run
 
     return list_moves_amount, list_moves_made_in_run, algorithm.iterations
 
 
 def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
+    """
+    Plot a figure with the number of steps.
+    Write the amount of steps to a csv file.
+    Used for constructive algorithms.
+    """
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
@@ -60,8 +88,13 @@ def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
 
 
 def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
+    """
+    Plot a line figure with the number of steps.
+    Write the amount of steps to a csv file.
+    Used for iterative algorithms.
+    """
+
     list_iteration: List[int] = list(range(0, iteration))
-    print(list_iteration)
 
     # trim path if a filetype was specified
     path = path.split(".")[0]
@@ -82,19 +115,10 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
         file.write("\n".join(amount_moves_str))
 
 
-def steps_amount_to_file(amount_of_steps: List[int], path: str) -> None:
-
-    # trim path if a filetype was specified
-    path = path.split(".")[0]
-
-    # convert to str and write to file
-    amount_moves_str: List[str] = [str(x) for x in amount_of_steps]
-    with open(f"{path}.txt", "w") as file:
-        file.write("\n".join(amount_moves_str))
-
-
 def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
-    # print(moves_made)
+    """
+    Write the solution to a csv file.
+    """
 
     # trim path if a filetype was specified
     path = path.split(".")[0]

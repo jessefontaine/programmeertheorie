@@ -1,3 +1,17 @@
+"""
+tree_search.py
+
+Programmeertheorie Rush Hour
+
+Jesse Fontaine - 12693375
+Annemarie Geertsema - 12365009
+Laura Haverkorn - 12392707
+
+- Contains class Treesearch inherits BaseAlg (Base Algorithm).
+- Contains functions to build tree and sort children.
+- Contains functions to reset and run the algorithm.
+"""
+
 from __future__ import annotations
 
 import random
@@ -24,7 +38,7 @@ class Treesearcher(BaseAlg):
         # set of previous found states for pruning
         self.unique_board_setups: Set = set([self.start_node.board_rep])
 
-    def reset_algorithm(self):
+    def reset_algorithm(self) -> None:
         """
         Reset the algorithm to it's beginning state
         """
@@ -35,14 +49,14 @@ class Treesearcher(BaseAlg):
         self.states = [self.start_node]
         self.unique_board_setups = set([self.start_node.board_rep])
 
-    def get_current_state(self):
+    def _get_current_state(self) -> Node:
         """
         Method to get the next state from stack or queue.
         """
 
         raise NotImplementedError
 
-    def sort_children(self, children):
+    def _sort_children(self, children) -> List[Node]:
         """
         Method to sort the list of children before they are added to the
         stack or queue.
@@ -50,7 +64,7 @@ class Treesearcher(BaseAlg):
 
         return children
 
-    def build_children(self, parent: Node):
+    def _build_children(self, parent: Node) -> None:
         """
         Create children node of the given parent. States that have previously been
         found in the current run will be pruned.
@@ -81,12 +95,12 @@ class Treesearcher(BaseAlg):
                 self.unique_board_setups.add(child.board_rep)
 
         # sort children based on sorting method
-        children = self.sort_children(children)
+        children = self._sort_children(children)
 
         # add children nodes to stack or queue
         self.states.extend(children)
 
-    def algorithm(self):
+    def algorithm(self) -> Node:
         """
         Basic tree searcher algorithm.
         """
@@ -94,15 +108,15 @@ class Treesearcher(BaseAlg):
         # run the tree searcher over all states in stack or queue
         current_state: Node = self.start_node
 
-        while self.states:  # and current_state.depth < self.depth:
+        while self.states and self._check_depth(current_state):
             # get the state to work with
-            current_state = self.get_current_state()
+            current_state = self._get_current_state()
 
             # check if its the final one
-            if self.check_finished(current_state):
+            if self._check_finished(current_state):
                 break
 
             # add child states to stack or queue
-            self.build_children(current_state)
+            self._build_children(current_state)
 
         return current_state
