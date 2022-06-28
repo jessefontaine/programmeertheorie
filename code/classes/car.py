@@ -13,7 +13,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Iterable, Union, Tuple, List
+from typing import Union, Tuple, List
 
 
 class Car:
@@ -24,7 +24,7 @@ class Car:
         col: Union[int, str],
         row: Union[int, str],
         length: Union[int, str],
-    ) -> None:
+    ):
         """
         Instantiate car object with given parameters.
         Requires orientation the be either 'V' or 'H'.
@@ -70,14 +70,14 @@ class Car:
         self.position = self.start_position
         self._positions_update()
 
-    def set_offset(self, offset):
+    def set_offset(self, offset: int) -> None:
         self.position = self.start_position
         if not offset == 0:
             self.move(offset)
         else:
             self._positions_update()
 
-    def test_moves(self, board_size):
+    def test_moves(self, board_size: int) -> Tuple[List[Tuple[int, int]], List[Tuple[int, int]]]:
         """
         Method returns a position coordinate of the spot that is taken up when
         the car moves in the provided direction.

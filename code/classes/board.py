@@ -26,7 +26,7 @@ class InvalidMoveError(Exception):
 
 
 class Board:
-    def __init__(self, filepath: str) -> None:
+    def __init__(self, filepath: str):
         """
         Setup board: create car objects and full game-board-grid with objects.
         Requires filepath as argument. Filepath name should include the dimensions
@@ -86,11 +86,10 @@ class Board:
 
         return repr_str
 
-    def _loader(self, filepath):
+    def _loader(self, filepath: str) -> None:
         """
         Using the path to a game_board csv-file, create and place Car objects
         into list, then return.
-
         Requires Car class.
         """
 
@@ -170,65 +169,11 @@ class Board:
 
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    def set_board1(self, setup: str):
-        # obsolete
+    def set_board(self, setup: Dict[str, int]) -> None:
         """
-        Setup the board accoring to a setup string. Setup string should be similar to
-        the board representation this class creates and include all car names, orientations and
-        lengths as the original board setup.
-        """
-
-        # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
-
-        # remove unnecessary enters
-        setup_str = setup.replace("\n", "")
-
-        # get a list of all car names
-        cars: List[str] = list(self.cars.keys())
-
-        # find first occurence for each car and set it to that place
-        for car in cars:
-
-            # calculate the rows and colums
-            if len(car) == 1:
-                if setup_str.find(car) == 0:
-                    str_place: int = setup_str.find(car)
-                else:
-                    str_place = (setup_str.find(" " + car + " ") + 1) // (
-                        self.max_name_length + 1
-                    )
-            else:
-                str_place = setup_str.find(car) // (self.max_name_length + 1)
-            row: int = str_place // self.size[0]
-            col: int = str_place % self.size[1]
-            # set the car to that row and column
-            self.cars[car].set_car(row, col)
-
-        # update the board
-        self._update_grid()
-
-    def set_board(self, setup: Dict[str, int]):
-        """
-        TODO
-
-        A3
-        B5
-        C-1
-        D-3
-        E0
-
         representation sets the board to the new displacements.
         Original setup needed.
-
         """
-
-        # offset_list: List[str] = setup.split("\n")[:-1]
-        # offset_list_nested: List[List[str]] = [
-        #     car_offset.split(" ") for car_offset in offset_list
-        # ]
-        # offset_list_tuples: List[Tuple[str, int]] = [
-        #     (line[0], int(line[1])) for line in offset_list_nested
-        # ]
 
         for car_name, car_offset in setup.items():
 

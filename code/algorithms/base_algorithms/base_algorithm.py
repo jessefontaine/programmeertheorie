@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Tuple, List, Union, Optional
+from typing import Tuple, Union, Optional
 
 from code.classes import Board, Node
 
@@ -47,6 +47,10 @@ class BaseAlg:
         else:
             self.find_win = False
             self.end_node: Node = end_node
+
+        # ensure proper usage
+        if depth is not None and depth < 1:
+            raise ValueError("Value for depth must be positive.")
 
     def _check_depth(self, current_state) -> bool:
         """

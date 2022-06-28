@@ -13,6 +13,7 @@ Laura Haverkorn - 12392707
 from __future__ import annotations
 
 from code.algorithms.base_algorithms.tree_search import Treesearcher
+from code.classes.node import Node
 
 
 class Dfs(Treesearcher):
@@ -21,7 +22,7 @@ class Dfs(Treesearcher):
     Searches a branch untill a winning state, if a branch is pruned go back to parent and choose a new branch.
     """
 
-    def _get_current_state(self):
+    def _get_current_state(self) -> Node:
         """
         Gets last state from queue.
         """
