@@ -35,6 +35,7 @@ class SA(HC):
         Returns interval within range that is smaller then length of solutions.
         Modified for sim
         """
+
         start_interval, _ = super()._choose_interval(iteration)
 
         linear: bool = True

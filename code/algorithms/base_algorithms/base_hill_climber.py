@@ -124,15 +124,6 @@ class BHC:
 
         self.moves_made = self.moves_made[::-1]
 
-    # def _accept_insert(
-    #     self, initial_size: int, insert_size: int, iteration: int
-    # ) -> bool:
-    #     """
-    #     Checks if the new solution is not bigger then the initial solution.
-    #     """
-
-    #     return initial_size >= insert_size
-
     def _accept_insert(
         self,
         alg: Union[RandomAlg, Bfs, Dfs, Bdfs],
@@ -178,7 +169,7 @@ class BHC:
                 self.node_list = (
                     self.node_list[:start]
                     + alg.node_list
-                    + self.node_list[start + start_interval + 1 :]
+                    + self.node_list[start + start_interval + 1:]
                 )
 
             return True
