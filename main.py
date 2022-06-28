@@ -64,9 +64,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         plot_line(iterations, list_moves_amount, filepath)
     else:
-        filepath: str = (
-            f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
-        )
+        filepath = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
         # run the algorithm and collect the data
         amount_moves: List[int]
