@@ -13,7 +13,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Iterable, Union, Tuple, List
+from typing import Union, Tuple, List
 
 
 class Car:
