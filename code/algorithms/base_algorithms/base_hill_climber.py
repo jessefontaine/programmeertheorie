@@ -131,7 +131,8 @@ class BHC:
     #     return initial_size >= insert_size
 
     def _accept_insert(
-        self, alg: Union[RandomAlg, Bfs, Dfs, Bdfs], start: int, interval: int) -> bool:
+        self, alg: Union[RandomAlg, Bfs, Dfs, Bdfs], start: int, interval: int
+         ) -> bool:
         """
         Checks if the new solution is not bigger then the initial solution.
         """
@@ -169,7 +170,7 @@ class BHC:
                 self.node_list = (
                     self.node_list[:start]
                     + alg.node_list
-                    + self.node_list[start + interval + 1 :]
+                    + self.node_list[start + interval + 1:]
                 )
 
             return True

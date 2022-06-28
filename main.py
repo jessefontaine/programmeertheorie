@@ -12,7 +12,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Union, List
+from typing import Union, List, Tuple, Optional
 
 from argparse import ArgumentParser, Namespace
 import os
@@ -95,6 +95,10 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
     # run the algorithm and output the result to a plot
     if "hill" in mode:
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
+
+        list_moves_amount: List[int]
+        moves_made: List[Optional[Tuple[str, int]]]
+        iterations: int
 
         list_moves_amount, moves_made, iterations = hill_runner(algorithm)
 

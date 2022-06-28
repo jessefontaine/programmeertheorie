@@ -15,6 +15,7 @@ from __future__ import annotations
 from code.algorithms.base_algorithms.tree_search import Treesearcher
 from code.classes.node import Node
 
+
 class Bfs(Treesearcher):
     """
     The Breadth First Search class that runs a search algorithm.

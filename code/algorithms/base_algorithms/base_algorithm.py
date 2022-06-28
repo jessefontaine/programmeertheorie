@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Tuple, List, Union, Optional
+from typing import Tuple, Union, Optional
 
 from code.classes import Board, Node
 
