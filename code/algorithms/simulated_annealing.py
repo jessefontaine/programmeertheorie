@@ -13,9 +13,11 @@ Laura Haverkorn - 12392707
 
 from __future__ import annotations
 
-from random import uniform
+from random import uniform, randint
+from typing import Union, Tuple
+from math import log
 
-from code.algorithms import HC
+from code.algorithms import HC, RandomAlg, Bfs, Bdfs, Dfs
 
 
 class SA(HC):
@@ -25,29 +27,27 @@ class SA(HC):
     Accepts changes with an acceptance chance.
     """
 
-    def _accept_insert(
-        self, initial_size: int, insert_size: int, iteration: int
-    ) -> bool:
+    def _choose_interval(
+        self,
+        iteration: int,
+    ) -> Tuple[int, int]:
         """
-        Defines different accept rate for the Hill Climber algorithm.
-        Returns if new solutions is accepted.
+        Returns interval within range that is smaller then length of solutions.
+        Modified for sim
         """
-
-        start_temperature: int = 5
+        start_interval, _ = super()._choose_interval(iteration)
 
         linear: bool = True
 
+        probability: float = uniform(0.0, 1.0)
+
         if linear:
-            temperature: float = (
-                start_temperature - (start_temperature / self.iteration) * iteration
-            )
+            start_temp: int = 15
+            temperature: float = start_temp - (start_temp / self.iteration) * iteration
         else:
-            temperature = start_temperature * pow(0.997, iteration)
+            start_temp = 80
+            temperature = start_temp * pow(0.997, iteration)
 
-        accept_chance: float = pow(2, ((initial_size - insert_size) / temperature))
+        new_interval: float = -temperature * log(probability, 2) + start_interval
 
-        print(
-            f"initial: {initial_size}   insert: {insert_size}   ratio: {insert_size/initial_size}    accept: {accept_chance}"
-        )
-
-        return uniform(0.0, 1.0) <= accept_chance
+        return start_interval, int(new_interval)
