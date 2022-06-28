@@ -108,7 +108,7 @@ class BaseAlg:
         Resets everything to the initial state.
         """
 
-        self.node_list = [Node(str(self.board), repr(self.board))]
+        self.node_list = [Node(repr(self.board), self.board.offset_from_start)]
         self.moves_made = []
 
     def algorithm(self) -> Node:
