@@ -1,12 +1,9 @@
 """
 board.py
-
 Programmeertheorie Rush Hour
-
 Jesse Fontaine - 12693375
 Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
-
 - Contains class Board.
 - Functions to set, reset and update the grid.
 - Functions to make and check prossible moves.
@@ -90,7 +87,6 @@ class Board:
         """
         Using the path to a game_board csv-file, create and place Car objects
         into list, then return.
-
         Requires Car class.
         """
 
@@ -210,16 +206,13 @@ class Board:
     def set_board(self, setup: Dict[str, int]):
         """
         TODO
-
         A3
         B5
         C-1
         D-3
         E0
-
         representation sets the board to the new displacements.
         Original setup needed.
-
         """
 
         # offset_list: List[str] = setup.split("\n")[:-1]
