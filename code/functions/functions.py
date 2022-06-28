@@ -21,7 +21,9 @@ from matplotlib import pyplot as plt
 import os
 
 
-def batch_runner(algorithm: Union["RandomAlg", "Bfs", "Dfs", "Bdfs"], runs: int) -> Tuple[List[int], List[List[Tuple[str, int]]]]:
+def batch_runner(
+    algorithm: Union["RandomAlg", "Bfs", "Dfs", "Bdfs"], runs: int
+) -> Tuple[List[int], List[List[Tuple[str, int]]]]:
     """
     Run the algorithm multiple times.
     Returns the number of moves and the solution.
