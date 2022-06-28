@@ -37,8 +37,8 @@ class Node:
             self.parent: Node = parent
             self.depth: int = self.parent.depth + 1
 
-    def start_depth(self):
-        self.depth: int = 0
+    def start_depth(self) -> None:
+        self.depth = 0
 
     def new_parent(self, parent: Node) -> None:
         """
@@ -47,13 +47,3 @@ class Node:
 
         self.has_parent = True
         self.parent = parent
-
-    # def __len__(self):
-    #     """
-    #     Returns if node has parents.
-    #     """
-
-    #     if self.has_parent:
-    #         return len(self.parent) + 1
-    #     else:
-    #         return 0
