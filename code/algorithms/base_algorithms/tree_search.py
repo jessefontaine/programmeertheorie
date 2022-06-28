@@ -23,6 +23,11 @@ from code.algorithms.base_algorithms.base_algorithm import BaseAlg
 
 
 class Treesearcher(BaseAlg):
+    """
+    The Tree Searcher class that can be used for all the constructive algorithms.
+    Contains methods that all constructive algoritms need.
+    """
+
     def __init__(
         self,
         board: Board,
