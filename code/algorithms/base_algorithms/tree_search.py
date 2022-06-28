@@ -71,7 +71,7 @@ class Treesearcher(BaseAlg):
         """
 
         # set the board to the parents state and shuffle order of moves
-        self.board.set_board(parent.board_rep)
+        self.board.set_board(parent.board_offsets)
         random.shuffle(self.board.possible_moves)
 
         # list for storing children
@@ -81,14 +81,16 @@ class Treesearcher(BaseAlg):
         for move in self.board.possible_moves:
 
             # set board back to parent state and make the move
-            self.board.set_board(parent.board_rep)
+            self.board.set_board(parent.board_offsets)
             self.board.make_move(*move)
 
             # pruning step
-            if str(self.board) not in self.unique_board_setups:
+            if repr(self.board) not in self.unique_board_setups:
 
                 # create child and add state to set of seen states
-                child = Node(str(self.board), move, parent)
+                child = Node(
+                    repr(self.board), self.board.offset_from_start, move, parent
+                )
                 children.append(child)
                 self.unique_board_setups.add(child.board_rep)
 

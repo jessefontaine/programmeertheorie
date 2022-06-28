@@ -73,13 +73,23 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         )
 
         if mode == "hill":
-            algorithm = HC(board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode)
+            algorithm = HC(
+                board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
+            )
         elif mode == "restarthill":
             algorithm = RHC(
-                board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode, PLATEAU
+                board,
+                runs,
+                MIN_INTERVAL,
+                MAX_INTERVAL,
+                start_mode,
+                improve_mode,
+                PLATEAU,
             )
         elif mode == "sahill":
-            algorithm = SA(board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode)
+            algorithm = SA(
+                board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
+            )
     else:
         raise InvalidAlgorithmError("Given algorithm does not exist")
 
@@ -96,9 +106,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
         plot_line(iterations, list_moves_amount, filepath)
     else:
-        filepath = (
-            f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
-        )
+        filepath = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{runs}"
 
         # run the algorithm and collect the data
         amount_moves: List[int]
