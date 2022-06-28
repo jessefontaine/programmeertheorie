@@ -28,17 +28,11 @@ from code.functions import (
     write_moves_to_file,
 )
 
-<<<<<<< HEAD
-MIN_INTERVAL = 3
-MAX_INTERVAL = 20
-PLATEAU = 10000
-=======
 DEPTH = 300
 MIN_INTERVAL = 4
-MAX_INTERVAL = 20
-PLATEAU = 10000
+MAX_INTERVAL = 10
+PLATEAU = 500
 
->>>>>>> 4f9aac26e709c82ac291ba674eb4d9a3f97d55d7
 
 class InvalidAlgorithmError(Exception):
     """

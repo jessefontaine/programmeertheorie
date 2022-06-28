@@ -39,7 +39,7 @@ class RHC(BHC):
         )
 
         self.plateau_iterations: int = plateau_iterations
-        self.node_list: List[Node] = [Node(str(self.board))]
+        self.node_list: List[Node] = [Node(repr(self.board), self.board.offset_from_start)]
 
     def run_algorithm(self) -> None:
         """
