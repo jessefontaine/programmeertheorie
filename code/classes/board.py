@@ -22,17 +22,20 @@ from .car import Car
 
 
 class InvalidMoveError(Exception):
-    pass
+    """
+    Invalid move exception.
+    """
 
 
 class Board:
+    """
+    Setup board: create car objects and full game-board-grid with objects.
+    Requires filepath as argument. Filepath name should include the dimensions
+    of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent
+    to this part of the name!).
+    """
+
     def __init__(self, filepath: str):
-        """
-        Setup board: create car objects and full game-board-grid with objects.
-        Requires filepath as argument. Filepath name should include the dimensions
-        of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent
-        to this part of the name!).
-        """
 
         # parse board size from filename
         size = re.findall("[0-9]+x[0-9]+", filepath)[0].split("x")
@@ -103,7 +106,7 @@ class Board:
         self.cars: Dict[str, Car] = {}
 
         # go through lines in file
-        with open(filepath, "r") as file:
+        with open(filepath, "r", encoding="utf-8") as file:
 
             # create car objects and place into list
             for row in DictReader(file):
