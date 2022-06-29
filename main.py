@@ -15,8 +15,8 @@ from __future__ import annotations
 from typing import Union, List, Tuple, Optional
 
 from argparse import ArgumentParser, Namespace
-import os
-import sys
+from os import makedirs, path
+from sys import exit
 
 from code.classes import Board
 from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
@@ -93,7 +93,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         raise InvalidAlgorithmError("Given algorithm does not exist.")
 
     try:
-        os.makedirs(outfolder)
+        makedirs(outfolder)
     except FileExistsError:
         pass
 
@@ -150,16 +150,16 @@ if __name__ == "__main__":
     args: Namespace = parser.parse_args()
 
     # if the puzzle does not exist, exit
-    if not os.path.exists(args.input_csv):
+    if not path.exists(args.input_csv):
         print(f"The file {args.input_csv} does not exist")
-        sys.exit(1)
+        exit(1)
 
     # number of runs cannot be negative
     if int(args.runs) <= 0:
         print(
             f"The runs {args.runs} is a negative or zero number, use a positive integer."
         )
-        sys.exit(2)
+        exit(2)
 
     # call main with cla's
     main(

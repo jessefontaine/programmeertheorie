@@ -13,7 +13,7 @@ Laura Haverkorn - 12392707
 from __future__ import annotations
 from typing import Union
 
-import random
+from random import choice
 
 from code.classes import Board, Node
 from code.algorithms.base_algorithms.base_algorithm import BaseAlg
@@ -45,7 +45,7 @@ class RandomAlg(BaseAlg):
         ) and self._check_depth(current_state):
             # get the possible moves of current state and pick random
             moves = self.board.possible_moves
-            move = random.choice(moves)
+            move = choice(moves)
 
             # make the move
             self.board.make_move(*move)

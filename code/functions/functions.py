@@ -19,7 +19,7 @@ from typing import List, Tuple, Union, Optional
 
 from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
 
-import os
+from os import makedirs
 from matplotlib import pyplot as plt
 
 
@@ -144,7 +144,7 @@ def write_moves_to_file(
 
     # make a subfolder
     try:
-        os.makedirs(folder)
+        makedirs(folder)
     except FileExistsError:
         pass
 

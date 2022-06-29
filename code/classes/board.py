@@ -16,7 +16,7 @@ from __future__ import annotations
 from typing import Tuple, List, Dict
 
 from csv import DictReader
-import re
+from re import findall, compile
 
 from code.classes import Car
 
@@ -38,7 +38,7 @@ class Board:
     def __init__(self, filepath: str):
 
         # parse board size from filename
-        size = re.findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
+        size = findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         # list for car objects
@@ -110,7 +110,7 @@ class Board:
         """
 
         # ensure argument contains board dimensions
-        if not re.compile(r"[^0-9][0-9]+x[0-9]+[^0-9]").search(filepath):
+        if not compile(r"[^0-9][0-9]+x[0-9]+[^0-9]").search(filepath):
             raise ValueError(
                 "Given filepath argument does not contain board dimensions in proper format."
             )

@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 
 from __future__ import annotations
 
-import random
+from random import shuffle
 from typing import List, Set, Union
 
 from code.classes import Board
@@ -77,7 +77,7 @@ class Treesearcher(BaseAlg):
 
         # set the board to the parents state and shuffle order of moves
         self.board.set_board(parent.board_offsets)
-        random.shuffle(self.board.possible_moves)
+        shuffle(self.board.possible_moves)
 
         children = []
 

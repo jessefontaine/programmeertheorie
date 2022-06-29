@@ -15,13 +15,13 @@ Laura Haverkorn - 12392707
 
 from __future__ import annotations
 from typing import List, Union, Tuple, Optional
+from random import randint
 
 from code.classes import Board, Node
 from code.algorithms.random_algorithm import RandomAlg
 from code.algorithms.bfs import Bfs
 from code.algorithms.dfs import Dfs
 from code.algorithms.bdfs import Bdfs
-import random
 
 
 class BHC:
@@ -110,7 +110,7 @@ class BHC:
         Returns interval within range that is smaller then length of solutions.
         """
 
-        interval: int = random.randint(
+        interval: int = randint(
             self.min_interval, min(self.max_interval, len(self.node_list) - 1)
         )
 
@@ -162,7 +162,7 @@ class BHC:
         start_interval, new_interval = self._choose_interval(iteration)
 
         # choose random start point in node list
-        start = random.randint(0, len(self.node_list) - start_interval - 1)
+        start = randint(0, len(self.node_list) - start_interval - 1)
 
         # do algoritme on small part to get it better
         alg = self._make_algorithm(
