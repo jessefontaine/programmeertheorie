@@ -27,7 +27,7 @@ from code.functions import (
     plot_line,
     write_moves_to_file,
 )
-from .settings import DEPTH, MAX_INTERVAL, MIN_INTERVAL, PLATEAU
+from .code.settings import DEPTH, MAX_INTERVAL, MIN_INTERVAL, PLATEAU
 
 
 class InvalidAlgorithmError(Exception):
@@ -46,13 +46,13 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     # make the given algorithm
     if mode == "random":
-        algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA] = RandomAlg(board)
+        constructive_algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(board)
     elif mode == "breadth":
-        algorithm = Bfs(board, DEPTH)
+        constructive_algorithm = Bfs(board, DEPTH)
     elif mode == "depth":
-        algorithm = Dfs(board, DEPTH)
+        constructive_algorithm = Dfs(board, DEPTH)
     elif mode == "bestdepth":
-        algorithm = Bdfs(board, DEPTH)
+        constructive_algorithm = Bdfs(board, DEPTH)
     elif "hill" in mode:
         mode, start_mode, improve_mode = (
             mode.split("/")[0],
@@ -61,11 +61,11 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         )
 
         if mode == "hill":
-            algorithm = HC(
+            iterative_algorithm: Union[HC, RHC, SA] = HC(
                 board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
             )
         elif mode == "restarthill":
-            algorithm = RHC(
+            iterative_algorithm = RHC(
                 board,
                 runs,
                 MIN_INTERVAL,
@@ -75,7 +75,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
                 PLATEAU,
             )
         elif mode == "sahill":
-            algorithm = SA(
+            iterative_algorithm = SA(
                 board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
             )
     else:
@@ -94,7 +94,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         moves_made: List[Optional[Tuple[str, int]]]
         iterations: int
 
-        list_moves_amount, moves_made, iterations = hill_runner(algorithm)
+        list_moves_amount, moves_made, iterations = hill_runner(iterative_algorithm)
 
         plot_line(iterations, list_moves_amount, filepath)
     else:
@@ -103,7 +103,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         # run the algorithm and collect the data
         amount_moves: List[int]
 
-        amount_moves, moves_made = batch_runner(algorithm, runs)
+        amount_moves, moves_made = batch_runner(constructive_algorithm, runs)
 
         # plot steps for all runs
         plot_steps_to_file(amount_moves, filepath)

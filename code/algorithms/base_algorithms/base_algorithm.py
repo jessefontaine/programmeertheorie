@@ -76,7 +76,7 @@ class BaseAlg:
         """
 
         if set_board_every_check:
-            
+
             # setup the board according to the given state
             self.board.set_board(state.board_offsets)
 
