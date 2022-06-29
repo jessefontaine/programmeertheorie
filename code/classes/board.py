@@ -18,7 +18,7 @@ from typing import Tuple, List, Dict
 from csv import DictReader
 import re
 
-from .car import Car
+from code.classes import Car
 
 
 class InvalidMoveError(Exception):
@@ -134,9 +134,7 @@ class Board:
         """
 
         # create empty nested list to store occupied spaces
-        self.grid = [
-            [None for _ in range(self.size[1])] for _ in range(self.size[0])
-        ]
+        self.grid = [[None for _ in range(self.size[1])] for _ in range(self.size[0])]
 
         # loop through every cars occupied positions and place car object on grid
         for car in list(self.cars.values()):

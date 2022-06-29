@@ -1,3 +1,3 @@
-from .car import Car
-from .board import Board
-from .node import Node
+from code.classes.car import Car
+from code.classes.board import Board
+from code.classes.node import Node
