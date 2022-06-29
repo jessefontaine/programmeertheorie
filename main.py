@@ -145,7 +145,9 @@ if __name__ == "__main__":
         sys.exit(1)
 
     if int(args.runs) <= 0:
-        print(f"The runs {args.runs} is a negative or zero number, use a positive integer.")
+        print(
+            f"The runs {args.runs} is a negative or zero number, use a positive integer."
+        )
         sys.exit(2)
 
     # call main with cla's
