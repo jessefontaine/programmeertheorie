@@ -69,7 +69,7 @@ class Board:
 
     def __str__(self) -> str:
         """
-        Return current game board in readable format.
+        Returns current game board in readable format.
         """
 
         string = []
@@ -88,6 +88,10 @@ class Board:
         return "\n".join(string)
 
     def __repr__(self) -> str:
+        """
+        Returns a board representation with every car name and its
+        offset position from starting position in string format. 
+        """
 
         repr_str = ""
         for item in self.offset_from_start.items():
@@ -165,6 +169,10 @@ class Board:
                     break
 
     def _free_spot(self, position: Tuple[int, int]) -> bool:
+        """
+        Returns bool, true if position is a free spot on the grid.
+        """
+
         return (
             self._within_range(position) and self.grid[position[0]][position[1]] is None
         )
@@ -235,4 +243,8 @@ class Board:
         self._update_grid()
 
     def on_win_position(self) -> bool:
+        """
+        Returns bool, true if red car is on win position.
+        """
+
         return self.win_car.position == self.win_postition
