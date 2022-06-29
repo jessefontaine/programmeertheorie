@@ -27,7 +27,7 @@ from code.functions import (
     plot_line,
     write_moves_to_file,
 )
-from .code.settings import DEPTH, MAX_INTERVAL, MIN_INTERVAL, PLATEAU
+from code.settings import DEPTH, MAX_INTERVAL, MIN_INTERVAL, PLATEAU
 
 
 class InvalidAlgorithmError(Exception):
