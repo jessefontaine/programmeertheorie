@@ -102,7 +102,10 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
 
         list_moves_amount: List[int]
-        moves_made: List[List[Optional[Tuple[str, int]]]]
+        moves_made: Union[
+            List[List[Optional[Tuple[str, int]]]],
+            List[Optional[Tuple[str, int]]],
+        ]
         iterations: int
 
         list_moves_amount, moves_made, iterations = hill_runner(iterative_algorithm)

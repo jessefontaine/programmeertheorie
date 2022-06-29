@@ -129,7 +129,13 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
         file.write("\n".join(amount_moves_str))
 
 
-def write_moves_to_file(moves_made: List[Optional[Tuple[str, int]]], path: str) -> None:
+def write_moves_to_file(
+    moves_made: Union[
+        List[List[Optional[Tuple[str, int]]]],
+        List[Optional[Tuple[str, int]]],
+    ],
+    path: str,
+) -> None:
     """
     Write the solution to a csv file.
     """
