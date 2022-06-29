@@ -107,7 +107,7 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
     plt.plot(list_iteration, list_moves_amount)
 
     plt.title(
-        f"Hill Climber {len(list_moves_amount)} iterations: game board {path.split('/')[1].split('.')[0]}"
+        f"Hill Climber {len(list_moves_amount) - 1} iterations: game board {path.split('/')[1].split('.')[0]}"
     )
     plt.xlabel("Iterations")
     plt.ylabel("Number of steps")
