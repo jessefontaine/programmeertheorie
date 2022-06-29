@@ -61,11 +61,6 @@ def hill_runner(
 
     algorithm.run_algorithm()
 
-    # list_moves_amount: List[int] = algorithm.list_moves_amount
-    # list_moves_made_in_run: List[
-    #     List[Optional[Tuple[str, int]]]
-    # ] = algorithm.moves_made_in_run
-
     return (
         algorithm.list_moves_amount,
         algorithm.moves_made_in_run,
