@@ -41,6 +41,9 @@ class Board:
         size = re.findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
+        # list for car objects
+        self.cars: Dict[str, Car] = {}
+
         # save board setup and place cars
         self._loader(filepath)
 
@@ -70,6 +73,7 @@ class Board:
         """
 
         string = []
+
         for sublist in self.grid:
             substring = ""
             for cell in sublist:
@@ -104,8 +108,8 @@ class Board:
                 "Given filepath argument does not contain board dimensions in proper format."
             )
 
-        # list for car objects
-        self.cars: Dict[str, Car] = {}
+        # # list for car objects
+        # self.cars: Dict[str, Car] = {}
 
         # go through lines in file
         with open(filepath, "r", encoding="utf-8") as file:
