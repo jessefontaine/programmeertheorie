@@ -30,8 +30,8 @@ from code.functions import (
 
 DEPTH = 300
 MIN_INTERVAL = 3
-MAX_INTERVAL = 10
-PLATEAU = 10
+MAX_INTERVAL = 6
+PLATEAU = 1000
 
 
 class InvalidAlgorithmError(Exception):

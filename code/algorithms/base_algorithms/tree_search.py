@@ -71,8 +71,8 @@ class Treesearcher(BaseAlg):
 
     def _build_children(self, parent: Node) -> None:
         """
-        Create children node of the given parent. States that have previously been
-        found in the current run will be pruned.
+        Create children node of the given parent.
+        States that have previously been found in the current run will be pruned.
         """
 
         # set the board to the parents state and shuffle order of moves
