@@ -18,6 +18,7 @@ from random import uniform
 from typing import Tuple
 
 from code.algorithms import HC
+from ...settings import START_TEMPERATURE, LINEAR_TEMP_PROCESS
 
 
 class SA(HC):
@@ -41,12 +42,11 @@ class SA(HC):
         start_interval, _ = super()._choose_interval(iteration)
 
         # switch to choose the temperature formula and calculate
-        linear: bool = True
+        linear: bool = LINEAR_TEMP_PROCESS
+        start_temp: int = START_TEMPERATURE
         if linear:
-            start_temp: int = 15
             temperature: float = start_temp - (start_temp / self.iteration) * iteration
         else:
-            start_temp = 80
             temperature = start_temp * pow(0.997, iteration)
 
         # calculate probavility and new interval size

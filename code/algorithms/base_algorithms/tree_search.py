@@ -23,6 +23,11 @@ from code.algorithms.base_algorithms.base_algorithm import BaseAlg
 
 
 class Treesearcher(BaseAlg):
+    """
+    The Tree Searcher class that can be used for all the constructive algorithms.
+    Contains methods that all constructive algoritms need.
+    """
+
     def __init__(
         self,
         board: Board,
@@ -66,8 +71,8 @@ class Treesearcher(BaseAlg):
 
     def _build_children(self, parent: Node) -> None:
         """
-        Create children node of the given parent. States that have previously been
-        found in the current run will be pruned.
+        Create children node of the given parent.
+        States that have previously been found in the current run will be pruned.
         """
 
         # set the board to the parents state and shuffle order of moves

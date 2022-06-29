@@ -15,7 +15,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import List, Tuple, Union
+from typing import List, Tuple, Union, Optional
 
 from matplotlib import pyplot as plt
 import os
@@ -25,14 +25,14 @@ from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
 
 def batch_runner(
     algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs], runs: int
-) -> Tuple[List[int], List[List[Tuple[str, int]]]]:
+) -> Tuple[List[int], List[Optional[Tuple[str, int]]]]:
     """
     Run the algorithm multiple times.
     Returns the number of moves and the solution.
     """
 
     amount_moves_per_runs: List[int] = []
-    moves_made_in_runs: List[List[Tuple[str, int]]] = []
+    moves_made_in_runs: List[Optional[Tuple[str, int]]] = []
 
     for run in range(runs):
 
@@ -51,7 +51,7 @@ def batch_runner(
     return amount_moves_per_runs, moves_made_in_runs
 
 
-def hill_runner(algorithm: Union[HC, RHC, SA]) -> Tuple[List[int], List[List], int]:
+def hill_runner(algorithm: Union[HC, RHC, SA]) -> Tuple[List[int], List[Optional[Tuple[str, int]]], int]:
     """
     Runs the algorithm Hill Climber.
     Returns the number of moves, iterations and the solution.
@@ -119,7 +119,7 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
         file.write("\n".join(amount_moves_str))
 
 
-def write_moves_to_file(moves_made: List[List[Tuple[str, int]]], path: str) -> None:
+def write_moves_to_file(moves_made: List[Optional[Tuple[str, int]]], path: str) -> None:
     """
     Write the solution to a csv file.
     """

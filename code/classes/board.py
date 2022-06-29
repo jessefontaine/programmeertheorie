@@ -1,9 +1,12 @@
 """
 board.py
+
 Programmeertheorie Rush Hour
+
 Jesse Fontaine - 12693375
 Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
+
 - Contains class Board.
 - Functions to set, reset and update the grid.
 - Functions to make and check prossible moves.
@@ -20,20 +23,19 @@ from .car import Car
 
 class InvalidMoveError(Exception):
     """
-    Error can be raised when moves are played that are illegal.
+    Invalid move exception.
     """
-
-    pass
 
 
 class Board:
+    """
+    Setup board: create car objects and full game-board-grid with objects.
+    Requires filepath as argument. Filepath name should include the dimensions
+    of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent
+    to this part of the name!).
+    """
+
     def __init__(self, filepath: str):
-        """
-        Setup board: create car objects and full game-board-grid with objects.
-        Requires filepath as argument. Filepath name should include the dimensions
-        of the game-board (row x col), i.e. 6x6 or 12x12 (with no numbers adjacent
-        to this part of the name!).
-        """
 
         # parse board size from filename
         size = re.findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
@@ -104,7 +106,7 @@ class Board:
         self.cars: Dict[str, Car] = {}
 
         # go through lines in file
-        with open(filepath, "r") as file:
+        with open(filepath, "r", encoding="utf-8") as file:
 
             # create car objects and place into list
             for row in DictReader(file):
@@ -170,56 +172,11 @@ class Board:
 
         return 0 <= position[0] < self.size[0] and 0 <= position[1] < self.size[1]
 
-    # def set_board1(self, setup: str):
-    #     # obsolete
-    #     """
-    #     Setup the board accoring to a setup string. Setup string should be similar to
-    #     the board representation this class creates and include all car names, orientations and
-    #     lengths as the original board setup.
-    #     """
-
-    #     # TODO: input checks; 1) all cars present. 2) all orientations correct. 3) all lenghts correct
-
-    #     # remove unnecessary enters
-    #     setup_str = setup.replace("\n", "")
-
-    #     # get a list of all car names
-    #     cars: List[str] = list(self.cars.keys())
-
-    #     # find first occurence for each car and set it to that place
-    #     for car in cars:
-
-    #         # calculate the rows and colums
-    #         if len(car) == 1:
-    #             if setup_str.find(car) == 0:
-    #                 str_place: int = setup_str.find(car)
-    #             else:
-    #                 str_place = (setup_str.find(" " + car + " ") + 1) // (
-    #                     self.max_name_length + 1
-    #                 )
-    #         else:
-    #             str_place = setup_str.find(car) // (self.max_name_length + 1)
-    #         row: int = str_place // self.size[0]
-    #         col: int = str_place % self.size[1]
-    #         # set the car to that row and column
-    #         self.cars[car].set_car(row, col)
-
-    #     # update the board
-    #     self._update_grid()
-
     def set_board(self, setup: Dict[str, int]) -> None:
         """
         representation sets the board to the new displacements.
         Original setup needed.
         """
-
-        # offset_list: List[str] = setup.split("\n")[:-1]
-        # offset_list_nested: List[List[str]] = [
-        #     car_offset.split(" ") for car_offset in offset_list
-        # ]
-        # offset_list_tuples: List[Tuple[str, int]] = [
-        #     (line[0], int(line[1])) for line in offset_list_nested
-        # ]
 
         for car_name, car_offset in setup.items():
 

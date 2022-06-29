@@ -20,6 +20,11 @@ from code.classes import Board, Node
 
 
 class BaseAlg:
+    """
+    The Base Algorithm class that can be used for all the algorithms as a basic.
+    Contains methods that all algoritms need.
+    """
+
     def __init__(
         self,
         board: Board,
@@ -31,6 +36,9 @@ class BaseAlg:
         # save the gameboard and maximum depth constructive algorithms can go
         self.board: Board = board
         self.depth: Optional[int] = depth
+        self.node_list: List[Node] = []
+        self.moves_made: List[Optional[Tuple[str, int]]] = []
+        self.moves_amount: int = 0
 
         # starting without a start node means the current gameboard setup is the start
         if start_node is None:
@@ -47,6 +55,10 @@ class BaseAlg:
         else:
             self.find_win = False
             self.end_node: Node = end_node
+
+        # ensure proper usage
+        if depth is not None and depth < 1:
+            raise ValueError("Value for depth must be positive.")
 
     def _check_depth(self, current_state) -> bool:
         """
@@ -71,20 +83,13 @@ class BaseAlg:
         # return whether contraints are satisfied
         if self.find_win:
             return self.board.on_win_position()
-        else:
-            return state.board_rep == self.end_node.board_rep
+
+        return state.board_rep == self.end_node.board_rep
 
     def _create_run_data(self, final_node: Node) -> None:
         """
         After a run, calculate the data for the found solution.
         """
-
-        # lists to store the data in
-        self.node_list = []
-        self.moves_made = []
-
-        # moves counter
-        self.moves_amount = 0
 
         # moving backwards from the winning node, construct the entire node list
         current: Node = final_node
