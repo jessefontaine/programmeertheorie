@@ -97,6 +97,7 @@ class BHC:
         Run the algorithm.
         Returns the steps of the solutions as nodes.
         """
+
         algorithm.run_algorithm()
 
         return algorithm.node_list
