@@ -17,6 +17,11 @@ from typing import Union, Tuple, List
 
 
 class Car:
+    """
+    Instantiate car object with given parameters.
+    Requires orientation the be either 'V' or 'H'.
+    """
+
     def __init__(
         self,
         name: str,
@@ -25,10 +30,6 @@ class Car:
         row: Union[int, str],
         length: Union[int, str],
     ):
-        """
-        Instantiate car object with given parameters.
-        Requires orientation the be either 'V' or 'H'.
-        """
 
         # save object variables
         self.name: str = name
@@ -71,7 +72,11 @@ class Car:
         self._positions_update()
 
     def set_offset(self, offset: int) -> None:
+        """
+        Place car on given offset from starting position.
+        """
         self.position = self.start_position
+
         if not offset == 0:
             self.move(offset)
         else:

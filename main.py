@@ -60,6 +60,13 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
             mode.split("/")[2],
         )
 
+        if mode not in ["hill", "restarthill", "sahill"]:
+            raise InvalidAlgorithmError("Given algorithm does not exist.")
+        elif start_mode not in ["random", "breadth", "depth", "bestdepth"]:
+            raise InvalidAlgorithmError("Given algorithm does not exist or can not be used to find a starting solution.")
+        elif improve_mode not in ["random", "breadth", "depth", "bestdepth"]:
+            raise InvalidAlgorithmError("Given algorithm does not exist or can not be used to improve.")
+
         if mode == "hill":
             iterative_algorithm: Union[HC, RHC, SA] = HC(
                 board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
@@ -79,7 +86,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
                 board, runs, MIN_INTERVAL, MAX_INTERVAL, start_mode, improve_mode
             )
     else:
-        raise InvalidAlgorithmError("Given algorithm does not exist")
+        raise InvalidAlgorithmError("Given algorithm does not exist.")
 
     try:
         os.makedirs(outfolder)
@@ -135,11 +142,12 @@ if __name__ == "__main__":
     # read cla's
     args: Namespace = parser.parse_args()
 
-    # If the puzzle does not exist, exit
+    # if the puzzle does not exist, exit
     if not os.path.exists(args.input_csv):
         print(f"The file {args.input_csv} does not exist")
         sys.exit(1)
 
+    # number of runs cannot be negative
     if int(args.runs) <= 0:
         print(
             f"The runs {args.runs} is a negative or zero number, use a positive integer."

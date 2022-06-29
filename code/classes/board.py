@@ -41,6 +41,9 @@ class Board:
         size = re.findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
+        # list for car objects
+        self.cars: Dict[str, Car] = {}
+
         # save board setup and place cars
         self._loader(filepath)
 
@@ -66,12 +69,14 @@ class Board:
 
     def __str__(self) -> str:
         """
-        Return current game board in readable format.
+        Returns current game board in readable format.
         """
 
         string = []
+
         for sublist in self.grid:
             substring = ""
+
             for cell in sublist:
                 if cell is None:
                     substring += "." + self.max_name_length * " "
@@ -79,13 +84,19 @@ class Board:
                     substring += (
                         cell.name + (self.max_name_length - len(cell.name) + 1) * " "
                     )
+
             string.append(substring)
 
         return "\n".join(string)
 
     def __repr__(self) -> str:
+        """
+        Returns a board representation with every car name and its
+        offset position from starting position in string format.
+        """
 
         repr_str = ""
+
         for item in self.offset_from_start.items():
             repr_str += f"{item[0]} {item[1]}\n"
 
@@ -103,9 +114,6 @@ class Board:
             raise ValueError(
                 "Given filepath argument does not contain board dimensions in proper format."
             )
-
-        # list for car objects
-        self.cars: Dict[str, Car] = {}
 
         # go through lines in file
         with open(filepath, "r", encoding="utf-8") as file:
@@ -164,6 +172,10 @@ class Board:
                     break
 
     def _free_spot(self, position: Tuple[int, int]) -> bool:
+        """
+        Returns bool, true if position is a free spot on the grid.
+        """
+
         return (
             self._within_range(position) and self.grid[position[0]][position[1]] is None
         )
@@ -234,4 +246,8 @@ class Board:
         self._update_grid()
 
     def on_win_position(self) -> bool:
+        """
+        Returns bool, true if red car is on win position.
+        """
+
         return self.win_car.position == self.win_postition

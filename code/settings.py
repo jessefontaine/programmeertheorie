@@ -8,7 +8,8 @@ Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
 
 - Parameters that are used in the algorithms
-    and can be changed as desired.
+    can be changed as desired.
+
 
 DEPTH: Maximum depth the breadth and depth search algorithms can go to.
     - Setting has a positive correlation to runtime and memory requirements
