@@ -48,6 +48,7 @@ class SA(HC):
         # switch to choose the temperature formula and calculate
         linear: bool = LINEAR_TEMP_PROCESS
         start_temp: int = START_TEMPERATURE
+
         if linear:
             temperature: float = start_temp - (start_temp / self.iteration) * iteration
         else:
