@@ -145,7 +145,10 @@ class BHC:
         Checks if the new solution is not bigger then the initial solution.
         """
 
-        return alg.node_list[-1].board_rep == self.node_list[start + interval].board_rep
+        return (
+            alg.node_list[-1].board_rep == self.node_list[start + interval].board_rep
+            and alg.node_list[0].board_rep == self.node_list[start].board_rep
+        )
 
     def _step_algorithm(self, iteration) -> bool:
         """

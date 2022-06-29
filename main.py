@@ -27,11 +27,7 @@ from code.functions import (
     plot_line,
     write_moves_to_file,
 )
-
-DEPTH = 300
-MIN_INTERVAL = 3
-MAX_INTERVAL = 6
-PLATEAU = 1000
+from .settings import DEPTH, MAX_INTERVAL, MIN_INTERVAL, PLATEAU
 
 
 class InvalidAlgorithmError(Exception):

@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Tuple, List, Union, Optional
+from typing import Tuple, Union, Optional, List
 
 from code.classes import Board, Node
 
@@ -76,6 +76,7 @@ class BaseAlg:
         """
 
         if set_board_every_check:
+            
             # setup the board according to the given state
             self.board.set_board(state.board_offsets)
 

@@ -38,7 +38,7 @@ class Board:
     def __init__(self, filepath: str):
 
         # parse board size from filename
-        size = re.findall("[0-9]+x[0-9]+", filepath)[0].split("x")
+        size = re.findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         # save board setup and place cars
