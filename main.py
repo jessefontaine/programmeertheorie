@@ -142,7 +142,7 @@ if __name__ == "__main__":
     # read cla's
     args: Namespace = parser.parse_args()
 
-    # If the puzzle does not exist, exit
+    # if the puzzle does not exist, exit
     if not os.path.exists(args.input_csv):
         print(f"The file {args.input_csv} does not exist")
         sys.exit(1)
