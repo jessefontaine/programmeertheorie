@@ -8,7 +8,7 @@ Annemarie Geertsema - 12365009
 Laura Haverkorn - 12392707
 
 - Parameters that are used in the algorithms
-    and can be changed as desired.
+    can be changed as desired.
 """
 
 from __future__ import annotations
