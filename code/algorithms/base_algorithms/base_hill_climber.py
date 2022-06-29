@@ -49,7 +49,7 @@ class BHC:
         self.list_moves_amount: List[int] = []
         self.node_list: List[Node] = []
         self.moves_made: List[Optional[Tuple[str, int]]] = []
-        self.moves_made_in_run: List[List] = []
+        self.moves_made_in_run: List[List[Optional[Tuple[str, int]]]] = []
         self.moves_amount: int = 0
         self.iterations: int = 0
 
@@ -184,7 +184,7 @@ class BHC:
                 self.node_list = (
                     self.node_list[:start]
                     + alg.node_list
-                    + self.node_list[start + start_interval + 1:]
+                    + self.node_list[start + start_interval + 1 :]
                 )
 
             return True

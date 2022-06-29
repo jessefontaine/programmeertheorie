@@ -25,7 +25,7 @@ from matplotlib import pyplot as plt
 
 def batch_runner(
     algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs], runs: int
-) -> Tuple[List[int], List[Optional[Tuple[str, int]]]]:
+) -> Tuple[List[int], List[List[Optional[Tuple[str, int]]]]]:
     """
     Run the algorithm multiple times.
     Returns the number of moves and the solution.
@@ -53,7 +53,7 @@ def batch_runner(
 
 def hill_runner(
     algorithm: Union[HC, RHC, SA]
-) -> Tuple[List[int], List[Optional[Tuple[str, int]]], int]:
+) -> Tuple[List[int], List[List[Optional[Tuple[str, int]]]], int]:
     """
     Runs the algorithm Hill Climber.
     Returns the number of moves, iterations and the solution.
@@ -61,10 +61,16 @@ def hill_runner(
 
     algorithm.run_algorithm()
 
-    list_moves_amount: List[int] = algorithm.list_moves_amount
-    list_moves_made_in_run: List[List] = algorithm.moves_made_in_run
+    # list_moves_amount: List[int] = algorithm.list_moves_amount
+    # list_moves_made_in_run: List[
+    #     List[Optional[Tuple[str, int]]]
+    # ] = algorithm.moves_made_in_run
 
-    return list_moves_amount, list_moves_made_in_run, algorithm.iterations
+    return (
+        algorithm.list_moves_amount,
+        algorithm.moves_made_in_run,
+        algorithm.iterations,
+    )
 
 
 def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:

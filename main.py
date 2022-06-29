@@ -63,9 +63,13 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         if mode not in ["hill", "restarthill", "sahill"]:
             raise InvalidAlgorithmError("Given algorithm does not exist.")
         elif start_mode not in ["random", "breadth", "depth", "bestdepth"]:
-            raise InvalidAlgorithmError("Given algorithm does not exist or can not be used to find a starting solution.")
+            raise InvalidAlgorithmError(
+                "Given algorithm does not exist or can not be used to find a starting solution."
+            )
         elif improve_mode not in ["random", "breadth", "depth", "bestdepth"]:
-            raise InvalidAlgorithmError("Given algorithm does not exist or can not be used to improve.")
+            raise InvalidAlgorithmError(
+                "Given algorithm does not exist or can not be used to improve."
+            )
 
         if mode == "hill":
             iterative_algorithm: Union[HC, RHC, SA] = HC(
@@ -98,7 +102,7 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
         filepath: str = f"{outfolder}/{infile.split('/')[-1].split('.')[0]}_{mode}_{start_mode}_{improve_mode}_{runs}"
 
         list_moves_amount: List[int]
-        moves_made: List[Optional[Tuple[str, int]]]
+        moves_made: List[List[Optional[Tuple[str, int]]]]
         iterations: int
 
         list_moves_amount, moves_made, iterations = hill_runner(iterative_algorithm)
