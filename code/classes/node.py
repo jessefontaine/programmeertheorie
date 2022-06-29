@@ -17,6 +17,10 @@ from copy import copy
 
 
 class Node:
+    """
+    Instantiate node object with given parameters.
+    """
+
     def __init__(
         self,
         board_str: str,
@@ -29,6 +33,7 @@ class Node:
         self.board_offsets: Dict[str, int] = copy(board_offsets)
         self.step_taken: Optional[Tuple[str, int]] = step
 
+        # make variables depending on if it has a parent
         if parent is None:
             self.has_parent: bool = False
         else:
@@ -37,6 +42,10 @@ class Node:
             self.depth: int = self.parent.depth + 1
 
     def start_depth(self) -> None:
+        """
+        Resets depth variable.
+        """
+
         self.depth = 0
 
     def new_parent(self, parent: Node) -> None:

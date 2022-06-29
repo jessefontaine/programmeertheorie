@@ -108,9 +108,6 @@ class Board:
                 "Given filepath argument does not contain board dimensions in proper format."
             )
 
-        # # list for car objects
-        # self.cars: Dict[str, Car] = {}
-
         # go through lines in file
         with open(filepath, "r", encoding="utf-8") as file:
 
