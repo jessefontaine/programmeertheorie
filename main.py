@@ -44,6 +44,8 @@ def main(infile: str, outfolder: str, mode: str, runs: int, output_moves: bool):
 
     board: Board = Board(infile)
 
+    print(MAX_INTERVAL)
+
     # make the given algorithm
     if mode == "random":
         constructive_algorithm: Union[RandomAlg, Bfs, Dfs, Bdfs] = RandomAlg(board)
