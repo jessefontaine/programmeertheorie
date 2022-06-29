@@ -80,6 +80,7 @@ De volgende lijst toont de belangrijkste mappen en files in dit project en waar 
       - **/code/algorithms/base_algorithms**: bevat de basis code die voor meerdere algoritmen gebruikt wordt
     - **/code/classes**: bevat de drie verschillende classes voor de case
     - **/code/functions**: bevat de functies om main te runnen
+- **/experiment/2**: bevat resultaten van het experiment op speelbord 2
 - **/game_boards**: bevat de verschillende speelborden
 
 ## Auteurs
