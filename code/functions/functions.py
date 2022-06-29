@@ -17,10 +17,10 @@ Laura Haverkorn - 12392707
 from __future__ import annotations
 from typing import List, Tuple, Union, Optional
 
-from matplotlib import pyplot as plt
-import os
-
 from code.algorithms import RandomAlg, Bfs, Dfs, Bdfs, HC, RHC, SA
+
+import os
+from matplotlib import pyplot as plt
 
 
 def batch_runner(
@@ -89,7 +89,8 @@ def plot_steps_to_file(amount_of_steps: List[int], path: str) -> None:
 
     # convert to str and write to file
     amount_moves_str: List[str] = [str(x) for x in amount_of_steps]
-    with open(f"{path}.txt", "w") as file:
+
+    with open(f"{path}.txt", "w", encoding="utf-8") as file:
         file.write("\n".join(amount_moves_str))
 
 
@@ -117,7 +118,8 @@ def plot_line(iteration: int, list_moves_amount: List[int], path: str) -> None:
 
     # convert to str and write to file
     amount_moves_str: List[str] = [str(x) for x in list_moves_amount]
-    with open(f"{path}.txt", "w") as file:
+
+    with open(f"{path}.txt", "w", encoding="utf-8") as file:
         file.write("\n".join(amount_moves_str))
 
 
@@ -141,7 +143,8 @@ def write_moves_to_file(moves_made: List[Optional[Tuple[str, int]]], path: str) 
 
     # save all the files
     run_moves: List[Tuple[str, int]]
+
     for run, run_moves in enumerate(moves_made):
-        with open(f"{folder}/{name}_run_{run}.csv", "w") as file:
+        with open(f"{folder}/{name}_run_{run}.csv", "w", encoding="utf-8") as file:
             file.write("car,move\n")
             file.write("\n".join([f"{move[0]},{move[1]}" for move in run_moves]))
