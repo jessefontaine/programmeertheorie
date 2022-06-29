@@ -57,7 +57,7 @@ class BaseAlg:
             self.end_node: Node = end_node
 
         # ensure proper usage
-        if depth is not None and depth < 1:
+        if depth is not None and depth <= 0:
             raise ValueError("Value for depth must be positive.")
 
     def _check_depth(self, current_state) -> bool:
