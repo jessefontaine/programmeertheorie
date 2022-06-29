@@ -25,10 +25,11 @@ class Dfs(Treesearcher):
     """
 
     def __init__(
-    self, board: Board,
-    depth: int = None,
-    start_node: Union[Node, None] = None,
-    end_node: Union[Node, None] = None
+        self,
+        board: Board,
+        depth: int = None,
+        start_node: Union[Node, None] = None,
+        end_node: Union[Node, None] = None
     ):
         super().__init__(board, depth, start_node, end_node)
 

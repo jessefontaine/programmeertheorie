@@ -35,12 +35,12 @@ class Bdfs(Dfs):
     ):
         super().__init__(board, depth, start_node, end_node)
 
-    def swap(self, list, index1, index2) -> None:
+    def swap(self, not_sorted_list: List, index1: int, index2: int) -> None:
         """
         Swaps elements in a list.
         """
 
-        list[index1], list[index2] = list[index1], list[index2]
+        not_sorted_list[index1], not_sorted_list[index2] = not_sorted_list[index1], not_sorted_list[index2]
 
     def _sort_children(self, children: List[Node]) -> List[Node]:
         """
