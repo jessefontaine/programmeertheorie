@@ -41,9 +41,9 @@ to be linear (True) or exponential (False)
 
 DEPTH: int = 300
 MIN_INTERVAL: int = 3
-MAX_INTERVAL: int = 10
-PLATEAU: int = 1000
-START_TEMPERATURE: float = 30
+MAX_INTERVAL: int = 20
+PLATEAU: int = 2000
+START_TEMPERATURE: float = 25
 LINEAR_TEMP_PROCESS: bool = True
 
 

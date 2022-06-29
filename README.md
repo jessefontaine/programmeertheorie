@@ -13,6 +13,8 @@ conda install --file requirements.txt
 ```
 
 ## Gebruik
+Vooraf kunnen parameters aangepast worden in de `settings.py` file (`code/settings.py`). Deze parameters kunnen de werking van de algoritmes beïnvloeden. De fijnere details hierover zijn te vinden in de docstring van desbetreffende file.
+
 De code kan gerund worden door het aanroepen van 
 ```
 $ python3 main.py -h
