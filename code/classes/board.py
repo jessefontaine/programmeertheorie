@@ -76,6 +76,7 @@ class Board:
 
         for sublist in self.grid:
             substring = ""
+
             for cell in sublist:
                 if cell is None:
                     substring += "." + self.max_name_length * " "
@@ -83,6 +84,7 @@ class Board:
                     substring += (
                         cell.name + (self.max_name_length - len(cell.name) + 1) * " "
                     )
+
             string.append(substring)
 
         return "\n".join(string)
@@ -90,10 +92,11 @@ class Board:
     def __repr__(self) -> str:
         """
         Returns a board representation with every car name and its
-        offset position from starting position in string format. 
+        offset position from starting position in string format.
         """
 
         repr_str = ""
+
         for item in self.offset_from_start.items():
             repr_str += f"{item[0]} {item[1]}\n"
 
