@@ -28,6 +28,10 @@ class SA(HC):
     Accepts changes with an acceptance chance.
     """
 
+    # ensure proper usage
+    if START_TEMPERATURE < 0:
+        raise ValueError("Value for start temperature must be zero or positive.")
+
     def _choose_interval(
         self,
         iteration: int,
