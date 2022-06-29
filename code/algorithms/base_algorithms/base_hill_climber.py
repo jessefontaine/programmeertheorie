@@ -122,6 +122,7 @@ class BHC:
         """
 
         self.moves_made = []
+        self.moves_amount = 0
 
         current: Node = final_node
 
