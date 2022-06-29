@@ -46,7 +46,7 @@ class SA(HC):
             start_temp: int = 15
             temperature: float = start_temp - (start_temp / self.iteration) * iteration
         else:
-            start_temp = 80
+            start_temp = 60
             temperature = start_temp * pow(0.997, iteration)
 
         new_interval: float = -temperature * log(probability, 2) + start_interval

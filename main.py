@@ -30,7 +30,7 @@ from code.functions import (
 
 DEPTH = 300
 MIN_INTERVAL = 4
-MAX_INTERVAL = 50
+MAX_INTERVAL = 30
 PLATEAU = 10000
 
 
