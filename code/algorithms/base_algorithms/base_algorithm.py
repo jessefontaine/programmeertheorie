@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Tuple, List, Union, Optional
+from typing import Tuple, Union, Optional, List
 
 from code.classes import Board, Node
 
@@ -57,7 +57,7 @@ class BaseAlg:
             self.end_node: Node = end_node
 
         # ensure proper usage
-        if depth is not None and depth < 1:
+        if depth is not None and depth <= 0:
             raise ValueError("Value for depth must be positive.")
 
     def _check_depth(self, current_state) -> bool:
@@ -76,6 +76,7 @@ class BaseAlg:
         """
 
         if set_board_every_check:
+
             # setup the board according to the given state
             self.board.set_board(state.board_offsets)
 

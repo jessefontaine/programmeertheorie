@@ -38,7 +38,7 @@ class Board:
     def __init__(self, filepath: str):
 
         # parse board size from filename
-        size = re.findall("[0-9]+x[0-9]+", filepath)[0].split("x")
+        size = re.findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         # save board setup and place cars
@@ -49,8 +49,10 @@ class Board:
             zip(list(self.cars.keys()), [0] * len(self.cars))
         )
 
-        # setup list to store all moves in
+        # setup variable to store data in
         self.moves_made: List[Tuple[str, int]] = []
+        self.grid: List[List] = []
+        self.possible_moves: List[Tuple[str, int]] = []
 
         # save position when game should finished
         self.win_car: Car = self.cars["X"]
@@ -114,7 +116,7 @@ class Board:
                 self.cars[new_car.name] = new_car
 
         # find the longest name length
-        self.max_name_length = max([len(car) for car in list(self.cars.keys())])
+        self.max_name_length = max(len(car) for car in list(self.cars.keys()))
 
     def _update_grid(self) -> None:
         """
@@ -124,7 +126,7 @@ class Board:
         """
 
         # create empty nested list to store occupied spaces
-        self.grid: List[List] = [
+        self.grid = [
             [None for _ in range(self.size[1])] for _ in range(self.size[0])
         ]
 
@@ -142,7 +144,8 @@ class Board:
         and the directions they can move in.
         """
 
-        self.possible_moves: List[Tuple[str, int]] = []
+        # self.possible_moves: List[Tuple[str, int]] = []
+        self.possible_moves = []
 
         for car in list(self.cars.values()):
 
@@ -207,13 +210,13 @@ class Board:
         # check if car parameter is of right type and value
         if not isinstance(car, str):
             raise TypeError(f"Car argument must be a string! Car is type {type(car)}")
-        elif car not in list(self.cars.keys()):
+        if car not in list(self.cars):
             raise ValueError(f"No car with name {car} exists!")
 
         # check if move parameter is of right type and value
         if not isinstance(move, int):
             raise TypeError("Move argument must be integer!")
-        elif move == 0:
+        if move == 0:
             raise ValueError("Move cannot be 0!")
 
         # make sure move is valid

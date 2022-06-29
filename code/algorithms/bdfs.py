@@ -13,6 +13,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
+
 from typing import List
 
 from code.algorithms.dfs import Dfs
