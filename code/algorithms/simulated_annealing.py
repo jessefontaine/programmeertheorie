@@ -42,12 +42,12 @@ class SA(HC):
         start_interval, _ = super()._choose_interval(iteration)
 
         # switch to choose the temperature formula and calculate
-        linear: bool = LINEAR_TEMP_PROCESS
-        start_temp: int = START_TEMPERATURE
-        if linear:
-            temperature: float = start_temp - (start_temp / self.iteration) * iteration
+        if LINEAR_TEMP_PROCESS:
+            temperature: float = (
+                START_TEMPERATURE - (START_TEMPERATURE / self.iteration) * iteration
+            )
         else:
-            temperature = start_temp * pow(0.997, iteration)
+            temperature = START_TEMPERATURE * pow(0.997, iteration)
 
         # calculate probavility and new interval size
         probability: float = uniform(0.0, 1.0)
