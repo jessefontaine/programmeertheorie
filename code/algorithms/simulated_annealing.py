@@ -18,7 +18,7 @@ from random import uniform
 from typing import Tuple
 
 from code.algorithms import HC
-from ...settings import START_TEMPERATURE, LINEAR_TEMP_PROCESS
+from code.settings import START_TEMPERATURE, LINEAR_TEMP_PROCESS
 
 
 class SA(HC):

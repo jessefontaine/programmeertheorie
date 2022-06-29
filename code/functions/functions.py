@@ -32,7 +32,7 @@ def batch_runner(
     """
 
     amount_moves_per_runs: List[int] = []
-    moves_made_in_runs: List[Optional[Tuple[str, int]]] = []
+    moves_made_in_runs: List[List[Optional[Tuple[str, int]]]] = []
 
     for run in range(runs):
 
@@ -51,7 +51,9 @@ def batch_runner(
     return amount_moves_per_runs, moves_made_in_runs
 
 
-def hill_runner(algorithm: Union[HC, RHC, SA]) -> Tuple[List[int], List[Optional[Tuple[str, int]]], int]:
+def hill_runner(
+    algorithm: Union[HC, RHC, SA]
+) -> Tuple[List[int], List[Optional[Tuple[str, int]]], int]:
     """
     Runs the algorithm Hill Climber.
     Returns the number of moves, iterations and the solution.
