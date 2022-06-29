@@ -13,11 +13,11 @@ Laura Haverkorn - 12392707
 
 from __future__ import annotations
 
-from random import uniform, randint
-from typing import Union, Tuple
 from math import log
+from random import uniform
+from typing import Tuple
 
-from code.algorithms import HC, RandomAlg, Bfs, Bdfs, Dfs
+from code.algorithms import HC
 
 
 class SA(HC):
@@ -33,14 +33,15 @@ class SA(HC):
     ) -> Tuple[int, int]:
         """
         Returns interval within range that is smaller then length of solutions.
-        Modified for sim
+        Modified for simulated annealing.
         """
+
+        # calculate the interval size to try and improve
+        start_interval: int
         start_interval, _ = super()._choose_interval(iteration)
 
+        # switch to choose the temperature formula and calculate
         linear: bool = True
-
-        probability: float = uniform(0.0, 1.0)
-
         if linear:
             start_temp: int = 15
             temperature: float = start_temp - (start_temp / self.iteration) * iteration
@@ -48,6 +49,8 @@ class SA(HC):
             start_temp = 80
             temperature = start_temp * pow(0.997, iteration)
 
+        # calculate probavility and new interval size
+        probability: float = uniform(0.0, 1.0)
         new_interval: float = -temperature * log(probability, 2) + start_interval
 
         return start_interval, int(new_interval)

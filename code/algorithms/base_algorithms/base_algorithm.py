@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import Tuple, List, Union, Optional
+from typing import Tuple, Union, Optional
 
 from code.classes import Board, Node
 
@@ -37,6 +37,7 @@ class BaseAlg:
             self.start_node: Node = Node(repr(self.board), self.board.offset_from_start)
         else:
             self.start_node = start_node
+            self.board.set_board(self.start_node.board_offsets)
 
         self.start_node.start_depth()
 
@@ -63,6 +64,7 @@ class BaseAlg:
         """
 
         if set_board_every_check:
+            
             # setup the board according to the given state
             self.board.set_board(state.board_offsets)
 

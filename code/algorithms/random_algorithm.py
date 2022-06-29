@@ -42,7 +42,7 @@ class RandomAlg(BaseAlg):
 
         # get the possible moves of current state
         while not self._check_finished(
-            current_state, set_board_every_check=False
+            current_state, set_board_every_check=True
         ) and self._check_depth(current_state):
             # get the possible moves of current state and pick random
             moves = self.board.possible_moves
@@ -53,7 +53,7 @@ class RandomAlg(BaseAlg):
 
             # create node
             new_node: Node = Node(
-                str(self.board), self.board.offset_from_start, move, current_state
+                repr(self.board), self.board.offset_from_start, move, current_state
             )
 
             # set current state to the new node

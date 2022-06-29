@@ -19,6 +19,10 @@ from .car import Car
 
 
 class InvalidMoveError(Exception):
+    """
+    Error can be raised when moves are played that are illegal.
+    """
+
     pass
 
 
@@ -32,7 +36,7 @@ class Board:
         """
 
         # parse board size from filename
-        size = re.findall("[0-9]+x[0-9]+", filepath)[0].split("x")
+        size = re.findall(r"[0-9]+x[0-9]+", filepath)[0].split("x")
         self.size: Tuple[int, int] = (int(size[0]), int(size[1]))
 
         # save board setup and place cars
@@ -205,12 +209,6 @@ class Board:
 
     def set_board(self, setup: Dict[str, int]) -> None:
         """
-        TODO
-        A3
-        B5
-        C-1
-        D-3
-        E0
         representation sets the board to the new displacements.
         Original setup needed.
         """

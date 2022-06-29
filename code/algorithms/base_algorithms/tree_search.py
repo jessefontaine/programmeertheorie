@@ -36,7 +36,7 @@ class Treesearcher(BaseAlg):
         self.states: List[Node] = [self.start_node]
 
         # set of previous found states for pruning
-        self.unique_board_setups: Set = set([self.start_node.board_rep])
+        self.unique_board_setups: Set[str] = set([self.start_node.board_rep])
 
     def reset_algorithm(self) -> None:
         """
@@ -74,7 +74,6 @@ class Treesearcher(BaseAlg):
         self.board.set_board(parent.board_offsets)
         random.shuffle(self.board.possible_moves)
 
-        # list for storing children
         children = []
 
         # create children for all moves that don't result in states already seen
@@ -94,7 +93,6 @@ class Treesearcher(BaseAlg):
                 children.append(child)
                 self.unique_board_setups.add(child.board_rep)
 
-        # sort children based on sorting method
         children = self._sort_children(children)
 
         # add children nodes to stack or queue
