@@ -13,13 +13,14 @@ Laura Haverkorn - 12392707
 from __future__ import annotations
 
 from code.algorithms.base_algorithms.tree_search import Treesearcher
-from code.classes.node import Node
+from code.classes import Node
 
 
 class Dfs(Treesearcher):
     """
     The Depth First Search class that runs a search algorithm.
-    Searches a branch untill a winning state, if a branch is pruned go back to parent and choose a new branch.
+    Searches a branch until a winning state, if a branch is pruned
+    goes back to parent and chooses a new branch.
     """
 
     def _get_current_state(self) -> Node:

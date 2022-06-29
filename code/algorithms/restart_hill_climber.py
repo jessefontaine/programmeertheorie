@@ -42,6 +42,8 @@ class RHC(BHC):
         self.node_list: List[Node] = [
             Node(repr(self.board), self.board.offset_from_start)
         ]
+        self.moves_made_in_run: List[List] = []
+        self.iterations: int = 0
 
         # ensure proper usage
         if plateau_iterations < 1:
@@ -52,9 +54,6 @@ class RHC(BHC):
         Runs the algorithm, for given amount of times untill for each solution we reach a plateau.
         Counts the number of total iterations and saves the moves made for each end solution.
         """
-
-        self.iterations: int = 0
-        self.moves_made_in_run: List[List] = []
 
         # run for given amount of begin times
         for i in range(self.iteration):

@@ -14,7 +14,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import List, Union, Tuple
+from typing import List, Union, Tuple, Optional
 
 from code.classes import Board, Node
 from code.algorithms.random_algorithm import RandomAlg
@@ -47,7 +47,11 @@ class BHC:
         self.improve_mode: str = improve_mode
 
         self.list_moves_amount: List[int] = []
-        self.node_list: List[Node]
+        self.node_list: List[Node] = []
+        self.moves_made: List[Optional[Tuple[str, int]]] = []
+        self.moves_made_in_run: List[List] = []
+        self.moves_amount: int = 0
+        self.iterations: int = 0
 
         # ensure proper usage
         if min_interval < 2:
@@ -118,12 +122,13 @@ class BHC:
         """
 
         self.moves_made = []
+        self.moves_amount = 0
 
         current: Node = final_node
-        self.moves_amount = 0
 
         # iterate over all nodes untill start node
         while current is not start_node:
+            # store all data of the moves
             self.moves_made.append(current.step_taken)
             self.moves_amount += 1
             current = current.parent
@@ -166,7 +171,7 @@ class BHC:
         alg.run_algorithm()
 
         if self._accept_insert(alg, start, start_interval):
-            # put the new improved part of node list into the node list, different when you improve the very last part
+            # store new improved part into node list, different when very last part improved
             if start + start_interval == len(self.node_list) - 1:
                 self.node_list = self.node_list[:start] + alg.node_list
             else:
@@ -198,5 +203,6 @@ class BHC:
             self._create_moves_made(self.node_list[0], self.node_list[-1])
             self.list_moves_amount.append(self.moves_amount)
 
-        self.iterations: int = self.iteration + 1
-        self.moves_made_in_run: List[List] = [self.moves_made]
+        # store the iterations and the moves made
+        self.iterations = self.iteration + 1
+        self.moves_made_in_run = [self.moves_made]
