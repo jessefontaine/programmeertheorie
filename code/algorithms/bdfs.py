@@ -13,7 +13,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import List, Union
+from typing import List
 
 from code.algorithms.dfs import Dfs
 from code.classes import Board, Node
@@ -26,14 +26,6 @@ class Bdfs(Dfs):
     - number of cars in front of the win car,
     - distance of win car to the exit.
     """
-
-    def __init__(
-        self, board: Board,
-        depth: int = None,
-        start_node: Union[Node, None] = None,
-        end_node: Union[Node, None] = None
-    ):
-        super().__init__(board, depth, start_node, end_node)
 
     def swap(self, not_sorted_list: List, index1: int, index2: int) -> None:
         """
