@@ -13,7 +13,7 @@ Laura Haverkorn - 12392707
 """
 
 from __future__ import annotations
-from typing import List
+from typing import List, Union
 
 from code.algorithms.dfs import Dfs
 from code.classes import Board, Node
@@ -27,12 +27,20 @@ class Bdfs(Dfs):
     - distance of win car to the exit.
     """
 
-    def swap(self, list, a, b) -> None:
+    def __init__(
+        self, board: Board,
+        depth: int = None,
+        start_node: Union[Node, None] = None,
+        end_node: Union[Node, None] = None
+    ):
+        super().__init__(board, depth, start_node, end_node)
+
+    def swap(self, list, index1, index2) -> None:
         """
-        Swap elements in a list.
+        Swaps elements in a list.
         """
 
-        list[a], list[b] = list[b], list[a]
+        list[index1], list[index2] = list[index1], list[index2]
 
     def _sort_children(self, children: List[Node]) -> List[Node]:
         """
@@ -40,7 +48,6 @@ class Bdfs(Dfs):
         """
 
         tmp_board: Board = self.board
-
         list_cars_in_front: List[int] = []
         list_distance: List[int] = []
 
@@ -56,9 +63,10 @@ class Bdfs(Dfs):
             )
 
         swapped = False
+
         # looping from size of list from last index to first
-        for n in range(len(children) - 1, 0, -1):
-            for i in range(n):
+        for max_index in range(len(children) - 1, 0, -1):
+            for i in range(max_index):
                 # sort nodes according to number of cars in front high to low
                 if list_cars_in_front[i] < list_cars_in_front[i + 1]:
                     swapped = True
@@ -87,6 +95,7 @@ class Bdfs(Dfs):
         """
         Counts the number of cars in front of the win car.
         """
+
         amount: int = 0
 
         # calculate how many cars are in front of win car
