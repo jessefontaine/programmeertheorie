@@ -17,7 +17,7 @@ DEPTH: Maximum depth the breadth and depth search algorithms can go to.
 MIN_INTERVAL & MAX_INTERVAL: Minimum and maximum interval size the iterative 
 algortihms can try to improve.
     - Max must be greater than min.
-    - Min must be greater than zero.
+    - Min must be equal or greater then two.
     - Great intervals impact performance.
 
 PLATEAU: Number of non improving iterations that run until the restart hillclimber 
@@ -50,8 +50,8 @@ LINEAR_TEMP_PROCESS: bool = True
 # user setting checks
 if DEPTH < 1:
     raise ValueError(f"DEPTH cannot be smaller than 1! Currently {DEPTH}")
-if MIN_INTERVAL < 1:
-    raise ValueError(f"MIN_INTERVAL must be greater than 0! Currently {MIN_INTERVAL}")
+if MIN_INTERVAL < 2:
+    raise ValueError(f"MIN_INTERVAL must be greater or equal to 2! Currently {MIN_INTERVAL}")
 if MAX_INTERVAL < MIN_INTERVAL:
     raise ValueError(
         f"MAX_INTERVAL cannot be smaller than MIN_INTERVAL! {MAX_INTERVAL} < {MIN_INTERVAL}"
