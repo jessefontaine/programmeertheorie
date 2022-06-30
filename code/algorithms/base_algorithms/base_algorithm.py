@@ -117,6 +117,7 @@ class BaseAlg:
 
         self.node_list = [Node(repr(self.board), self.board.offset_from_start)]
         self.moves_made = []
+        self.moves_amount = 0
 
     def algorithm(self) -> Node:
         """
